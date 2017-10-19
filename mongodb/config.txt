@@ -1,5 +1,0 @@
-##store data
-dbpath=C:mongodb\data
-  
-##all output go here
-logpath=C:\mongodb\log\mongo.log
