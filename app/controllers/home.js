@@ -8,7 +8,13 @@ module.exports = function (app) {
 };
 
 router.get('/login', function(req, res, next){
-  res.render('web/login', {
+  res.render('web/page/login', {
+      title: 'Login'
+    });
+});
+
+router.get('/signup', function(req, res, next){
+  res.render('web/page/login', {
       title: 'Login'
     });
 });
@@ -16,7 +22,8 @@ router.get('/login', function(req, res, next){
 router.get('/', function (req, res, next) {
   Article.find(function (err, articles) {
     if (err) return next(err);
-    res.render('index', {
+    res.render('web/page/index',
+     {
       title: 'Generator-Express MVC',
       articles: articles
     });
