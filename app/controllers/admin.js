@@ -7,6 +7,7 @@ module.exports = function (app) {
   app.use('/', router);
 };
 
+
 router.get('/admin/dashboard', function(req, res, next){
   res.render('admin/pages/dashboard', {
   		layout: 'admin/master',
