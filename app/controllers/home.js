@@ -8,7 +8,7 @@ module.exports = function (app) {
 };
 
 router.get('/login', function(req, res, next){
-  res.render('login', {
+  res.render('web/login', {
       title: 'Login'
     });
 });
