@@ -8,7 +8,9 @@ module.exports = function (app) {
 };
 
 router.get('/admin/dashboard', function(req, res, next){
-  res.render('login', {
-      title: 'Login'
+  res.render('admin/pages/dashboard', {
+  		layout: 'admin/master',
+      title: 'Dashboard'
     });
 });
+

@@ -7,6 +7,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var compress = require('compression');
 var methodOverride = require('method-override');
+var partials = require('express-partials');
 
 module.exports = function(app, config) {
   var env = process.env.NODE_ENV || 'development';
@@ -14,7 +15,10 @@ module.exports = function(app, config) {
   app.locals.ENV_DEVELOPMENT = env == 'development';
   
   app.set('views', config.root + '/app/views');
+  app.set('view options', {layout: true});
   app.set('view engine', 'ejs');
+
+  app.use(partials());
 
   // app.use(favicon(config.root + '/public/img/favicon.ico'));
   app.use(logger('dev'));
