@@ -1,0 +1,148 @@
+button{
+	height: 40px;
+	border-top-left-radius: 20px;
+	border-top-right-radius: 20px;
+	border-bottom-left-radius: 20px;
+	border-bottom-right-radius: 20px;
+	border: 0;
+	box-shadow: none;
+	background-color: #fff;
+	font-size: 16px;
+	font-weight: 600;
+	padding: 0 20px;
+}
+button:focus,
+button:active{
+	outline: none;
+}
+
+button.btn-signinfb{
+	background-color: #6081c4;
+	border: 1px solid #fff;
+	color: #fff;
+	text-transform: uppercase;
+	font-weight: 600;
+	margin-top: 50px;
+}
+
+button.btn-signinfb:hover{
+	background-color: #5774af;
+}
+
+button.btn-signin{
+	background-color: #ee2b80;
+	color: #fff;
+	text-transform: uppercase;
+	font-weight: 600;
+	width: 100%;
+	margin-top: 10px;
+}
+
+button.btn-signin:hover{
+	background-color: #8306c1
+}
+
+.btn-signinfb i{
+	border: 1px solid #fff ;
+	padding: 6px 10px;
+	border-radius: 100%;
+	background-color:#294c84;
+}
+
+.bg-gradient{
+	background: #743C97;
+    background: -webkit-linear-gradient(#743C97, #ED3D7A);
+    background: -o-linear-gradient(#743C97, #ED3D7A);
+    background: -moz-linear-gradient(#743C97, #ED3D7A);
+    background: linear-gradient(#743C97, #ED3D7A);
+}
+
+
+.bt-white{
+	background-color: #fff;
+	color: #ed3d7a;
+}
+.intro{
+	text-align: right;
+	padding-bottom: 50px;
+}
+
+.intro >button{
+	margin-top: 10px;
+}
+
+.intro .content-wrap{
+	text-align: center;
+	color: #fff;
+
+}
+
+.intro .content-wrap > h3{
+	font-size: 60pt;
+	font-weight: 600;
+	margin: 20px;
+}
+
+.intro .content-wrap > h5{
+	font-size: 30pt;
+	margin: 0;
+}
+.intro .content-wrap >p{
+	color: #fff;
+	text-align: center;
+	font-size: 11pt;
+	margin-top: 10px;
+	margin-bottom: 0px;
+}
+.title {
+	position: relative;
+	height: 40px;
+}
+.title hr{
+	position: absolute;
+	top: 0;
+	border-color: #ED3D7A;
+	z-index: 0;
+	width: 100%;
+}
+
+.title .titleh4{
+	margin: 0 auto;
+	width: 100%;
+	position: absolute;
+	z-index: 1;
+	text-align: center;
+}
+
+.title h4{
+ text-align: center;
+ font-size: 20px;
+ font-weight: 20;
+ color: #ed3d7a;
+ display: block;
+ margin: 10px auto;
+ width: 260px;
+ background-color: #fff;
+}
+input{
+	border-radius: 30px !important;
+	height: 40px !important;
+	border: 1px solid #aaaaaa !important;
+}
+.form-singin input{
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+.form-signin p{
+	color: #83a4ff;
+	font-size: 14px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+@media screen and (min-width: 768px){
+	/* chỉnh sửa tablet*/
+}
+@media screen and (min-width: 991px){
+	/* chỉnh sửa pc*/
+}
