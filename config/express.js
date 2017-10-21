@@ -8,17 +8,42 @@ var bodyParser = require('body-parser');
 var compress = require('compression');
 var methodOverride = require('method-override');
 var partials = require('express-partials');
+var passport = require('passport');
+var session  = require('express-session');
+var flash    = require('connect-flash');
+
+var setting = {
+  appname     : 'Zlove',
+  basepath    : 'http://localhost:3000/',
+  author      : 'ziczac solutions'
+}
 
 module.exports = function(app, config) {
   var env = process.env.NODE_ENV || 'development';
   app.locals.ENV = env;
   app.locals.ENV_DEVELOPMENT = env == 'development';
+  app.locals.local = {
+    setting: setting
+  }
   
   app.set('views', config.root + '/app/views');
   app.set('view options', {layout: true});
   app.set('view engine', 'ejs');
 
   app.use(partials());
+
+  app.use(flash()); 
+
+  // PASSPORT
+  app.use(session({
+    secret : "hGC3dqkk08CSrJH7",
+    saveUninitialized: true,
+    resave: true
+  }))
+
+  app.use(passport.initialize());
+  app.use(passport.session());
+  // END PASSPORT
 
   // app.use(favicon(config.root + '/public/img/favicon.ico'));
   app.use(logger('dev'));
@@ -61,6 +86,8 @@ module.exports = function(app, config) {
         title: 'error'
       });
   });
+
+  
 
   return app;
 };

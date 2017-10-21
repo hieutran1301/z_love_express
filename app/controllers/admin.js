@@ -3,15 +3,33 @@ var express = require('express'),
   mongoose = require('mongoose'),
   Article = mongoose.model('Article');
 
-module.exports = function (app) {
-  app.use('/', router);
+module.exports = function (app, passport) {
+  app.use('/admin', isLoggedIn, router);
 };
 
+router.get('/', function(req, res, next){
+	res.redirect('/dashboard');
+});
 
-router.get('/admin/dashboard', function(req, res, next){
+router.get('/dashboard', function(req, res, next){
   res.render('admin/pages/dashboard', {
   		layout: 'admin/master',
-      title: 'Dashboard'
+    	title: 'Dashboard'
     });
 });
+
+router.get('/login', function(req, res, next){
+	res.render('admin/pages/login', {
+		title: 'Zlove Admin | Login'
+	});
+});
+
+function isLoggedIn(req, res, next){
+	if (req.isAuthenticated()) {
+		return next();
+	}
+	else{
+		res.redirect('/auth/login');
+	}
+}
 
