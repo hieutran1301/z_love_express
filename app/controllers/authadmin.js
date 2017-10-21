@@ -7,7 +7,9 @@ var LocalStrategy = require('passport-local').Strategy;
 var passport = require('passport');
 var bcrypt = require('bcrypt');
 
-module.exports = function (app, passport) {
+require('../../libs/passport')(passport);
+
+module.exports = function (app) {
   app.use('/auth', isLoggedIn, router);
 };
 

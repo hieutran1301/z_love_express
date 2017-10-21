@@ -58,7 +58,7 @@ License: You must have a valid license purchased only from themeforest(the above
                     <div class="login-content">
                         <h1>ZLove Admin Login</h1>
                         <p> ZLove admin system - Hệ quản trị ứng dụng ZLove. Xây dựng và phát triển bởi Ziczac Team. Hệ thống không nhằm vào mục đích chính trị, giáo dục hay thương mại. </p>
-                        <form action="javascript:;" class="login-form" method="post">
+                        <form action="<%= local.setting.basepath %>auth/login" class="login-form" method="post">
                             <% if(message.length > 0) { %>
                             <div class="alert alert-danger">
                                 <button class="close" data-close="alert"></button>
@@ -67,7 +67,7 @@ License: You must have a valid license purchased only from themeforest(the above
                             <% } %>
                             <div class="row">
                                 <div class="col-xs-6">
-                                    <input class="form-control form-control-solid placeholder-no-fix form-group" type="text" autocomplete="off" placeholder="Username" name="username" required/> </div>
+                                    <input class="form-control form-control-solid placeholder-no-fix form-group" type="text" autocomplete="off" placeholder="Username" name="email" required/> </div>
                                 <div class="col-xs-6">
                                     <input class="form-control form-control-solid placeholder-no-fix form-group" type="password" autocomplete="off" placeholder="Password" name="password" required/> </div>
                             </div>
