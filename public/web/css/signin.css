@@ -82,7 +82,6 @@ body > button{
 .intro{
 	text-align: right;
 	padding-bottom: 50px;
-	height: 100vh;
 }
 
 .intro >button{
@@ -197,6 +196,9 @@ input{
 	   	   -moz-transition: all 0.15s ease-in 0s;
 		 	 -o-transition: all 0.15s ease-in 0s;
 				transition: all 0.15s ease-in 0s; 
+	}
+	.intro{
+		height: 100vh;
 	}
 	.intro .content-wrap h3{
 		margin-top: 120px;
