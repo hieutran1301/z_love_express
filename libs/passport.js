@@ -23,11 +23,13 @@ module.exports = function(passport) {
     function(req, email, password, done) { // callback with email and password from our form
 
         // find a user whose email is the same as the forms email
-        // we are checking to see if the user trying to login already exists
+        // we are checking to see if the user trying to login already exists);
         User.findOne({ 'email' :  email }, function(err, user) {
             // if there are any errors, return the error before anything else
             if (err)
                 return done(err);
+
+            console.log(user);
 
             // if no user is found, return the message
             if (!user)

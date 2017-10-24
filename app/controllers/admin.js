@@ -1,14 +1,13 @@
 var express = require('express'),
   router = express.Router(),
-  mongoose = require('mongoose'),
-  Article = mongoose.model('Article');
+  mongoose = require('mongoose');
 
 module.exports = function (app, passport) {
   app.use('/admin', isLoggedIn, router);
 };
 
 router.get('/', function(req, res, next){
-	res.redirect('/dashboard');
+	res.redirect('/admin/dashboard');
 });
 
 router.get('/dashboard', function(req, res, next){
@@ -18,18 +17,16 @@ router.get('/dashboard', function(req, res, next){
     });
 });
 
-router.get('/login', function(req, res, next){
-	res.render('admin/pages/login', {
-		title: 'Zlove Admin | Login'
-	});
+router.get('/logout', function(req, res){
+	delete req.session.authenticated;
+	res.redirect('/auth/login');
 });
 
 function isLoggedIn(req, res, next){
-	if (req.isAuthenticated()) {
-		return next();
-	}
-	else{
+	if (!req.session || !req.session.authenticated) {
 		res.redirect('/auth/login');
 	}
+	else{
+		return next();
+	}
 }
-
