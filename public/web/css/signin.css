@@ -41,6 +41,28 @@ button.btn-signin{
 button.btn-signin:hover{
 	background-color: #8306c1
 }
+button.logo{
+	color: #ed3d7a;
+	border: 1px solid #fff;
+	margin-top: 30px;
+	padding: 0px 10px;
+	border-radius: 100%;
+	height: 40px;
+	width: 40px;
+}
+
+body > button{
+	position: absolute;
+	top: 25px;
+	right: 25px;
+	background-color: #fff;
+	color: #ed3d7a;
+	z-index: 1;
+	-webkit-transition: all 0.15s ease-in 0s;
+	   -moz-transition: all 0.15s ease-in 0s;
+		 -o-transition: all 0.15s ease-in 0s;
+			transition: all 0.15s ease-in 0s; 
+}
 
 .btn-signinfb i{
 	border: 1px solid #fff ;
@@ -57,11 +79,6 @@ button.btn-signin:hover{
     background: linear-gradient(#743C97, #ED3D7A);
 }
 
-
-.bt-white{
-	background-color: #fff;
-	color: #ed3d7a;
-}
 .intro{
 	text-align: right;
 	padding-bottom: 50px;
@@ -81,6 +98,7 @@ button.btn-signin:hover{
 	font-size: 60pt;
 	font-weight: 600;
 	margin: 20px;
+	font-family: Gotham;
 }
 
 .intro .content-wrap > h5{
@@ -94,13 +112,15 @@ button.btn-signin:hover{
 	margin-top: 10px;
 	margin-bottom: 0px;
 }
+
 .title {
 	position: relative;
 	height: 40px;
 }
+
 .title hr{
-	position: absolute;
-	top: 0;
+	position: relative;
+	top: 10px;
 	border-color: #ED3D7A;
 	z-index: 0;
 	width: 100%;
@@ -109,9 +129,10 @@ button.btn-signin:hover{
 .title .titleh4{
 	margin: 0 auto;
 	width: 100%;
-	position: absolute;
+	position: relative;
 	z-index: 1;
 	text-align: center;
+	top: -20px;
 }
 
 .title h4{
@@ -124,15 +145,18 @@ button.btn-signin:hover{
  width: 260px;
  background-color: #fff;
 }
+
 input{
 	border-radius: 30px !important;
 	height: 40px !important;
 	border: 1px solid #aaaaaa !important;
 }
+
 .form-singin input{
 	margin-top: 5px;
 	margin-bottom: 5px;
 }
+
 .form-signin p{
 	color: #83a4ff;
 	font-size: 14px;
@@ -141,8 +165,42 @@ input{
 }
 
 @media screen and (min-width: 768px){
-	/* chỉnh sửa tablet*/
+	.form-signin{
+		margin-top: 50px;
+		margin-left: 200px;
+		margin-right: 200px;
+}
+	.form-signin label{
+		margin-top: 25px;
+	}
+	.form-signin p{
+		margin-top: 15px;
+	}
 }
 @media screen and (min-width: 991px){
-	/* chỉnh sửa pc*/
+	.form-signin{
+		margin-top: 200px;
+		margin-left: 120px;
+		margin-right: 120px;
+	}
+	.form-signin p{
+		margin-top: 15px;
+	}
+	button.align-right:hover{
+	background-color: #8306c1
+	}
+	body > button{
+		background-color: #ed3d7a;
+		color: #fff;
+		-webkit-transition: all 0.15s ease-in 0s;
+	   	   -moz-transition: all 0.15s ease-in 0s;
+		 	 -o-transition: all 0.15s ease-in 0s;
+				transition: all 0.15s ease-in 0s; 
+	}
+	.intro{
+		height: 100vh;
+	}
+	.intro .content-wrap h3{
+		margin-top: 120px;
+	}
 }
