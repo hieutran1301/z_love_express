@@ -67,6 +67,10 @@ router.post('/login', function(req, res, next){
 		//BE CAREFUL: because session is storaged in browser, in homepage can get session.authenticated too.
 		//In homepage, should you use other session, exp: session.homepageauth, ...
 		req.session.authenticated = true;
+		req.session.adminuser = {
+			username: data.username,
+			email: data.email
+		};
 		res.redirect('/admin/');
 	});
 });

@@ -13,12 +13,14 @@ router.get('/', function(req, res, next){
 router.get('/dashboard', function(req, res, next){
   res.render('admin/pages/dashboard', {
   		layout: 'admin/master',
-    	title: 'Dashboard'
+    	title: 'Dashboard',
+    	admin: req.session.adminuser
     });
 });
 
 router.get('/logout', function(req, res){
 	delete req.session.authenticated;
+	delete req.session.adminuser;
 	res.redirect('/auth/login');
 });
 
