@@ -68,6 +68,7 @@ router.post('/login', function(req, res, next){
 		//In homepage, should you use other session, exp: session.homepageauth, ...
 		req.session.authenticated = true;
 		req.session.adminuser = {
+			id: data._id,
 			username: data.username,
 			email: data.email
 		};
