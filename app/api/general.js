@@ -10,6 +10,7 @@ module.exports = function (app, passport) {
 
 router.get('/users', function(req, res){
 	user.find(function(err, data){
+		console.log(data.length);
 		if (err) {
 			throw err;
 		}
