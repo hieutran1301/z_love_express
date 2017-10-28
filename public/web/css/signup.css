@@ -17,7 +17,7 @@ button:active{
 }
 
 button.btn-signinfb{
-	background-color: #6081c4;
+	background-color: #4267b2;
 	border: 1px solid #fff;
 	color: #fff;
 	text-transform: uppercase;
@@ -25,7 +25,7 @@ button.btn-signinfb{
 }
 
 button.btn-signinfb:hover{
-	background-color: #5774af;
+	background-color: #2e58ad;
 }
 
 button.btn-signup{
@@ -38,11 +38,35 @@ button.btn-signup{
 }
 
 button.btn-signup:hover{
-	background-color: #8306c1
+	background-color: #e02476;
+}
+
+button.logo{
+	color: #ed3d7a;
+	border: 1px solid #fff;
+	margin-top: 30px;
+	padding: 0px 10px;
+	border-radius: 100%;
+	height: 40px;
+	width: 40px;
+}
+
+body > button{
+	position: absolute;
+	top: 25px;
+	right: 25px;
+	background-color: #fff;
+	color: #ed3d7a;
+	z-index: 1;
+	-webkit-transition: all 0.15s ease-in 0s;
+	   -moz-transition: all 0.15s ease-in 0s;
+		 -o-transition: all 0.15s ease-in 0s;
+			transition: all 0.15s ease-in 0s; 
+	width: 140px; 
 }
 
 .btn-signinfb i{
-	border: 1px solid #fff ;
+	border: 1px solid #fff;
 	padding: 6px 10px;
 	border-radius: 100%;
 	background-color:#294c84;
@@ -80,6 +104,7 @@ button.btn-signup:hover{
 	font-size: 60pt;
 	font-weight: 600;
 	margin: 0;
+	margin-top: 80px;
 }
 
 .intro .content-wrap > h5{
@@ -99,14 +124,18 @@ button.btn-signup:hover{
 	margin-top: 10px;
 	margin-bottom: 0px;
 }
+
+.signup{
+	margin-top: 25px;
+}
 .title {
 	position: relative;
 	height: 40px;
 }
 
 .title hr{
-	position: absolute;
-	top: 0;
+	position: relative;
+	top: 10px;
 	border-color: #ED3D7A;
 	z-index: 0;
 	width: 100%;
@@ -115,9 +144,11 @@ button.btn-signup:hover{
 .title .titleh4{
 	margin: 0 auto;
 	width: 100%;
-	position: absolute;
+	position: relative;
 	z-index: 1;
 	text-align: center;
+	top: -20px;
+	margin-bottom: 0;
 }
 
 .title h4{
@@ -156,8 +187,36 @@ select{
 
 
 @media screen and (min-width: 768px){
-	/* chỉnh sửa tablet*/
+	.form-signup{
+		margin-top: 30px;
+		margin-left: 150px;
+		margin-right: 150px;
+}
+	.form-signup label,input{
+		margin-top: 20px;
+	}
 }
 @media screen and (min-width: 991px){
-	/* chỉnh sửa pc*/
+	.form-signup{
+		margin-top: 150px;
+		margin-left: 120x;
+		margin-right: 120px;
+	}
+	button.align-right:hover{
+	background-color: #e02476;
+	}
+	body > button{
+		background-color: #ed3d7a;
+		color: #fff;
+		-webkit-transition: all 0.15s ease-in 0s;
+	   	   -moz-transition: all 0.15s ease-in 0s;
+		 	 -o-transition: all 0.15s ease-in 0s;
+				transition: all 0.15s ease-in 0s; 
+	}
+	.intro{
+		height: 100vh;
+	}
+	.intro .content-wrap h3{
+		margin-top: 200px;
+	}
 }
