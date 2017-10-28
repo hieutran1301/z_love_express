@@ -14,8 +14,9 @@ module.exports = function (app) {
 router.get('/login', function(req, res, next){
 	console.log(req.session.authenticated);
 	res.render('admin/pages/login', {
-		title: 'Zlove Admin | Login',
-		message: req.flash('loginMessage')
+		title		: 'Zlove Admin | Login',
+		message 	: req.flash('loginMessage'),
+		csrf 		: req.csrfToken()	
 	});
 });
 

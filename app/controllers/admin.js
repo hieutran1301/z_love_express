@@ -28,7 +28,7 @@ router.get('/users', function(req, res, next){
 	res.render('admin/pages/users', {
 		layout 		: 'admin/master',
 		title		: 'Users manager',
-		admin 		: req.session.adminuser
+		admin 		: req.session.adminuser,
 	});
 });
 
