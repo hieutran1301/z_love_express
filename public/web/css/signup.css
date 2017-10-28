@@ -80,9 +80,8 @@ body > button{
     background: linear-gradient(#743C97, #ED3D7A);
 }
 
-.bt-white{
+.bg-white{
 	background-color: #fff;
-	color: #ed3d7a;
 }
 
 .intro{
@@ -199,7 +198,7 @@ select{
 @media screen and (min-width: 991px){
 	.form-signup{
 		margin-top: 150px;
-		margin-left: 120x;
+		margin-left: 120px;
 		margin-right: 120px;
 	}
 	button.align-right:hover{
@@ -215,6 +214,36 @@ select{
 	}
 	.intro{
 		height: 100vh;
+	}
+	.signup{
+		margin-top: 0px;
+		position: absolute;
+		height: 100%;
+		right: 0;
+	}
+}
+@media screen and (min-width: 1280px){
+	.intro{
+		margin-bottom: 0;
+	}
+	.intro .content-wrap h3{
+		margin-top: 120px;
+	}
+	.form-signup{
+		margin-top: 100px;
+		margin-left: 50px;
+		margin-right: 50px;
+		margin-bottom: 0px;
+	}
+	.form-signup label,input{
+		margin-top: 10px;
+	}
+}
+@media screen and (min-width: 1600px){
+	.form-signup{
+		margin-top: 150px;
+		margin-left: 120px;
+		margin-right: 120px;
 	}
 	.intro .content-wrap h3{
 		margin-top: 200px;
