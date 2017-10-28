@@ -80,6 +80,10 @@ body > button{
     background: linear-gradient(#743C97, #ED3D7A);
 }
 
+.bg-white{
+	background-color: #fff;
+}
+
 .intro{
 	text-align: right;
 	padding-bottom: 50px;
@@ -200,7 +204,13 @@ input{
 	.intro{
 		height: 100vh;
 	}
+	.signin{
+		margin-top: 0px;
+		position: absolute;
+		height: 100%;
+		right: 0;
+	}
 	.intro .content-wrap h3{
-		margin-top: 120px;
+		margin-top: 150px;
 	}
 }
