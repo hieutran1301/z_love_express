@@ -18,6 +18,11 @@ router.get('/signup', function(req, res, next){
       title: 'Signup'
     });
 });
+router.get('/homepage', function(req, res, next){
+  res.render('web/pages/homepage', {
+      title: 'Homepage'
+    });
+});
 
 router.get('/noti', function(req, res, next){
   res.render('web/pages/noti', {
