@@ -69,6 +69,7 @@ router.post('/login', function(req, res, next){
 		//In homepage, should you use other session, exp: session.homepageauth, ...
 		req.session.homeauthenticated = true;
 		res.redirect('/home/');
+		return 0;
 	});
 });
 
