@@ -4,11 +4,15 @@ select{
 	border: 1px solid #aaaaaa !important;
 	margin-bottom: 30px;
 }
+
 img{
 	display: block;
 	height: 100%;
 	width: 100%;
+	border-top-right-radius: 30px;
+	border-top-left-radius: 30px;
 }
+
 #NavMobile{
 	display: block;
 	width: 100%;
@@ -49,6 +53,7 @@ img{
 	color: #ee2b80;
 	text-decoration: none;
 }
+
 #NavMobile a{
 	display: block;
 	width: 16.66%;
@@ -59,12 +64,14 @@ img{
 	color: #666;
 	line-height: 70px;
 }
+
 #NavMobile a:hover,
 #NavMobile a:focus,
 #NavMobile a:active{
 	color: #ee2b80;
 	text-decoration: none;
 }
+
 .love_bar{
 	font-size: 16px;
 	font-weight: 600;
@@ -76,19 +83,23 @@ img{
 	font-size: 20px;
 	line-height: 50px;
 }
+
 .love_bar p{
 	margin-left: 5px;
 	background-color: #ee2b80;	
 	text-align: center;
 	width: 200px;
 }
+
 .love_bar i{
 	margin-right: 5px;
 }
+
 .love_bar .more{
 	font-weight: normal;	
 	text-align: right;
 }
+
 .form-control{
 	margin-bottom: 40px;
 }
@@ -103,6 +114,7 @@ img{
 	border-bottom-left-radius: 30px;
 	margin-bottom: 20px;
 }
+
 .box-shadow{
 	-webkit-box-shadow: 0px 0px 15px rgba(0,0,0,0.4);
        -moz-box-shadow: 0px 0px 15px rgba(0,0,0,0.4);
@@ -110,30 +122,37 @@ img{
     	 -o-box-shadow: 0px 0px 15px rgba(0,0,0,0.4);
         	box-shadow: 0px 0px 15px rgba(0,0,0,0.4);
 }
+
 .listlove .love .avatar{
 	height: 150px;
 	text-align: center;
 	background-color: #cccbcb;
-	border-top-right-radius: 30px;
-	border-top-left-radius: 30px;
 }
-.listlove .love .apply{
+
+button.apply{
 	position: absolute;
+	width: 40%;
+ 	height: 30px;
+ 	bottom: 50px;
+ 	left:30%;
     background-color: #ee2b80;
+    color: #fff;
     text-align: center;
     vertical-align: middle;
     line-height: 30px;
     font-size: 16px;
-    color: #fff;
- 	width: 40%;
- 	height: 30px;
- 	bottom: 50px;
- 	left:30%;
+	border: 1px solid #fff;
  	border-top-right-radius: 10px;
 	border-top-left-radius: 10px;
 	border-bottom-right-radius: 10px;
 	border-bottom-left-radius: 10px;
 }
+button.apply:focus,
+button.apply:active,
+button.apply:hover{
+	background-color: #db2a2a;
+}
+
 
 .listlove .love .heart{
 	position: absolute;
@@ -141,6 +160,12 @@ img{
 	right: 10%;
 	font-size: 30px;
 	color: #ee2b80;
+}
+
+.listlove .love .heart:hover,
+.listlove .love .heart:focus,
+.listlove .love .heart:active{
+	color: #db2a2a;
 }
 
 .listlove .love .name{
@@ -154,6 +179,7 @@ img{
 	font-weight: 500;
 
 }
+
 @media screen and (min-width: 768px){
 	.love_bar{
 	background-color: #fff;
