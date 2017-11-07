@@ -17,7 +17,7 @@ button:active{
 }
 
 button.btn-signinfb{
-	background-color: #6081c4;
+	background-color: #4267b2;
 	border: 1px solid #fff;
 	color: #fff;
 	text-transform: uppercase;
@@ -26,7 +26,7 @@ button.btn-signinfb{
 }
 
 button.btn-signinfb:hover{
-	background-color: #5774af;
+	background-color: #2e58ad;
 }
 
 button.btn-signin{
@@ -39,7 +39,7 @@ button.btn-signin{
 }
 
 button.btn-signin:hover{
-	background-color: #8306c1
+	background-color: #e02476;
 }
 button.logo{
 	color: #ed3d7a;
@@ -61,7 +61,8 @@ body > button{
 	-webkit-transition: all 0.15s ease-in 0s;
 	   -moz-transition: all 0.15s ease-in 0s;
 		 -o-transition: all 0.15s ease-in 0s;
-			transition: all 0.15s ease-in 0s; 
+			transition: all 0.15s ease-in 0s;
+	width: 140px; 
 }
 
 .btn-signinfb i{
@@ -77,6 +78,10 @@ body > button{
     background: -o-linear-gradient(#743C97, #ED3D7A);
     background: -moz-linear-gradient(#743C97, #ED3D7A);
     background: linear-gradient(#743C97, #ED3D7A);
+}
+
+.bg-white{
+	background-color: #fff;
 }
 
 .intro{
@@ -98,7 +103,6 @@ body > button{
 	font-size: 60pt;
 	font-weight: 600;
 	margin: 20px;
-	font-family: Gotham;
 }
 
 .intro .content-wrap > h5{
@@ -164,11 +168,6 @@ input{
 	margin-bottom: 10px;
 }
 
-.form-signin .message{
-	color: red;
-	font-style: italic;
-}
-
 @media screen and (min-width: 768px){
 	.form-signin{
 		margin-top: 50px;
@@ -192,7 +191,7 @@ input{
 		margin-top: 15px;
 	}
 	button.align-right:hover{
-	background-color: #8306c1
+	background-color: #e02476;
 	}
 	body > button{
 		background-color: #ed3d7a;
@@ -205,7 +204,13 @@ input{
 	.intro{
 		height: 100vh;
 	}
+	.signin{
+		margin-top: 0px;
+		position: absolute;
+		height: 100%;
+		right: 0;
+	}
 	.intro .content-wrap h3{
-		margin-top: 120px;
+		margin-top: 150px;
 	}
 }

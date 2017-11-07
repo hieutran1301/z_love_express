@@ -24,6 +24,14 @@ router.get('/logout', function(req, res){
 	res.redirect('/auth/login');
 });
 
+router.get('/users', function(req, res, next){
+	res.render('admin/pages/users', {
+		layout 		: 'admin/master',
+		title		: 'Users manager',
+		admin 		: req.session.adminuser,
+	});
+});
+
 function isLoggedIn(req, res, next){
 	if (!req.session || !req.session.authenticated) {
 		res.redirect('/auth/login');

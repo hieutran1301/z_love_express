@@ -11,6 +11,7 @@ var partials = require('express-partials');
 var passport = require('passport');
 var session  = require('express-session');
 var flash    = require('connect-flash');
+var csurf    = require('csurf');
 
 var setting = {
   appname     : 'Zlove',
@@ -39,7 +40,7 @@ module.exports = function(app, config) {
     secret : "hGC3dqkk08CSrJH7",
     saveUninitialized: true,
     resave: true
-  }))
+  }));
 
   app.use(passport.initialize());
   app.use(passport.session());
@@ -56,9 +57,16 @@ module.exports = function(app, config) {
   app.use(express.static(config.root + '/public'));
   app.use(methodOverride());
 
+  app.use(csurf({cookie: true}));
+
   var controllers = glob.sync(config.root + '/app/controllers/*.js');
   controllers.forEach(function (controller) {
     require(controller)(app);
+  });
+
+  var api = glob.sync(config.root + '/app/api/*.js');
+  api.forEach(function(api){
+    require(api)(app);
   });
 
   app.use(function (req, res, next) {

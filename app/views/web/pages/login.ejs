@@ -6,13 +6,13 @@
 </head>
 <body>
 
-  <button class="align-right">Đăng nhập</button>
+  <button class="align-right">Đăng kí</button>
 		<div class="container-fluid">
 			<div class="row">
 				<div class="col-xs-12 col-md-6 bg-gradient">
 					<div class="intro">
 						<div class="content-wrap">
-							<div class="row">
+							<div class="row hidden-xs">
 								<div class="col-xs-1 col-md-1">
 									<button type="submit" class="logo"><i class="fa fa-facebook" aria-hidden="true"></i></button>
 								</div>
@@ -44,6 +44,7 @@
 							</div>
 						</div>
 						<form action="<%= local.setting.basepath%>home-auth/login" method ='post'>
+							<input type="hidden" name="_csrf" value="<%= csrf %>">
 		  					<div class="form-group">
 		   						<label for="inputMail">Địa chỉ email:</label>
 		   						<input name="username" type="text" class="form-control" id="inputMail" placeholder="Email" required>

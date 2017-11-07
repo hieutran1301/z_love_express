@@ -14,14 +14,19 @@ router.get('/login', function(req, res, next){
 });
 
 router.get('/signup', function(req, res, next){
-  res.render('web/pages/login', {
-      title: 'Login'
+  res.render('web/pages/signup', {
+      title: 'Signup'
+    });
+});
+router.get('/homepage', function(req, res, next){
+  res.render('web/pages/homepage', {
+      title: 'Homepage'
     });
 });
 
 router.get('/noti', function(req, res, next){
   res.render('web/pages/noti', {
-      title: 'Login'
+      title: 'Notification'
     });
 });
 
