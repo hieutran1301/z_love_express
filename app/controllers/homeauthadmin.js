@@ -19,6 +19,13 @@ router.get('/login', function(req, res, next){
 		csrf 		: req.csrfToken()
 	});
 });
+router.get('/signup', function(req, res, next){
+	
+	res.render('web/pages/signup', {
+		title		: 'Zlove | Signup',
+		csrf 		: req.csrfToken()
+	});
+});
 
 
 //method POST solve params send from view to server
@@ -69,6 +76,7 @@ router.post('/login', function(req, res, next){
 		//In homepage, should you use other session, exp: session.homepageauth, ...
 		req.session.homeauthenticated = true;
 		res.redirect('/home/');
+		return 0;
 	});
 });
 

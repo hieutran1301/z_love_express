@@ -18,6 +18,11 @@ router.get('/signup', function(req, res, next){
       title: 'Signup'
     });
 });
+router.get('/homepage', function(req, res, next){
+  res.render('web/pages/homepage', {
+      title: 'Homepage'
+    });
+});
 
 router.get('/noti', function(req, res, next){
   res.render('web/pages/noti', {
@@ -25,12 +30,30 @@ router.get('/noti', function(req, res, next){
     });
 });
 
+router.get('/about', function(req, res, next){
+  res.render('web/pages/about', {
+      title: 'About'
+    });
+});
+
+router.get('/messenger', function(req, res, next){
+  res.render('web/pages/messenger', {
+      title: 'Messenger'
+    });
+});
+
+router.get('/profile', function(req, res, next){
+  res.render('web/pages/profile', {
+      title: 'Profile'
+    });
+});
+
 router.get('/', function (req, res, next) {
   Article.find(function (err, articles) {
     if (err) return next(err);
-    res.render('web/pages/index',
+    res.render('web/pages/homepage',
      {
-      title: 'Generator-Express MVC',
+      title: 'Zlove',
       articles: articles
     });
   });

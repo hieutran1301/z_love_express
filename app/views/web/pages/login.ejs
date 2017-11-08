@@ -1,12 +1,12 @@
 <% include ../include/header %>
 
 
-<link rel="stylesheet" type="text/css" href="/web/css/signin.css">
+<link rel="stylesheet" type="text/css" href="<%= local.setting.basepath %>web/css/signin.css">
 
 </head>
-<body>
-
-  <button class="align-right">Đăng kí</button>
+<body>	
+	
+    <button type="button" class="align-right"><a href="<%= local.setting.basepath %>home-auth/signup" class='button'>Đăng ký</a></button>
 		<div class="container-fluid">
 			<div class="row">
 				<div class="col-xs-12 col-md-6 bg-gradient">
@@ -53,11 +53,13 @@
 								<label for="inputMail">Mật khẩu:</label>
 		   						<input name="password" type="password" class="form-control" id="inputPass" placeholder="Mật khẩu" required>
 		   					</div>
+		   					
 		   					<% if(message.length > 0) { %>
                                 <div class="message">
                                     <span><%= message %></span>
                                 </div>
                             <% } %>
+
 							<button type="submit" class="btn-signin">Đăng nhập</button>
 							<p><a href="#"><u>Quên mật khẩu?</u></a><p>
 							<p><a href="#"><u>Đăng kí ngay</u></a></p>

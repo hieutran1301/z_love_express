@@ -51,6 +51,19 @@ button.logo{
 	width: 40px;
 }
 
+button a{
+	color: #fff;
+	font-weight: 600;
+	width: 100%;
+}
+
+button a:hover{
+	text-decoration: none;
+	color: #fff;
+	font-weight: 600;
+	width: 100%;
+}
+
 body > button{
 	position: absolute;
 	top: 25px;
