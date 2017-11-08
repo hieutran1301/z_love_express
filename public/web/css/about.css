@@ -67,8 +67,17 @@ select{
 	#NavMobile ul li{
 	width: 16.66%;
 	float: none;
+	}
+	
+	#NavMobile ul li a{
+		font-size: 30px;
+	}
+	.icon{
+		text-align: right;
 	}	
 }
 @media screen and (min-width: 991px){
-
+	#NavMobile ul li a{
+		font-size: 40px;
+	}
 }

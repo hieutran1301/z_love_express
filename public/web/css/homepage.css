@@ -107,6 +107,7 @@ img{
 .listlove{
 	margin-bottom: 20px;
 }
+
 .listlove .love{
 	border-top-right-radius: 30px;
 	border-top-left-radius: 30px;
@@ -184,6 +185,7 @@ button.apply:hover{
 	.love_bar{
 	background-color: #fff;
 	}
+
 	.love_bar p{
 	background-color: #ee2b80;
 	margin-left: 0px;
@@ -200,18 +202,30 @@ button.apply:hover{
 	width: 16.66%;
 	float: none;
 	}
+
+	#NavMobile ul li a{
+		font-size: 30px;
+	}
+
 	.icon{
 		text-align: right;
 	}
+
 	#more:hover,
 	#more:focus,
 	#more:active{
 	color: #ee2b80;
-}
+	}
+
 }
 @media screen and (min-width: 991px){
 	.love_bar p{
 		background-color: #fff;
 		color: #ee2b80;
 	}
+	
+	#NavMobile ul li a{
+		font-size: 40px;
+	}
+
 }
