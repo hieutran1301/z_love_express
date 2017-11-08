@@ -8,7 +8,7 @@ module.exports = function (app, passport) {
   app.use('/adminapi', router);
 };
 
-router.get('/users', function(req, res){
+router.post('/users', function(req, res){
 	user.find(function(err, data){
 		console.log(data.length);
 		if (err) {

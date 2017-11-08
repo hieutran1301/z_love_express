@@ -12,9 +12,11 @@ router.get('/', function(req, res, next){
 
 router.get('/dashboard', function(req, res, next){
   res.render('admin/pages/dashboard', {
-  		layout: 'admin/master',
-    	title: 'Dashboard',
-    	admin: req.session.adminuser
+  		layout	: 'admin/master',
+    	title	: 'Dashboard',
+    	admin 	: req.session.adminuser,
+    	csrf 	: req.csrfToken(),
+    	script 	: null
     });
 });
 
@@ -28,7 +30,9 @@ router.get('/users', function(req, res, next){
 	res.render('admin/pages/users', {
 		layout 		: 'admin/master',
 		title		: 'Users manager',
+		csrf 		: req.csrfToken(),
 		admin 		: req.session.adminuser,
+		script		: 'admin/assets/apps/js/users.js'
 	});
 });
 
