@@ -33,9 +33,9 @@ router.get('/noti', function(req, res, next){
 router.get('/', function (req, res, next) {
   Article.find(function (err, articles) {
     if (err) return next(err);
-    res.render('web/pages/index',
+    res.render('web/pages/homepage',
      {
-      title: 'Generator-Express MVC',
+      title: 'Zlove',
       articles: articles
     });
   });

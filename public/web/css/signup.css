@@ -28,6 +28,20 @@ button.btn-signinfb:hover{
 	background-color: #2e58ad;
 }
 
+
+button a{
+	color: #fff;
+	font-weight: 600;
+	width: 100%;
+}
+
+button a:hover{
+	text-decoration: none;
+	color: #fff;
+	font-weight: 600;
+	width: 100%;
+}
+
 button.btn-signup{
 	background-color: #ee2b80;
 	color: #fff;
