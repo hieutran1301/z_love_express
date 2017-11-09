@@ -11,28 +11,35 @@
     "test:integration": "mocha --recursive test/integration"
   },
   "dependencies": {
-    "express": "^4.13.3",
-    "serve-favicon": "^2.3.0",
-    "morgan": "^1.6.1",
-    "cookie-parser": "^1.3.3",
     "body-parser": "^1.13.3",
     "compression": "^1.5.2",
-    "method-override": "^2.3.0",
+    "cookie-parser": "^1.3.3",
+    "ejs": "^2.3.1",
+    "express": "^4.13.3",
     "glob": "^6.0.4",
+    "jquery": "^3.2.1",
+    "method-override": "^2.3.0",
     "mongoose": "^4.1.2",
-    "ejs": "^2.3.1"
+    "morgan": "^1.6.1",
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0",
+    "serve-favicon": "^2.3.0"
   },
   "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
     "chai": "^3.5.0",
     "debug": "^2.2.0",
     "grunt": "^1.0.1",
-    "grunt-develop": "^0.4.0",
     "grunt-contrib-watch": "^1.0.0",
-    "request": "^2.60.0",
-    "time-grunt": "^1.2.1",
+    "grunt-develop": "^0.4.0",
     "load-grunt-tasks": "^3.2.0",
     "mocha": "^3.0.2",
     "nyc": "^10.0.0",
-    "supertest": "^2.0.0"
+    "request": "^2.60.0",
+    "supertest": "^2.0.0",
+    "time-grunt": "^1.2.1"
   }
 }
