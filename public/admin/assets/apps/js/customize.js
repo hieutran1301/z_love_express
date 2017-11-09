@@ -8,6 +8,9 @@ $(document).ready(function(){
 	$('#nav-'+sitepath[2]).addClass('active open');
 	//=============================================
 
+	//Date picker
+	$('.datepicker').datepicker();
+
 	//CSRFTOKEN
 	var csrf = $('meta[name=_csrf]').attr('content');
 	if (csrf != null || csrf != undefined) {
@@ -99,4 +102,13 @@ function prevPage(obj){
 		var prev = $('.pagination-wrap ul li.active').prev().find('a');
 		movePage(prev);
 	}
+}
+
+
+function showModal(modal){
+	$('#'+modal).modal('show');
+}
+
+function hideModal(modal){
+	$('#'+modal).modal('hide');
 }
