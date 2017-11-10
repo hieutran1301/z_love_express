@@ -93,3 +93,21 @@ function getCities(){
         _city = html;
     });
 }
+
+function addUser(){
+    var form     = $('#formUser')[0];
+    var formData = new FormData(form);
+
+    formData.append('option', 'addUser');
+    
+    $.ajax({
+        url: AJAX_USERS_PATH,
+        data: formData,
+        type: 'POST',
+        contentType: false,
+        processData: false,
+        success: function(data){
+            alert(data);
+        }
+    });
+}

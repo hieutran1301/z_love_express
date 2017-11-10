@@ -1,6 +1,9 @@
 var pagelimit = 10;
 
+var dragdropInp, dragAndDrop, dragDropPrv;
+
 $(document).ready(function(){
+
 	//Active sidebar navigation
 	var path = window.location.pathname;
 	var sitepath = path.split('/');
@@ -20,6 +23,65 @@ $(document).ready(function(){
 	}
 
 	pagination();
+
+	//Drag and drop
+
+	{
+		dragdropInp 	= $('.dragDropInp input[type=file]');
+		dragAndDrop 	= $('.dragDropInp');
+		dragDropPrv 	= $('.dragDropPrv');
+
+		var droppedFile = false;
+		$('#lbDropZone').on('drag dragstart dragend dragover dragenter dragleave drop', function(e){
+			e.preventDefault();
+			e.stopPropagation();
+		}).on('dragover dragenter', function(){
+			$('#lbDropZone').addClass('is-dragover');
+		}).on('dragleave dragend drop', function(){
+			$('#lbDropZone').removeClass('is-dragover');
+		}).on('drop', function(e){
+			droppedFile = e.originalEvent.dataTransfer.files;
+			if (droppedFile.length <= 1) {
+				dragdropInp.prop('files', droppedFile);	
+			}
+		});
+
+		$('#cancelUpload').click(function(){
+			dragdropInp.val('');
+			dragDropPrv.hide();
+			dragAndDrop.show();
+		});
+
+		dragdropInp.change(function(){
+			if (this.files){
+				var file 		= this.files[0];
+				var fileType 	= file["type"];
+				var ValidImageTypes = ["image/gif", "image/jpeg", "image/png"];
+				if ($.inArray(fileType, ValidImageTypes) < 0){
+					confirm('Your file you select does not supported!');
+				}
+				else{
+					prevImg(this);
+				} 
+			}
+		});
+
+		function prevImg(input){
+			if (input.files.length == 1){
+				var reader = new FileReader();
+
+				reader.onload = function(e){
+					var img = dragDropPrv.find('img');
+					img.attr('src', e.target.result);
+				}
+
+				reader.readAsDataURL(input.files[0]);
+
+				dragAndDrop.hide();
+				dragDropPrv.show();
+			}
+		}
+	}
 });
 
 function pagination(){
