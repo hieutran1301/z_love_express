@@ -1,4 +1,5 @@
-var AJAX_USERS_PATH = '../../../../../ajax-admin/';
+var AJAX_USERS_PATH         = '../../../../../ajax-admin/';
+var AJAX_ADD_USERS_PATH     = AJAX_USERS_PATH+'add';
 var _city = '';
 
 var checkbox = '<label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">'+
@@ -50,6 +51,11 @@ $(document).ready(function(){
     var usertable = $('#users_tables');
     getUsers(usertable);
     getCities();
+
+    var btnAddUser = $('#btnAddUser');
+    btnAddUser.click(function(e){
+        addUser();
+    });
 });
 
 
@@ -101,13 +107,20 @@ function addUser(){
     formData.append('option', 'addUser');
     
     $.ajax({
-        url: AJAX_USERS_PATH,
+        url: AJAX_ADD_USERS_PATH,
         data: formData,
         type: 'POST',
         contentType: false,
         processData: false,
         success: function(data){
-            alert(data);
+            if(data == 'OK'){
+                confirm('Success!');
+                window.location.href = window.location.href;
+            }
+            else{
+                confirm('Something went wrong, try again!');
+                window.location.href = window.location.href;
+            }
         }
     });
 }
