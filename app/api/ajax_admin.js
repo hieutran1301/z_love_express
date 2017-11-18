@@ -15,9 +15,9 @@ var storage = multer.diskStorage({
 	destination: './public/uploads/',
 	filename: function (req, file, cb) {
 	  crypto.pseudoRandomBytes(16, function (err, raw) {
-		if (err) return cb(err)
+		if (err) return cb(err);
   
-		cb(null, raw.toString('hex') + path.extname(file.originalname))
+		cb(null, raw.toString('hex') + path.extname(file.originalname));
 	  })
 	}
   });
@@ -70,17 +70,66 @@ router.post('/', function(req, res, next){
 					});
 				});
 			}
+			else{
+				user.findOne({_id: id}).remove(function(){
+					res.sendStatus(200);
+					return;
+				});
+			}
 		});
 		// user.find({_id: id}).remove(function(){
 		// 	res.sendStatus(200);
 		// 	return;
 		// });
 	}
+
+
+	if (_option == 'getUserByID'){
+		var id 		= req.body.id;
+		console.log(id);
+		user.find({_id: id}, function(err, result){
+			if (err) throw err;
+			if (!result){
+				res.sendStatus(404);
+				return;
+			}else{
+				res.send(result);
+				return;
+			}
+		});
+	}
+
+	if (_option == 'removeAvatar'){
+		var userId = req.body.id;
+		user.findOne({_id: userId}, function(err, result){
+			if (err) throw err;
+			if (!result){
+				res.send('Not found this user');
+			}
+			else{
+				var path = result.Avatar;
+				if(path != ''){
+					fs.unlink(path, function(err){
+						if (err){
+							console.log(err);
+						}
+						console.log('Deleted file');
+						user.updateOne({_id: userId}, {
+							Avatar: ''
+						}, function(err, result){
+							if (err) throw err;
+							res.send('success');
+						});
+					});
+				}
+			}
+		});
+	}
 });
 
 router.post('/add', upload.single('avatar'), function(req, res, next){
 	var avatar 		= req.file;
-	var data 	= req.body;
+	var data 		= req.body;
 	
 	if (avatar){
 		var path 		= avatar.path;
@@ -124,6 +173,98 @@ router.post('/add', upload.single('avatar'), function(req, res, next){
 		});
 	}
 	else{
+		var now 		= new Date();
+		var saltRounds 	= 8;
+		var plainPass 	= data.password;
+		var createdDate = ''+now.getDate()+'/'+(now.getMonth()+1)+'/'+now.getFullYear();
 
+		bcrypt.genSalt(saltRounds, function(err, salt) {
+			bcrypt.hash(plainPass, salt, function(err, hash) {
+				newUser = new user({
+					"Username" : data.username,
+					"Password" : hash,
+					"Email" : data.email,
+					"DateOfBirth" : data.birthday,
+					"CurrentPlace" : data.city,
+					"FirstName" : data.firstname,
+					"LastName" : data.lastname,
+					"Gender" : data.gender,
+					"Working" : '',
+					"Phone" : data.phone,
+					"Facebook" : data.facebook,
+					"Skype" : data.skype,
+					"Introduction" : data.introduction,
+					"PlaceOfBirth" : data.birthplace,
+					"CreatedDate" : createdDate,
+					"Avatar" : "",
+					"Status" : 1
+				});
+
+				newUser.save(function(err, result){
+					if (err) throw err;
+					if(result._id){
+						res.sendStatus(200);
+					}
+					else{
+						res.sendStatus(501);
+					}
+				});
+			});
+		});
+	}
+});
+
+router.post('/edit-user', upload.single('avatar'), function(req, res, next){
+	var avatar 		= req.file;
+	var data 		= req.body;
+
+	var id 			= data.id;
+	
+	if (avatar){
+		var path 		= avatar.path;
+
+		user.updateOne({_id: id}, {
+			"Username" : data.username,
+			"Email" : data.email,
+			"DateOfBirth" : data.birthday,
+			"CurrentPlace" : data.city,
+			"FirstName" : data.firstname,
+			"LastName" : data.lastname,
+			"Gender" : data.gender,
+			"Working" : '',
+			"Phone" : data.phone,
+			"Facebook" : data.facebook,
+			"Skype" : data.skype,
+			"Introduction" : data.introduction,
+			"PlaceOfBirth" : data.birthplace,
+			"Avatar" : path,
+			"Status" : 1
+		}, function(err, result){
+			if (err) throw err;
+			res.sendStatus(200);
+		});
+	}
+	else{
+
+		user.updateOne({_id: id}, {
+			"Username" : data.username,
+			"Email" : data.email,
+			"DateOfBirth" : data.birthday,
+			"CurrentPlace" : data.city,
+			"FirstName" : data.firstname,
+			"LastName" : data.lastname,
+			"Gender" : data.gender,
+			"Working" : '',
+			"Phone" : data.phone,
+			"Facebook" : data.facebook,
+			"Skype" : data.skype,
+			"Introduction" : data.introduction,
+			"PlaceOfBirth" : data.birthplace,
+			"Avatar" : "",
+			"Status" : 1
+		}, function(err, result){
+			if (err) throw err;
+			res.sendStatus(200);
+		});
 	}
 });

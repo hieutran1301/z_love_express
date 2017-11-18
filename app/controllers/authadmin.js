@@ -36,7 +36,8 @@ router.post('/login', function(req, res, next){
 			req.flash('loginMessage', 'Something went wrong! Try again.');
 			res.render('admin/pages/login', {
 				title: 'Zlove Admin | Login',
-				message: req.flash('loginMessage')
+				message: req.flash('loginMessage'),
+				csrf 		: req.csrfToken()
 			});
 			return 0;
 		}
@@ -46,7 +47,8 @@ router.post('/login', function(req, res, next){
 			console.log("not found");
 			res.render('admin/pages/login', {
 				title: 'Zlove Admin | Login',
-				message: req.flash('loginMessage')
+				message: req.flash('loginMessage'),
+				csrf 		: req.csrfToken()
 			});
 			return 0;
 		}
@@ -57,7 +59,8 @@ router.post('/login', function(req, res, next){
 			console.log("fail");
 			res.render('admin/pages/login', {
 				title: 'Zlove Admin | Login',
-				message: req.flash('loginMessage')
+				message: req.flash('loginMessage'),
+				csrf 		: req.csrfToken()
 			});
 			return 0;
 		}

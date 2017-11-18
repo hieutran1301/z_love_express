@@ -12,7 +12,7 @@ $(document).ready(function(){
 	//=============================================
 
 	//Date picker
-	$('.datepicker').datepicker();
+	$('.datepicker').datepicker({ format: 'dd/mm/yyyy' });
 
 	//CSRFTOKEN
 	var csrf = $('meta[name=_csrf]').attr('content');
@@ -173,4 +173,13 @@ function showModal(modal){
 
 function hideModal(modal){
 	$('#'+modal).modal('hide');
+}
+
+
+function resetForm(formID){
+	var form 	= $('#'+formID);
+	var	input 	= form.find('input');
+	input.each(function(){
+		var $this = $(this).val('');
+	});
 }
