@@ -185,6 +185,7 @@ function getUsers(table){
             }
             $(table).find('tbody').html(html);
             pagination();
+            hideLoading();
         }   
     );
 }
