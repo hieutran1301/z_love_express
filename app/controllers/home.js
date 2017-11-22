@@ -48,6 +48,13 @@ router.get('/profile', function(req, res, next){
     });
 });
 
+router.get('/profile-new', function(req, res, next){
+  res.render('web/pages/profile_new', {
+    title: 'Profile',
+    csrf: req.csrfToken()
+  });
+});
+
 router.get('/', function (req, res, next) {
   Article.find(function (err, articles) {
     if (err) return next(err);

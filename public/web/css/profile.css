@@ -2,7 +2,7 @@
 	display: block;
 	width: 100%;
 	background-color: #fff;
-	border-bottom: 1px solid #000;
+	border-bottom: 1px solid #ddd;
 }
 
 #NavMobile .ul-icon{
@@ -27,7 +27,7 @@
 	text-align: center;
 	font-size: 35px;
 	text-transform: none;
-	color: #666;
+	color: #aaa;
 	line-height: 70px;
 }
 
@@ -57,7 +57,7 @@
 }
  
 #NavMobile .ul-icon .about-icon a{
- 	font-size: 20px;
+ 	font-size: 14px;
  }
 
  /*Notification menu*/
