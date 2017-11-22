@@ -215,6 +215,9 @@ select{
 		margin-left: 120px;
 		margin-right: 120px;
 	}
+    .intro{
+        height: 110vh;
+    }
 	button.align-right:hover{
 	background-color: #e02476;
 	}
@@ -226,14 +229,11 @@ select{
 		 	 -o-transition: all 0.15s ease-in 0s;
 				transition: all 0.15s ease-in 0s; 
 	}
-	.intro{
-		height: 100vh;
-	}
 	.signup{
 		margin-top: 0px;
 		position: absolute;
-		height: 100%;
 		right: 0;
+        height: 110vh;
 	}
 	.form-signup label,input{
 		margin-top: 0px;
@@ -257,12 +257,20 @@ select{
 	}
 }
 @media screen and (min-width: 1600px){
-	.form-signup{
+    .form-signup{
 		margin-top: 150px;
 		margin-left: 120px;
 		margin-right: 120px;
 	}
 	.intro .content-wrap h3{
 		margin-top: 200px;
+	}
+	button.align-right{
+		position: absolute;
+    	right: 20px;
+    	z-index: 1;
+   		top: 20px;
+    	color: #fff;
+    	background: #ed3d7a;
 	}
 }
