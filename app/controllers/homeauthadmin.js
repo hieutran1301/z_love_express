@@ -4,7 +4,7 @@ var express = require('express'),
 var bcrypt = require('bcrypt');
 
 //define model and collection
-var users  = mongoose.model('user1');
+var users  = mongoose.model('zlove_users');
 
 module.exports = function (app) {
   app.use('/home-auth', isLoggedIn, router);
@@ -35,7 +35,7 @@ router.post('/login', function(req, res, next){
 	var password 	= req.body.password; //.password is input name attribute. Exp: <input name="password">
 	
 	//get data from mongodb via model mongoose
-	users.findOne({username: username}, function(err, data){
+	users.findOne({Username: username}, function(err, data){
 		console.log(username);
 		//if has err, throw error
 		if (err) {

@@ -2,7 +2,7 @@ var express = require('express'),
   router = express.Router(),
   mongoose = require('mongoose');
 
-var user = mongoose.model('user1');
+var user = mongoose.model('zlove_users');
 
 module.exports = function (app, passport) {
   app.use('/adminapi', router);
