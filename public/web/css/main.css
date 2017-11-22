@@ -246,3 +246,76 @@ footer{
         padding: 10px 0;
         border-bottom: 4px solid #ee2b80;
     }
+
+#NavBar{
+    background-color: #fff;
+    border-bottom: 1px solid #d8d8d8;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 999;
+}
+
+#NavBar .ls-menu > ul{
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    width: 100%;
+}
+#NavBar .logo a{
+    line-height: 58px;
+    text-decoration: none;
+    color: #666;
+    font-size: 16px;
+    font-weight: 300;
+}
+
+#NavBar .logo a .title-logo{
+    font-size: 22px;
+    font-weight: 400;
+    color: #ee2b80;
+}
+
+#NavBar .logo a:hover .title-logo{
+    color: #f13a8d;
+}
+
+#NavBar .ls-menu > ul > li{
+    display: inline-block;
+    float: left;
+    width: 25%;
+}
+
+#NavBar .ls-menu > ul > li > a{
+    font-size: 22px;
+    display: block;
+    width: 100%;
+    text-decoration: none;
+    text-align: center;
+    height: 60px;
+    padding-top: 15px;
+    color: #aaa;
+}
+
+#NavBar .ls-menu > ul > li > a:hover{
+    border-bottom: 2px solid #ee2b80;
+    color: #ee2b80;
+}
+
+#NavBar .ls-menu > ul > li > a > i{
+    font-size: 12px;
+}
+
+#NavBar .ls-menu ul.menu-dropdown li a span{
+    color: #ee2b80;
+    font-size: 22px;
+    vertical-align: middle;
+    margin-right: 10px;
+}
+
+#NavBar .ls-menu > ul > li > a > img{
+    height: 25px;
+    width: 25px;
+    border-radius: 100%;
+}
