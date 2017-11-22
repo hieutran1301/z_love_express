@@ -48,6 +48,8 @@ function setLoveHeight(){
 	});
 }
 
-function test(obj){
-	alert($(obj).attr('data-toggle'))
+function parseUploadPath(path){
+	path += '';
+	path = path.split('\\');
+	return path[2];
 }

@@ -41,7 +41,8 @@ function fetchInfo(id){
 				currplace		: data.CurrentPlace,
 				relationship 	: 0,
 				working 		: data.Working,
-				workingplace    : 'University of Information Technology'
+				workingplace    : 'University of Information Technology',
+				avatar			: parseUploadPath(data.Avatar)
 			});
 		}
 	);
@@ -55,6 +56,8 @@ function printInfo(data){
 	var txtRela 	= $('#Relationship');
 	var txtWorking 	= $('#Working');
 	var txtWkPlace 	= $('#WorkingPlace');
+	var avatar 		= $('#bxAvatar');
+	var background	= $('.bg-img');
 
 	txtFullName.html(data.firstname+' '+data.lastname);
 	if (data.gender == 1) {txtGender.html("Nam")} else txtGender.html("Nữ");
@@ -63,4 +66,6 @@ function printInfo(data){
 	if (data.relationship == 0) {txtRela.html('Độc thân')} else {txtRela.html('Đang hẹn hò')};
 	txtWorking.html(data.working);
 	txtWkPlace.html(workingplace);
+	avatar.css('background-image', 'url(\'../uploads/'+data.avatar+'\')');
+	background.css('background-image', 'url(\'../uploads/'+data.avatar+'\')');
 }
