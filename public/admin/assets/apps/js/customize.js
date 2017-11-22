@@ -183,3 +183,11 @@ function resetForm(formID){
 		var $this = $(this).val('');
 	});
 }
+
+function showLoading(){
+	$('#Loading').fadeIn();
+}
+
+function hideLoading(){
+	$('#Loading').fadeOut();
+}

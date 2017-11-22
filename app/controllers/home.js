@@ -51,7 +51,8 @@ router.get('/profile', function(req, res, next){
 router.get('/profile-new', function(req, res, next){
   res.render('web/pages/profile_new', {
     title: 'Profile',
-    csrf: req.csrfToken()
+    csrf: req.csrfToken(),
+    userid: req.session.homeuserid
   });
 });
 
