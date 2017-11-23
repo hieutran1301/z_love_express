@@ -5,17 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cff12759-c17b-405e-aad1-9b34195be207" name="Default" comment="config db user">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/web/css/navbar.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/home.js" afterPath="$PROJECT_DIR$/app/controllers/home.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/homeauthadmin.js" afterPath="$PROJECT_DIR$/app/controllers/homeauthadmin.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/web/include/header.ejs" afterPath="$PROJECT_DIR$/app/views/web/include/header.ejs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/web/include/nav-bar.ejs" afterPath="$PROJECT_DIR$/app/views/web/include/nav-bar.ejs" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/web/pages/signup.ejs" afterPath="$PROJECT_DIR$/app/views/web/pages/signup.ejs" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/config.js" afterPath="$PROJECT_DIR$/config/config.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/web/css/about.css" afterPath="$PROJECT_DIR$/public/web/css/about.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/web/css/main.css" afterPath="$PROJECT_DIR$/public/web/css/main.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/web/css/signup.css" afterPath="$PROJECT_DIR$/public/web/css/signup.css" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -33,7 +26,7 @@
         <entry file="file://$PROJECT_DIR$/public/web/js/signup.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="34">
-              <caret line="2" column="0" lean-forward="true" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+              <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -59,21 +52,33 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="signup.ejs" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/web/pages/signup.ejs">
+      <file leaf-file-name="homeauthadmin.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/controllers/homeauthadmin.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-391">
-              <caret line="62" column="62" lean-forward="false" selection-start-line="62" selection-start-column="62" selection-end-line="62" selection-end-column="62" />
+            <state relative-caret-position="802">
+              <caret line="255" column="30" lean-forward="false" selection-start-line="255" selection-start-column="30" selection-end-line="255" selection-end-column="30" />
+              <folding>
+                <element signature="e#1147#2504#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="home.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/controllers/home.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="27" column="7" lean-forward="true" selection-start-line="27" selection-start-column="7" selection-end-line="27" selection-end-column="7" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="homeauthadmin.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/controllers/homeauthadmin.js">
+      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/controllers/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="376">
-              <caret line="109" column="41" lean-forward="false" selection-start-line="109" selection-start-column="41" selection-end-line="109" selection-end-column="41" />
+            <state relative-caret-position="170">
+              <caret line="10" column="19" lean-forward="false" selection-start-line="10" selection-start-column="19" selection-end-line="10" selection-end-column="19" />
               <folding />
             </state>
           </provider>
@@ -180,6 +185,12 @@
             <path>
               <item name="z_love" type="b2602c69:ProjectViewProjectNode" />
               <item name="z_love" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="app" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="models" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="z_love" type="b2602c69:ProjectViewProjectNode" />
+              <item name="z_love" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="config" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
@@ -234,10 +245,15 @@
           <option name="mySupportsDeletion" value="false" />
           <option name="myCanBeAbsent" value="false" />
           <option name="myId" value="UPDATED" />
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/app/controllers/home.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/app/models/m_users.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/app/views/web/pages/homepage.ejs</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/app/views/web/pages/messenger.ejs</PATH>
           <PATH vcs="Git" revision="">$PROJECT_DIR$/app/views/web/pages/profile_new.ejs</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/admin/assets/apps/js/customize.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/admin/assets/apps/js/users.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/web/js/main.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/web/css/about.css</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/web/css/homepage.css</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/web/css/messenger.css</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/web/css/signin.css</PATH>
           <PATH vcs="Git" revision="">$PROJECT_DIR$/public/web/js/profile.js</PATH>
         </FILE-GROUP>
         <FILE-GROUP>
@@ -246,9 +262,6 @@
           <option name="mySupportsDeletion" value="false" />
           <option name="myCanBeAbsent" value="false" />
           <option name="myId" value="CREATED" />
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/uploads/bee29e5145ce828ac53783ecab020704.jpg</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/uploads/d5e16ccbd3dbfcff0977a3570ed46ced.jpg</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/uploads/fee72761de765b29f9ef7e6df295e9a3.jpg</PATH>
         </FILE-GROUP>
         <FILE-GROUP>
           <option name="myUpdateName" value="Deleted" />
@@ -256,7 +269,6 @@
           <option name="mySupportsDeletion" value="false" />
           <option name="myCanBeAbsent" value="true" />
           <option name="myId" value="REMOVED_FROM_REPOSITORY" />
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/uploads/fbe8334f461622c990feafcac9a81f00.jpg</PATH>
         </FILE-GROUP>
         <FILE-GROUP>
           <option name="myUpdateName" value="Restored" />
@@ -367,7 +379,7 @@
       <workItem from="1511007660116" duration="713000" />
       <workItem from="1511339546794" duration="13383000" />
       <workItem from="1511417032972" duration="1297000" />
-      <workItem from="1511419092596" duration="6161000" />
+      <workItem from="1511419092596" duration="10017000" />
     </task>
     <task id="LOCAL-00001" summary="config db user">
       <created>1511343273410</created>
@@ -383,11 +395,18 @@
       <option name="project" value="LOCAL" />
       <updated>1511348992477</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="edit js form signup">
+      <created>1511425322113</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1511425322113</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="26223000" />
+    <option name="totallyTimeSpent" value="30079000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
@@ -423,7 +442,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="config db user" />
     <MESSAGE value="edit header and footer: homepage, about" />
-    <option name="LAST_COMMIT_MESSAGE" value="edit header and footer: homepage, about" />
+    <MESSAGE value="edit js form signup" />
+    <option name="LAST_COMMIT_MESSAGE" value="edit js form signup" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -550,13 +570,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/models/web_user.js" />
-    <entry file="file://$PROJECT_DIR$/app/controllers/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="19" lean-forward="false" selection-start-line="10" selection-start-column="19" selection-end-line="10" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/api/general.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
@@ -568,13 +581,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
           <caret line="18" column="46" lean-forward="false" selection-start-line="18" selection-start-column="45" selection-end-line="18" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/m_users.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="29" column="39" lean-forward="false" selection-start-line="29" selection-start-column="39" selection-end-line="29" selection-end-column="39" />
         </state>
       </provider>
     </entry>
@@ -722,6 +728,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
           <caret line="8" column="67" lean-forward="false" selection-start-line="8" selection-start-column="67" selection-end-line="8" selection-end-column="67" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -729,30 +736,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="391">
           <caret line="29" column="34" lean-forward="false" selection-start-line="29" selection-start-column="34" selection-end-line="29" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/home.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1224">
-          <caret line="72" column="7" lean-forward="true" selection-start-line="72" selection-start-column="7" selection-end-line="72" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/web/css/signup.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="178">
-          <caret line="237" column="24" lean-forward="false" selection-start-line="237" selection-start-column="23" selection-end-line="237" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/libs/city.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -765,14 +748,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/web/js/signup.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="0" lean-forward="true" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/web/include/footer.ejs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
@@ -781,19 +756,69 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/m_users.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="493">
+          <caret line="29" column="0" lean-forward="true" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/web/pages/signup.ejs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-391">
-          <caret line="62" column="62" lean-forward="false" selection-start-line="62" selection-start-column="62" selection-end-line="62" selection-end-column="62" />
+        <state relative-caret-position="367">
+          <caret line="72" column="77" lean-forward="true" selection-start-line="72" selection-start-column="77" selection-end-line="72" selection-end-column="77" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="19" lean-forward="false" selection-start-line="10" selection-start-column="19" selection-end-line="10" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/home.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="27" column="7" lean-forward="true" selection-start-line="27" selection-start-column="7" selection-end-line="27" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/web/js/signup.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/libs/city.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/web/css/signup.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="178">
+          <caret line="237" column="24" lean-forward="false" selection-start-line="237" selection-start-column="23" selection-end-line="237" selection-end-column="24" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/homeauthadmin.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="376">
-          <caret line="109" column="41" lean-forward="false" selection-start-line="109" selection-start-column="41" selection-end-line="109" selection-end-column="41" />
-          <folding />
+        <state relative-caret-position="802">
+          <caret line="255" column="30" lean-forward="false" selection-start-line="255" selection-start-column="30" selection-end-line="255" selection-end-column="30" />
+          <folding>
+            <element signature="e#1147#2504#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
