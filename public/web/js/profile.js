@@ -25,6 +25,8 @@ $(document).ready(function(){
 	//fetch info
 	// fetchInfo(USERID);
 
+
+
 });
 
 function fetchInfo(id){
@@ -68,4 +70,26 @@ function printInfo(data){
 	txtWkPlace.html(workingplace);
 	avatar.css('background-image', 'url(\'../uploads/'+data.avatar+'\')');
 	background.css('background-image', 'url(\'../uploads/'+data.avatar+'\')');
+}
+
+function changeStateInp(obj){
+	var formID  = $(obj).attr('data-target');
+	var form 	= $('#'+formID);
+	var spInp	= form.find('.span-inp');
+	var spSlt	= form.find('.span-select');
+	var actBtn  = $('.act-button');
+
+	actBtn.show();
+
+	spInp.each(function(){
+		var _this = $(this);
+		_this.addClass('hidden');
+		_this.next().removeClass('hidden');
+	});
+
+	spSlt.each(function(){
+		var _this = $(this);
+		_this.addClass('hidden');
+		_this.next().removeClass('hidden');
+	});
 }

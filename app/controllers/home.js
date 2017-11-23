@@ -2,7 +2,8 @@ var express = require('express'),
   router    = express.Router(),
   mongoose  = require('mongoose'),
   Article   = mongoose.model('Article'),
-  user      = mongoose.model('zlove_users');
+  user      = mongoose.model('zlove_users'),
+  cities    = require('../../libs/city');
 
 module.exports = function (app) {
   app.use('/home', isLoggedIn, router);
@@ -76,7 +77,10 @@ router.get('/profile-new', function(req, res, next){
           gender      : data.getGender(),
           crrPlace    : data.getCity(data.CurrentPlace),
           working     : data.Working,
-          workingat   : "ĐH Công nghệ thông tin - ĐHQG HCM"
+          workingat   : "ĐH Công nghệ thông tin - ĐHQG HCM",
+          avatar      : data.getAvatar(),
+          cities      : cities,
+          noCrrPlace  : data.CurrentPlace
         }
       });
     }
@@ -106,7 +110,10 @@ router.get('/profile-new/:username', function(req, res, next){
           gender      : data.getGender(),
           crrPlace    : data.getCity(data.CurrentPlace),
           working     : data.Working,
-          workingat   : "ĐH Công nghệ thông tin - ĐHQG HCM"
+          workingat   : "ĐH Công nghệ thông tin - ĐHQG HCM",
+          avatar      : data.getAvatar(),
+          cities      : cities,
+          noCrrPlace  : data.CurrentPlace
         }
       });
     }

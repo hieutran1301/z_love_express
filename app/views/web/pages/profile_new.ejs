@@ -5,51 +5,14 @@
 
 </head>
 <body>
-		<section id="NavBar">
-            <div class="container">
-                <div class="row">
-                    <div class="hidden-xs col-sm-4">
-                        <div class="logo">
-                            <a href="#"><span class="title-logo">Zlove</span> - Find your true love !</a>
-                        </div>
-                    </div>
-                    <div class="col-xs-12 col-sm-8 col-md-4 col-md-offset-4 ls-menu">
-                        <ul>
-                            <li>
-                                <a href="#"><span class="li_heart" aria-hidden="true"></span></a>
-                            </li>
-                            <li>
-                                <a href="#"><span class="li_bubble" aria-hidden="true"></span></a>
-                            </li>
-                            <li>
-                                <a href="#"><span class="li_world" aria-hidden="true"></span></a>
-                            </li>
-                            <li class="li-dropdown">
-                                <a href="#" class="toggle-menu-dropdown" dropdown-target="menuDropDown">
-                                    <i class="fa fa-circle-thin" aria-hidden="true" ></i>
-                                    <i class="fa fa-circle-thin" aria-hidden="true"></i>
-                                    <i class="fa fa-circle-thin" aria-hidden="true"></i>
-                                </a>
-                                <ul id="menuDropDown" class="menu-dropdown">
-                                    <li><a href="#"><span class="li_user" aria-hidden="true"></span> Hồ sơ của bạn</a></li>
-                                    <li><a href="#"><span class="li_news" aria-hidden="true"></span> Đăng tin tìm</a></li>
-                                    <li><a href="#"><span class="li_heart" aria-hidden="true"></span> Đã ứng tuyển</a></li>
-                                    <li><a href="#"><span class="li_settings" aria-hidden="true"></span> Cài đặt</a></li>
-                                    <li><a href="#"><span class="li_paperplane" aria-hidden="true"></span> Đăng xuất</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
+		<% include ../include/nav-bar %>
 
         <section id="prfAvatar">
-            <div class="bg-img efx-blur"></div>
+            <div class="bg-img efx-blur" style="background-image: url('<%= data.avatar %>')"></div>
             <div class="container">
                 <div class="row">
                     <div class="col-xs-12">
-                        <div class="avatar sh-round box-shadow" id="bxAvatar">
+                        <div class="avatar sh-round box-shadow" id="bxAvatar" style="background-image: url('<%= data.avatar %>')">
                             <% if(self) {%>
                             <button id="btnChangeAva">Upload Avatar</button>
                             <%}%>
@@ -70,9 +33,9 @@
                     <div class="col-xs-12">
                         <div class="white-box border-radius box-shadow">
                             <div class="white-box-title">
-                                <h5><span class="li_star" aria-hidden="true"></span> Thông tin cơ bản</h5>
+                                <h5><span clinpass="li_star" aria-hidden="true"></span> Thông tin cơ bản</h5>
                                 <% if(self) { %>
-                                <a href="#">Chỉnh sửa <span class="li_pen" aria-hidden="true"></span></a>
+                                <a href="javascript:void(0)" onclick="changeStateInp(this)" data-target="frmBasicInfo">Chỉnh sửa <span class="li_pen" aria-hidden="true"></span></a>
                                 <%}%>
                             </div>
                             <div class="white-box-body">
@@ -83,6 +46,7 @@
                                         </div>
                                         <div class="col-xs-12 col-sm-6">
                                             <span id="FullName" class="span-inp"><%= data.fullname %></span>
+                                            <input type="text" class="form-control inp-zlove hidden" name="inpFullName" value="<%= data.fullname %>">
                                         </div>
                                     </div>
                                     <div class="row">
@@ -91,6 +55,10 @@
                                         </div>
                                         <div class="col-xs-12 col-sm-6">
                                             <span id="Gender" class="span-select"><%= data.gender %></span>
+                                            <select name="sltGender" class="form-control inp-zlove hidden">
+                                                <option value="0">Nam</option>
+                                                <option value="1">Nữ</option>
+                                            </select>
                                         </div>
                                     </div>
                                     <div class="row">
@@ -99,6 +67,7 @@
                                         </div>
                                         <div class="col-xs-12 col-sm-6">
                                             <span id="Birthday" class="span-inp"><%= data.birthday %></span>
+                                            <input type="text" class="hidden form-control inp-zlove" name="inpBirthday" value="<%= data.birthday %>">
                                         </div>
                                     </div>
                                     <div class="row">
@@ -106,7 +75,17 @@
                                             <span class="frm-field"><i class="fa fa-map-marker"></i> Nơi ở</span>
                                         </div>
                                         <div class="col-xs-12 col-sm-6">
-                                            <span id="Place" class="span-inp"><%= data.crrPlace %></span>
+                                            <span id="Place" class="span-select"><%= data.crrPlace %></span>
+                                            <select name="sltCurrPlace" class="form-control hidden inp-zlove">
+                                                <% console.log(data.cities[1]) %>
+                                                <% for(var i=0; i < data.cities.length; i++) { %>
+                                                    <% if (i == (data.noCrrPlace*1-1)) { %>
+                                                        <option value="<%= (i+1) %>" selected><%= data.cities[i]%></option>
+                                                    <%} else{%>
+                                                        <option value="<%= (i+1) %>"><%= data.cities[i] %></option>
+                                                    <%}%>
+                                                <%}%>
+                                            </select>
                                         </div>
                                     </div>
                                     <div class="row">
@@ -115,6 +94,10 @@
                                         </div>
                                         <div class="col-xs-12 col-sm-6">
                                             <span id="Relationship" class="span-select"><%= data.relation %></span>
+                                            <select name="sltRela" class="form-control hidden inp-zlove">
+                                                <option value="0">Độc thân</option>
+                                                <option value="1">Đang hẹn hò</option>
+                                            </select>
                                         </div>
                                     </div>
 
@@ -124,6 +107,7 @@
                                         </div>
                                         <div class="col-xs-12 col-sm-6">
                                             <span id="Working" class="span-select"><%= data.working%></span>
+                                            <input type="text" name="inpWorking" class="hidden form-control inp-zlove" value="<%= data.working%>">
                                         </div>
                                     </div>
                                     <div class="row">
@@ -132,6 +116,7 @@
                                         </div>
                                         <div class="col-xs-12 col-sm-6">
                                             <span id="WorkingPlace" class="span-select"><%= data.workingat%></span>
+                                            <input type="text" name="inpWorkingPlace" class="form-control hidden inp-zlove" value="<%= data.workingat %>">
                                         </div>
                                     </div>
                                 </form>
