@@ -319,3 +319,13 @@ footer{
     width: 25px;
     border-radius: 100%;
 }
+
+.imp-zlove{
+    border-style: none;
+    border-radius: 0;
+    background-color: #f8f8f8;
+}
+.imp-zlove:focus{
+    border-bottom: 2px solid #ee2b80;
+    background-color: #fff;
+}

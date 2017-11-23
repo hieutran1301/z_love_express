@@ -120,7 +120,7 @@ button.apply:hover{
 
 @media screen and (min-width: 768px){
 	.love_bar{
-	background-color: #fff;
+	background-color: #f8f8f8;
 	}
 
 	.love_bar p{
@@ -158,7 +158,7 @@ button.apply:hover{
 }
 @media screen and (min-width: 991px){
 	.love_bar p{
-		background-color: #fff;
+		background-color: #f8f8f8;
 		color: #ee2b80;
 	}
 	.ul-icon .li-icon a{

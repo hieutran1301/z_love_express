@@ -20,6 +20,26 @@
 	line-height: 70px;
 	margin-left: 50px;
 }
+
+.messenger .chat-menu .chat-menu-action{
+	line-height: 70px;
+	text-align: right;
+}
+
+.messenger .chat-menu .chat-menu-action a{
+	color: #666;
+}
+
+.messenger .chat-menu .chat-menu-action .chat_action{
+	left: -50px;
+	top: 50px;
+}
+
+.messenger .chat-menu .chat-menu-action .chat_action i{
+	margin-right: 20px;
+	color: #ee2b80;
+}
+
 .messenger .chat-main .chat-list{
 	border-right: 1px solid #d8d8d8;
 }
@@ -47,19 +67,22 @@
 }
 
 .messenger .chat_users .avatar img {
-	height: 30px;
-	width: 30px;
+	height: 40px;
+	width: 40px;
 	border-radius: 100%;
 	margin-right: 20px;
+	margin-top: 10px;
 }
 
 .messenger .chat_users .user-name{
 	font-size: 16px;
 	font-weight: bold;
+	margin-top: 10px;
 }
 
 .messenger .chat_users .user-content{
 	font-size: 14px;
+	margin-bottom: 10px;
 }
 
 .messenger .chat-main .chat-screen{
@@ -67,9 +90,14 @@
     border-right: 1px solid #d8d8d8;
 }
 
-.messenger .chat-main .chat-action{
-
+.messenger .chat-main .chat_action{
+	border-left: 1px solid #d8d8d8;
 }
+
+.messenger .chat-main .chat_action i{
+	margin-right: 20px
+}
+
 
 @media screen and (min-width: 768px){
 	#NavMobile .ul-icon .li-icon{
