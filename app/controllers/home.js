@@ -125,6 +125,12 @@ router.get('/', function (req, res, next) {
   });
 });
 
+router.get('/logout', function(req, res){
+	delete req.session.homeauthenticated;
+	delete req.session.homeuserid;
+	res.redirect('/home-auth/login');
+});
+
 function isLoggedIn(req, res, next){
   if (!req.session || !req.session.homeauthenticated) {
     res.redirect('/home-auth/login');
