@@ -216,7 +216,7 @@ select{
 		margin-right: 120px;
 	}
     .intro{
-        height: 110vh;
+        height: 850px;
     }
 	button.align-right:hover{
 	background-color: #e02476;
@@ -233,7 +233,7 @@ select{
 		margin-top: 0px;
 		position: absolute;
 		right: 0;
-        height: 110vh;
+        height: 850px;
 	}
 	.form-signup label,input{
 		margin-top: 0px;

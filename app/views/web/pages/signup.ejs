@@ -44,38 +44,50 @@
 								<h4>ĐĂNG KÍ BẰNG EMAIL</h4>
 							</div>
 						</div>
-						<form>
+						<form method="post" action="http://localhost:3000/home-auth/signup">
 							<div class="row"> 
-  								<div class="col-xs-8 col-md-7">
+  								<div class="col-xs-6 col-md-6">
 	  								<div class="form-group">
-	   									<label for="inputName">Họ tên</label>
-	   									<input type="text" class="form-control" id="inputName" placeholder="Họ tên" required>
+	   									<label for="inputName">Họ:</label>
+	   									<input type="text" class="form-control" id="FirstName" name="firstname" placeholder="Họ" required>
 	  								</div>
 	  							</div>
-  								<div class="col-xs-4 col-md-5">
+								<div class="col-xs-6 col-md-6">
+									<div class="form-group">
+										<label for="inputName">Tên:</label>
+										<input type="text" class="form-control" id="LastName" name="lastname" placeholder="Tên" required>
+									</div>
+								</div>
+  								<div class="col-xs-6 col-md-6">
   								    <label for="inputSex">Giới tính:</label>
-    								<select class="form-control">
+    								<select id="Sex" name="sex" class="form-control">
     									<option value="0">Chọn</option>
     									<option value="1">Nam</option>
     									<option value="2">Nữ</option>
     									<option value="3">Khác</option>
     								</select>	
-  								</div>	
+  								</div>
+								<div class="col-xs-6 col-md-6">
+									<div class="form-group">
+										<label for="inputName">Công việc:</label>
+										<input type="text" class="form-control" id="Work" name="work" placeholder="Công việc" required>
+									</div>
+								</div>
 							</div>
 							<div class="row">
 								<div class="col-xs-12 col-md-12"><label for="inputDOB">Ngày sinh:</label></div>
 								<div class="col-xs-3 col-md-3">
-									<select class="form-control">
+									<select id="Day" name="day" class="form-control">
 										<option value="0">Ngày</option>
 									</select>
 								</div>
 								<div class="col-xs-6 col-md-5">
-									<select class="form-control">
+									<select id="Month" name="month" class="form-control">
 										<option value="0">Tháng</option>
 									</select>
 								</div>
 								<div class="col-xs-3 col-md-4">
-									<select class="form-control">
+									<select id="Year" name="year" class="form-control">
 										<option value="0">Năm</option>
 									</select>
 								</div>
@@ -84,12 +96,16 @@
   								<div class="col-xs-7 col-md-7">
 	  								<div class="form-group">
 	   									<label for="inputAdd">Nơi ở</label>
-	   									<input type="text" class="form-control" id="inputAdd" placeholder="Nơi ở" required>
+										<select id="Local" name="local" class="form-control">
+											<% for (var i=0; i<city.length; i++){ %>
+											<option value="<%= i %>"> <%= city[i]%> </option>
+											<% }%>
+										</select>
 	  								</div>
 	  							</div>
   								<div class="col-xs-5 col-md-5">
 	   							<label for="inputAim">Bạn đến đây để:</label>
-    								<select class="form-control">
+    								<select name="youarrive" class="form-control">
     									<option value="0">Chọn</option>
     									<option value="1">1</option>
     									<option value="2">2</option>
@@ -99,12 +115,20 @@
   							</div>	
 	  						<div class="form-group">
 	   							<label for="inputMail">Địa chỉ email:</label>
-	   							<input type="email" class="form-control" id="inputMail" placeholder="Email" required>
+	   							<input type="email" class="form-control" id="inputMail" name="email" placeholder="Email" required>
 	   						</div>
+							<div class="form-group">
+								<label for="inputMail">Tên đăng nhập:</label>
+								<input type="text" class="form-control" id="inputMail" name="email" placeholder="Username" required>
+							</div>
 	  						<div class="form-group">
 								<label for="inputMail">Mật khẩu:</label>
-	   							<input type="password" class="form-control" id="inputPass" placeholder="Mật khẩu" required>
+	   							<input type="password" class="form-control" id="inputPass" name="password" placeholder="Mật khẩu" required>
 	   						</div>
+							<div class="form-group">
+								<label for="inputMail">Nhập lại mật khẩu:</label>
+								<input type="password" class="form-control" id="inputPass" name="repeatpassword" placeholder="Nhập lại mật khẩu" required>
+							</div>
 							<button type="submit" class="btn-signup">Đăng kí</button>
 							<p>Lorem ipsum dolor sit amet</p>
 						</form>
@@ -112,5 +136,9 @@
 				</div>
 			</div>
 		</div>
-  
+		<script src="<%= local.setting.basepath %>web/js/signup.js"></script>
+		<script type="text/javascript">
+            window.load = FillDay();
+            //window.load = CountTime();
+		</script>
 <% include ../include/footer %>
