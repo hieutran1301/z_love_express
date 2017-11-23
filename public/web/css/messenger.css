@@ -1,4 +1,3 @@
-
 .messenger .chat-menu{
 	margin-top: 60px;
     border-bottom: 1px solid #d8d8d8;
@@ -38,6 +37,13 @@
 .messenger .chat-menu .chat-menu-action .chat_action i{
 	margin-right: 20px;
 	color: #ee2b80;
+}
+
+.messenger .chat-main{
+	height: 100vh;
+}
+.messenger .chat-main .row{
+	height: 100%;
 }
 
 .messenger .chat-main .chat-list{
@@ -89,6 +95,10 @@
 .messenger .chat-main .chat-screen{
 	border-left: 1px solid #d8d8d8;
     border-right: 1px solid #d8d8d8;
+    height: 100%;
+}
+
+.messenger .chat-main .chat-screen .chat-form{
 }
 
 .messenger .chat-main .chat_action{
