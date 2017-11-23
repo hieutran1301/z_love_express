@@ -1,155 +1,76 @@
-#NavMobile{
-	display: block;
-	width: 100%;
-	background-color: #fff;
-	border-bottom: 1px solid #000;
+
+.messenger .chat-menu{
+	margin-top: 60px;
+    border-bottom: 1px solid #d8d8d8;
 }
 
-#NavMobile .ul-icon{
-	list-style-type: none;
-	margin: 0;
-	padding: 0;
-	display: block;
-	width: 100%;
+.messenger .chat-menu .search{
+    border-right: 1px solid #d8d8d8;
 }
 
-#NavMobile .ul-icon .li-icon{
-	display: inline-block;
+.messenger .chat-menu .search .form-group{
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+.messenger .chat-menu .name-chat{
+	font-size: 16px;
+	font-weight: 600;
 	vertical-align: middle;
-	width: 25%;
-	float: left;
-}
-
-.ul-icon .li-icon a{
-	display: block;
-	width: auto;
-	background-color: #fff;
-	text-align: center;
-	font-size: 35px;
-	text-transform: none;
-	color: #666;
 	line-height: 70px;
+	margin-left: 50px;
+}
+.messenger .chat-main .chat-list{
+	border-right: 1px solid #d8d8d8;
 }
 
-.logo a{
-	display: block;
-	width: 16.66%;
-	background-color: #fff;
-	text-align: left;
-	font-size: 40px;
-	text-transform: none;
-	color: #666;
-	line-height: 70px;
+.messenger .chat-main .chat-list .chat_users{
+	width: 100%;
+	border-bottom: 1px solid #cbcbcb;
 }
 
-#NavMobile .ul-icon .li-icon:hover,
-#NavMobile .ul-icon .li-icon:focus,
-#NavMobile .ul-icon .li-icon:active{
-	color: #ee2b80;
+.messenger .chat-main .chat-list .chat_users:hover,
+.messenger .chat-main .chat-list .chat_users:focus,
+.messenger .chat-main .chat-list .chat_users:active{
+	background-color: #dedede;
 	text-decoration: none;
 }
 
-#NavMobile a:hover,
-#NavMobile a:focus,
-#NavMobile a:active{
-	color: #ee2b80;
-	text-decoration: none;
-}
- 
-#NavMobile .ul-icon .about-icon a{
- 	font-size: 20px;
- }
-
- /*Notification menu*/
-
-.noti-menu a{
+.messenger .chat-main .chat-list .chat_users a{
 	color: #000;
 	background-color: #fff;
 }
 
-.noti-menu{
-	padding: 0;
-	width: 300px;
-}
 
-.noti-menu a{
-	border-bottom: 1px solid #cbcbcb;
-}
-
-.noti-menu .noti .avatar{
+.messenger .chat_users .avatar{
 	text-align: center;
 }
 
-.noti-menu .noti .avatar img {
-	height: 50px;
-	width: 50px;
+.messenger .chat_users .avatar img {
+	height: 30px;
+	width: 30px;
 	border-radius: 100%;
+	margin-right: 20px;
 }
 
-.noti-menu .noti .noti-name{
-	font-size: 20px;
+.messenger .chat_users .user-name{
+	font-size: 16px;
 	font-weight: bold;
-	margin-top: -10px;
-	margin-bottom: -40px;
 }
 
-.noti-menu .noti .noti-content{
-	font-size: 20px;
-	margin-bottom: -20px;
+.messenger .chat_users .user-content{
+	font-size: 14px;
 }
 
-.noti-menu .noti:hover,
-.noti-menu .noti:focus,
-.noti-menu .noti:active{
-	background-color: #f6f7f9;
-	text-decoration: none;
+.messenger .chat-main .chat-screen{
+	border-left: 1px solid #d8d8d8;
+    border-right: 1px solid #d8d8d8;
 }
 
- /*Notification menu*/
-
- /*About menu*/
-.about-menu{
-	left: -200px;
-	padding: 0px;
+.messenger .chat-main .chat-action{
 
 }
 
-.about-menu li{
-	border-bottom: 1px solid #cbcbcb;
-	text-align: left;
-}
-
-.about-menu i{
-	color: #ee2b80;
-	font-size: 40px;
-	height: 50px;
-	width: 50px;
-	margin-right: 30px;
-	margin-top: 12px;
-}
-
-.ul-icon .li-icon .about-menu a {
-	font-size: 30px;
-	text-align: left;
-}
-
-.about-menu img {
-	height: 50px;
-	width: 50px;
-	border-radius: 100%;
-	margin-right: 30px;
-	margin-top: 10px;
-	margin-bottom: 10px;
-}
-
-.about-menu li:hover,
-.about-menu li:focus,
-.about-menu li:active{
-	background-color: #f6f7f9;
-	text-decoration: none;
-}
-
- /*About menu*/
 @media screen and (min-width: 768px){
 	#NavMobile .ul-icon .li-icon{
 	width: 16.66%;

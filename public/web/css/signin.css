@@ -169,6 +169,10 @@ input{
 	border: 1px solid #aaaaaa !important;
 }
 
+.signin{
+	background-color: #fff;
+}
+
 .form-singin input{
 	margin-top: 5px;
 	margin-bottom: 5px;
