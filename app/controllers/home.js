@@ -9,36 +9,42 @@ module.exports = function (app) {
 
 router.get('/login', function(req, res, next){
   res.render('web/pages/login', {
-      title: 'Login'
+      title: 'Login',
+      csrf 		: req.csrfToken()
     });
 });
 
 router.get('/signup', function(req, res, next){
   res.render('web/pages/signup', {
-      title: 'Signup'
+      title: 'Signup',
+      csrf 		: req.csrfToken()
     });
 });
 router.get('/homepage', function(req, res, next){
   res.render('web/pages/homepage', {
-      title: 'Homepage'
+      title: 'Homepage',
+      csrf 		: req.csrfToken()
     });
 });
 
 router.get('/noti', function(req, res, next){
   res.render('web/pages/noti', {
-      title: 'Notification'
+      title: 'Notification',
+      csrf 		: req.csrfToken()
     });
 });
 
 router.get('/about', function(req, res, next){
   res.render('web/pages/about', {
-      title: 'About'
+      title: 'About',
+      csrf 		: req.csrfToken()
     });
 });
 
 router.get('/messenger', function(req, res, next){
   res.render('web/pages/messenger', {
-      title: 'Messenger'
+      title: 'Messenger',
+      csrf 		: req.csrfToken()
     });
 });
 
@@ -62,7 +68,8 @@ router.get('/', function (req, res, next) {
     res.render('web/pages/homepage',
      {
       title: 'Zlove',
-      articles: articles
+      articles: articles,
+         csrf 		: req.csrfToken()
     });
   });
 });
