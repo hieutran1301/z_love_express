@@ -320,15 +320,12 @@ footer{
     border-radius: 100%;
 }
 
-<<<<<<< HEAD
-.imp-zlove{
+.inp-zlove{
     border-style: none;
     border-radius: 0;
     background-color: #f8f8f8;
 }
-.imp-zlove:focus{
+.inp-zlove:focus{
     border-bottom: 2px solid #ee2b80;
     background-color: #fff;
 }
-=======
->>>>>>> 885feae514c32c13c3adefa172092d9685b66383
