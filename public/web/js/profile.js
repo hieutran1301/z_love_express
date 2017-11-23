@@ -23,7 +23,7 @@ $(document).ready(function(){
 	USERID = $('input[name=_userid]').val();
 
 	//fetch info
-	fetchInfo(USERID);
+	// fetchInfo(USERID);
 
 });
 
