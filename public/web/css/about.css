@@ -31,16 +31,6 @@
 }
 
 @media screen and (min-width: 768px){
-
-	.ul-icon .li-icon a{
-		font-size: 35px;
-	}
-
-	.icon{
-		text-align: right;
-
-	}
-
 	.about a{
 		margin-left: 100px
 	}
@@ -55,10 +45,6 @@
 
 }
 @media screen and (min-width: 991px){
-	.ul-icon .li-icon a{
-		font-size: 40px;
-	}
-
 	.about a{
 		margin-left: 250px
 	}

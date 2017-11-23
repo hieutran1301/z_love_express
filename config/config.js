@@ -9,7 +9,7 @@ var config = {
       name: 'z-love'
     },
     port: process.env.PORT || 3000,
-    db: 'mongodb://localhost/zlove'
+    db: 'mongodb://localhost/zlovedb'
   },
 
   test: {
@@ -18,7 +18,7 @@ var config = {
       name: 'z-love'
     },
     port: process.env.PORT || 3000,
-    db: 'mongodb://localhost/zlove'
+    db: 'mongodb://localhost/zlovedb'
   },
 
   production: {
@@ -27,7 +27,7 @@ var config = {
       name: 'z-love'
     },
     port: process.env.PORT || 3000,
-    db: 'mongodb://localhost/zlove'
+    db: 'mongodb://localhost/zlovedb'
   }
 };
 

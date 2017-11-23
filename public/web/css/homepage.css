@@ -134,21 +134,6 @@ button.apply:hover{
 	.love_bar .more{
 	color: #666;
 	}
-
-	#NavMobile .ul-icon .li-icon{
-	width: 16.66%;
-	float: none;
-	}
-	
-	.ul-icon .li-icon a{
-		font-size: 35px;
-	}
-
-	.icon{
-		text-align: right;
-
-	}
-
 	#more:hover,
 	#more:focus,
 	#more:active{
@@ -160,8 +145,5 @@ button.apply:hover{
 	.love_bar p{
 		background-color: #f8f8f8;
 		color: #ee2b80;
-	}
-	.ul-icon .li-icon a{
-		font-size: 40px;
 	}
 }

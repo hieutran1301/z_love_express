@@ -324,8 +324,12 @@ footer{
     border-style: none;
     border-radius: 0;
     background-color: #f8f8f8;
+    outline: none;
+    box-shadow: none;
 }
 .inp-zlove:focus{
     border-bottom: 2px solid #ee2b80;
     background-color: #fff;
+    outline: none;
+    box-shadow: none;
 }

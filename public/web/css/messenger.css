@@ -42,6 +42,7 @@
 
 .messenger .chat-main .chat-list{
 	border-right: 1px solid #d8d8d8;
+	margin-top: 60px;
 }
 
 .messenger .chat-main .chat-list .chat_users{
@@ -95,27 +96,21 @@
 }
 
 .messenger .chat-main .chat_action i{
-	margin-right: 20px
+	margin-right: 20px;
+	color: #ee2b80;
+}
+.messenger .chat-main .chat_action a{
+	color: #000;
+}
+.messenger .chat-main .chat_action li{
+	list-style-type: none;
 }
 
 
 @media screen and (min-width: 768px){
-	#NavMobile .ul-icon .li-icon{
-	width: 16.66%;
-	float: none;
-	}
-	
-	.ul-icon .li-icon a{
-		font-size: 35px;
-	}
-
-	.icon{
-		text-align: right;
-
-	}
+.messenger .chat-main .chat-list{
+	margin-top: 0px;
 }
 @media screen and (min-width: 991px){
-	.ul-icon .li-icon a{
-		font-size: 40px;
-	}
+
 }
