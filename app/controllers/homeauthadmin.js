@@ -3,6 +3,7 @@ var express = require('express'),
   mongoose = require('mongoose');
 var bcrypt = require('bcrypt');
 
+var city = require('../../libs/city');
 //define model and collection
 var users  = mongoose.model('zlove_users');
 
@@ -23,7 +24,8 @@ router.get('/signup', function(req, res, next){
 	
 	res.render('web/pages/signup', {
 		title		: 'Zlove | Signup',
-		csrf 		: req.csrfToken()
+		csrf 		: req.csrfToken(),
+		city		: city
 	});
 });
 
@@ -43,7 +45,8 @@ router.post('/login', function(req, res, next){
 			req.flash('loginMessage', 'Something went wrong! Try again.');
 			res.render('web/pages/login', {
 				title: 'Zlove | Login',
-				message: req.flash('loginMessage')
+				message: req.flash('loginMessage'),
+                csrf 		: req.csrfToken()
 			});
 			return 0;
 		}
@@ -53,7 +56,8 @@ router.post('/login', function(req, res, next){
 			console.log("not found");
 			res.render('web/pages/login', {
 				title: 'Zlove | Login',
-				message: req.flash('loginMessage')
+				message: req.flash('loginMessage'),
+                csrf 		: req.csrfToken()
 			});
 			return 0;
 		}
@@ -64,7 +68,8 @@ router.post('/login', function(req, res, next){
 			console.log("fail");
 			res.render('web/pages/login', {
 				title: 'Zlove | Login',
-				message: req.flash('loginMessage')
+				message: req.flash('loginMessage'),
+                csrf 		: req.csrfToken()
 			});
 			return 0;
 		}
@@ -82,7 +87,31 @@ router.post('/login', function(req, res, next){
 	});
 });
 
+router.post('/signup', function (req, res, next) {
+	var firstname 		= req.body.firstname;
+	var lastname 		= req.body.lastname;
+	var sex				= req.body.sex;
+	var day				= req.body.day;
+	var month			= req.body.month;
+	var year			= req.body.year;
+	var local			= req.body.local;
+	var youarrive		= req.body.youarrive;
+	var email			= req.body.email;
+	var password		= req.body.password;
+	var repeatpassword	= req.body.repeatpassword;
 
+	if (firstname == '' || firstname == null)
+	{
+        req.flash('signupMessage', 'Firstname is null');
+        console.log("fail");
+        res.render('web/pages/login', {
+            title: 'Zlove | Login',
+            message: req.flash('signupMessage'),
+            csrf 		: req.csrfToken()
+        });
+        return 0;
+	}
+});
 
 
 // Check is existed sesssion called authenticated
