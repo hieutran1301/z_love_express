@@ -179,8 +179,14 @@ function hideModal(modal){
 function resetForm(formID){
 	var form 	= $('#'+formID);
 	var	input 	= form.find('input');
+	var txtarea = form.find('textarea');
 	input.each(function(){
-		var $this = $(this).val('');
+		var $this = $(this);
+		$this.val('');
+	});
+	txtarea.each(function(){
+		var $this = $(this);
+		$this.val('');
 	});
 }
 

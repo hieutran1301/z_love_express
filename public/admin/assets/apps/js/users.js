@@ -126,6 +126,7 @@ $(document).ready(function(){
         var userID = window.localStorage.getItem('edtUserId');
         var dragAndDrop 	= $('.dragDropInp');
         var dragDropPrv 	= $('.dragDropPrv');
+        var inpDragDrop     = $('input[type=file]');
         if (userID){
             $.post(AJAX_USERS_PATH, 
                 {
@@ -137,8 +138,9 @@ $(document).ready(function(){
                         confirm('Success');
                         $('#cancelUpload').removeClass('hidden');
                         $('#removeAvatar').addClass('hidden');
-                        dragAndDrop.hide();
-                        dragDropPrv.show();
+                        dragAndDrop.show();
+                        dragDropPrv.hide();
+                        inpDragDrop.val('');
                     }
                     else{
                         confirm(msg);
