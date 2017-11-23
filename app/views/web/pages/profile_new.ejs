@@ -50,8 +50,11 @@
                 <div class="row">
                     <div class="col-xs-12">
                         <div class="avatar sh-round box-shadow" id="bxAvatar">
+                            <% if(self) {%>
                             <button id="btnChangeAva">Upload Avatar</button>
+                            <%}%>
                         </div>
+                        
                         <div class="username">
                             <h3><%= data.fullname %></h3>
                             <h5><%= data.age %> tuổi</h5>
@@ -68,7 +71,9 @@
                         <div class="white-box border-radius box-shadow">
                             <div class="white-box-title">
                                 <h5><span class="li_star" aria-hidden="true"></span> Thông tin cơ bản</h5>
+                                <% if(self) { %>
                                 <a href="#">Chỉnh sửa <span class="li_pen" aria-hidden="true"></span></a>
+                                <%}%>
                             </div>
                             <div class="white-box-body">
                                 <form id="frmBasicInfo">
@@ -130,10 +135,12 @@
                                         </div>
                                     </div>
                                 </form>
+                                <%if(self){%>
                                 <div class="act-button">
                                     <button class="btn-cancel">Hủy bỏ</button>
                                     <button class="btn-save" id="btnSave">Lưu lại</button>
                                 </div>
+                                <%}%>
                             </div>
                         </div>
                     </div>
