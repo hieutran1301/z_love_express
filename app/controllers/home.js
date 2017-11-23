@@ -1,7 +1,8 @@
 var express = require('express'),
-  router = express.Router(),
-  mongoose = require('mongoose'),
-  Article = mongoose.model('Article');
+  router    = express.Router(),
+  mongoose  = require('mongoose'),
+  Article   = mongoose.model('Article'),
+  user      = mongoose.model('zlove_users');
 
 module.exports = function (app) {
   app.use('/home', isLoggedIn, router);
@@ -49,10 +50,29 @@ router.get('/profile', function(req, res, next){
 });
 
 router.get('/profile-new', function(req, res, next){
-  res.render('web/pages/profile_new', {
-    title: 'Profile',
-    csrf: req.csrfToken(),
-    userid: req.session.homeuserid
+  var userID = req.session.homeuserid;
+  user.findOne({_id: userID}, function(err, data){
+    if (err) throw err;
+    if (!data){
+      res.redirect('/home/');
+    }
+    else{
+      res.render('web/pages/profile_new', {
+        title: 'Profile',
+        csrf: req.csrfToken(),
+        userid: req.session.homeuserid,
+        data: {
+          fullname    : data.FirstName+' '+data.LastName,
+          age         : data.getAge(),
+          birthday    : data.DateOfBirth,
+          relation    : "Độc thân",
+          gender      : data.getGender(),
+          crrPlace    : data.getCity(data.CurrentPlace),
+          working     : data.Working,
+          workingat   : "ĐH Công nghệ thông tin - ĐHQG HCM"
+        }
+      });
+    }
   });
 });
 

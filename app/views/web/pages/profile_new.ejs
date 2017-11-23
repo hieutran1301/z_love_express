@@ -53,8 +53,8 @@
                             <button id="btnChangeAva">Upload Avatar</button>
                         </div>
                         <div class="username">
-                            <h3>Phạm Đăng Khoa</h3>
-                            <h5>21 tuổi</h5>
+                            <h3><%= data.fullname %></h3>
+                            <h5><%= data.age %> tuổi</h5>
                         </div>
                     </div>
                 </div>
@@ -77,7 +77,7 @@
                                             <span class="frm-field"><i class="fa fa-user-o"></i> Họ và tên</span>
                                         </div>
                                         <div class="col-xs-12 col-sm-6">
-                                            <span id="FullName" class="span-inp">Phạm Đăng Khoa</span>
+                                            <span id="FullName" class="span-inp"><%= data.fullname %></span>
                                         </div>
                                     </div>
                                     <div class="row">
@@ -85,7 +85,7 @@
                                             <span class="frm-field"><i class="fa fa-transgender"></i> Giới tính</span>
                                         </div>
                                         <div class="col-xs-12 col-sm-6">
-                                            <span id="Gender" class="span-select">Nữ</span>
+                                            <span id="Gender" class="span-select"><%= data.gender %></span>
                                         </div>
                                     </div>
                                     <div class="row">
@@ -93,7 +93,7 @@
                                             <span class="frm-field"><i class="fa fa-birthday-cake"></i> Sinh nhật</span>
                                         </div>
                                         <div class="col-xs-12 col-sm-6">
-                                            <span id="Birthday" class="span-inp">21/11/1996</span>
+                                            <span id="Birthday" class="span-inp"><%= data.birthday %></span>
                                         </div>
                                     </div>
                                     <div class="row">
@@ -101,7 +101,7 @@
                                             <span class="frm-field"><i class="fa fa-map-marker"></i> Nơi ở</span>
                                         </div>
                                         <div class="col-xs-12 col-sm-6">
-                                            <span id="Place" class="span-inp">Gầm cầu Sài Gòn</span>
+                                            <span id="Place" class="span-inp"><%= data.crrPlace %></span>
                                         </div>
                                     </div>
                                     <div class="row">
@@ -109,7 +109,7 @@
                                             <span class="frm-field"><i class="fa fa-male"></i> Tình trạng quan hệ</span>
                                         </div>
                                         <div class="col-xs-12 col-sm-6">
-                                            <span id="Relationship" class="span-select">Độc thân</span>
+                                            <span id="Relationship" class="span-select"><%= data.relation %></span>
                                         </div>
                                     </div>
 
@@ -118,7 +118,7 @@
                                             <span class="frm-field"><i class="fa fa-id-card-o"></i> Công việc và học vấn</span>
                                         </div>
                                         <div class="col-xs-12 col-sm-6">
-                                            <span id="Working" class="span-select">Sinh viên</span>
+                                            <span id="Working" class="span-select"><%= data.working%></span>
                                         </div>
                                     </div>
                                     <div class="row">
@@ -126,7 +126,7 @@
                                             <span class="frm-field"><i class="fa fa-suitcase"></i> Công tác tại</span>
                                         </div>
                                         <div class="col-xs-12 col-sm-6">
-                                            <span id="WorkingPlace" class="span-select">Học viện hàng không (ăn hàng ở không)</span>
+                                            <span id="WorkingPlace" class="span-select"><%= data.workingat%></span>
                                         </div>
                                     </div>
                                 </form>
