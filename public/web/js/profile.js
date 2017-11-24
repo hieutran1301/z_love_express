@@ -79,17 +79,29 @@ function changeStateInp(obj){
 	var spSlt	= form.find('.span-select');
 	var actBtn  = $('.act-button');
 
-	actBtn.show();
-
 	spInp.each(function(){
 		var _this = $(this);
-		_this.addClass('hidden');
-		_this.next().removeClass('hidden');
+		if (_this.is(':visible')){
+			_this.addClass('hidden');
+			_this.next().removeClass('hidden');
+			actBtn.show();
+		}
+		else{
+			_this.removeClass('hidden');
+			_this.next().addClass('hidden');
+			actBtn.hide();	
+		}
 	});
 
 	spSlt.each(function(){
 		var _this = $(this);
-		_this.addClass('hidden');
-		_this.next().removeClass('hidden');
+		if(_this.is(':visible')){
+			_this.addClass('hidden');
+			_this.next().removeClass('hidden');
+		}
+		else{
+			_this.removeClass('hidden');
+			_this.next().addClass('hidden');
+		}
 	});
 }

@@ -33,7 +33,7 @@
                     <div class="col-xs-12">
                         <div class="white-box border-radius box-shadow">
                             <div class="white-box-title">
-                                <h5><span clinpass="li_star" aria-hidden="true"></span> Thông tin cơ bản</h5>
+                                <h5><span class="li_star" aria-hidden="true"></span> Thông tin cơ bản</h5>
                                 <% if(self) { %>
                                 <a href="javascript:void(0)" onclick="changeStateInp(this)" data-target="frmBasicInfo">Chỉnh sửa <span class="li_pen" aria-hidden="true"></span></a>
                                 <%}%>
@@ -46,7 +46,7 @@
                                         </div>
                                         <div class="col-xs-12 col-sm-6">
                                             <span id="FullName" class="span-inp"><%= data.fullname %></span>
-                                            <input type="text" class="form-control inp-zlove hidden" name="inpFullName" value="<%= data.fullname %>">
+                                            <input type="text" class="form-control inp-zlove hidden" name="inpFullName" value="<%= data.fullname %>" required>
                                         </div>
                                     </div>
                                     <div class="row">
@@ -55,7 +55,7 @@
                                         </div>
                                         <div class="col-xs-12 col-sm-6">
                                             <span id="Gender" class="span-select"><%= data.gender %></span>
-                                            <select name="sltGender" class="form-control inp-zlove hidden">
+                                            <select name="sltGender" class="form-control inp-zlove hidden" default-value="<%= data.gender%>">
                                                 <option value="0">Nam</option>
                                                 <option value="1">Nữ</option>
                                             </select>
@@ -67,7 +67,7 @@
                                         </div>
                                         <div class="col-xs-12 col-sm-6">
                                             <span id="Birthday" class="span-inp"><%= data.birthday %></span>
-                                            <input type="text" class="hidden form-control inp-zlove" name="inpBirthday" value="<%= data.birthday %>">
+                                            <input type="text" class="hidden form-control inp-zlove" name="inpBirthday" value="<%= data.birthday %>" required>
                                         </div>
                                     </div>
                                     <div class="row">
@@ -76,8 +76,7 @@
                                         </div>
                                         <div class="col-xs-12 col-sm-6">
                                             <span id="Place" class="span-select"><%= data.crrPlace %></span>
-                                            <select name="sltCurrPlace" class="form-control hidden inp-zlove">
-                                                <% console.log(data.cities[1]) %>
+                                            <select name="sltCurrPlace" class="form-control hidden inp-zlove" default-value="<%= data.noCrrPlace %>">
                                                 <% for(var i=0; i < data.cities.length; i++) { %>
                                                     <% if (i == (data.noCrrPlace*1-1)) { %>
                                                         <option value="<%= (i+1) %>" selected><%= data.cities[i]%></option>
@@ -94,7 +93,7 @@
                                         </div>
                                         <div class="col-xs-12 col-sm-6">
                                             <span id="Relationship" class="span-select"><%= data.relation %></span>
-                                            <select name="sltRela" class="form-control hidden inp-zlove">
+                                            <select name="sltRela" class="form-control hidden inp-zlove" default-value="<%= data.relation %>">
                                                 <option value="0">Độc thân</option>
                                                 <option value="1">Đang hẹn hò</option>
                                             </select>
@@ -107,7 +106,7 @@
                                         </div>
                                         <div class="col-xs-12 col-sm-6">
                                             <span id="Working" class="span-select"><%= data.working%></span>
-                                            <input type="text" name="inpWorking" class="hidden form-control inp-zlove" value="<%= data.working%>">
+                                            <input type="text" name="inpWorking" class="hidden form-control inp-zlove" value="<%= data.working%>" required>
                                         </div>
                                     </div>
                                     <div class="row">
@@ -116,13 +115,13 @@
                                         </div>
                                         <div class="col-xs-12 col-sm-6">
                                             <span id="WorkingPlace" class="span-select"><%= data.workingat%></span>
-                                            <input type="text" name="inpWorkingPlace" class="form-control hidden inp-zlove" value="<%= data.workingat %>">
+                                            <input type="text" name="inpWorkingPlace" class="form-control hidden inp-zlove" value="<%= data.workingat %>" required>
                                         </div>
                                     </div>
                                 </form>
                                 <%if(self){%>
                                 <div class="act-button">
-                                    <button class="btn-cancel">Hủy bỏ</button>
+                                    <button class="btn-cancel" onclick="changeStateInp(this)" data-target="frmBasicInfo">Hủy bỏ</button>
                                     <button class="btn-save" id="btnSave">Lưu lại</button>
                                 </div>
                                 <%}%>
