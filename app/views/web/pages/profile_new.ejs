@@ -46,7 +46,7 @@
                                         </div>
                                         <div class="col-xs-12 col-sm-6">
                                             <span id="FullName" class="span-inp"><%= data.fullname %></span>
-                                            <input type="text" class="form-control inp-zlove hidden" name="inpFullName" value="<%= data.fullname %>" required>
+                                            <input type="text" class="form-control inp-zlove hidden" name="inpFullName" value="<%= data.fullname %>" required >
                                         </div>
                                     </div>
                                     <div class="row">
@@ -54,10 +54,10 @@
                                             <span class="frm-field"><i class="fa fa-transgender"></i> Giới tính</span>
                                         </div>
                                         <div class="col-xs-12 col-sm-6">
-                                            <span id="Gender" class="span-select"><%= data.gender %></span>
+                                            <span id="Gender" class="span-select"><%= data.txtgender %></span>
                                             <select name="sltGender" class="form-control inp-zlove hidden" default-value="<%= data.gender%>">
-                                                <option value="0">Nam</option>
-                                                <option value="1">Nữ</option>
+                                                <option value="1" <% if (data.gender == 1){ %> selected <%}%> >Nam</option>
+                                                <option value="2" <% if (data.gender == 2){ %> selected <%}%> >Nữ</option>
                                             </select>
                                         </div>
                                     </div>
@@ -67,7 +67,7 @@
                                         </div>
                                         <div class="col-xs-12 col-sm-6">
                                             <span id="Birthday" class="span-inp"><%= data.birthday %></span>
-                                            <input type="text" class="hidden form-control inp-zlove" name="inpBirthday" value="<%= data.birthday %>" required>
+                                            <input type="text" class="hidden form-control inp-zlove datepicker" name="inpBirthday" value="<%= data.birthday %>" required>
                                         </div>
                                     </div>
                                     <div class="row">
@@ -92,7 +92,7 @@
                                             <span class="frm-field"><i class="fa fa-male"></i> Tình trạng quan hệ</span>
                                         </div>
                                         <div class="col-xs-12 col-sm-6">
-                                            <span id="Relationship" class="span-select"><%= data.relation %></span>
+                                            <span id="Relationship" class="span-select"><% if(data.relation == 0) {%> Độc thân <%} else{ %> Đang hẹn hò <%} %></span>
                                             <select name="sltRela" class="form-control hidden inp-zlove" default-value="<%= data.relation %>">
                                                 <option value="0">Độc thân</option>
                                                 <option value="1">Đang hẹn hò</option>
@@ -105,8 +105,12 @@
                                             <span class="frm-field"><i class="fa fa-id-card-o"></i> Công việc và học vấn</span>
                                         </div>
                                         <div class="col-xs-12 col-sm-6">
-                                            <span id="Working" class="span-select"><%= data.working%></span>
-                                            <input type="text" name="inpWorking" class="hidden form-control inp-zlove" value="<%= data.working%>" required>
+                                            <span id="Working" class="span-select"><%= data.txtworking%></span>
+                                            <select class="hidden form-control inp-zlove" default-value="<%=data.working%>" name="sltWorking">
+                                                <option value="0" <% if(data.working == 0) { %> selected <% } %> >Sinh viên</option>
+                                                <option value="1" <% if(data.working == 1) { %> selected <% } %> >Đang đi làm</option>
+                                                <option value="2" <% if(data.working == 2) { %> selected <% } %> >Đang tìm việc</option>
+                                            </select>
                                         </div>
                                     </div>
                                     <div class="row">
@@ -114,7 +118,7 @@
                                             <span class="frm-field"><i class="fa fa-suitcase"></i> Công tác tại</span>
                                         </div>
                                         <div class="col-xs-12 col-sm-6">
-                                            <span id="WorkingPlace" class="span-select"><%= data.workingat%></span>
+                                            <span id="WorkingPlace" class="span-inp"><%= data.workingat%></span>
                                             <input type="text" name="inpWorkingPlace" class="form-control hidden inp-zlove" value="<%= data.workingat %>" required>
                                         </div>
                                     </div>
@@ -132,38 +136,7 @@
             </div>
         </section>
 		
-        <footer>
-            <div class="container">
-                <div class="row">
-                    <div class="col-xs-12">
-                        <div class="social-icon">
-                            <ul>
-                                <li><a href="#"><span class="sc-icon sc-fb"></span></a></li>
-                                <li><a href="#"><span class="sc-icon sc-insta"></span></a></li>
-                                <li><a href="#"><span class="sc-icon sc-gplus"></span></a></li>
-                                <li><a href="#"><span class="sc-icon sc-tw"></span></a></li>
-                                <li><a href="#"><span class="sc-icon sc-yt"></span></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-xs-12">
-                        <div class="bottom-menu">
-                            <ul>
-                                <li><a href="#">Về chúng tôi</a></li>
-                                <li><a href="#">Hướng dẫn</a></li>
-                                <li><a href="#">Điều khoản</a></li>
-                                <li><a href="#">Chính sách bảo mật</a></li>
-                                <li><a href="#">FAQ</a></li>
-                                <li><a href="#">Liên hệ với chúng tôi</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="copyright">
-                Xây dựng và phát triển bởi Ziczac Team. Copyright © 2017. All rights reserved.
-            </div>
-        </footer>
+        <% include ../include/footer-main %>
 
         <input class="hidden" value="<%=csrf%>" name="_csrf">
         <input class="hidden" value="<%=userid%>" name="_userid">

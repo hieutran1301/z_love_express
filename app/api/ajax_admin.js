@@ -149,7 +149,9 @@ router.post('/add', upload.single('avatar'), function(req, res, next){
 					"FirstName" : data.firstname,
 					"LastName" : data.lastname,
 					"Gender" : data.gender,
-					"Working" : '',
+					"Working" : data.job,
+					"WorkingAt" : data.workingat,
+					"Relationship" : data.relationship,
 					"Phone" : data.phone,
 					"Facebook" : data.facebook,
 					"Skype" : data.skype,
@@ -157,7 +159,7 @@ router.post('/add', upload.single('avatar'), function(req, res, next){
 					"PlaceOfBirth" : data.birthplace,
 					"CreatedDate" : createdDate,
 					"Avatar" : path,
-					"Status" : 1
+					"Status" : data.status
 				});
 
 				newUser.save(function(err, result){
@@ -189,15 +191,17 @@ router.post('/add', upload.single('avatar'), function(req, res, next){
 					"FirstName" : data.firstname,
 					"LastName" : data.lastname,
 					"Gender" : data.gender,
-					"Working" : '',
+					"Working" : data.job,
+					"WorkingAt" : data.workingat,
+					"Relationship" : data.relationship,
 					"Phone" : data.phone,
 					"Facebook" : data.facebook,
 					"Skype" : data.skype,
 					"Introduction" : data.introduction,
 					"PlaceOfBirth" : data.birthplace,
 					"CreatedDate" : createdDate,
-					"Avatar" : "",
-					"Status" : 1
+					"Avatar" : path,
+					"Status" : data.status
 				});
 
 				newUser.save(function(err, result){
@@ -231,14 +235,16 @@ router.post('/edit-user', upload.single('avatar'), function(req, res, next){
 			"FirstName" : data.firstname,
 			"LastName" : data.lastname,
 			"Gender" : data.gender,
-			"Working" : '',
+			"Working" : data.job,
+			"WorkingAt" : data.workingat,
+			"Relationship" : data.relationship,
 			"Phone" : data.phone,
 			"Facebook" : data.facebook,
 			"Skype" : data.skype,
 			"Introduction" : data.introduction,
 			"PlaceOfBirth" : data.birthplace,
 			"Avatar" : path,
-			"Status" : 1
+			"Status" : data.status
 		}, function(err, result){
 			if (err) throw err;
 			res.sendStatus(200);
@@ -254,14 +260,15 @@ router.post('/edit-user', upload.single('avatar'), function(req, res, next){
 			"FirstName" : data.firstname,
 			"LastName" : data.lastname,
 			"Gender" : data.gender,
-			"Working" : '',
+			"Working" : data.job,
+			"WorkingAt" : data.workingat,
+			"Relationship" : data.relationship,
 			"Phone" : data.phone,
 			"Facebook" : data.facebook,
 			"Skype" : data.skype,
 			"Introduction" : data.introduction,
 			"PlaceOfBirth" : data.birthplace,
-			"Avatar" : "",
-			"Status" : 1
+			"Status" : data.status
 		}, function(err, result){
 			if (err) throw err;
 			res.sendStatus(200);

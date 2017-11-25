@@ -158,6 +158,22 @@
                                                                                 </div>
                                                                             </div>
                                                                             <div class="form-group">
+                                                                                <label class="col-md-3 control-label">Job<span class="required" aria-required="true"> * </span></label>
+                                                                                <div class="col-md-9">
+                                                                                    <select class="form-control " name="job">
+                                                                                        <option value="0">Sinh viên</option>
+                                                                                        <option value="1">Đang đi làm</option>
+                                                                                        <option value="2">Đang tìm việc</option>
+                                                                                    </select>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="form-group">
+                                                                                <label class="col-md-3 control-label">Working at<span class="required" aria-required="true"> * </span></label>
+                                                                                <div class="col-md-9">
+                                                                                    <input type="text" class="validate-inp form-control" name="workingat" placeholder="Working at" required>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="form-group">
                                                                                 <label class="col-md-3 control-label">City<span class="required" aria-required="true"> * </span></label>
                                                                                 <div class="col-md-9">
                                                                                     <select class="form-control city" name="city">
@@ -165,6 +181,7 @@
                                                                                     </select>
                                                                                 </div>
                                                                             </div>
+                                                                            
                                                                             <div class="form-group">
                                                                                 <label class="col-md-3 control-label">Introduction</label>
                                                                                 <div class="col-md-9">
@@ -196,6 +213,15 @@
                                                                                 </div>
                                                                             </div>
                                                                             <div class="form-group">
+                                                                                <label class="col-md-3 control-label">Relationship<span class="required" aria-required="true"> * </span></label>
+                                                                                <div class="col-md-9">
+                                                                                    <select class="form-control " name="relationship">
+                                                                                        <option value="0">Độc thân</option>
+                                                                                        <option value="1">Đang hẹn hò</option>
+                                                                                    </select>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="form-group">
                                                                                 <label class="col-md-3 control-label">Phone<span class="required" aria-required="true"> * </span></label>
                                                                                 <div class="col-md-9">
                                                                                     <input type="text" name="phone" placeholder="Phone" required class="validate-inp form-control">
@@ -213,11 +239,20 @@
                                                                                     <input type="text" name="skype" placeholder="Skype ID" class="validate-inp form-control">
                                                                                 </div>
                                                                             </div>
+                                                                            <div class="form-group">
+                                                                                <label class="col-md-3 control-label">Status</label>
+                                                                                <div class="col-md-9">
+                                                                                    <select class="form-control " name="status">
+                                                                                        <option value="1">Active</option>
+                                                                                        <option value="0">Inactive</option>
+                                                                                    </select>
+                                                                                </div>
+                                                                            </div>
                                                                             <div class="form-group dragAndDrop">
                                                                                 <label class="col-md-3 control-label">Avatar</label>
                                                                                 <div class="col-md-9 dragDropInp">
                                                                                     <label for="inpAvatar" class="dragdrop" id="lbDropZone">Drag to upload or Browse</label>
-                                                                                    <input type="file" accept="image/*" name="avatar" id="inpAvatar" class="validate-inp dragdrop">
+                                                                                    <input type="file" accept="image/*" name="avatar" id="inpAvatar" class="validate-inp dragdrop" has-data="false">
                                                                                 </div>
                                                                                 <div class="dragDropPrv col-md-9">
                                                                                     <a href="javascript:;" class="cancelAva" id="cancelUpload"><i class="fa fa-remove"></i></a>

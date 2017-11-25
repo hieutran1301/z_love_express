@@ -78,6 +78,10 @@ function openModal(obj){
                 var intro       = data.Introduction;
                 var birthPlace  = data.PlaceOfBirth;
                 var avatar      = data.Avatar;
+                var job         = data.Working;
+                var workingat   = data.WorkingAt;
+                var status      = data.Status;
+                var relationship= data.Relationship;
 
                 $('input[name=username]').val(username);
                 $('input[name=password]').val(pass);
@@ -91,6 +95,11 @@ function openModal(obj){
                 $('select[name=birthplace]').val(birthPlace);
                 $('select[name=gender]').val(gender);
                 $('textarea[name=introduction]').val(intro);
+                $('select[name=city]').val(currPlace);
+                $('select[name=job]').val(job);
+                $('select[name=relationship]').val(relationship);
+                $('select[name=status]').val(status);
+                $('input[name=workingat]').val(workingat);
                 if (avatar != ''){
                     path = avatar.split('\\');
                     avatar = './../'+path[1]+'/'+path[2];

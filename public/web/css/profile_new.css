@@ -96,3 +96,9 @@
             border-radius: 15px;
         }
 
+#Notfound{
+    text-align: center;
+    color: #666;
+    margin:  25% 0;
+}
+
