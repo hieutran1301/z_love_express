@@ -1,7 +1,7 @@
 .messenger{
 	margin-bottom: -25px;
 }
-
+/*Chat menu under nav-bar*/
 .messenger .chat-menu{
 	margin-top: 60px;
     border-bottom: 1px solid #d8d8d8;
@@ -43,12 +43,20 @@
 	color: #ee2b80;
 }
 
+/*Chat menu under nav-bar*/
+
+/*Messenger main*/
+
 .messenger .chat-main{
-	height: 100vh;
+	height: 80vh;
 }
 .messenger .chat-main .row{
 	height: 100%;
 }
+/*Messenger main*/
+
+
+/*Messenger List*/
 
 .messenger .chat-main .chat-list{
 	border-right: 1px solid #d8d8d8;
@@ -97,18 +105,140 @@
 	margin-bottom: 10px;
 }
 
+/*Messenger List*/
+
+/*Messenger Screen chat*/
+
 .messenger .chat-main .chat-screen{
     height: 100%;
 }
 
+.messenger .chat-main .chat-screen .chat_content_all{
+	height: 90%;
+	overflow: auto;
+}
+
+.messenger .chat-main .chat-screen .chat_screen_avatar{
+	text-align: center;
+	margin-top: 20px;
+}
+
+.messenger .chat-main .chat-screen .chat_screen_avatar img{
+	width: 200px;
+	height: 200px;
+	border-radius: 100%;
+}
+.messenger .chat-main .chat-screen .chat_screen_avatar .Numberheart{
+	margin-top: -20px;
+	margin-bottom: 20px;
+}
+
+.messenger .chat-main .chat-screen .chat_screen_avatar button{
+	background-color: #ee2b80;
+    color: #fff;
+ 	border-top-right-radius: 10px;
+	border-top-left-radius: 10px;
+	border-bottom-right-radius: 10px;
+	border-bottom-left-radius: 10px;
+	height: 40px;
+	width: 100px;
+
+}
+
+.messenger .chat-main .chat-screen .chat_screen_avatar .description{
+	width: 300px;
+	margin-right: auto;
+	margin-left: auto;
+	text-align: justify;
+	display: inline-block;
+}
+.messenger .chat-main .chat-screen .chat-content{
+    overflow-x: hidden;
+}
+
+
+.messenger .chat-main .chat-screen .chat-content .send{
+	text-align: right;
+}
+.messenger .chat-main .chat-screen .chat-content .send img{
+	height: 30px;
+	width: 30px;
+	border-radius: 100%;
+	float: right;
+	margin-left: 5px;
+	margin-top: 15px;
+}
+.messenger .chat-main .chat-screen .chat-content .send > p{
+	max-width: 500px;
+	text-align: justify;
+	display: inline-block;
+	background-color: #ee2b80;
+	color: #fff;
+	border-top-right-radius: 15px;
+	border-top-left-radius: 15px;
+	border-bottom-right-radius: 15px;
+	border-bottom-left-radius: 15px;
+	margin-top: 10px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	padding-right: 10px;
+	padding-left: 10px;
+}
+
+.messenger .chat-main .chat-screen .chat-content .send .seen{
+	text-align: right;
+	color: #6d6d6d;
+	margin-right: 40px;
+}
+
+.messenger .chat-main .chat-screen .chat-content .receive{
+	text-align: left;
+}
+
+.messenger .chat-main .chat-screen .chat-content .receive img{
+	height: 30px;
+	width: 30px;
+	border-radius: 100%;
+	margin-right: 5px;
+}
+
+.messenger .chat-main .chat-screen .chat-content .receive > p{
+	max-width: 500px;
+	text-align: justify;
+	display: inline-block;
+	background-color: #d6d6d6;
+	color: #000;
+	border-top-right-radius: 15px;
+	border-top-left-radius: 15px;
+	border-bottom-right-radius: 15px;
+	border-bottom-left-radius: 15px;
+	margin-top: 10px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	padding-right: 10px;
+	padding-left: 10px;
+}
+
+.messenger .chat-main .chat-screen .chat-content .receive .seen{
+	text-align: left;
+	color: #6d6d6d;
+	margin-left: 40px;
+}
+
 .messenger .chat-main .chat-screen .chat-form{
 	position: absolute;
-	bottom: 0px;
+	bottom: 20px;
 	border-top: 1px solid #d8d8d8;
 	width: 100%;
 	margin-left: -15px;
 	border-top-right-radius: 10px;
 	border-top-left-radius: 10px; 
+	text-align: center;	
+    overflow-x: hidden;
+}
+
+.messenger .chat-main .chat-screen .chat-form .camera{
+	margin-top: 10px;
 }
 
 .messenger .chat-main .chat-screen .chat-form a{
@@ -117,10 +247,27 @@
 	background-color: #fff;
 }
 
+.messenger .chat-main .chat-screen .chat-form .messages{
+	margin-left: -15px;
+	margin-top: 10px
+}
+
 .messenger .chat-main .chat-screen .chat-form button{
 	width: 100%;
 	background-color: #6d6d6d;
+	color: #fff;
+	border-top-right-radius: 20px;
+	border-top-left-radius: 20px;
+	border-bottom-right-radius: 20px;
+	border-bottom-left-radius: 20px;
+	margin-right: 30px;
+	margin-top: 10px;
+	text-align: center;
 }
+
+/*Messenger Screen chat*/
+
+/*Messenger Chat Action*/
 
 .messenger .chat-main .chat_action{
 	border-left: 1px solid #d8d8d8;
