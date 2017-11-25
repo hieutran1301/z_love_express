@@ -21,8 +21,17 @@ if (csrf != null || csrf != undefined) {
 $(document).ready(function(){
 	//get userid
 	USERID = $('input[name=_userid]').val();
-	
+	$('#btnSave').click(function(){
+		saveBasicInfo();
+	});
 });
+
+function saveBasicInfo(){
+	// should be validate form before submit ;)
+	var form = $('#frmBasicInfo');
+	// < validate with form[0] >
+	form.find(':submit').click();
+}
 
 
 function changeStateInp(obj){
