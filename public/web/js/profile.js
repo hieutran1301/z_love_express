@@ -21,7 +21,7 @@ if (csrf != null || csrf != undefined) {
 $(document).ready(function(){
 	//get userid
 	USERID = $('input[name=_userid]').val();
-
+	
 });
 
 
@@ -40,6 +40,8 @@ function changeStateInp(obj){
 			actBtn.show();
 		}
 		else{
+			var defaulVal = _this.html();
+			_this.next().val(defaulVal);
 			_this.removeClass('hidden');
 			_this.next().addClass('hidden');
 			actBtn.hide();	
