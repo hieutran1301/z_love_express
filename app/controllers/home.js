@@ -56,6 +56,29 @@ router.get('/profile', function(req, res, next){
     });
 });
 
+router.post('/profile-new', function(req, res, next){
+  var userID    = req.session.homeuserid;
+  var gender    = req.body.sltGender;
+  var birthday  = req.body.inpBirthday;
+  var crrPlace  = req.body.sltCurrPlace;
+  var relation  = req.body.sltRela;
+  var working   = req.body.sltWorking;
+  var workingat = req.body.inpWorkingPlace;
+
+  user.updateOne({_id: userID}, {
+    Gender        : gender,
+    DateOfBirth   : birthday,
+    CurrentPlace  : crrPlace,
+    Relationship  : relation,
+    Working       : working,
+    WorkingAt     : workingat
+  }, function(err, result){
+    if(err) throw err;
+    req.flash('saveBasicInfo', 'success');
+    res.redirect('/home/profile-new');
+  });
+});
+
 router.get('/profile-new', function(req, res, next){
   var userID = req.session.homeuserid;
   user.findOne({_id: userID}, function(err, data){
@@ -68,6 +91,7 @@ router.get('/profile-new', function(req, res, next){
         title: 'Profile',
         csrf: req.csrfToken(),
         userid: req.session.homeuserid,
+        message: req.flash('saveBasicInfo'),
         self: true,
         data: {
           fullname    : data.FirstName+' '+data.LastName,
@@ -104,13 +128,15 @@ router.get('/profile-new/:username', function(req, res, next){
           title: 'Profile',
           csrf: req.csrfToken(),
           userid: req.session.homeuserid,
+          message: req.flash('saveBasicInfo'),
           self: self,
           data: {
             fullname    : data.FirstName+' '+data.LastName,
             age         : data.getAge(),
             birthday    : data.DateOfBirth,
             relation    : data.Relationship,
-            gender      : data.getGender(),
+            gender      : data.Gender,
+            txtgender   : data.getGender(),
             crrPlace    : data.getCity(data.CurrentPlace),
             working     : data.Working,
             txtworking  : data.getWorking(),
