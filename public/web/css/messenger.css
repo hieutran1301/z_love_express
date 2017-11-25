@@ -1,3 +1,7 @@
+.messenger{
+	margin-bottom: -25px;
+}
+
 .messenger .chat-menu{
 	margin-top: 60px;
     border-bottom: 1px solid #d8d8d8;
@@ -49,6 +53,7 @@
 .messenger .chat-main .chat-list{
 	border-right: 1px solid #d8d8d8;
 	margin-top: 60px;
+	height: 100%;
 }
 
 .messenger .chat-main .chat-list .chat_users{
@@ -93,16 +98,33 @@
 }
 
 .messenger .chat-main .chat-screen{
-	border-left: 1px solid #d8d8d8;
-    border-right: 1px solid #d8d8d8;
     height: 100%;
 }
 
 .messenger .chat-main .chat-screen .chat-form{
+	position: absolute;
+	bottom: 0px;
+	border-top: 1px solid #d8d8d8;
+	width: 100%;
+	margin-left: -15px;
+	border-top-right-radius: 10px;
+	border-top-left-radius: 10px; 
+}
+
+.messenger .chat-main .chat-screen .chat-form a{
+	font-size: 30px;
+	color: #000;
+	background-color: #fff;
+}
+
+.messenger .chat-main .chat-screen .chat-form button{
+	width: 100%;
+	background-color: #6d6d6d;
 }
 
 .messenger .chat-main .chat_action{
 	border-left: 1px solid #d8d8d8;
+	height: 100%;
 }
 
 .messenger .chat-main .chat_action i{
