@@ -180,6 +180,8 @@ function resetForm(formID){
 	var form 	= $('#'+formID);
 	var	input 	= form.find('input');
 	var txtarea = form.find('textarea');
+	var select  = form.find('select');
+
 	input.each(function(){
 		var $this = $(this);
 		$this.val('');
@@ -187,6 +189,10 @@ function resetForm(formID){
 	txtarea.each(function(){
 		var $this = $(this);
 		$this.val('');
+	});
+	select.each(function(){
+		var _this = $(this);
+		_this.find('option').first().attr('selected', true);
 	});
 }
 

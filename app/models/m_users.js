@@ -13,7 +13,9 @@ var usersSchema = mongoose.Schema({
     "FirstName" : String,
     "LastName" : String,
     "Gender" : Number,
-    "Working" : String,
+    "Working" : Number,
+    "WorkingAt" : String,
+    "Relationship": Number,
     "Phone" : String,
     "Facebook" : String,
     "Skype" : String,
@@ -64,6 +66,18 @@ usersSchema.methods.getAvatar = function(){
     var dir = this.Avatar;
     dir     = dir.split('\\');
     return '../../uploads/'+dir[2];
+}
+
+usersSchema.methods.getWorking = function(){
+    if(this.Working == 0){
+        return "Sinh viên";
+    }
+    if(this.Working == 1){
+        return "Đang đi làm";
+    }
+    if(this.Working == 2){
+        return "Đang tìm việc";
+    }
 }
 
 

@@ -73,11 +73,13 @@ router.get('/profile-new', function(req, res, next){
           fullname    : data.FirstName+' '+data.LastName,
           age         : data.getAge(),
           birthday    : data.DateOfBirth,
-          relation    : "Độc thân",
-          gender      : data.getGender(),
+          relation    : data.Relationship,
+          gender      : data.Gender,
+          txtgender   : data.getGender(),
           crrPlace    : data.getCity(data.CurrentPlace),
           working     : data.Working,
-          workingat   : "ĐH Công nghệ thông tin - ĐHQG HCM",
+          txtworking  : data.getWorking(),
+          workingat   : data.WorkingAt,
           avatar      : data.getAvatar(),
           cities      : cities,
           noCrrPlace  : data.CurrentPlace
@@ -96,26 +98,34 @@ router.get('/profile-new/:username', function(req, res, next){
       res.redirect('/home/');
     }
     else{
-      if (data._id == req.session.homeuserid) self = true;
-      res.render('web/pages/profile_new', {
-        title: 'Profile',
-        csrf: req.csrfToken(),
-        userid: req.session.homeuserid,
-        self: self,
-        data: {
-          fullname    : data.FirstName+' '+data.LastName,
-          age         : data.getAge(),
-          birthday    : data.DateOfBirth,
-          relation    : "Độc thân",
-          gender      : data.getGender(),
-          crrPlace    : data.getCity(data.CurrentPlace),
-          working     : data.Working,
-          workingat   : "ĐH Công nghệ thông tin - ĐHQG HCM",
-          avatar      : data.getAvatar(),
-          cities      : cities,
-          noCrrPlace  : data.CurrentPlace
-        }
-      });
+      if (data.Status == 1){
+        if (data._id == req.session.homeuserid) self = true;
+        res.render('web/pages/profile_new', {
+          title: 'Profile',
+          csrf: req.csrfToken(),
+          userid: req.session.homeuserid,
+          self: self,
+          data: {
+            fullname    : data.FirstName+' '+data.LastName,
+            age         : data.getAge(),
+            birthday    : data.DateOfBirth,
+            relation    : data.Relationship,
+            gender      : data.getGender(),
+            crrPlace    : data.getCity(data.CurrentPlace),
+            working     : data.Working,
+            txtworking  : data.getWorking(),
+            workingat   : data.WorkingAt,
+            avatar      : data.getAvatar(),
+            cities      : cities,
+            noCrrPlace  : data.CurrentPlace
+          }
+        });
+      }
+      else{
+        res.render('web/pages/profile_notfound', {
+          title: 'Profile not found',
+        });
+      }
     }
   });
 });
