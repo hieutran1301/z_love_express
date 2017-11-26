@@ -73,9 +73,15 @@ router.post('/profile-new', function(req, res, next){
     Working       : working,
     WorkingAt     : workingat
   }, function(err, result){
-    if(err) throw err;
-    req.flash('saveBasicInfo', 'success');
-    res.redirect('/home/profile-new');
+    if(err) {
+      req.flash('saveBasicInfo', 'fail');
+      throw err;
+      res.redirect('/home/profile-new');
+    }
+    else{
+      req.flash('saveBasicInfo', 'success');
+      res.redirect('/home/profile-new');
+    }
   });
 });
 
