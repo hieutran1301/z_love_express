@@ -200,7 +200,7 @@ router.post('/add', upload.single('avatar'), function(req, res, next){
 					"Introduction" : data.introduction,
 					"PlaceOfBirth" : data.birthplace,
 					"CreatedDate" : createdDate,
-					"Avatar" : path,
+					"Avatar" : '',
 					"Status" : data.status
 				});
 
