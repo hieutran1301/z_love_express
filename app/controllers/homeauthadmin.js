@@ -115,16 +115,6 @@ router.post('/signup', function (req, res, next) {
     });
   }
 
-  if(day != 0){
-    req.flash('signupMessage', 'abcd');
-    console.log("fail");
-    res.render('web/pages/signup', {
-      title: 'Zlove | Login',
-      city		: city,
-      message: req.flash('signupMessage'),
-      csrf 		: req.csrfToken()
-    });
-  }
 });
 
 

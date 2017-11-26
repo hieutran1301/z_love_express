@@ -30,3 +30,16 @@ router.post('/checkusername', function (req, res, next) {
     }
   });
 });
+
+router.post('/checkemail', function (req, res, next) {
+  var email = req.body.email;
+
+  user.findOne({Email: email}, function (err, data) {
+    if(!data){
+      res.send('emailSuccess');
+    }else {
+      res.send('emailFail');
+    }
+  })
+});
+

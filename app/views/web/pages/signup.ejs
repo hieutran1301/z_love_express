@@ -125,18 +125,19 @@
 							</div>
 	  						<div class="form-group">
 								<label for="inputMail">Mật khẩu:</label>
-	   							<input type="password" class="form-control" id="inputPass" name="password" placeholder="Mật khẩu" required>
+	   							<input type="password" class="form-control" id="pass" name="password" placeholder="Mật khẩu" required>
 	   						</div>
 							<div class="form-group">
 								<label for="inputMail">Nhập lại mật khẩu:</label>
-								<input type="password" class="form-control" id="inputPass" name="repeatpassword" placeholder="Nhập lại mật khẩu" required>
+								<input type="password" class="form-control" id="re-pass" name="repeatpassword" placeholder="Nhập lại mật khẩu" required>
 							</div>
-                <% if(message.length > 0) { %>
+                            <% if(message.length > 0) { %>
                                 <div class="message">
                                   <span><%= message %></span>
                                 </div>
-                <% } %>
-							<button type="submit" class="btn-signup">Đăng kí</button>
+                            <% } %>
+              <button type="button" class="btn-signup" id="button">Đăng kí</button>
+							<button type="submit" class="btn-signup hidden">Đăng kí</button>
 							<p>Lorem ipsum dolor sit amet</p>
 						</form>
 					</div>
@@ -146,6 +147,5 @@
 		<script src="<%= local.setting.basepath %>web/js/signup.js"></script>
 		<script type="text/javascript">
             window.load = FillDay();
-            //window.load = CountTime();
 		</script>
 <% include ../include/footer %>
