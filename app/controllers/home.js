@@ -25,7 +25,8 @@ router.get('/signup', function(req, res, next){
 router.get('/homepage', function(req, res, next){
   res.render('web/pages/homepage', {
       title: 'Homepage',
-      csrf 		: req.csrfToken()
+      csrf 		: req.csrfToken(),
+      script 	: null
     });
 });
 
@@ -163,7 +164,8 @@ router.get('/', function (req, res, next) {
      {
       title: 'Zlove',
       articles: articles,
-         csrf 		: req.csrfToken()
+       csrf 		: req.csrfToken(),
+       script 	: null
     });
   });
 });

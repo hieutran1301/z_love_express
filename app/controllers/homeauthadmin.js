@@ -104,42 +104,27 @@ router.post('/signup', function (req, res, next) {
 	var password		    = req.body.password;
 	var repeatpassword	= req.body.repeatpassword;
 
-  users.findOne({Username: username}, function(err, data){
-    console.log(username);
-    //if has err, throw error
-    if (err) {
-      console.log(err);
-      req.flash('signupMessage', 'Something went wrong! Try again.');
-      res.render('web/pages/signup', {
-        title: 'Zlove | Login',
-        messages: req.flash('signupMessage'),
-        csrf 		: req.csrfToken()
-      });
-      return 0;
-    }
-    //if data == null => user not found
-    if (!data) {
-      req.flash('signupMessage', 'User not found.');
-      console.log("not found");
-      res.render('web/pages/signup', {
-        title: 'Zlove | Login',
-        messages: req.flash('signupMessage'),
-        csrf 		: req.csrfToken()
-      });
-      return 0;
-    }
+  if(day != 0){
+    req.flash('signupMessage', 'abcd');
+    console.log("fail");
+    res.render('web/pages/signup', {
+      title: 'Zlove | Login',
+      city		: city,
+      message: req.flash('signupMessage'),
+      csrf 		: req.csrfToken()
+    });
+  }
 
-    //done
-    console.log("done");
-    //set session auth = true to another routes checking
-    //BE CAREFUL: because session is storaged in browser, in homepage can get session.authenticated too.
-    //In homepage, should you use other session, exp: session.homepageauth, ...
-    req.session.homeauthenticated = true;
-    req.session.homeuserid = data._id;
-    console.log(req.session.homeuserid);
-    res.redirect('/home/');
-    return 0;
-  });
+  if(day != 0){
+    req.flash('signupMessage', 'abcd');
+    console.log("fail");
+    res.render('web/pages/signup', {
+      title: 'Zlove | Login',
+      city		: city,
+      message: req.flash('signupMessage'),
+      csrf 		: req.csrfToken()
+    });
+  }
 });
 
 
@@ -155,136 +140,8 @@ function isLoggedIn(req, res, next){
 	}
 }
 
-function CheckNull(req, res, next) {
-  if (firstname == '' || firstname == null){
-    req.flash('signupMessage', 'Bạn chưa nhập họ');
-    console.log("fail");
-    res.render('web/pages/signup', {
-      title: 'Zlove | Signup',
-      message: req.flash('signupMessage'),
-      csrf 		: req.csrfToken()
-    });
-    return 0;
-  }
 
-  if (lastname == '' || lastname == null){
-    req.flash('signupMessage', 'Bạn chưa nhập tên');
-    console.log("fail");
-    res.render('web/pages/signup', {
-      title: 'Zlove | Signup',
-      message: req.flash('signupMessage'),
-      csrf 		: req.csrfToken()
-    });
-    return 0;
-  }
 
-  if (sex == '' || sex == null){
-    req.flash('signupMessage', 'Bạn chưa chọn giới tính');
-    console.log("fail");
-    res.render('web/pages/signup', {
-      title: 'Zlove | Signup',
-      message: req.flash('signupMessage'),
-      csrf 		: req.csrfToken()
-    });
-    return 0;
-  }
-  if (work == '' || work == null){
-    req.flash('signupMessage', 'Bạn chưa nhập công việc');
-    console.log("fail");
-    res.render('web/pages/signup', {
-      title: 'Zlove | Signup',
-      message: req.flash('signupMessage'),
-      csrf 		: req.csrfToken()
-    });
-    return 0;
-  }
+function CheckPass(pass, repeatpass ) {
 
-  if (day == '' || day == null || day == 0){
-    req.flash('signupMessage', 'Bạn chưa nhập ngày sinh');
-    console.log("fail");
-    res.render('web/pages/signup', {
-      title: 'Zlove | Signup',
-      message: req.flash('signupMessage'),
-      csrf 		: req.csrfToken()
-    });
-    return 0;
-  }
-
-  if (month == '' || month == null || month == 0){
-    req.flash('signupMessage', 'Bạn chưa nhập tháng sinh');
-    console.log("fail");
-    res.render('web/pages/signup', {
-      title: 'Zlove | Signup',
-      message: req.flash('signupMessage'),
-      csrf 		: req.csrfToken()
-    });
-    return 0;
-  }
-
-  if (year == '' || year == null || year == 0){
-    req.flash('signupMessage', 'Bạn chưa nhập năm sinh');
-    console.log("fail");
-    res.render('web/pages/signup', {
-      title: 'Zlove | Signup',
-      message: req.flash('signupMessage'),
-      csrf 		: req.csrfToken()
-    });
-    return 0;
-  }
-
-  if (local == '' || local == null){
-    req.flash('signupMessage', 'Bạn chưa nhập nơi ở');
-    console.log("fail");
-    res.render('web/pages/signup', {
-      title: 'Zlove | Signup',
-      message: req.flash('signupMessage'),
-      csrf 		: req.csrfToken()
-    });
-    return 0;
-  }
-
-  if (email == '' || email == null){
-    req.flash('signupMessage', 'Bạn chưa nhập Email');
-    console.log("fail");
-    res.render('web/pages/signup', {
-      title: 'Zlove | Signup',
-      message: req.flash('signupMessage'),
-      csrf 		: req.csrfToken()
-    });
-    return 0;
-  }
-
-  if (username == '' || username == null){
-    req.flash('signupMessage', 'Bạn chưa nhập tên đăng nhập');
-    console.log("fail");
-    res.render('web/pages/signup', {
-      title: 'Zlove | Signup',
-      message: req.flash('signupMessage'),
-      csrf 		: req.csrfToken()
-    });
-    return 0;
-  }
-
-  if (password == '' || password == null){
-    req.flash('signupMessage', 'Bạn chưa nhập password');
-    console.log("fail");
-    res.render('web/pages/signup', {
-      title: 'Zlove | Signup',
-      message: req.flash('signupMessage'),
-      csrf 		: req.csrfToken()
-    });
-    return 0;
-  }
-
-  if (repeatpassword == '' || repeatpassword == null){
-    req.flash('signupMessage', 'Bạn chưa nhập password');
-    console.log("fail");
-    res.render('web/pages/signup', {
-      title: 'Zlove | Signup',
-      message: req.flash('signupMessage'),
-      csrf 		: req.csrfToken()
-    });
-    return 0;
-  }
 }
-

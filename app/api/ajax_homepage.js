@@ -18,3 +18,15 @@ router.post('/getuserbyid', function(req, res, next){
         }
     });
 });
+
+router.post('/checkusername', function (req, res, next) {
+  var username = req.body.username;
+
+  user.findOne({Username : username}, function (err, data) {
+    if(!data){
+      res.send('Success');
+    }else {
+      res.send('Fail');
+    }
+  });
+});
