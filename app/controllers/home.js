@@ -64,6 +64,8 @@ router.post('/profile-new', function(req, res, next){
   var relation  = req.body.sltRela;
   var working   = req.body.sltWorking;
   var workingat = req.body.inpWorkingPlace;
+  var firstname = req.body.inpFirstname;
+  var lastname  = req.body.inpLastname;
 
   user.updateOne({_id: userID}, {
     Gender        : gender,
@@ -71,7 +73,9 @@ router.post('/profile-new', function(req, res, next){
     CurrentPlace  : crrPlace,
     Relationship  : relation,
     Working       : working,
-    WorkingAt     : workingat
+    WorkingAt     : workingat,
+    FirstName     : firstname,
+    LastName      : lastname
   }, function(err, result){
     if(err) {
       req.flash('saveBasicInfo', 'fail');
@@ -100,6 +104,8 @@ router.get('/profile-new', function(req, res, next){
         message: req.flash('saveBasicInfo'),
         self: true,
         data: {
+          firstname   : data.FirstName,
+          lastname    : data.LastName,
           fullname    : data.FirstName+' '+data.LastName,
           age         : data.getAge(),
           birthday    : data.DateOfBirth,
@@ -125,7 +131,9 @@ router.get('/profile-new/:username', function(req, res, next){
   user.findOne({Username: username}, function(err, data){
     if (err) throw err;
     if (!data){
-      res.redirect('/home/');
+      res.render('web/pages/profile_notfound', {
+        title: 'Profile not found',
+      });
     }
     else{
       if (data.Status == 1){
@@ -137,6 +145,8 @@ router.get('/profile-new/:username', function(req, res, next){
           message: req.flash('saveBasicInfo'),
           self: self,
           data: {
+            firstname   : data.FirstName,
+            lastname    : data.LastName,
             fullname    : data.FirstName+' '+data.LastName,
             age         : data.getAge(),
             birthday    : data.DateOfBirth,

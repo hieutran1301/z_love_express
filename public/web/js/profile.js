@@ -24,6 +24,8 @@ $(document).ready(function(){
 	$('#btnSave').click(function(){
 		saveBasicInfo();
 	});
+
+	$('#myModal').modal('show');
 });
 
 function saveBasicInfo(){
@@ -39,6 +41,7 @@ function changeStateInp(obj){
 	var form 	= $('#'+formID);
 	var spInp	= form.find('.span-inp');
 	var spSlt	= form.find('.span-select');
+	var grinp	= form.find('.span-gr-inp');
 	var actBtn  = $('.act-button');
 
 	spInp.each(function(){
@@ -66,6 +69,23 @@ function changeStateInp(obj){
 		else{
 			var defaultVal = _this.next().attr('default-value');
 			_this.next().val(defaultVal);
+			_this.removeClass('hidden');
+			_this.next().addClass('hidden');
+		}
+	});
+
+	grinp.each(function(){
+		var _this = $(this);
+		if (_this.is(':visible')){
+			_this.addClass('hidden');
+			_this.next().removeClass('hidden');
+		}
+		else{
+			var _inp = _this.next().find('input');
+			_inp.each(function(){
+				var defaultVal = $(this).attr('default-value');
+				$(this).val(defaultVal);
+			});
 			_this.removeClass('hidden');
 			_this.next().addClass('hidden');
 		}
