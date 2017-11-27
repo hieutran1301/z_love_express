@@ -2,6 +2,12 @@ $(window).resize(function(){
 	setLoveHeight();
 });
 
+window.onload = function () {
+  setTimeout(function () {
+    $('#Loading').fadeOut();
+  },300);
+};
+
 $(document).ready(function(){
 	setLoveHeight();
 });
@@ -16,10 +22,10 @@ $('.toggle-menu-dropdown').each(function(){
 		else{
 			var $this = $(this);
 			$('#'+dest).slideDown();
-			$(document).mouseup(function(e) 
+			$(document).mouseup(function(e)
 			{
 				var container = $('#'+dest);
-				if (!container.is(e.target) && container.has(e.target).length === 0) 
+				if (!container.is(e.target) && container.has(e.target).length === 0)
 				{
 					container.slideUp();
 				}
@@ -53,3 +59,4 @@ function parseUploadPath(path){
 	path = path.split('\\');
 	return path[2];
 }
+

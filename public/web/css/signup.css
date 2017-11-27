@@ -1,3 +1,7 @@
+.input-red{
+  border-color: red !important;
+}
+
 button{
 	height: 40px;
 	border-top-left-radius: 20px;
@@ -75,8 +79,8 @@ body > button{
 	-webkit-transition: all 0.15s ease-in 0s;
 	   -moz-transition: all 0.15s ease-in 0s;
 		 -o-transition: all 0.15s ease-in 0s;
-			transition: all 0.15s ease-in 0s; 
-	width: 140px; 
+			transition: all 0.15s ease-in 0s;
+	width: 140px;
 }
 
 .btn-signinfb i{
@@ -216,7 +220,7 @@ select{
 		margin-right: 120px;
 	}
     .intro{
-        height: 850px;
+        height: 1000px;
     }
 	button.align-right:hover{
 	background-color: #e02476;
@@ -227,13 +231,13 @@ select{
 		-webkit-transition: all 0.15s ease-in 0s;
 	   	   -moz-transition: all 0.15s ease-in 0s;
 		 	 -o-transition: all 0.15s ease-in 0s;
-				transition: all 0.15s ease-in 0s; 
+				transition: all 0.15s ease-in 0s;
 	}
 	.signup{
 		margin-top: 0px;
 		position: absolute;
 		right: 0;
-        height: 850px;
+        height: 1000px;
 	}
 	.form-signup label,input{
 		margin-top: 0px;
