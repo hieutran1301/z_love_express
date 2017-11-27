@@ -45,7 +45,7 @@
 								<h4>ĐĂNG KÍ BẰNG EMAIL</h4>
 							</div>
 						</div>
-						<form method="post" action="http://localhost:3000/home-auth/signup">
+						<form id="FormSignup" method="post" action="http://localhost:3000/home-auth/signup">
               <input type="hidden" name="_csrf" value="<%= csrf %>">
 							<div class="row">
   								<div class="col-xs-6 col-md-6">
@@ -62,7 +62,7 @@
 								</div>
   								<div class="col-xs-6 col-md-6">
   								    <label for="inputSex">Giới tính:</label>
-    								<select id="Sex" name="sex" class="form-control">
+    								<select id="Sex" name="sex" class="form-control" >
     									<option value="0">Chọn</option>
     									<option value="1">Nam</option>
     									<option value="2">Nữ</option>
@@ -107,7 +107,7 @@
 	  							</div>
   								<div class="col-xs-5 col-md-5">
 	   							<label for="inputAim">Bạn đến đây để:</label>
-    								<select name="youarrive" class="form-control">
+    								<select id="Arrive" name="youarrive" class="form-control">
     									<option value="0">Chọn</option>
     									<option value="1">1</option>
     									<option value="2">2</option>
@@ -117,11 +117,11 @@
   							</div>
 	  						<div class="form-group">
 	   							<label for="inputMail">Địa chỉ email:</label>
-	   							<input type="email" class="form-control" id="inputMail" name="email" placeholder="Email" required>
+	   							<input type="email" class="form-control" id="Email" name="email" placeholder="Email" required>
 	   						</div>
 							<div class="form-group">
 								<label for="inputMail">Tên đăng nhập:</label>
-								<input type="text" class="form-control" id="inputMail" name="username" placeholder="Username" required>
+								<input type="text" class="form-control" id="userName" name="username" placeholder="Username" required>
 							</div>
 	  						<div class="form-group">
 								<label for="inputMail">Mật khẩu:</label>
@@ -137,7 +137,7 @@
                                 </div>
                             <% } %>
               <button type="button" class="btn-signup" id="button">Đăng kí</button>
-							<button type="submit" class="btn-signup hidden">Đăng kí</button>
+
 							<p>Lorem ipsum dolor sit amet</p>
 						</form>
 					</div>
@@ -147,5 +147,6 @@
 		<script src="<%= local.setting.basepath %>web/js/signup.js"></script>
 		<script type="text/javascript">
             window.load = FillDay();
+            window.load = checkNull();
 		</script>
 <% include ../include/footer %>
