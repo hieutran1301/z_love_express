@@ -175,17 +175,23 @@
             </div>
         </section>
 
-        <div id="cropImage" class="zmodal-backdrop">
+        <div id="cropImage" class="zmodal zmodal-backdrop">
             <div class="zmodal-wrap">
                 <div class="zmodal-header">
-                    <h3 class="zmodal-title">Editting</h3>
+                    <h5 class="zmodal-title">Editting</h5>
                     <span class="close-zmodal text-right"><i class="fa fa-remove" aria-hidden="true"></i></span>
                 </div>
                 <div class="zmodal-body">
-
+                    <div class="zmodal-loading">
+                        <img src="/web/images/heart.gif" alt="">
+                    </div>
+                    <div id="prvImg" class="hidden">
+                        <img src="" class="imgPreview">
+                    </div>
                 </div>
                 <div class="zmodal-footer">
-
+                    <button class="btn-cancel border-radius">Cancel</button>
+                    <button class="btn-save border-radius" id="btnSaveAvatar">Save</button>
                 </div>
             </div>
         </div>

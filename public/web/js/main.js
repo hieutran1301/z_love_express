@@ -60,3 +60,34 @@ function parseUploadPath(path){
 	return path[2];
 }
 
+function showModal(modalId){
+	if($('#'+modalId).is(':visible')){
+		return;
+	}
+	else{
+		$('#'+modalId).fadeIn();
+	}
+}
+
+function hideModal(modalId){
+	if($('#'+modalId).is(':visible')){
+		$('#'+modalId).fadeOut();
+	}
+	else{
+		return;
+	}
+}
+
+// $('.close-zmodal').each(function(){
+// 	var $this = $(this);
+// 	$this.click(function(e){
+// 		var modalId = $this.parents('.zmodal').attr('id');
+// 		hideModal(modalId);
+// 	});
+// });
+
+$('button[data-toggle=close-zmodal]').click(function(){
+	var $this = $(this);
+	var modalId = $this.parents('.zmodal').attr('id');
+	hideModal(modalId);
+});

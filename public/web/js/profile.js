@@ -1,14 +1,5 @@
 var AJAX_PATH = "../../../ajax-home/getuserbyid";
 
-var firstname 		= '',
-	lastname  		= '',
-	gender			= 1,
-	birthday 		= '',
-	currplace		= 1,
-	relationship 	= 0,
-	working 		= '',
-	workingplace    = 'University of Information Technology';
-
 var USERID = '';
 
 var csrf = $('input[name=_csrf]').val();
@@ -25,7 +16,48 @@ $(document).ready(function(){
 		saveBasicInfo();
 	});
 
-	$('#myModal').modal('show');
+	$('#inpUploadAvatar').change(function(){
+		var reader = new FileReader();
+
+		showModal('cropImage');
+
+		if(this.files && this.files[0]){
+
+			reader.onload = function(e){
+				$('#prvImg img').attr('src', e.target.result);
+				$('#prvImg img').cropper('destroy');
+				$('#prvImg').removeClass('hidden');
+				$('.zmodal-loading').addClass('hidden');
+
+				$('#prvImg img').cropper({
+					aspectRatio: 1/1,
+					crop: function(e){
+					}
+				});
+			}
+	
+			reader.readAsDataURL(this.files[0]);
+		}
+	});
+
+	$('.zmodal-footer .btn-cancel').click(function(){
+		var modalId = $(this).parents('.zmodal').attr('id');
+		$('#prvImg img').cropper('destroy');
+		$('#prvImg img').attr('scr', '');
+		$('.zmodal-loading').removeClass('hidden');
+		$('#prvImg').addClass('hidden');
+		hideModal(modalId);
+	});
+
+	$('#btnSaveAvatar').click(function(e){
+		$('#prvImg img').cropper('getCroppedCanvas').toBlob(function(data){
+			var formData = new FormData();
+
+			formData.append('croppedImage', blob);
+
+			
+		});
+	});
 });
 
 function saveBasicInfo(){
