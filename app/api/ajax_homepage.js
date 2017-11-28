@@ -3,6 +3,24 @@ router = express.Router(),
 mongoose = require('mongoose');
 
 var user = mongoose.model('zlove_users');
+var crypto = require('crypto');
+
+var path = require('path');
+let multer 	= require('multer');
+var storageCroppedImage = multer.diskStorage({
+	destination: './public/uploads/',
+	filename: function (req, file, cb) {
+	  crypto.pseudoRandomBytes(16, function (err, raw) {
+		if (err) return cb(err);
+  
+    // cb(null, raw.toString('hex') + path.extname(file.originalname));
+    cb(null, raw.toString('hex') + '.jpg');
+	  })
+	}
+  });
+let uploadCroppedImage 	= multer({
+  storage: storageCroppedImage,
+});
 
 module.exports = function (app, passport) {
     app.use('/ajax-home', router);
@@ -43,3 +61,27 @@ router.post('/checkemail', function (req, res, next) {
   })
 });
 
+router.post('/uploadavatarbycropper', uploadCroppedImage.single('croppedImage'), function(req, res, next){
+  var avatar = req.file;
+  var data   = req.body;
+  var userid = data.userId;
+
+  var path   = avatar.path;
+  if  (path){
+    user.updateOne({_id: userid}, {
+      "Avatar": path,
+    }, function(err, data){
+      if (err) throw err;
+      res.send({
+        status: 'success',
+        msg: 'Upload success'
+      });
+    });
+  }
+  else{
+    res.send({
+      status: 'err',
+      msg   : 'Can not upload'
+    });
+  }
+});

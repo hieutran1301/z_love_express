@@ -1,4 +1,5 @@
 var AJAX_PATH = "../../../ajax-home/getuserbyid";
+var AJAX_AVATAR = "../../../ajax-home/uploadavatarbycropper";
 
 var USERID = '';
 
@@ -24,8 +25,8 @@ $(document).ready(function(){
 		if(this.files && this.files[0]){
 
 			reader.onload = function(e){
-				$('#prvImg img').attr('src', e.target.result);
-				$('#prvImg img').cropper('destroy');
+				$('#cropperImg').attr('src', e.target.result);
+				$('#cropperImg').cropper('destroy');
 				$('#prvImg').removeClass('hidden');
 				$('.zmodal-loading').addClass('hidden');
 
@@ -42,20 +43,62 @@ $(document).ready(function(){
 
 	$('.zmodal-footer .btn-cancel').click(function(){
 		var modalId = $(this).parents('.zmodal').attr('id');
-		$('#prvImg img').cropper('destroy');
-		$('#prvImg img').attr('scr', '');
+		$('#cropperImg').cropper('destroy');
+		$('#cropperImg').attr('scr', '');
 		$('.zmodal-loading').removeClass('hidden');
 		$('#prvImg').addClass('hidden');
 		hideModal(modalId);
 	});
 
 	$('#btnSaveAvatar').click(function(e){
-		$('#prvImg img').cropper('getCroppedCanvas').toBlob(function(data){
+		$('#cropperImg').cropper('getCroppedCanvas', {fillColor: '#fff'}).toBlob(function(blob){
 			var formData = new FormData();
+			var userId 	 = $('input[name=_userid]').val();
 
 			formData.append('croppedImage', blob);
+			formData.append('userId', userId);
 
-			
+			$.ajax(AJAX_AVATAR, {
+				method: "POST",
+				data: formData,
+				processData: false,
+				contentType: false,
+				success: function(data){
+					if(data.status == 'success'){
+						swal({
+							title: "Thành công",
+							text: "Thay đổi ảnh đại diện thành công!",
+							type: "success"
+						}).then(function(result){
+							if (result.value){
+								window.location.href = window.location.href;
+							}
+						});
+					}
+					else{
+						swal({
+							title: "Oops!",
+							text: "Có gì đó sai sai rồi á! Thử lại nha!",
+							type: "warning"
+						}).then(function(result){
+							if (result.value){
+								window.location.href = window.location.href;
+							}
+						});
+					}
+				},
+				error: function(){
+					swal({
+						title: "Oops!",
+						text: "Có gì đó sai sai rồi á! Thử lại nha!",
+						type: "warning"
+					}).then(function(result){
+						if (result.value){
+							window.location.href = window.location.href;
+						}
+					});
+				} 
+			});
 		});
 	});
 });
