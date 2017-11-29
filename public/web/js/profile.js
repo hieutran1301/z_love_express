@@ -17,6 +17,10 @@ $(document).ready(function(){
 		saveBasicInfo();
 	});
 
+	$('[data-toggle="datepicker"]').datepicker({
+		format: 'dd/mm/yyyy'
+	});
+
 	$('#inpUploadAvatar').change(function(){
 		var reader = new FileReader();
 

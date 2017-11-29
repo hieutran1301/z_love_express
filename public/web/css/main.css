@@ -95,6 +95,30 @@ button{
     border-radius: 100%;
 }
 
+.btn-heart{
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    background-color: #fff;
+    color: #ee2b80;
+    font-size: 22px;
+    text-align: center;
+    border-radius: 100%;
+}
+
+.btn-heart span{
+    vertical-align: middle;
+}
+
+.btn-heart:hover,
+.btn-heart:focus{
+    background-color: #ee2b80;
+    color: #fff;
+    -webkit-transition: ease-in 0.15s all 0s;
+    -moz-transition: ease-in 0.15s all 0s;
+    transition: ease-in 0.15s all 0s;
+}
+
 .btn-startchat img{
     display: block;
     width: 40px;

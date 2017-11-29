@@ -16,6 +16,80 @@
       </div>
     </section>
 		<% include ../include/nav-bar %>
+	<!-- Huan's code -->
+	<section id="Slider">
+		<div class="container">
+			<div class="owl-carousel">
+				<div class="item">
+					<img src="/uploads/22a4f7e70ee27bc47540f2f3b5eb369c.jpg">
+					
+					<div class="act">
+						<h3>Trần Trọng Híu</h3>
+					</div>
+					<div class="act-button"><button class="btn-heart box-shadow"><span class="li_heart" aria-hidden="true"></span></button></div>
+				</div>
+				<div class="item">
+					<img src="/uploads/22a4f7e70ee27bc47540f2f3b5eb369c.jpg">
+
+					<div class="act">
+							<h3>Phạm Đăng Khoa</h3>
+						</div>
+						<div class="act-button"><button class="btn-heart box-shadow"><span class="li_heart" aria-hidden="true"></span></button></div>
+				</div>
+				<div class="item">
+					<img src="/uploads/22a4f7e70ee27bc47540f2f3b5eb369c.jpg">
+					
+					<div class="act">
+						<h3>Trần Trọng Híu</h3>
+					</div>
+					<div class="act-button"><button class="btn-heart box-shadow"><span class="li_heart" aria-hidden="true"></span></button></div>
+				</div>
+				<div class="item">
+					<img src="/uploads/22a4f7e70ee27bc47540f2f3b5eb369c.jpg">
+
+					<div class="act">
+							<h3>Phạm Đăng Khoa</h3>
+						</div>
+						<div class="act-button"><button class="btn-heart box-shadow"><span class="li_heart" aria-hidden="true"></span></button></div>
+				</div>
+				<div class="item">
+					<img src="/uploads/22a4f7e70ee27bc47540f2f3b5eb369c.jpg">
+					
+					<div class="act">
+						<h3>Trần Trọng Híu</h3>
+					</div>
+					<div class="act-button"><button class="btn-heart box-shadow"><span class="li_heart" aria-hidden="true"></span></button></div>
+				</div>
+				<div class="item">
+					<img src="/uploads/22a4f7e70ee27bc47540f2f3b5eb369c.jpg">
+
+					<div class="act">
+							<h3>Phạm Đăng Khoa</h3>
+						</div>
+						<div class="act-button"><button class="btn-heart box-shadow"><span class="li_heart" aria-hidden="true"></span></button></div>
+				</div>
+				<div class="item">
+					<img src="/uploads/22a4f7e70ee27bc47540f2f3b5eb369c.jpg">
+					
+					<div class="act">
+						<h3>Trần Trọng Híu</h3>
+					</div>
+					<div class="act-button"><button class="btn-heart box-shadow"><span class="li_heart" aria-hidden="true"></span></button></div>
+				</div>
+				<div class="item">
+					<img src="/uploads/22a4f7e70ee27bc47540f2f3b5eb369c.jpg">
+
+					<div class="act">
+							<h3>Phạm Đăng Khoa</h3>
+						</div>
+						<div class="act-button"><button class="btn-heart box-shadow"><span class="li_heart" aria-hidden="true"></span></button></div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- End of Huan's code -->
+
+
 		<div class="container">
 			<div class="love_bar" id="love_bar1">
 				<div class="row">
@@ -170,6 +244,27 @@
 				</div>
 			</div>
 		</div>
+
+		<script>
+			$('.owl-carousel').owlCarousel({
+				loop:true,
+				margin:0,
+				nav:true,
+				autoplayTimeout:2000,
+				autoplay: true,
+				responsive:{
+					0:{
+						items:1
+					},
+					600:{
+						items:3
+					},
+					1000:{
+						items:4
+					}
+				}
+			})
+		</script>
 
 
 <% include ../include/footer-main %>
