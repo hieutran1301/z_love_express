@@ -16,7 +16,7 @@ var storage = multer.diskStorage({
 	filename: function (req, file, cb) {
 	  crypto.pseudoRandomBytes(16, function (err, raw) {
 		if (err) return cb(err);
-  
+
 		cb(null, raw.toString('hex') + path.extname(file.originalname));
 	  })
 	}
@@ -55,7 +55,7 @@ router.post('/', function(req, res, next){
 		var id = req.body.id;
 		var path = '';
 		user.findOne({_id: id}, function(err, result){
-			
+
 			path = result.Avatar;
 			console.log('ava path: '+path);
 			if(path != ''){
@@ -130,7 +130,7 @@ router.post('/', function(req, res, next){
 router.post('/add', upload.single('avatar'), function(req, res, next){
 	var avatar 		= req.file;
 	var data 		= req.body;
-	
+
 	if (avatar){
 		var path 		= avatar.path;
 		var now 		= new Date();
@@ -207,7 +207,7 @@ router.post('/add', upload.single('avatar'), function(req, res, next){
 				newUser.save(function(err, result){
 					if (err) throw err;
 					if(result._id){
-						res.sendStatus(200);
+
 					}
 					else{
 						res.sendStatus(501);
@@ -223,7 +223,7 @@ router.post('/edit-user', upload.single('avatar'), function(req, res, next){
 	var data 		= req.body;
 
 	var id 			= data.id;
-	
+
 	if (avatar){
 		var path 		= avatar.path;
 
