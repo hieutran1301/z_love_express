@@ -106,8 +106,8 @@
 	  								</div>
 	  							</div>
   								<div class="col-xs-5 col-md-5">
-	   							<label for="inputAim">Bạn đến đây để:</label>
-    								<select id="Arrive" name="youarrive" class="form-control">
+	   							<label class="hidden" for="inputAim">Bạn đến đây để:</label>
+    								<select id="Arrive" name="youarrive" class="form-control hidden">
     									<option value="0">Chọn</option>
     									<option value="1">1</option>
     									<option value="2">2</option>
@@ -133,7 +133,9 @@
 							</div>
                             <% if(message.length > 0) { %>
                                 <div class="message">
-                                  <span><%= message %></span>
+                                  <script>
+                                    swal('Success','Đăng kí thành công','success');
+                                  </script>
                                 </div>
                             <% } %>
               <button type="button" class="btn-signup" id="button">Đăng kí</button>

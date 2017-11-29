@@ -71,7 +71,7 @@ router.post('/login', function(req, res, next){
 			res.render('web/pages/login', {
 				title: 'Zlove | Login',
 				message: req.flash('loginMessage'),
-                csrf 		: req.csrfToken()
+        csrf 		: req.csrfToken()
 			});
 			return 0;
 		}
@@ -104,17 +104,51 @@ router.post('/signup', function (req, res, next) {
 	var password		    = req.body.password;
 	var repeatpassword	= req.body.repeatpassword;
 
-  if(day != 0){
-    req.flash('signupMessage', 'abcd');
-    console.log("fail");
-    res.render('web/pages/signup', {
-      title: 'Zlove | Login',
-      city		: city,
-      message: req.flash('signupMessage'),
-      csrf 		: req.csrfToken()
-    });
-  }
+  var now 		= new Date();
+  var saltRounds 	= 8;
+  var plainPass 	= password;
+  var createdDate = ''+now.getDate()+'/'+(now.getMonth()+1)+'/'+now.getFullYear();
+  var birthday = day + '/' + month + '/' + year;
 
+  bcrypt.genSalt(saltRounds, function(err, salt) {
+    bcrypt.hash(plainPass, salt, function (err, hash) {
+      newUser = new users({
+        "Username": username,
+        "Password": hash,
+        "Email": email,
+        "DateOfBirth": birthday,
+        "CurrentPlace": local + 1,
+        "FirstName": firstname,
+        "LastName": lastname,
+        "Gender": sex,
+        "Working": work,
+        "WorkingAt": '',
+        "Relationship": '',
+        "Phone": '',
+        "Facebook": '',
+        "Skype": '',
+        "Introduction": '',
+        "PlaceOfBirth": '',
+        "CreatedDate": createdDate,
+        "Avatar": '',
+        "Status": 1
+      });
+
+      newUser.save(function (err, result) {
+        if (err) throw err;
+        if (result._id) {
+          req.flash('signupMessage', 'Success');
+          console.log("success");
+          res.render('web/pages/signup', {
+            title		: 'Zlove | Signup',
+            csrf 		: req.csrfToken(),
+            city		: city,
+            message 	: req.flash('signupMessage')
+          });
+        }
+      });
+    });
+  });
 });
 
 
@@ -128,10 +162,4 @@ function isLoggedIn(req, res, next){
 	else{
 		res.redirect('/home/');
 	}
-}
-
-
-
-function CheckPass(pass, repeatpass ) {
-
 }
