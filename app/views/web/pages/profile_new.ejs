@@ -6,6 +6,7 @@
 
 </head>
 <body>
+    <% include ../include/loading %>
 		<% include ../include/nav-bar %>
         <% if(message.length > 0) {%>
             <% if (message == 'success') {%>
@@ -33,7 +34,7 @@
                                 <button class="btn-startchat"><img src="/web/images/chat-icon-64x64.png"></button>
                             <%}%>
                         </div>
-                        
+
                         <div class="username">
                             <h3><%= data.fullname %></h3>
                             <h5><%= data.age %> tuổi</h5>
@@ -197,7 +198,7 @@
                 </div>
             </div>
         </div>
-		
+
         <% include ../include/footer-main %>
 
         <input class="hidden" value="<%=csrf%>" name="_csrf">

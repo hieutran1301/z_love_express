@@ -110,45 +110,74 @@ router.post('/signup', function (req, res, next) {
   var createdDate = ''+now.getDate()+'/'+(now.getMonth()+1)+'/'+now.getFullYear();
   var birthday = day + '/' + month + '/' + year;
 
-  bcrypt.genSalt(saltRounds, function(err, salt) {
-    bcrypt.hash(plainPass, salt, function (err, hash) {
-      newUser = new users({
-        "Username": username,
-        "Password": hash,
-        "Email": email,
-        "DateOfBirth": birthday,
-        "CurrentPlace": local + 1,
-        "FirstName": firstname,
-        "LastName": lastname,
-        "Gender": sex,
-        "Working": work,
-        "WorkingAt": '',
-        "Relationship": '',
-        "Phone": '',
-        "Facebook": '',
-        "Skype": '',
-        "Introduction": '',
-        "PlaceOfBirth": '',
-        "CreatedDate": createdDate,
-        "Avatar": '',
-        "Status": 1
+  users.findOne({Username:username}, function (err, data) {
+    if(err){
+      console.log(err);
+      req.flash('signupMessage', 'Something went wrong! Try again.');
+      res.render('web/pages/signup', {
+        title: 'Zlove | Signup',
+        message: req.flash('signupMessage'),
+        csrf 		: req.csrfToken(),
+        city : city
       });
-
-      newUser.save(function (err, result) {
-        if (err) throw err;
-        if (result._id) {
-          req.flash('signupMessage', 'Success');
-          console.log("success");
-          res.render('web/pages/signup', {
-            title		: 'Zlove | Signup',
-            csrf 		: req.csrfToken(),
-            city		: city,
-            message 	: req.flash('signupMessage')
+      return 0;
+    }
+    if(!data){
+      bcrypt.genSalt(saltRounds, function(err, salt) {
+        bcrypt.hash(plainPass, salt, function (err, hash) {
+          console.log('add user');
+          newUser = new users({
+            "Username": username,
+            "Password": hash,
+            "Email": email,
+            "DateOfBirth": birthday,
+            "CurrentPlace": local + 1,
+            "FirstName": firstname,
+            "LastName": lastname,
+            "Gender": sex,
+            "Working": work,
+            "WorkingAt": '',
+            "Relationship": '',
+            "Phone": '',
+            "Facebook": '',
+            "Skype": '',
+            "Introduction": '',
+            "PlaceOfBirth": '',
+            "CreatedDate": createdDate,
+            "Avatar": '',
+            "Status": 1
           });
-        }
+          console.log('Done add user');
+          newUser.save(function (err, result) {
+            if (err) throw err;
+            if (result._id) {
+              req.flash('signupMessage', 'Success');
+              console.log("Success");
+              res.render('web/pages/signup', {
+                title		: 'Zlove | Signup',
+                csrf 		: req.csrfToken(),
+                city		: city,
+                message 	: ''
+              });
+            }
+          });
+        });
       });
-    });
+      return 0;
+    }else {
+      req.flash('signupMessage', 'Tài khoản đã tồn tại');
+      console.log("Fail");
+      res.render('web/pages/signup', {
+        title: 'Zlove | Signup',
+        csrf: req.csrfToken(),
+        city: city,
+        message: req.flash('signupMessage')
+      });
+      return 0;
+    }
   });
+
+
 });
 
 
@@ -163,3 +192,5 @@ function isLoggedIn(req, res, next){
 		res.redirect('/home/');
 	}
 }
+
+

@@ -4,6 +4,7 @@
 
 </head>
 <body>
+    <% include ../include/loading %>
 		<button type="button" class="align-right"><a href="<%= local.setting.basepath %>home-auth/login" >Đăng nhập</a></button>
 		<button type="button" class="align-right"><a href="<%= local.setting.basepath %>home-auth/login" >Đăng nhập</button></a>
 		<div class="container-fluid bg-gradient">
@@ -72,7 +73,11 @@
 								<div class="col-xs-6 col-md-6">
 									<div class="form-group">
 										<label for="inputName">Công việc:</label>
-										<input type="text" class="form-control" id="Work" name="work" placeholder="Công việc" required>
+										<select class="form-control" id="Work" name="work">
+                      <option value="0">Sinh viên</option>
+                      <option value="1">Đang đi làm</option>
+                      <option value="2">Đang tìm việc</option>
+                    </select>
 									</div>
 								</div>
 							</div>
@@ -132,6 +137,11 @@
 								<input type="password" class="form-control" id="re-pass" name="repeatpassword" placeholder="Nhập lại mật khẩu" required>
 							</div>
                             <% if(message.length > 0) { %>
+                            <div class="message">
+                              <span><% message %></span>
+                            </div>
+                            <% } %>
+                            <% if(message == 'Success') { %>
                                 <div class="message">
                                   <script>
                                     swal('Success','Đăng kí thành công','success');
@@ -139,7 +149,7 @@
                                 </div>
                             <% } %>
               <button type="button" class="btn-signup" id="button">Đăng kí</button>
-
+              <button type="submit" class="btn-signup hidden" id="button">Đăng kí</button>
 							<p>Lorem ipsum dolor sit amet</p>
 						</form>
 					</div>
@@ -149,6 +159,5 @@
 		<script src="<%= local.setting.basepath %>web/js/signup.js"></script>
 		<script type="text/javascript">
             window.load = FillDay();
-            window.load = checkNull();
 		</script>
 <% include ../include/footer %>
