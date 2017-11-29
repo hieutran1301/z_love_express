@@ -34,23 +34,14 @@
             text-align: center;
         }
 
-        #prfAvatar .avatar button{
-            width: 150px;
-            display: block;
-            margin: 0 25px;
-            background-color: #ee2b80;
-            color: #fff;
-            border-radius: 15px;
-            font-weight: 300;
+        #prfAvatar .btn-startchat{
+            position: absolute;
+            bottom: -15px;
+            left: 70px;
         }
 
         #prfAvatar .avatar label:hover,
         #prfAvatar .avatar label:focus{
-            background-color: #dd2779;
-        }
-
-        #prfAvatar .avatar button:hover,
-        #prfAvatar .avatar button:focus{
             background-color: #dd2779;
         }
 
