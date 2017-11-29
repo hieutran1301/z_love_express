@@ -3,6 +3,7 @@
 <!--include css:-->
 <link rel="stylesheet" type="text/css" href="/web/css/profile_new.css">
 <link rel="stylesheet" href="/assets/plugins/cropper/cropper.css">
+<link rel="stylesheet" href="/assets/plugins/datepicker/datepicker.min.css">
 
 </head>
 <body>
@@ -97,7 +98,7 @@
                                         <div class="col-xs-12 col-sm-6">
                                             <span id="Birthday" class="span-inp"><%= data.birthday %></span>
                                             <%if(self){%>
-                                            <input type="text" class="hidden form-control inp-zlove datepicker" name="inpBirthday" value="<%= data.birthday %>" required>
+                                            <input type="text" class="hidden form-control inp-zlove" data-toggle="datepicker" name="inpBirthday" value="<%= data.birthday %>" required>
                                             <%}%>
                                         </div>
                                     </div>
@@ -203,6 +204,7 @@
 
         <input class="hidden" value="<%=csrf%>" name="_csrf">
         <input class="hidden" value="<%=userid%>" name="_userid">
+        <script src="/assets/plugins/datepicker/datepicker.min.js"></script>
         <script src="<%= local.setting.basepath %>assets/plugins/cropper/cropper.js"></script>
         <script src="<%= local.setting.basepath %>web/js/profile.js"></script>
 <% include ../include/footer %>
