@@ -1,5 +1,9 @@
+@import url('https://fonts.googleapis.com/css?family=Quicksand');
+
+
 body{
     background-color: #f8f8f8;
+    font-family: 'Quicksand', sans-serif;
 }
 
 button{
@@ -9,6 +13,13 @@ button{
     box-shadow: none;
     padding: 0;
     line-height: 30px;
+}
+
+.bg-blur-1{
+    background-image: url('../images/blur-background.jpg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 .text-right{
