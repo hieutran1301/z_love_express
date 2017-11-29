@@ -11,6 +11,10 @@ button{
     line-height: 30px;
 }
 
+.text-right{
+    float: right;
+}
+
 .li-dropdown{
     position: relative;
 }
@@ -366,3 +370,86 @@ footer{
   width: 50px;
   height: 50px;
 }
+
+.zmodal{
+    display: none;
+    position: fixed;
+    z-index: 1020;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    color: #666;
+}
+
+    .zmodal-backdrop{
+        background-color: rgba(0, 0, 0, 0.6);
+        width: 100%;
+        height: 100%;
+    }
+
+    .zmodal-wrap{
+        display: block;
+        width: 768px;
+        height: auto;
+        background-color: #fff;
+        border-radius: 5px;
+        margin-top: 5%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .zmodal-wrap .zmodal-header{
+        padding: 10px 15px;
+        border-bottom: 1px solid #eee;
+        color: #fff;
+        background-color: #ee2b80;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+    }
+
+        .zmodal-wrap .zmodal-header .zmodal-title{
+            margin: 0;
+            padding: 0;
+            font-weight: 300;
+            font-size: 18px;
+            display: inline-block;
+        }
+
+        .zmodal-wrap .zmodal-header .close-zmodal{
+            cursor: pointer;
+        }
+
+        .zmodal-wrap .zmodal-header .close-zmodal:hover,
+        .zmodal-wrap .zmodal-header .close-zmodal:focus{
+            color: #f8f8f8;
+        }
+
+    .zmodal-body{
+        padding: 10px 15px;
+        border-bottom: 1px solid #eee;
+        max-height: 65vh;
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+
+        .zmodal-body .zmodal-loading{
+            display: block;
+            width: 200px;
+            height: 200px;
+            margin: 0 auto;
+            padding: 75px 0;
+        }
+
+            .zmodal-body .zmodal-loading img{
+                display: block;
+                width: 50px;
+                height: 50px;
+                margin: auto;
+            }
+
+    .zmodal-footer{
+        text-align: right;
+        padding: 10px 15px;
+    }
+
