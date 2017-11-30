@@ -85,6 +85,18 @@ button{
     background-color: #dd2779;
 }
 
+.btn-gray{
+    background-color: #eee;
+    padding-left: 15px;
+    padding-right: 15px;
+    color: #666;
+}
+
+.btn-gray:hover,
+.btn-gray:focus{
+    background-color: #d8d8d8;
+}
+
 .btn-startchat{
     background-color: #fff;
     padding: 0;

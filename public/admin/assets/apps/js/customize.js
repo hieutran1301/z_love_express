@@ -1,4 +1,4 @@
-var pagelimit = 10;
+var pagelimit = 15;
 
 var dragdropInp, dragAndDrop, dragDropPrv;
 

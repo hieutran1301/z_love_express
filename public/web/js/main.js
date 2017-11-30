@@ -1,3 +1,5 @@
+var post_limit_char = 185;
+
 $(window).resize(function(){
 	setLoveHeight();
 });
@@ -90,4 +92,13 @@ $('button[data-toggle=close-zmodal]').click(function(){
 	var $this = $(this);
 	var modalId = $this.parents('.zmodal').attr('id');
 	hideModal(modalId);
+});
+
+$('.post-content .post-body').each(function(){
+	var p = $(this).find('p');
+	var text = p.text();
+	if (text.length > post_limit_char){
+		text = text.substr(0, post_limit_char)+' ...';
+		p.text(text);
+	}
 });
