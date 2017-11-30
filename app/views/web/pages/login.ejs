@@ -5,67 +5,66 @@
 
 </head>
 <body>
-    <% include ../include/loading %>
+<% include ../include/loading %>
+<button type="button" class="align-right animated slideInRight"><a href="<%= local.setting.basepath %>home-auth/signup" class='button'>Đăng ký</a></button>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-xs-12 col-md-6 bg-blur-1">
+      <div class="intro">
+        <div class="content-wrap animated slideInDown">
+          <div class="row hidden-xs">
+            <div class="col-xs-1 col-md-1">
+              <button type="submit" class="logo"><i class="fa fa-facebook" aria-hidden="true"></i></button>
+            </div>
+            <div class="col-xs-1 col-md-1">
+              <button type="submit" class="logo"><i class="fa fa-instagram" aria-hidden="true"></i></button>
+            </div>
+            <div class="col-xs-1 col-md-1">
+              <button type="submit" class="logo"><i class="fa fa-twitter" aria-hidden="true"></i></button>
+            </div>
+            <div class="col-xs-1 col-md-1">
+              <button type="submit" class="logo"><i class="fa fa-google-plus" aria-hidden="true"></i></button>
+            </div>
+          </div>
+          <img class="logo" src="/web/images/logo-white-01.png" alt="zlove">
+          <h5>Find your true love!</h5>
+          <p>Đâu đó có tình yêu vẫn đang chờ bạn tìm kiếm !</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-xs-12 col-md-6 signin">
+      <div class="form-signin animated slideInRight">
+        <div class="title">
+          <hr>
+          <div class="titleh4">
+            <h4>ĐĂNG NHẬP BẰNG EMAIL</h4>
+          </div>
+        </div>
+        <form action="<%= local.setting.basepath%>home-auth/login" method ='post'>
+          <input type="hidden" name="_csrf" value="<%= csrf %>">
+          <div class="form-group">
+            <label for="inputMail">Địa chỉ email:</label>
+            <input name="username" type="text" class="form-control" id="inputMail" placeholder="Email" required>
+          </div>
+          <div class="form-group">
+            <label for="inputMail">Mật khẩu:</label>
+            <input name="password" type="password" class="form-control" id="inputPass" placeholder="Mật khẩu" required>
+          </div>
 
-    <button type="button" class="align-right"><a href="<%= local.setting.basepath %>home-auth/signup" class='button'>Đăng ký</a></button>
-		<div class="container-fluid">
-			<div class="row">
-				<div class="col-xs-12 col-md-6 bg-gradient">
-					<div class="intro">
-						<div class="content-wrap">
-							<div class="row hidden-xs">
-								<div class="col-xs-1 col-md-1">
-									<button type="submit" class="logo"><i class="fa fa-facebook" aria-hidden="true"></i></button>
-								</div>
-								<div class="col-xs-1 col-md-1">
-									<button type="submit" class="logo"><i class="fa fa-instagram" aria-hidden="true"></i></button>
-								</div>
-								<div class="col-xs-1 col-md-1">
-									<button type="submit" class="logo"><i class="fa fa-twitter" aria-hidden="true"></i></button>
-								</div>
-								<div class="col-xs-1 col-md-1">
-									<button type="submit" class="logo"><i class="fa fa-google-plus" aria-hidden="true"></i></button>
-								</div>
-							</div>
-							<img class="logo" src="/web/images/logo-white-01.png" alt="zlove">
-							<h5>Find your true love!</h5>
-							<p>Đâu đó có tình yêu vẫn đang chờ bạn tìm kiếm !</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-xs-12 col-md-6 signin">
-					<div class="form-signin">
-						<div class="title">
-							<hr>
-							<div class="titleh4">
-								<h4>ĐĂNG NHẬP BẰNG EMAIL</h4>
-							</div>
-						</div>
-						<form action="<%= local.setting.basepath%>home-auth/login" method ='post'>
-							<input type="hidden" name="_csrf" value="<%= csrf %>">
-		  					<div class="form-group">
-		   						<label for="inputMail">Địa chỉ email:</label>
-		   						<input name="username" type="text" class="form-control" id="inputMail" placeholder="Email" required>
-		   					</div>
-		  					<div class="form-group">
-								<label for="inputMail">Mật khẩu:</label>
-		   						<input name="password" type="password" class="form-control" id="inputPass" placeholder="Mật khẩu" required>
-		   					</div>
+          <% if(message.length > 0) { %>
+          <div class="message">
+            <span><%= message %></span>
+          </div>
+          <% } %>
 
-		   					<% if(message.length > 0) { %>
-                                <div class="message">
-                                    <span><%= message %></span>
-                                </div>
-                            <% } %>
+          <button type="submit" class="btn-signin">Đăng nhập</button>
+          <p><a href="#"><u>Quên mật khẩu?</u></a><p>
+          <p><a href="#"><u>Đăng kí ngay</u></a></p>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
 
-							<button type="submit" class="btn-signin">Đăng nhập</button>
-							<p><a href="#"><u>Quên mật khẩu?</u></a><p>
-							<p><a href="#"><u>Đăng kí ngay</u></a></p>
-						</form>
-					</div>
-				</div>
-			</div>
-		</div>
-
-    <% include ../include/footer-main %>
+<% include ../include/footer-main %>
 <% include ../include/footer %>
