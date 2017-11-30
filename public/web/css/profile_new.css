@@ -20,7 +20,7 @@
         border: 2px solid #fff;
     }
 
-        #prfAvatar .avatar button{
+        #prfAvatar .avatar label{
             position: absolute;
             bottom: -10px;
             width: 150px;
@@ -30,10 +30,18 @@
             color: #fff;
             border-radius: 15px;
             font-weight: 300;
+            line-height: 30px;
+            text-align: center;
         }
 
-        #prfAvatar .avatar button:hover,
-        #prfAvatar .avatar button:focus{
+        #prfAvatar .btn-startchat{
+            position: absolute;
+            bottom: -15px;
+            left: 70px;
+        }
+
+        #prfAvatar .avatar label:hover,
+        #prfAvatar .avatar label:focus{
             background-color: #dd2779;
         }
 
@@ -75,6 +83,8 @@
 
     #basicInfo form .frm-field{
         font-weight: 500;
+        display: block;
+        margin-bottom: 10px;
     }
 
         #basicInfo form .frm-field i{
@@ -102,3 +112,22 @@
     margin:  25% 0;
 }
 
+#frmBasicInfo .span-inp,
+#frmBasicInfo .span-select,
+#frmBasicInfo .span-gr-inp {
+    display: block;
+    margin-left: 25px;
+}
+
+.zmodal-body #prvImg{
+    width: 100%;
+    max-height: 65vh;
+}
+
+.zmodal-body img.imgPreview{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 100%;
+    max-height: 100%;
+}

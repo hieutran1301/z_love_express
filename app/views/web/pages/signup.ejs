@@ -4,6 +4,7 @@
 
 </head>
 <body>
+    <% include ../include/loading %>
 		<button type="button" class="align-right"><a href="<%= local.setting.basepath %>home-auth/login" >Đăng nhập</a></button>
 		<button type="button" class="align-right"><a href="<%= local.setting.basepath %>home-auth/login" >Đăng nhập</button></a>
 		<div class="container-fluid bg-gradient">
@@ -26,7 +27,7 @@
 								</div>
 							</div>
 							<h3>zLove</h3>
-							<h5>Tìm kiếm</h5> 
+							<h5>Tìm kiếm</h5>
 							<h5>một nửa của bạn</h5>
 							<h4>Lorem ipsum dolor sit amet</h4>
 							<a href="#">
@@ -38,14 +39,16 @@
 				</div>
 				<div class="col-xs-12 col-md-6 signup bg-white">
 					<div class="form-signup">
+
 						<div class="title">
 							<hr>
 							<div class="titleh4">
 								<h4>ĐĂNG KÍ BẰNG EMAIL</h4>
 							</div>
 						</div>
-						<form method="post" action="http://localhost:3000/home-auth/signup">
-							<div class="row"> 
+						<form id="FormSignup" method="post" action="http://localhost:3000/home-auth/signup">
+              <input type="hidden" name="_csrf" value="<%= csrf %>">
+							<div class="row">
   								<div class="col-xs-6 col-md-6">
 	  								<div class="form-group">
 	   									<label for="inputName">Họ:</label>
@@ -60,17 +63,21 @@
 								</div>
   								<div class="col-xs-6 col-md-6">
   								    <label for="inputSex">Giới tính:</label>
-    								<select id="Sex" name="sex" class="form-control">
+    								<select id="Sex" name="sex" class="form-control" >
     									<option value="0">Chọn</option>
     									<option value="1">Nam</option>
     									<option value="2">Nữ</option>
     									<option value="3">Khác</option>
-    								</select>	
+    								</select>
   								</div>
 								<div class="col-xs-6 col-md-6">
 									<div class="form-group">
 										<label for="inputName">Công việc:</label>
-										<input type="text" class="form-control" id="Work" name="work" placeholder="Công việc" required>
+										<select class="form-control" id="Work" name="work">
+                      <option value="0">Sinh viên</option>
+                      <option value="1">Đang đi làm</option>
+                      <option value="2">Đang tìm việc</option>
+                    </select>
 									</div>
 								</div>
 							</div>
@@ -104,32 +111,45 @@
 	  								</div>
 	  							</div>
   								<div class="col-xs-5 col-md-5">
-	   							<label for="inputAim">Bạn đến đây để:</label>
-    								<select name="youarrive" class="form-control">
+	   							<label class="hidden" for="inputAim">Bạn đến đây để:</label>
+    								<select id="Arrive" name="youarrive" class="form-control hidden">
     									<option value="0">Chọn</option>
     									<option value="1">1</option>
     									<option value="2">2</option>
     									<option value="3">3</option>
-    								</select>	
+    								</select>
   								</div>
-  							</div>	
+  							</div>
 	  						<div class="form-group">
 	   							<label for="inputMail">Địa chỉ email:</label>
-	   							<input type="email" class="form-control" id="inputMail" name="email" placeholder="Email" required>
+	   							<input type="email" class="form-control" id="Email" name="email" placeholder="Email" required>
 	   						</div>
 							<div class="form-group">
 								<label for="inputMail">Tên đăng nhập:</label>
-								<input type="text" class="form-control" id="inputMail" name="email" placeholder="Username" required>
+								<input type="text" class="form-control" id="userName" name="username" placeholder="Username" required>
 							</div>
 	  						<div class="form-group">
 								<label for="inputMail">Mật khẩu:</label>
-	   							<input type="password" class="form-control" id="inputPass" name="password" placeholder="Mật khẩu" required>
+	   							<input type="password" class="form-control" id="pass" name="password" placeholder="Mật khẩu" required>
 	   						</div>
 							<div class="form-group">
 								<label for="inputMail">Nhập lại mật khẩu:</label>
-								<input type="password" class="form-control" id="inputPass" name="repeatpassword" placeholder="Nhập lại mật khẩu" required>
+								<input type="password" class="form-control" id="re-pass" name="repeatpassword" placeholder="Nhập lại mật khẩu" required>
 							</div>
-							<button type="submit" class="btn-signup">Đăng kí</button>
+                            <% if(message.length > 0) { %>
+                            <div class="message">
+                              <span><% message %></span>
+                            </div>
+                            <% } %>
+                            <% if(message == 'Success') { %>
+                                <div class="message">
+                                  <script>
+                                    swal('Success','Đăng kí thành công','success');
+                                  </script>
+                                </div>
+                            <% } %>
+              <button type="button" class="btn-signup" id="button">Đăng kí</button>
+              <button type="submit" class="btn-signup hidden" id="button">Đăng kí</button>
 							<p>Lorem ipsum dolor sit amet</p>
 						</form>
 					</div>
@@ -139,6 +159,5 @@
 		<script src="<%= local.setting.basepath %>web/js/signup.js"></script>
 		<script type="text/javascript">
             window.load = FillDay();
-            //window.load = CountTime();
 		</script>
 <% include ../include/footer %>

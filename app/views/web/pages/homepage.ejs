@@ -3,21 +3,99 @@
 <!--include css:-->
 <link rel="stylesheet" type="text/css" href="<%= local.setting.basepath %>web/css/homepage.css">
 
+<script src="<%= local.setting.basepath %>web/js/custum.js"></script>
+
+
 </head>
 <body>
+    <% include ../include/loading %>
 		<% include ../include/nav-bar %>
+	<!-- Huan's code -->
+	<section id="Slider">
 		<div class="container">
-			<div class="love_bar" id="love_bar1">			
-				<div class="row">
-					<div class="col-xs-4 col-sm-4 col-md-4"><p><i class="fa fa-star" aria-hidden="true"></i>TOP LOVE</p></div>
-					<div class="col-xs-4 col-xs-offset-4 col-sm-4 col-sm-offset-4 col-md-2 col-md-offset-6 hidden-md hidden-lg more"><i><u>Xem thêm</u></i></div>	
+			<div class="owl-carousel">
+				<div class="item">
+					<img src="/uploads/22a4f7e70ee27bc47540f2f3b5eb369c.jpg">
+					
+					<div class="act">
+						<h3>Trần Trọng Híu</h3>
+					</div>
+					<div class="act-button"><button class="btn-heart box-shadow"><span class="li_heart" aria-hidden="true"></span></button></div>
+				</div>
+				<div class="item">
+					<img src="/uploads/22a4f7e70ee27bc47540f2f3b5eb369c.jpg">
+
+					<div class="act">
+							<h3>Phạm Đăng Khoa</h3>
+						</div>
+						<div class="act-button"><button class="btn-heart box-shadow"><span class="li_heart" aria-hidden="true"></span></button></div>
+				</div>
+				<div class="item">
+					<img src="/uploads/22a4f7e70ee27bc47540f2f3b5eb369c.jpg">
+					
+					<div class="act">
+						<h3>Trần Trọng Híu</h3>
+					</div>
+					<div class="act-button"><button class="btn-heart box-shadow"><span class="li_heart" aria-hidden="true"></span></button></div>
+				</div>
+				<div class="item">
+					<img src="/uploads/22a4f7e70ee27bc47540f2f3b5eb369c.jpg">
+
+					<div class="act">
+							<h3>Phạm Đăng Khoa</h3>
+						</div>
+						<div class="act-button"><button class="btn-heart box-shadow"><span class="li_heart" aria-hidden="true"></span></button></div>
+				</div>
+				<div class="item">
+					<img src="/uploads/22a4f7e70ee27bc47540f2f3b5eb369c.jpg">
+					
+					<div class="act">
+						<h3>Trần Trọng Híu</h3>
+					</div>
+					<div class="act-button"><button class="btn-heart box-shadow"><span class="li_heart" aria-hidden="true"></span></button></div>
+				</div>
+				<div class="item">
+					<img src="/uploads/22a4f7e70ee27bc47540f2f3b5eb369c.jpg">
+
+					<div class="act">
+							<h3>Phạm Đăng Khoa</h3>
+						</div>
+						<div class="act-button"><button class="btn-heart box-shadow"><span class="li_heart" aria-hidden="true"></span></button></div>
+				</div>
+				<div class="item">
+					<img src="/uploads/22a4f7e70ee27bc47540f2f3b5eb369c.jpg">
+					
+					<div class="act">
+						<h3>Trần Trọng Híu</h3>
+					</div>
+					<div class="act-button"><button class="btn-heart box-shadow"><span class="li_heart" aria-hidden="true"></span></button></div>
+				</div>
+				<div class="item">
+					<img src="/uploads/22a4f7e70ee27bc47540f2f3b5eb369c.jpg">
+
+					<div class="act">
+							<h3>Phạm Đăng Khoa</h3>
+						</div>
+						<div class="act-button"><button class="btn-heart box-shadow"><span class="li_heart" aria-hidden="true"></span></button></div>
 				</div>
 			</div>
-			<div class="listlove">	
+		</div>
+	</section>
+	<!-- End of Huan's code -->
+
+
+		<div class="container">
+			<div class="love_bar" id="love_bar1">
+				<div class="row">
+					<div class="col-xs-4 col-sm-4 col-md-4"><p><i class="fa fa-star" aria-hidden="true"></i>TOP LOVE</p></div>
+					<div class="col-xs-4 col-xs-offset-4 col-sm-4 col-sm-offset-4 col-md-2 col-md-offset-6 hidden-md hidden-lg more"><i><u>Xem thêm</u></i></div>
+				</div>
+			</div>
+			<div class="listlove">
 				<div class="row">
 					<div class="col-xs-6 col-sm-4 col-md-3">
 						<div class="love box-shadow">
-						<div class="avatar"><img src="/web/images/avatar.jpg"></div>
+						<div class="avatar"><img src="/uploads/22a4f7e70ee27bc47540f2f3b5eb369c.jpg"></div>
 						<div><a href="#" class="heart"><i class="fa fa-heart" aria-hidden="true"></i></a></div>
 						<button type="submit" class="apply">APPLY CV</button>
 						<div class="name"><p>lorem ifsum</p></div>
@@ -91,7 +169,7 @@
 					<div class="col-xs-4 col-sm-4 col-md-4"><p>OTHER LOVE</p></div>
 				</div>
 			</div>
-			<div class="listlove">	
+			<div class="listlove">
 				<div class="row">
 					<div class="col-xs-6 col-sm-4 col-md-3">
 						<div class="love box-shadow">
@@ -160,6 +238,27 @@
 				</div>
 			</div>
 		</div>
+
+		<script>
+			$('.owl-carousel').owlCarousel({
+				loop:true,
+				margin:0,
+				nav:true,
+				autoplayTimeout:2000,
+				autoplay: true,
+				responsive:{
+					0:{
+						items:1
+					},
+					600:{
+						items:3
+					},
+					1000:{
+						items:4
+					}
+				}
+			})
+		</script>
 
 
 <% include ../include/footer-main %>

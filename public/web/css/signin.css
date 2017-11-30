@@ -16,6 +16,13 @@ button:active{
 	outline: none;
 }
 
+.logo{
+	display: block;
+	width: 60%;
+	margin: 0 auto;
+	margin-top: 25%;
+}
+
 button.btn-signinfb{
 	background-color: #4267b2;
 	border: 1px solid #fff;
@@ -169,8 +176,23 @@ input{
 	border: 1px solid #aaaaaa !important;
 }
 
+footer{
+	margin-top: 0;
+}
+
+form a{
+	text-decoration: none;
+	color: #666;
+}
+
+form a:hover,
+form a:focus{
+	color: #ed3d7a;
+}
+
 .signin{
 	background-color: #fff;
+	overflow: hidden;
 }
 
 .form-singin input{
