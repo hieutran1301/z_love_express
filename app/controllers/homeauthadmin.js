@@ -110,6 +110,17 @@ router.post('/signup', function (req, res, next) {
   var createdDate = ''+now.getDate()+'/'+(now.getMonth()+1)+'/'+now.getFullYear();
   var birthday = day + '/' + month + '/' + year;
 
+  if (validateEmail(email) == false){
+    req.flash('signupMessage', 'Email wrong! Try again.');
+    res.render('web/pages/signup', {
+      title: 'Zlove | Signup',
+      message: req.flash('signupMessage'),
+      csrf 		: req.csrfToken(),
+      city : city
+    });
+    return 0;
+  }
+
   users.findOne({Username:username}, function (err, data) {
     if(err){
       console.log(err);
@@ -157,7 +168,7 @@ router.post('/signup', function (req, res, next) {
                 title		: 'Zlove | Signup',
                 csrf 		: req.csrfToken(),
                 city		: city,
-                message 	: ''
+                message 	: req.flash('signupMessage')
               });
             }
           });
@@ -193,4 +204,13 @@ function isLoggedIn(req, res, next){
 	}
 }
 
+function validateEmail(email) {
+  var filter = /^[\w\-\.\+]+\@[a-zA-Z0-9\.\-]+\.[a-zA-z0-9]{2,4}$/;
+  if (filter.test(email)) {
+    return true;
+  }
+  else {
+    return false;
+  }
+}
 
