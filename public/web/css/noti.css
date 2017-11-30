@@ -1,5 +1,10 @@
 /*Notification menu*/
 
+#notiDropDown{
+  overflow-y: auto;
+  height: 360px;
+}
+
 .noti-menu a{
 	color: #000;
 	background-color: #fff;
