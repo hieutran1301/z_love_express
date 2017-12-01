@@ -65,10 +65,11 @@
 
 #Slider .slider-wrap{
 	position: relative;
-	width: 100%;
 	height: max-content;
 	padding: 15px;
 	background-color: #fff;
+	margin-left: 15px;
+	margin-right: 15px;
 }
 
 #Slider .slider-wrap .header{
@@ -230,6 +231,66 @@ button.apply:hover{
 
 }
 
+#PageContent{
+	margin-top: 15px;
+}
+
+.post{
+	border: 1px solid #eee;
+	padding: 10px;
+	white-space: nowrap;
+	margin-bottom: 15px;
+}
+
+	.post .post-thumbnail{
+		width: 100%;
+	}
+
+	.post .post-thumbnail a{
+		text-transform: none;
+		text-decoration: none;
+	}
+
+	.post .post-thumbnail .thumb{
+		display: block;
+		width: 140px;
+		height: 140px;
+		margin-left: auto;
+		margin-right: auto;
+		border-radius: 100%;
+		background-size: cover;
+		background-repeat: no-repeat;
+		background-position: center;
+	}
+
+	.post .post-content{
+		width: 100%;
+		margin-top: 25px;
+		text-align: center;
+	}
+
+	.post .post-content .post-title{
+		margin-bottom: 15px;
+	}
+
+	.post .post-content .post-title h5{
+		margin: 0;
+		padding: 0;
+		white-space: normal;
+		font-size: 16px;
+		font-weight: 600;
+	}
+
+	.post .post-content .post-body{
+		margin-bottom: 15px;
+	}
+
+	.post .post-content .post-body p{
+		word-wrap: break-word;
+		white-space: normal;
+		margin: 0;
+	}
+
 @media screen and (min-width: 768px){
 	.love_bar{
 	background-color: #f8f8f8;
@@ -250,6 +311,20 @@ button.apply:hover{
 	#more:focus,
 	#more:active{
 	color: #ee2b80;
+	}
+
+	.post .post-thumbnail{
+		display: inline-block;
+		width: 25%;
+		vertical-align: middle;
+	}
+
+	.post .post-content{
+		display: inline-block;
+		width: 75%;
+		vertical-align: middle;
+		margin-top: 0;
+		text-align: left;
 	}
 
 }

@@ -1,6 +1,8 @@
 var express = require('express'),
   router = express.Router(),
-  mongoose = require('mongoose');
+	mongoose = require('mongoose');
+	
+var user = mongoose.model('zlove_users');
 
 module.exports = function (app, passport) {
   app.use('/admin', isLoggedIn, router);
@@ -27,12 +29,37 @@ router.get('/logout', function(req, res){
 });
 
 router.get('/users', function(req, res, next){
-	res.render('admin/pages/users', {
+	user.find({}, function(err, data){
+		if (err) throw err;
+		var total = data.length;
+		user.find({Status: 1}, function(err, result){
+			if (err) throw err;
+			var activeUser = result.length;
+			var inActiveUser = total - activeUser;
+			var statUser = {
+				total: total,
+				active: activeUser,
+				inactive: inActiveUser
+			};
+			res.render('admin/pages/users', {
+				layout 		: 'admin/master',
+				title		: 'Users manager',
+				csrf 		: req.csrfToken(),
+				admin 		: req.session.adminuser,
+				statUser : statUser,
+				script		: 'admin/assets/apps/js/users.js'
+			});
+		});
+	});
+});
+
+router.get('/posts', function(req, res, next){
+	res.render('admin/pages/posts', {
 		layout 		: 'admin/master',
-		title		: 'Users manager',
+		title		: 'Posts manager',
 		csrf 		: req.csrfToken(),
 		admin 		: req.session.adminuser,
-		script		: 'admin/assets/apps/js/users.js'
+		script		: 'admin/assets/apps/js/posts.js'
 	});
 });
 

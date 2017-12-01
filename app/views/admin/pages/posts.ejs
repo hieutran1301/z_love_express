@@ -1,0 +1,338 @@
+
+        <div class="page-wrapper">
+                <!-- BEGIN HEADER -->
+                <div class="page-header navbar navbar-fixed-top">
+                    <!-- BEGIN HEADER INNER -->
+                    <div class="page-header-inner ">
+                        <!-- BEGIN LOGO -->
+                        <div class="page-logo">
+                            <a href="index.html">
+                                <img src="<%= local.setting.basepath %>admin/assets/apps/img/logo_114x20-02.png" alt="logo" class="logo-default" /> </a>
+                            <div class="menu-toggler sidebar-toggler">
+                                <span></span>
+                            </div>
+                        </div>
+                        <!-- END LOGO -->
+                        <!-- BEGIN RESPONSIVE MENU TOGGLER -->
+                        <a href="javascript:;" class="menu-toggler responsive-toggler" data-toggle="collapse" data-target=".navbar-collapse">
+                            <span></span>
+                        </a>
+                        <!-- END RESPONSIVE MENU TOGGLER -->
+                        <!-- BEGIN TOP NAVIGATION MENU -->
+                        <% include ../include/topmenu%>
+                        <!-- END TOP NAVIGATION MENU -->
+                    </div>
+                    <!-- END HEADER INNER -->
+                </div>
+                <!-- END HEADER -->
+                <!-- BEGIN HEADER & CONTENT DIVIDER -->
+                <div class="clearfix"> </div>
+                <!-- END HEADER & CONTENT DIVIDER -->
+                <!-- BEGIN CONTAINER -->
+                <div class="page-container">
+    
+    
+    
+                    <!-- BEGIN SIDEBAR -->
+                    <% include ../include/sidebar%>
+                    <!-- END SIDEBAR -->
+    
+    
+    
+                    <!-- BEGIN CONTENT -->
+                    <div class="page-content-wrapper">
+                        <!-- BEGIN CONTENT BODY -->
+                        <div class="page-content">
+                            <!-- BEGIN PAGE HEADER-->
+                            <!-- BEGIN PAGE BAR -->
+                            <div class="page-bar">
+                                <ul class="page-breadcrumb">
+                                    <li>
+                                        <a href="<%= local.setting.basepath %>admin/dashboard">Home</a>
+                                        <i class="fa fa-circle"></i>
+                                    </li>
+                                    <li>
+                                        <span><%= title %></span>
+                                    </li>
+                                </ul>
+                                
+                            </div>
+                            <!-- END PAGE BAR -->
+                            <!-- BEGIN PAGE TITLE-->
+                            <h1 class="page-title"> <%= title %>
+                               
+                            </h1>
+                            <!-- END PAGE TITLE-->
+                            <!-- END PAGE HEADER-->
+                            <div class="row">
+                                <div class="col-xs-12 col-lg-3 col-md-3 col-sm-6">
+                                    <a class="dashboard-stat dashboard-stat-v2 blue" href="#">
+                                        <div class="visual">
+                                            <i class="fa fa-comments"></i>
+                                        </div>
+                                        <div class="details">
+                                            <div class="number">
+                                                <span data-counter="counterup" data-value="" id="statActive">0</span>
+                                            </div>
+                                            <div class="desc"> Total Posts </div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="col-xs-12 col-lg-3 col-md-3 col-sm-6">
+                                    <a class="dashboard-stat dashboard-stat-v2 green" href="#">
+                                        <div class="visual">
+                                            <i class="fa fa-comments"></i>
+                                        </div>
+                                        <div class="details">
+                                            <div class="number">
+                                                <span data-counter="counterup" data-value="" id="statActive">0</span>
+                                            </div>
+                                            <div class="desc"> Active User </div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="col-xs-12 col-lg-3 col-md-3 col-sm-6">
+                                        <a class="dashboard-stat dashboard-stat-v2 default" href="#">
+                                            <div class="visual">
+                                                <i class="fa fa-comments"></i>
+                                            </div>
+                                            <div class="details">
+                                                <div class="number">
+                                                    <span data-counter="counterup" data-value="" id="statInactive">0</span>
+                                                </div>
+                                                <div class="desc"> Inactive User </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <!-- BEGIN EXAMPLE TABLE PORTLET-->
+                                    <div class="portlet light bordered">
+                                        <div class="portlet-title">
+                                            <div class="caption font-dark">
+                                                <i class="icon-user font-dark"></i>
+                                                <span class="caption-subject bold uppercase"> Posts List</span>
+                                            </div>
+                                        </div>
+                                        <div class="portlet-body">
+                                            <div class="table-toolbar">
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <div class="btn-group">
+                                                            <a class="btn sbold green" href="javascript:;" onclick="openModal(this)" data-option="1" data-modal="modal_EditUser">Add New
+                                                                <i class="fa fa-plus"></i>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <table class="table table-striped table-bordered table-hover table-checkable order-column" id="users_tables">
+                                                <thead>
+                                                    <tr>
+                                                        <th>
+                                                            <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
+                                                                <input type="checkbox" class="group-checkable" data-set="#sample_1 .checkboxes" />
+                                                                <span></span>
+                                                            </label>
+                                                        </th>
+                                                        <th> Username </th>
+                                                        <th> Email </th>
+                                                        <th> Status </th>
+                                                        <th> Joined </th>
+                                                        <th width="200"> Actions </th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td colspan="6">
+                                                            No result
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+    
+                                            <!-- /.modal -->
+                                            <div class="modal fade bs-modal-lg" id="modal_EditUser" tabindex="-1" role="dialog" aria-hidden="true">
+                                                <div class="modal-dialog modal-lg">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                                                            <h4 class="modal-title">Modal Title</h4>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <div class="form">
+                                                                <form class="form-horizontal" role="form" id="formUser">
+                                                                    <div class="form-body">
+                                                                        <div class="row">
+                                                                            <div class="col-xs-12 col-md-6">
+                                                                                <div class="form-group">
+                                                                                    <label class="col-md-3 control-label">Username<span class="required" aria-required="true"> * </span></label>
+                                                                                    <div class="col-md-9">
+                                                                                        <input type="text" class="validate-inp form-control" name="username" placeholder="Username" required>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="form-group">
+                                                                                    <label class="col-md-3 control-label">Password<span class="required" aria-required="true"> * </span></label>
+                                                                                    <div class="col-md-9">
+                                                                                        <input type="password" class="validate-inp form-control" name="password" placeholder="Password" required>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="form-group">
+                                                                                    <label class="col-md-3 control-label">Email<span class="required" aria-required="true"> * </span></label>
+                                                                                    <div class="col-md-9">
+                                                                                        <input type="email" class="validate-inp form-control" name="email" placeholder="Email" required>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="form-group">
+                                                                                    <label class="col-md-3 control-label">Birthday<span class="required" aria-required="true"> * </span></label>
+                                                                                    <div class="col-md-9">
+                                                                                        <input type="text" class="validate-inp form-control datepicker" name="birthday" placeholder="Birthday" required>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="form-group">
+                                                                                    <label class="col-md-3 control-label">Birthplace<span class="required" aria-required="true"> * </span></label>
+                                                                                    <div class="col-md-9">
+                                                                                        <select class="form-control city" name="birthplace">
+                                                                                            <option value="Ho Chi Minh">Ho Chi Minh</option>
+                                                                                        </select>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="form-group">
+                                                                                    <label class="col-md-3 control-label">Job<span class="required" aria-required="true"> * </span></label>
+                                                                                    <div class="col-md-9">
+                                                                                        <select class="form-control " name="job">
+                                                                                            <option value="0">Sinh viên</option>
+                                                                                            <option value="1">Đang đi làm</option>
+                                                                                            <option value="2">Đang tìm việc</option>
+                                                                                        </select>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="form-group">
+                                                                                    <label class="col-md-3 control-label">Working at<span class="required" aria-required="true"> * </span></label>
+                                                                                    <div class="col-md-9">
+                                                                                        <input type="text" class="validate-inp form-control" name="workingat" placeholder="Working at" required>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="form-group">
+                                                                                    <label class="col-md-3 control-label">City<span class="required" aria-required="true"> * </span></label>
+                                                                                    <div class="col-md-9">
+                                                                                        <select class="form-control city" name="city">
+                                                                                            <option value="Ho Chi Minh">Ho Chi Minh</option>
+                                                                                        </select>
+                                                                                    </div>
+                                                                                </div>
+                                                                                
+                                                                                <div class="form-group">
+                                                                                    <label class="col-md-3 control-label">Introduction</label>
+                                                                                    <div class="col-md-9">
+                                                                                        <textarea class="validate-inp form-control" name="introduction" style="resize: none;" rows="4"></textarea>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+    
+                                                                            <div class="col-xs-12 col-md-6">
+                                                                                <div class="form-group">
+                                                                                    <label class="col-md-3 control-label">Gender<span class="required" aria-required="true"> * </span></label>
+                                                                                    <div class="col-md-9">
+                                                                                        <select class="form-control" name="gender">
+                                                                                            <option value="1">Male</option>
+                                                                                            <option value="2">Female</option>
+                                                                                        </select>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="form-group">
+                                                                                    <label class="col-md-3 control-label">FirstName<span class="required" aria-required="true"> * </span></label>
+                                                                                    <div class="col-md-9">
+                                                                                        <input type="text" name="firstname" placeholder="FirstName" required class="validate-inp form-control">
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="form-group">
+                                                                                    <label class="col-md-3 control-label">LastName<span class="required" aria-required="true"> * </span></label>
+                                                                                    <div class="col-md-9">
+                                                                                        <input type="text" name="lastname" placeholder="LastName" required class="validate-inp form-control">
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="form-group">
+                                                                                    <label class="col-md-3 control-label">Relationship<span class="required" aria-required="true"> * </span></label>
+                                                                                    <div class="col-md-9">
+                                                                                        <select class="form-control " name="relationship">
+                                                                                            <option value="0">Độc thân</option>
+                                                                                            <option value="1">Đang hẹn hò</option>
+                                                                                        </select>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="form-group">
+                                                                                    <label class="col-md-3 control-label">Phone<span class="required" aria-required="true"> * </span></label>
+                                                                                    <div class="col-md-9">
+                                                                                        <input type="text" name="phone" placeholder="Phone" required class="validate-inp form-control">
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="form-group">
+                                                                                    <label class="col-md-3 control-label">Facebook</label>
+                                                                                    <div class="col-md-9">
+                                                                                        <input type="text" name="facebook" placeholder="Facebook link" class="validate-inp form-control">
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="form-group">
+                                                                                    <label class="col-md-3 control-label">Skype</label>
+                                                                                    <div class="col-md-9">
+                                                                                        <input type="text" name="skype" placeholder="Skype ID" class="validate-inp form-control">
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="form-group">
+                                                                                    <label class="col-md-3 control-label">Status</label>
+                                                                                    <div class="col-md-9">
+                                                                                        <select class="form-control " name="status">
+                                                                                            <option value="1">Active</option>
+                                                                                            <option value="0">Inactive</option>
+                                                                                        </select>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="form-group dragAndDrop">
+                                                                                    <label class="col-md-3 control-label">Avatar</label>
+                                                                                    <div class="col-md-9 dragDropInp">
+                                                                                        <label for="inpAvatar" class="dragdrop" id="lbDropZone">Drag to upload or Browse</label>
+                                                                                        <input type="file" accept="image/*" name="avatar" id="inpAvatar" class="validate-inp dragdrop" has-data="false">
+                                                                                    </div>
+                                                                                    <div class="dragDropPrv col-md-9">
+                                                                                        <a href="javascript:;" class="cancelAva" id="cancelUpload"><i class="fa fa-remove"></i></a>
+                                                                                        <a href="javascript:;" class="cancelAva hidden" id="removeAvatar"><i class="fa fa-remove"></i></a>
+                                                                                        <img class="validate-inp dragPrv" src="http://nguonanhdep.com/wp-content/uploads/2016/08/avatar-de-thuong-1.jpg">
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <input class="hidden" type="submit">
+                                                                </form>
+                                                            </div>
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn dark btn-outline" data-dismiss="modal">Close</button>
+                                                            <button type="button" class="btn green" id="btnAddUser">Save changes</button>
+                                                            <button type="button" class="btn green hidden" id="btnEditUser">Save changes</button>
+                                                        </div>
+                                                    </div>
+                                                    <!-- /.modal-content -->
+                                                </div>
+                                                <!-- /.modal-dialog -->
+                                            </div>
+                                            <!-- /.modal -->
+    
+                                            <div class="pagination-wrap text-right">
+                                                
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- END EXAMPLE TABLE PORTLET-->
+                                </div>
+                            </div>
+                        </div>
+                        <!-- END CONTENT BODY -->
+                    </div>
+                    <!-- END CONTENT -->
+                </div>
+                <!-- END CONTAINER -->
+    
+    
