@@ -8,7 +8,7 @@ var checkbox = '<label class="mt-checkbox mt-checkbox-single mt-checkbox-outline
 
 $(document).ready(function(){
     hideLoading();
-    getUsers('posts_tables');
+    getUsers('#posts_tables');
 });
 
 function getUsers(table){
@@ -19,18 +19,18 @@ function getUsers(table){
         function(data){
             var html = '';
             for (var i = 0; i < data.length; i++) {
-                if (data[i].Status ==1) {
+                if (data[i].Status == 0) {
                     var status = '<span class="label label-sm label-warning"> Pending </span>';
                 }
                 else{
-                    var status = '<span class="label label-sm label-default"> Active </span>'
+                    var status = '<span class="label label-sm label-success"> Active </span>'
                 }
                 var action =    '<a href="javascript:;" class="btn btn-xs blue" data-user="'+data[i]._id+'" data-option="0" onclick="openModal(this)" data-modal="modal_EditUser">Edit <i class="fa fa-edit"></i></a>'+
                                 '<a href="javascript:;" class="btn btn-xs red" onclick="removeUser(this)">Delete <i class="fa fa-remove"></i></a>';
-                html += '<tr class="odd" id="'+data[i]._id+'">'+
+                html += '<tr data-search="true" class="odd" id="'+data[i]._id+'">'+
                         '<td>'+checkbox+'</td>'+
                         '<td>'+data[i].Title+'</td>'+
-                        '<td>'+data[i].Wiew+'</td>'+
+                        '<td>'+data[i].View+'</td>'+
                         '<td>'+status+'</td>'+
                         '<td>'+data[i].CreatedDate+'</td>'+
                         '<td>'+action+'</td>'+
