@@ -66,7 +66,7 @@ router.post('/post', function (req, res, next) {
     "CreatedDate" : createdDate,
     "CreatedBy"   : userID,
     "EditedDate"  : '',
-    "Wiew"        : 0,
+    "View"        : 0,
     "NumberApply" : 0,
     "Status"      : 1
 
