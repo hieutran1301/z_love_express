@@ -5,9 +5,12 @@ var express = require('express'),
   user      = mongoose.model('zlove_users'),
   cities    = require('../../libs/city');
 
+var posts = mongoose.model('zlove_posts');
+
 module.exports = function (app) {
   app.use('/home', isLoggedIn, router);
 };
+
 
 router.get('/login', function(req, res, next){
   res.render('web/pages/login', {
@@ -30,11 +33,58 @@ router.get('/homepage', function(req, res, next){
     });
 });
 
-router.get('/noti', function(req, res, next){
-  res.render('web/pages/noti', {
-      title: 'Notification',
-      csrf 		: req.csrfToken()
+router.get('/post', function(req, res, next){
+  res.render('web/pages/employer', {
+      title: 'Đăng tin',
+      csrf 		: req.csrfToken(),
+      cities      : cities,
+      message : ''
     });
+});
+
+router.post('/post', function (req, res, next) {
+  var userID    = req.session.homeuserid;
+  var title     = req.body.posttitle;
+  var target    = req.body.target;
+  var fromAge   = req.body.agemin;
+  var toAge     = req.body.agemax;
+  var local     = req.body.local;
+  var job       = req.body.job;
+  var content   = req.body.postcontent;
+
+  var now 		= new Date();
+  var createdDate = ''+now.getDate()+'/'+(now.getMonth()+1)+'/'+now.getFullYear();
+
+  newUser = new posts({
+    "Title"   : title,
+    "Target"  : target,
+    "FromAge" : fromAge,
+    "ToAge"   : toAge,
+    "City"    : local,
+    "Job"     : job,
+    "Description" : content,
+    "CreatedDate" : createdDate,
+    "CreatedBy"   : userID,
+    "EditedDate"  : '',
+    "Wiew"        : 0,
+    "NumberApply" : 0,
+    "Status"      : 1
+
+  });
+
+  newUser.save(function (err, result) {
+    if (err) throw err;
+    if (result._id) {
+      req.flash('postMessage', 'Success');
+      console.log("Success");
+      res.render('web/pages/employer', {
+        title		: 'Zlove | Đăng tin',
+        csrf 		: req.csrfToken(),
+        cities		: cities,
+        message 	: req.flash('postMessage')
+      });
+    }
+  });
 });
 
 router.get('/about', function(req, res, next){
@@ -44,12 +94,7 @@ router.get('/about', function(req, res, next){
     });
 });
 
-router.get('/messenger', function(req, res, next){
-  res.render('web/pages/messenger', {
-      title: 'Messenger',
-      csrf 		: req.csrfToken()
-    });
-});
+
 
 router.get('/profile', function(req, res, next){
   res.render('web/pages/profile', {

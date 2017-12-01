@@ -5,6 +5,20 @@
   height: 360px;
 }
 
+#notiDropDown::-webkit-scrollbar{
+  width: 5px;
+}
+
+#notiDropDown::-webkit-scrollbar-track{
+  background-color: #eee;
+  border-radius: 20px;
+}
+
+#notiDropDown::-webkit-scrollbar-thumb{
+  background: #ddd;
+  border-radius: 10px;
+}
+
 .noti-menu a{
 	color: #000;
 	background-color: #fff;

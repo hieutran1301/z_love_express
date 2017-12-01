@@ -1,0 +1,178 @@
+<% include ../include/header %>
+
+<!--include css:-->
+<link rel="stylesheet" type="text/css" href="<%= local.setting.basepath %>web/css/employer.css">
+
+</head>
+<body>
+<% include ../include/loading %>
+<% include ../include/nav-bar %>
+
+<% if(message == 'Success') { %>
+<div class="message">
+  <script>
+    swal('Success','Đăng tin thành công','success');
+  </script>
+</div>
+<% } %>
+
+<div class="container">
+  <div class="row">
+    <div class="dashboard">
+      <div class="col-xs-12 col-md-4">
+        <div class="dashboard-box background-color1">
+          <div class="dashboard-title">
+            <div class="title-header">
+              Số lượt xem tin
+            </div>
+            <div class="title-conten">
+              77
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-12 col-md-4">
+        <div class="dashboard-box background-color2">
+          <div class="dashboard-title">
+            <div class="title-header">
+              Số lượng ứng tuyển
+            </div>
+            <div class="title-conten">
+              88
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-12 col-md-4">
+        <div class="dashboard-box background-color3">
+          <div class="dashboard-title">
+            <div class="title-header">
+              Số lượt thích
+            </div>
+            <div class="title-conten">
+              99
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section id="Post">
+  <div class="container">
+    <div class="content">
+      <form action="http://localhost:3000/home/post" method="post">
+        <input type="hidden" name="_csrf" value="<%= csrf %>">
+        <div class="row">
+          <div class="title">
+            <span>ĐĂNG TIN TÌM BẠN</span>
+          </div>
+        </div>
+        <div class="row">
+          <div class="post-title margin-post-obj">
+            <div class="col-xs-12 col-md-2 margin-bot-5">
+              <span>Tiêu đề bài đăng</span>
+            </div>
+            <div class="col-xs-12 col-md-10">
+              <input type="text" class="form-control" id="PostTitle" name="posttitle" placeholder="Tiêu đề bài đăng" required>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="post-gender margin-post-obj ">
+            <div class="col-xs-12 col-md-2 margin-bot-5">
+              <span>Bạn muốn tìm</span>
+            </div>
+            <div class="col-xs-12 col-md-4">
+              <select id="Target" name="target" class="form-control" >
+                <option value="0">Chọn</option>
+                <option value="1">Nam</option>
+                <option value="2">Nữ</option>
+                <option value="3">Cả nam và nữ</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="post-age margin-post-obj">
+            <div class="col-xs-12 col-md-2 margin-bot-5">
+              <span>Độ tuổi</span>
+            </div>
+            <div class="col-xs-12 col-md-4">
+              <div class="row">
+                <div class="col-xs-2 col-md-2 padding-top-10">
+                  <span>Từ</span>
+                </div>
+                <div class="col-xs-4 col-md-4">
+                  <select id="Agemin" name="agemin" class="form-control" >
+                    <option value="0">18</option>
+                    <option value="1">19</option>
+                    <option value="2">20</option>
+                    <option value="3">21</option>
+                  </select>
+                </div>
+                <div class="col-xs-2 col-md-2 padding-top-10">
+                  <span>Đến</span>
+                </div>
+                <div class="col-xs-4 col-md-4">
+                  <select id="Agemax" name="agemax" class="form-control" >
+                    <option value="0">22</option>
+                    <option value="1">23</option>
+                    <option value="2">24</option>
+                    <option value="3">25</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="post-local margin-post-obj">
+            <div class="col-xs-12 col-md-2 margin-bot-5">
+              <span>Nơi ở:</span>
+            </div>
+            <div class="col-xs-12 col-md-4">
+              <select id="Local" name="local" class="form-control" >
+                <% for (var i=0; i<cities.length; i++){ %>
+                <option value="<%= i+1 %>"> <%= cities[i]%> </option>
+                <% }%>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="post-job margin-post-obj">
+            <div class="col-xs-12 col-md-2 margin-bot-5">
+              <span>Công việc</span>
+            </div>
+            <div class="col-xs-12 col-md-4">
+              <select id="Job" name="job" class="form-control" >
+                <option value="0">Sinh viên</option>
+                <option value="1">Đang đi làm</option>
+                <option value="2">Đang tìm việc</option>
+                <option value="3">Tất cả</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="post-content margin-post-obj">
+            <div class="col-xs-12 col-md-2 margin-bot-5">
+              <span>Giới thiệu về bản thân và yêu cầu của bạn:</span>
+            </div>
+            <div class="col-xs-12 col-md-10">
+              <textarea name="postcontent" id="PostConten" cols="30" rows="10" required></textarea>
+            </div>
+          </div>
+        </div>
+        <div class="act-button">
+          <button class="btn-cancel">Hủy bỏ</button>
+          <button type="submit" class="btn-save">Lưu lại</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+<% include ../include/footer-main %>
+<% include ../include/footer %>
