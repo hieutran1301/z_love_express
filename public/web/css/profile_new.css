@@ -114,9 +114,14 @@
 
 #frmBasicInfo .span-inp,
 #frmBasicInfo .span-select,
-#frmBasicInfo .span-gr-inp {
+#frmBasicInfo .span-gr-inp,
+#frmBasicInfo article {
     display: block;
     margin-left: 25px;
+}
+
+#frmBasicInfo textarea {
+    resize: none;
 }
 
 .zmodal-body #prvImg{

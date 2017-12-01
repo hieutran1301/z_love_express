@@ -122,6 +122,7 @@ function changeStateInp(obj){
 	var spSlt	= form.find('.span-select');
 	var grinp	= form.find('.span-gr-inp');
 	var actBtn  = $('.act-button');
+	var article = form.find('article');
 
 	spInp.each(function(){
 		var _this = $(this);
@@ -165,6 +166,20 @@ function changeStateInp(obj){
 				var defaultVal = $(this).attr('default-value');
 				$(this).val(defaultVal);
 			});
+			_this.removeClass('hidden');
+			_this.next().addClass('hidden');
+		}
+	});
+
+	article.each(function(){
+		var _this = $(this);
+		if (_this.is(':visible')){
+			_this.addClass('hidden');
+			_this.next().removeClass('hidden');
+		}
+		else{
+			var defaultVal = _this.html();
+			_this.next().html(defaultVal);
 			_this.removeClass('hidden');
 			_this.next().addClass('hidden');
 		}

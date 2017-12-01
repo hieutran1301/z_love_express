@@ -85,14 +85,38 @@ button{
     background-color: #dd2779;
 }
 
+.btn-gray{
+    background-color: #eee;
+    padding-left: 15px;
+    padding-right: 15px;
+    color: #666;
+}
+
+.btn-gray:hover,
+.btn-gray:focus{
+    background-color: #d8d8d8;
+}
+
 .btn-startchat{
-    background-color: #fff;
     padding: 0;
     margin: 0 auto;
     display: inline-block;
-    width: 60px;
-    height: 60px;
+    width: 50px;
+    height: 50px;
     border-radius: 100%;
+    background-color: #ee2b80;
+    color: #fff;
+    font-size: 22px;
+}
+
+.btn-startchat span{
+    vertical-align: middle;
+}
+
+.btn-startchat:hover,
+.btn-startchat:focus{
+    background-color: #fff;
+    color: #ee2b80;
 }
 
 .btn-heart{
@@ -131,6 +155,10 @@ button{
 
 .border-radius{
     border-radius: 5px;
+}
+
+.border-bottom{
+    border-bottom: 1px solid #eee;
 }
 
 .box-shadow{
@@ -244,6 +272,49 @@ button{
         padding: 15px 25px;
     }
 
+
+.paging{
+    display: block;
+    width: 100%;
+    text-align: center;
+}
+
+.paging > ul{
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    white-space: nowrap;
+}
+
+.paging > ul > li{
+    display: inline-block;
+    width: 40px;
+    background-color: #eee;
+    text-align: center;
+}
+
+.paging > ul > li:hover{
+    background-color: #f8f8f8;
+}
+
+.paging > ul > li > a{
+    line-height: 40px;
+    color: #666;
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.paging > ul > li.active{
+    background-color: #ee2b80;
+    color: #fff;
+}
+
+.paging > ul > li.active > a{
+    color: #fff;
+    cursor: default;
+    text-decoration: none;
+}
 
 footer{
     margin-top: 25px;

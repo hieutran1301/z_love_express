@@ -1,0 +1,11 @@
+.setting{
+	margin-top: 80px;
+}
+.setting i{
+    color: #ee2b80;
+    font-size: 14px;
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    margin-right: 5px;
+}

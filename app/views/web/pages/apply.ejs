@@ -1,0 +1,128 @@
+<% include ../include/header %>
+
+<!--include css:-->
+<link rel="stylesheet" type="text/css" href="/web/css/apply.css">
+
+</head>
+<body>
+		<% include ../include/nav-bar %>
+		<div class="container">
+			<div class="Slider">
+				<div class="slider-wrap box-shadow border-radius animated fadeIn">
+					<div class="header">
+						<h3><span class="li_heart" aria-hidden="true"></span> Top love</h3>
+					</div>
+					<div class="owl-carousel">
+						<div class="item">
+							<div class="post border-radius">
+								<div class="post-thumbnail">
+									<a href="#">
+										<div class="thumb" style="background-image: url('/uploads/22a4f7e70ee27bc47540f2f3b5eb369c.jpg');">&nbsp;</div>
+									</a>
+								</div>
+								<div class="post-content">
+									<div class="post-title">
+										<h5>Gấu ở đâu khi đông đã về TvT ??</h5>
+									</div>
+									<div class="post-body">
+										<p>Chào mọi người, mình là nữ, sinh viên năm nhất Nhân văn, chuyện là mình rất thích chụp hình ahuhu, mà không có máy ảnh, không biết có bạn nào cần tìm mẫu hông, cho mình xin xuất với. </p>
+									</div>
+									<div class="post-footer">
+										<button class="btn-gray">Chi tiết</button>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="content white-box border-radius box-shadow">
+				<div class="white-box-title">
+					<h5><span class="li_star" aria-hidden="true"></span> Apply Table </h5>
+				</div>
+				<div class="white-box-body">
+					<table class="table table-striped table-bordered table-hover table-apply">
+					  <thead>
+					    <tr>
+					      <th scope="col" class="avatar">Avatar</th>	
+					      <th scope="col" class="username">Username</th>      
+					      <th scope="col" class="age">Age</th>
+					      <th scope="col" class="name">Full name</th>
+					      <th scope="col" class="date">Date</th>
+					      <th scope="col" class="action">Action</th>
+					    </tr>
+					  </thead>
+					  <tbody>
+					    <tr class="love">
+					      <td class="avatar"><div class="thumb" style="background-image: url('/uploads/22a4f7e70ee27bc47540f2f3b5eb369c.jpg');">&nbsp;</div></td>
+					      <td scope="col" class="username">Sarangheyo</td>
+					      <td class="age">21</td>
+					      <td class="name">Khoa</td>
+					      <td class="date">Today</td>
+					      <td class="action">
+					      	<button class="btn-save">Accept</button>
+							<button class="btn-gray">Decline</button>
+					      </td>
+					    </tr>
+					    <tr class="love">
+					      <td class="avatar"><div class="thumb" style="background-image: url('/uploads/22a4f7e70ee27bc47540f2f3b5eb369c.jpg');">&nbsp;</div></td>
+					      <td scope="col" class="username">Sarangheyo</td>
+					      <td class="age">21</td>
+					      <td class="name">Khoa</td>
+					      <td class="date">Today</td>
+					      <td class="action">
+					      	<button class="btn-save">Accept</button>
+							<button class="btn-gray">Decline</button>
+					      </td>
+					    </tr>
+					    <tr class="love">
+					      <td class="avatar"><div class="thumb" style="background-image: url('/uploads/22a4f7e70ee27bc47540f2f3b5eb369c.jpg');">&nbsp;</div></td>
+					      <td scope="col" class="username">Sarangheyo</td>
+					      <td class="age">21</td>
+					      <td class="name">Khoa</td>
+					      <td class="date">Today</td>
+					      <td class="action">
+					      	<button class="btn-save">Accept</button>
+							<button class="btn-gray">Decline</button>
+					      </td>
+					    </tr>
+					    <tr class="love">
+					      <td class="avatar"><div class="thumb" style="background-image: url('/uploads/22a4f7e70ee27bc47540f2f3b5eb369c.jpg');">&nbsp;</div></td>
+					      <td scope="col" class="username">Sarangheyo</td>
+					      <td class="age">21</td>
+					      <td class="name">Khoa</td>
+					      <td class="date">Today</td>
+					      <td class="action">
+					      	<button class="btn-save">Accept</button>
+							<button class="btn-gray">Decline</button>
+					      </td>
+					    </tr>
+					  </tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+
+<% include ../include/footer-main%>
+<script>
+	$('.owl-carousel').owlCarousel({
+    loop:true,
+    margin:10,
+    nav:true,
+    autoplayTimeout:2000,
+    autoplay:true,
+    navText: [
+        '<i class="fa fa-angle-left"></i>',
+        '<i class="fa fa-angle-right"></i>',
+    ],
+    responsive:{
+        0:{
+            items:1
+        },
+        600:{
+            items:2
+        },
+    }
+	})
+</script>
+<% include ../include/footer %>

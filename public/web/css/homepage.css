@@ -46,14 +46,6 @@
 	margin-bottom: 20px;
 }
 
-.box-shadow{
-	-webkit-box-shadow: 0px 0px 15px rgba(0,0,0,0.4);
-       -moz-box-shadow: 0px 0px 15px rgba(0,0,0,0.4);
-    	-ms-box-shadow: 0px 0px 15px rgba(0,0,0,0.4);
-    	 -o-box-shadow: 0px 0px 15px rgba(0,0,0,0.4);
-        	box-shadow: 0px 0px 15px rgba(0,0,0,0.4);
-}
-
 .listlove .love .avatar{
 	text-align: center;
 	background-color: #fff;
@@ -71,8 +63,67 @@
 	margin-top: 75px;
 }
 
+#Slider .slider-wrap{
+	position: relative;
+	height: max-content;
+	padding: 15px;
+	background-color: #fff;
+	margin-left: 15px;
+	margin-right: 15px;
+}
+
+#Slider .slider-wrap .header{
+	margin-bottom: 15px;
+}
+
+#Slider .slider-wrap .header h3{
+	margin: 0;
+	padding: 0;
+	font-size: 18px;
+	font-weight: 400;
+	color: #ee2b80;
+}
+
+#Slider .slider-wrap .header h3 span{
+	vertical-align: middle;
+}
+
 #Slider .owl-nav{
 	display: block;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: -10;
+}
+
+#Slider .owl-nav .owl-prev{
+	position: absolute;
+	top: 40%;
+	left: -10px;
+	cursor: pointer;
+	font-size: 22px;
+	color: #aaa;
+}
+
+#Slider .owl-nav .owl-prev:hover,
+#Slider .owl-nav .owl-prev:focus{
+	color: #ee2b80;
+}
+
+#Slider .owl-nav .owl-next{
+	position: absolute;
+	top: 40%;
+	right: -10px;
+	cursor: pointer;
+	font-size: 22px;
+	color: #aaa;
+}
+
+#Slider .owl-nav .owl-next:hover,
+#Slider .owl-nav .owl-next:focus{
+	color: #ee2b80;
 }
 
 #Slider .item{
@@ -107,6 +158,26 @@
 	margin: 0;
 	padding: 0;
 	font-size: 16px;
+}
+
+#Slider .owl-dots{
+	text-align: center;
+	width: 100%;
+	margin-top: 10px;
+}
+
+#Slider .owl-dot{
+	display: inline-block;
+	width: 8px;
+	height: 8px;
+	border-radius: 100%;
+	background-color: #eee;
+	margin-left: 2px;
+	margin-right: 2px;
+}
+
+#Slider .owl-dot.active{
+	background-color: #ee2b80;
 }
 
 button.apply{
@@ -160,6 +231,127 @@ button.apply:hover{
 
 }
 
+#PageContent{
+	margin-top: 15px;
+}
+
+#PageContent .content{
+	margin-bottom: 15px;
+}
+
+.post{
+	border: 1px solid #eee;
+	padding: 10px;
+	white-space: nowrap;
+	margin-bottom: 15px;
+}
+
+	.post .post-thumbnail{
+		width: 100%;
+	}
+
+	.post .post-thumbnail a{
+		text-transform: none;
+		text-decoration: none;
+	}
+
+	.post .post-thumbnail .thumb{
+		display: block;
+		width: 140px;
+		height: 140px;
+		margin-left: auto;
+		margin-right: auto;
+		border-radius: 100%;
+		background-size: cover;
+		background-repeat: no-repeat;
+		background-position: center;
+	}
+
+	.post .post-content{
+		width: 100%;
+		margin-top: 25px;
+		text-align: center;
+	}
+
+	.post .post-content .post-title{
+		margin-bottom: 15px;
+	}
+
+	.post .post-content .post-title h5{
+		margin: 0;
+		padding: 0;
+		white-space: normal;
+		font-size: 16px;
+		font-weight: 600;
+	}
+
+	.post .post-time{
+		margin-bottom: 15px;
+		font-size: 12px;
+		color: #aaa;
+	}
+
+	.post .post-content .post-body{
+		margin-bottom: 15px;
+	}
+
+	.post .post-content .post-body p{
+		word-wrap: break-word;
+		white-space: normal;
+		margin: 0;
+	}
+
+.sidebar {
+	margin-bottom: 15px;
+}
+
+.sidebar .white-box-body{
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+.sidebar .post{
+	border: none;
+	border-bottom: 1px solid #eee;
+	padding: 0;
+	padding-bottom: 10px;
+	margin-bottom: 0;
+	padding-top: 10px;
+}
+
+.sidebar .post:hover{
+	background-color: #f8f8f8;
+}
+
+.sidebar .post:last-child{
+	border-bottom: none;
+}
+
+.sidebar .post .post-title a{
+	text-decoration: none;
+	color: #ee2b80;
+}
+
+.sidebar .post .post-title h5{
+	font-size: 14px;
+	font-weight: 400;
+}
+
+.sidebar .post .post-body{
+	margin-bottom: 0;
+}
+
+.sidebar .post .post-title{
+	font-size: 14px;
+	font-weight: 400;
+	margin-bottom: 5px;
+}
+
+.sidebar .post .thumb{
+	width: 60px;
+	height: 60px;
+}
+
 @media screen and (min-width: 768px){
 	.love_bar{
 	background-color: #f8f8f8;
@@ -180,6 +372,20 @@ button.apply:hover{
 	#more:focus,
 	#more:active{
 	color: #ee2b80;
+	}
+
+	.post .post-thumbnail{
+		display: inline-block;
+		width: 25%;
+		vertical-align: middle;
+	}
+
+	.post .post-content{
+		display: inline-block;
+		width: 75%;
+		vertical-align: middle;
+		margin-top: 0;
+		text-align: left;
 	}
 
 }

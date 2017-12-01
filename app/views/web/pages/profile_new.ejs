@@ -32,7 +32,7 @@
                                 </label>
                                 <input type="file" class="hidden" id="inpUploadAvatar" accept="image/x-png,image/jpeg">
                             <%} else{%>
-                                <button class="btn-startchat"><img src="/web/images/chat-icon-64x64.png"></button>
+                                <button class="btn-startchat"><span class="li_bubble"></span></button>
                             <%}%>
                         </div>
 
@@ -159,6 +159,17 @@
                                             <span id="WorkingPlace" class="span-inp"><%= data.workingat%></span>
                                             <%if(self){%>
                                             <input type="text" name="inpWorkingPlace" class="form-control hidden inp-zlove" value="<%= data.workingat %>" required>
+                                            <%}%>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-xs-12 col-sm-6">
+                                            <span class="frm-field"><i class="fa fa-info-circle"></i> Giới thiệu bản thân</span>
+                                        </div>
+                                        <div class="col-xs-12 col-sm-6">
+                                            <article id="Introduction"><%= data.intro%></article>
+                                            <%if(self){%>
+                                            <textarea class="form-control hidden inp-zlove" name="introduction"rows="10"><%= data.intro%></textarea>
                                             <%}%>
                                         </div>
                                     </div>

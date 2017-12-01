@@ -65,6 +65,47 @@
                         <!-- END PAGE TITLE-->
                         <!-- END PAGE HEADER-->
                         <div class="row">
+                            <div class="col-xs-12 col-lg-3 col-md-3 col-sm-6">
+                                <a class="dashboard-stat dashboard-stat-v2 blue" href="#">
+                                    <div class="visual">
+                                        <i class="fa fa-comments"></i>
+                                    </div>
+                                    <div class="details">
+                                        <div class="number">
+                                            <span data-counter="counterup" data-value="<%= statUser.total %>" id="statActive">0</span>
+                                        </div>
+                                        <div class="desc"> Total User </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-xs-12 col-lg-3 col-md-3 col-sm-6">
+                                <a class="dashboard-stat dashboard-stat-v2 green" href="#">
+                                    <div class="visual">
+                                        <i class="fa fa-comments"></i>
+                                    </div>
+                                    <div class="details">
+                                        <div class="number">
+                                            <span data-counter="counterup" data-value="<%= statUser.active %>" id="statActive">0</span>
+                                        </div>
+                                        <div class="desc"> Active User </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-xs-12 col-lg-3 col-md-3 col-sm-6">
+                                    <a class="dashboard-stat dashboard-stat-v2 default" href="#">
+                                        <div class="visual">
+                                            <i class="fa fa-comments"></i>
+                                        </div>
+                                        <div class="details">
+                                            <div class="number">
+                                                <span data-counter="counterup" data-value="<%= statUser.inactive %>" id="statInactive">0</span>
+                                            </div>
+                                            <div class="desc"> Inactive User </div>
+                                        </div>
+                                    </a>
+                                </div>
+                        </div>
+                        <div class="row">
                             <div class="col-md-12">
                                 <!-- BEGIN EXAMPLE TABLE PORTLET-->
                                 <div class="portlet light bordered">
@@ -77,11 +118,18 @@
                                     <div class="portlet-body">
                                         <div class="table-toolbar">
                                             <div class="row">
-                                                <div class="col-md-12">
+                                                <div class="col-md-2">
                                                     <div class="btn-group">
                                                         <a class="btn sbold green" href="javascript:;" onclick="openModal(this)" data-option="1" data-modal="modal_EditUser">Add New
                                                             <i class="fa fa-plus"></i>
                                                         </a>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <div class="form-group">
+                                                        <div class="input-icon">
+                                                            <i class="icon-magnifier font-dark"></i>
+                                                            <input type="text" data-action="searchAjax" table-search="users_tables" class="form-control" placeholder="Search"> </div>
                                                     </div>
                                                 </div>
                                             </div>
