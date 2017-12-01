@@ -81,6 +81,7 @@ router.post('/profile-new', function(req, res, next){
   var workingat = req.body.inpWorkingPlace;
   var firstname = req.body.inpFirstname;
   var lastname  = req.body.inpLastname;
+  var intro     = req.body.introduction;
 
   user.updateOne({_id: userID}, {
     Gender        : gender,
@@ -90,7 +91,8 @@ router.post('/profile-new', function(req, res, next){
     Working       : working,
     WorkingAt     : workingat,
     FirstName     : firstname,
-    LastName      : lastname
+    LastName      : lastname,
+    Introduction  : intro
   }, function(err, result){
     if(err) {
       req.flash('saveBasicInfo', 'fail');
@@ -133,7 +135,8 @@ router.get('/profile-new', function(req, res, next){
           workingat   : data.WorkingAt,
           avatar      : data.getAvatar(),
           cities      : cities,
-          noCrrPlace  : data.CurrentPlace
+          noCrrPlace  : data.CurrentPlace,
+          intro       : data.Introduction
         }
       });
     }
@@ -174,7 +177,8 @@ router.get('/profile-new/:username', function(req, res, next){
             workingat   : data.WorkingAt,
             avatar      : data.getAvatar(),
             cities      : cities,
-            noCrrPlace  : data.CurrentPlace
+            noCrrPlace  : data.CurrentPlace,
+            intro       : data.Introduction
           }
         });
       }

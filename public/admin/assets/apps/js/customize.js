@@ -82,11 +82,37 @@ $(document).ready(function(){
 			}
 		}
 	}
+
+	//Ajax Search
+	{
+		$('[data-action=searchAjax]').keyup(function(){
+			var _this 	= $(this);
+			var table 	= _this.attr('table-search');
+			var text  	= _this.val().toLowerCase().trim();
+			if (text != '' && text != null && text != undefined){
+				var target = $('#'+table+' tbody');
+				target.find('tr').each(function(){
+					$(this).attr('data-search', true);
+					var trtext = $(this).text().trim().toLowerCase();
+					if (trtext.indexOf(text) == -1){
+						$(this).attr('data-search', false);
+					}
+				});
+			}
+			else{
+				var target = $('#'+table+' tbody');
+				target.find('tr').each(function(){
+					$(this).attr('data-search', true);
+				});
+			}
+			pagination();
+		});
+	}
 });
 
 function pagination(){
 	var table = $('table tbody');
-	var count = table.find('tr').length;
+	var count = table.find('tr[data-search="true"]').length;
 	if (count < pagelimit) {
 		var page = 1;
 	}
@@ -130,9 +156,14 @@ function paging(page){
 	minrec = (page-1)*pagelimit;
 	var tr = $('table tbody tr');
 	tr.addClass('hidden');
-	tr.each(function(idx){
-		if (idx <= maxrec && idx >= minrec) {
-			$(this).removeClass('hidden');
+	
+	var idx = 0;
+	tr.each(function(){
+		if ($(this).attr('data-search') == 'true'){
+			if (idx <= maxrec && idx >= minrec) {
+				$(this).removeClass('hidden');
+			}
+			idx += 1;
 		}
 	});
 }
