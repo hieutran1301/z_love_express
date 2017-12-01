@@ -1,0 +1,84 @@
+.background-color1{
+  background-color: #0D1B4C;
+}
+
+.background-color2{
+  background-color: #3F6699;
+}
+
+.background-color3{
+  background-color: #78C2C3;
+}
+
+.margin-post-obj{
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.padding-top-10{
+  padding-top: 10px;
+}
+
+.margin-bot-5{
+  margin-bottom: 5px;
+}
+
+.dashboard{
+  margin: 0;
+  width: 70%;
+  margin-top: 85px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.dashboard .dashboard-box{
+  width: 200px;
+  border-radius: 5px;
+}
+
+.dashboard .dashboard-box .dashboard-title{
+  color: #fff;
+}
+
+.dashboard .dashboard-box .dashboard-title .title-header{
+  font-size: 18px;
+  text-align: left;
+  padding-left: 15px;
+  padding-top: 15px;
+}
+
+.dashboard .dashboard-box .dashboard-title .title-conten{
+  font-size: 30px;
+  text-align: right;
+  padding-top: 5px;
+  padding-bottom: 10px;
+  padding-right: 15px;
+}
+
+#Post .content{
+  border-radius: 5px;
+  border: 1px #d0d2d0;
+}
+
+#Post .title{
+  margin-top: 30px;
+  margin-right: auto;
+  margin-left: auto;
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+}
+
+#Post .content .post-content textarea{
+  width: 100%;
+  border-radius: 5px;
+}
+
+#Post .content .act-button{
+  text-align: right;
+  margin-top: 15px;
+}
+
+#Post .content .act-button >button{
+  border-radius: 25px;
+}
