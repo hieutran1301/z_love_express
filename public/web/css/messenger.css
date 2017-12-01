@@ -1,5 +1,6 @@
 .messenger{
 	margin-bottom: -25px;
+	background-color: #fff;
 }
 /*Chat menu under nav-bar*/
 .messenger .chat-menu{
@@ -237,8 +238,6 @@
 	border-top: 1px solid #d8d8d8;
 	width: 100%;
 	margin-left: -15px;
-	border-top-right-radius: 10px;
-	border-top-left-radius: 10px; 
 	text-align: center;	
     overflow-x: hidden;
 }
@@ -303,6 +302,8 @@
 
 	.messenger .chat-menu .name-chat{
 		margin-left: 50px;
+		color: #000;
+		text-align: left;
 	}
 
 	.messenger .chat-menu .chat-menu-action a{
