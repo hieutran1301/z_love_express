@@ -62,7 +62,19 @@ router.post('/login', function(req, res, next){
                 csrf 		: req.csrfToken()
 			});
 			return 0;
-		}
+    }
+    
+    //check status of account
+    if(data.Status != 1){
+    	req.flash('loginMessage', 'User not found');
+			console.log("fail");
+			res.render('web/pages/login', {
+				title: 'Zlove | Login',
+				message: req.flash('loginMessage'),
+        csrf 		: req.csrfToken()
+			});
+			return 0;
+    }
 
 		//checking valid password
 		if (!data.validPassword(password)) {
@@ -74,7 +86,7 @@ router.post('/login', function(req, res, next){
         csrf 		: req.csrfToken()
 			});
 			return 0;
-		}
+    }
 
 		//done
 		console.log("done");

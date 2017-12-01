@@ -53,6 +53,7 @@ function openModal(obj){
     else{ //Edit user
         var modalTitle  = 'Edit user';
         var userID      = $(obj).attr('data-user');
+        resetForm('formUser');
         $.post(AJAX_USERS_PATH, 
             {
                 option  : 'getUserByID',
@@ -110,6 +111,15 @@ function openModal(obj){
                     $('#removeAvatar').removeClass('hidden');
                     dragAndDrop.hide();
                     dragDropPrv.show();
+                }
+                else{
+                    var dragAndDrop 	= $('.dragDropInp');
+                    var dragDropPrv 	= $('.dragDropPrv');
+                    dragDropPrv.find('img').attr('src', '');
+                    $('#cancelUpload').removeClass('hidden');
+                    $('#removeAvatar').addClass('hidden');
+                    dragAndDrop.show();
+                    dragDropPrv.hide();
                 }
 
                 $('#btnAddUser').addClass('hidden');
@@ -185,7 +195,7 @@ function getUsers(table){
                 }
                 var action =    '<a href="javascript:;" class="btn btn-xs blue" data-user="'+data[i]._id+'" data-option="0" onclick="openModal(this)" data-modal="modal_EditUser">Edit <i class="fa fa-edit"></i></a>'+
                                 '<a href="javascript:;" class="btn btn-xs red" onclick="removeUser(this)">Delete <i class="fa fa-remove"></i></a>';
-                html += '<tr class="odd" id="'+data[i]._id+'">'+
+                html += '<tr class="odd" id="'+data[i]._id+'" data-search="true">'+
                         '<td>'+checkbox+'</td>'+
                         '<td>'+data[i].Username+'</td>'+
                         '<td>'+data[i].Email+'</td>'+

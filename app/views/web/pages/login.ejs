@@ -52,9 +52,16 @@
           </div>
 
           <% if(message.length > 0) { %>
-          <div class="message">
-            <span><%= message %></span>
-          </div>
+            <% if(message == 'User not found') { %>
+              <script>
+                  swal('Oops!', 'Tài khoản không tồn tại!', 'warning');
+              </script>
+            <% }%>
+            <% if(message == 'Invalid password') { %>
+              <script>
+                  swal('Oops!', 'Mật khẩu không chính xác!', 'warning');
+              </script>
+            <% }%>
           <% } %>
 
           <button type="submit" class="btn-signin">Đăng nhập</button>

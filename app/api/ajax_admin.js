@@ -48,7 +48,7 @@ router.post('/', function(req, res, next){
 				res.send(data);
 				return;
 			}
-		});
+		}).sort({ Username: 1});
 	}
 
 	if (_option == 'removeUser') {

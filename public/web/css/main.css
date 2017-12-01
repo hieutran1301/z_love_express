@@ -98,13 +98,25 @@ button{
 }
 
 .btn-startchat{
-    background-color: #fff;
     padding: 0;
     margin: 0 auto;
     display: inline-block;
-    width: 60px;
-    height: 60px;
+    width: 50px;
+    height: 50px;
     border-radius: 100%;
+    background-color: #ee2b80;
+    color: #fff;
+    font-size: 22px;
+}
+
+.btn-startchat span{
+    vertical-align: middle;
+}
+
+.btn-startchat:hover,
+.btn-startchat:focus{
+    background-color: #fff;
+    color: #ee2b80;
 }
 
 .btn-heart{
