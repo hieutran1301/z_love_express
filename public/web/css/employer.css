@@ -23,37 +23,7 @@
   margin-bottom: 5px;
 }
 
-.dashboard{
-  margin: 0;
-  width: 70%;
-  margin-top: 85px;
-  margin-left: auto;
-  margin-right: auto;
-}
 
-.dashboard .dashboard-box{
-  width: 200px;
-  border-radius: 5px;
-}
-
-.dashboard .dashboard-box .dashboard-title{
-  color: #fff;
-}
-
-.dashboard .dashboard-box .dashboard-title .title-header{
-  font-size: 18px;
-  text-align: left;
-  padding-left: 15px;
-  padding-top: 15px;
-}
-
-.dashboard .dashboard-box .dashboard-title .title-conten{
-  font-size: 30px;
-  text-align: right;
-  padding-top: 5px;
-  padding-bottom: 10px;
-  padding-right: 15px;
-}
 
 #Post .content{
   border-radius: 5px;

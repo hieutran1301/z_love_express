@@ -68,7 +68,7 @@ router.post('/post', function (req, res, next) {
     "EditedDate"  : '',
     "View"        : 0,
     "NumberApply" : 0,
-    "Status"      : 1
+    "Status"      : 0
 
   });
 
