@@ -16,12 +16,18 @@
 	margin-bottom: 20px;
 }
 
+.messenger .chat-menu .chat-menu-bar{
+	background-color: #ee2b80;
+}
+
 .messenger .chat-menu .name-chat{
 	font-size: 16px;
 	font-weight: 600;
 	vertical-align: middle;
 	line-height: 70px;
-	margin-left: 50px;
+	text-align: center;
+	color: #fff;
+	margin-left: 50%;
 }
 
 .messenger .chat-menu .chat-menu-action{
@@ -30,7 +36,7 @@
 }
 
 .messenger .chat-menu .chat-menu-action a{
-	color: #666;
+	color: #fff;
 }
 
 .messenger .chat-menu .chat-menu-action .chat_action{
@@ -62,6 +68,7 @@
 	border-right: 1px solid #d8d8d8;
 	margin-top: 60px;
 	height: 100%;
+	overflow-x: auto;
 }
 
 .messenger .chat-main .chat-list .chat_users{
@@ -90,7 +97,6 @@
 	height: 40px;
 	width: 40px;
 	border-radius: 100%;
-	margin-right: 20px;
 	margin-top: 10px;
 }
 
@@ -169,7 +175,7 @@
 	margin-top: 15px;
 }
 .messenger .chat-main .chat-screen .chat-content .send > p{
-	max-width: 500px;
+	max-width: 300px;
 	text-align: justify;
 	display: inline-block;
 	background-color: #ee2b80;
@@ -203,7 +209,7 @@
 }
 
 .messenger .chat-main .chat-screen .chat-content .receive > p{
-	max-width: 500px;
+	max-width: 300px;
 	text-align: justify;
 	display: inline-block;
 	background-color: #d6d6d6;
@@ -227,7 +233,7 @@
 
 .messenger .chat-main .chat-screen .chat-form{
 	position: absolute;
-	bottom: 20px;
+	bottom: 0px;
 	border-top: 1px solid #d8d8d8;
 	width: 100%;
 	margin-left: -15px;
@@ -278,18 +284,51 @@
 	margin-right: 20px;
 	color: #ee2b80;
 }
+
 .messenger .chat-main .chat_action a{
 	color: #000;
+
 }
+
 .messenger .chat-main .chat_action li{
 	list-style-type: none;
+	margin-top: 20px;
 }
 
 
 @media screen and (min-width: 768px){
-.messenger .chat-main .chat-list{
-	margin-top: 0px;
+	.messenger .chat-menu .chat-menu-bar{
+	background-color: transparent;
+	}
+
+	.messenger .chat-menu .name-chat{
+		margin-left: 50px;
+	}
+
+	.messenger .chat-menu .chat-menu-action a{
+	color: #666;
+	}
+
+	.messenger .chat-main .chat-list{
+		margin-top: 0px;
+	}
+
+	.messenger .chat-main .chat-screen .chat-content .send > p{
+		max-width: 300px;
+	}
+
+	.messenger .chat-main .chat-screen .chat-content .receive > p{
+		max-width: 300px;
+	}
+
 }
 @media screen and (min-width: 991px){
+	.messenger .chat-main .chat-screen .chat-content .send > p{
+		max-width: 500px;
+	}
+
+	.messenger .chat-main .chat-screen .chat-content .receive > p{
+		max-width: 500px;
+	}
 
 }

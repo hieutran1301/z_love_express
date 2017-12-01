@@ -1,0 +1,204 @@
+
+.Slider{
+	margin-top: 75px;
+}
+
+.Slider .slider-wrap{
+	position: relative;
+	height: max-content;
+	padding: 15px;
+	background-color: #fff;
+	margin-left: 15px;
+	margin-right: 15px;
+}
+
+.Slider .slider-wrap .header{
+	margin-bottom: 15px;
+}
+
+.Slider .slider-wrap .header h3{
+	margin: 0;
+	padding: 0;
+	font-size: 18px;
+	font-weight: 400;
+	color: #ee2b80;
+}
+
+.Slider .slider-wrap .header h3 span{
+	vertical-align: middle;
+}
+
+.Slider .owl-nav{
+	display: block;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: -10;
+}
+
+.Slider .owl-nav .owl-prev{
+	position: absolute;
+	top: 40%;
+	left: -10px;
+	cursor: pointer;
+	font-size: 22px;
+	color: #aaa;
+}
+
+.Slider .owl-nav .owl-prev:hover,
+.Slider .owl-nav .owl-prev:focus{
+	color: #ee2b80;
+}
+
+.Slider .owl-nav .owl-next{
+	position: absolute;
+	top: 40%;
+	right: -10px;
+	cursor: pointer;
+	font-size: 22px;
+	color: #aaa;
+}
+
+.Slider .owl-nav .owl-next:hover,
+.Slider .owl-nav .owl-next:focus{
+	color: #ee2b80;
+}
+
+.post{
+	border: 1px solid #eee;
+	padding: 10px;
+	white-space: nowrap;
+	margin-bottom: 15px;
+}
+
+	.post .post-thumbnail{
+		width: 100%;
+	}
+
+	.post .post-thumbnail a{
+		text-transform: none;
+		text-decoration: none;
+	}
+
+	.post .post-thumbnail .thumb{
+		display: block;
+		width: 140px;
+		height: 140px;
+		margin-left: auto;
+		margin-right: auto;
+		border-radius: 100%;
+		background-size: cover;
+		background-repeat: no-repeat;
+		background-position: center;
+	}
+
+	.post .post-content{
+		width: 100%;
+		margin-top: 25px;
+		text-align: center;
+	}
+
+	.post .post-content .post-title{
+		margin-bottom: 15px;
+	}
+
+	.post .post-content .post-title h5{
+		margin: 0;
+		padding: 0;
+		white-space: normal;
+		font-size: 16px;
+		font-weight: 600;
+	}
+
+	.post .post-content .post-body{
+		margin-bottom: 15px;
+	}
+
+	.post .post-content .post-body p{
+		word-wrap: break-word;
+		white-space: normal;
+		margin: 0;
+	}
+.white-box{
+	width: auto;
+	margin-right: 15px;
+	margin-left: 15px;
+	margin-top: 15px;
+}
+
+.white-box-body .table-apply .love{
+	vertical-align: middle;
+}
+
+.white-box-body .table-apply .love:hover,
+.white-box-body .table-apply .love:focus{
+	background-color: #ececec;
+} 
+
+.white-box-body .table-apply .username{
+	width: 25%;
+	vertical-align: middle;
+}
+
+.white-box-body .table-apply .avatar{
+	width: 10%;
+	vertical-align: middle;
+}
+
+.white-box-body .table-apply .avatar .thumb{
+		display: block;
+		width: 50px;
+		height: 50px;
+		border-radius: 100%;
+		background-size: cover;
+		background-repeat: no-repeat;
+		background-position: center;
+}
+
+.white-box-body .table-apply .age{
+	width: 5%;
+	vertical-align: middle;
+}
+
+.white-box-body .table-apply .name{
+	width: 25%;
+	vertical-align: middle;
+}
+
+.white-box-body .table-apply .date{
+	width: 15%;
+	vertical-align: middle;
+}
+
+.white-box-body .table-apply .action{
+	width: 20%;
+	vertical-align: middle;
+}
+
+@media screen and (min-width: 768px){
+
+
+}
+@media screen and (min-width: 991px){
+}
+@media screen and (min-width: 1200px){
+	.post .post-thumbnail{
+		display: inline-block;
+		width: 25%;
+		vertical-align: middle;
+	}
+
+	.post .post-content{
+		display: inline-block;
+		width: 75%;
+		vertical-align: middle;
+		margin-top: 0;
+		text-align: left;
+	}
+	.post .post-thumbnail .thumb{
+		width: 120px;
+		height: 120px;
+}
+}

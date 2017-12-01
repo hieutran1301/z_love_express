@@ -44,10 +44,24 @@ router.get('/about', function(req, res, next){
     });
 });
 
+router.get('/setting', function(req, res, next){
+  res.render('web/pages/setting', {
+      title: 'Setting',
+      csrf    : req.csrfToken()
+    });
+});
+
 router.get('/messenger', function(req, res, next){
   res.render('web/pages/messenger', {
       title: 'Messenger',
       csrf 		: req.csrfToken()
+    });
+});
+
+router.get('/apply', function(req, res, next){
+  res.render('web/pages/apply', {
+      title: 'Apply',
+      csrf    : req.csrfToken()
     });
 });
 
