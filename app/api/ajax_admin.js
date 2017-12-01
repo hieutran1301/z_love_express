@@ -6,6 +6,7 @@ var promise = require('q');
 var fs 		= require('fs');
 
 var user = mongoose.model('zlove_users');
+var post = mongoose.model('zlove_posts');
 var bcrypt = require('bcrypt');
 var city = require('../../libs/city');
 var crypto = require('crypto');
@@ -272,6 +273,20 @@ router.post('/edit-user', upload.single('avatar'), function(req, res, next){
 		}, function(err, result){
 			if (err) throw err;
 			res.sendStatus(200);
+		});
+	}
+});
+
+router.post('/post', function(req, res, next){
+	var option = req.body.option;
+
+	if (option == 'fetchPosts'){
+		post.find(function(err, data){
+			if (err) throw err;
+			if (!data) res.sendStatus(404);
+			if (data) {
+				res.send(data);
+			}
 		});
 	}
 });
