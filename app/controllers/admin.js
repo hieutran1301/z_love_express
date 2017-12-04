@@ -3,6 +3,7 @@ var express = require('express'),
 	mongoose = require('mongoose');
 	
 var user = mongoose.model('zlove_users');
+var post = mongoose.model('zlove_posts');
 
 module.exports = function (app, passport) {
   app.use('/admin', isLoggedIn, router);
@@ -54,12 +55,29 @@ router.get('/users', function(req, res, next){
 });
 
 router.get('/posts', function(req, res, next){
-	res.render('admin/pages/posts', {
-		layout 		: 'admin/master',
-		title		: 'Posts manager',
-		csrf 		: req.csrfToken(),
-		admin 		: req.session.adminuser,
-		script		: 'admin/assets/apps/js/posts.js'
+	post.find(function(err, data){
+		if (err) throw err;
+
+		if (data){
+			var total = data.length;
+			post.find({Status: 0}, function(err, result){
+				if (err) throw err;
+				if (result){
+					var pending = result.length;
+					var active  = total - pending;
+					res.render('admin/pages/posts', {
+						layout 		: 'admin/master',
+						title		: 'Posts manager',
+						csrf 		: req.csrfToken(),
+						admin 		: req.session.adminuser,
+						script		: 'admin/assets/apps/js/posts.js',
+						total 		: total,
+						pending		: pending,
+						active		: active
+					});
+				}
+			});
+		}
 	});
 });
 
