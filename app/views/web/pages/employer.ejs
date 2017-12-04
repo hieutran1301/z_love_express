@@ -2,6 +2,7 @@
 
 <!--include css:-->
 <link rel="stylesheet" type="text/css" href="<%= local.setting.basepath %>web/css/employer.css">
+<link rel="stylesheet" type="text/css" href="<%= local.setting.basepath %>web/css/homepage.css">
 
 </head>
 <body>
@@ -16,15 +17,171 @@
 </div>
 <% } %>
 
-<section>
+<% if(message == 'Err') { %>
+<div class="message">
+  <script>
+    swal('Lỗi','Bạn chỉ được đăng tin một lần!','warning');
+  </script>
+</div>
+<% } %>
+
+<section id="News" class="animated fadeInDown">
   <div class="container">
+    <div class="news-title">
+      <div class="remove-padding-bot sidebar white-box border-radius box-shadow">
+        <div class="white-box-title">
+          <h5><span class="li_star"></span> Bài đăng phổ biến</h5>
+        </div>
+        <div id="post-list">
+          <div class="row remove-margin-right">
+            <div class="white-box-body">
+              <div class="col-md-6 remove-padding-left remove-padding-right">
+                <div class="post border-bottom">
+                  <div class="post-thumbnail">
+                    <a href="#"><div class="thumb" style="background-image: url('/uploads/22a4f7e70ee27bc47540f2f3b5eb369c.jpg');"></div></a>
+                  </div>
+                  <div class="post-content">
+                    <div class="post-title">
+                      <a href="#"><h5>Người con gái ta thương <3</h5></a>
+                    </div>
+                    <div class="post-body">
+                      <p>625 Lượt ứng tuyển</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="post border-bottom">
+                  <div class="post-thumbnail">
+                    <a href="#"><div class="thumb" style="background-image: url('/uploads/22a4f7e70ee27bc47540f2f3b5eb369c.jpg');"></div></a>
+                  </div>
+                  <div class="post-content">
+                    <div class="post-title">
+                      <a href="#"><h5>Ta thương em nhiều hơn chính bản thân :))</h5></a>
+                    </div>
+                    <div class="post-body">
+                      <p>625 Lượt ứng tuyển</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="post border-bottom">
+                  <div class="post-thumbnail">
+                    <a href="#"><div class="thumb" style="background-image: url('/uploads/22a4f7e70ee27bc47540f2f3b5eb369c.jpg');"></div></a>
+                  </div>
+                  <div class="post-content">
+                    <div class="post-title">
+                      <a href="#"><h5>Ta đâu dám nhìn thẳng vào đôi mắt em :((</h5></a>
+                    </div>
+                    <div class="post-body">
+                      <p>625 Lượt ứng tuyển</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="post border-bottom">
+                  <div class="post-thumbnail">
+                    <a href="#"><div class="thumb" style="background-image: url('/uploads/22a4f7e70ee27bc47540f2f3b5eb369c.jpg');"></div></a>
+                  </div>
+                  <div class="post-content">
+                    <div class="post-title">
+                      <a href="#"><h5>Gấu ở đâu khi đông đã về TvT ??</h5></a>
+                    </div>
+                    <div class="post-body">
+                      <p>625 Lượt ứng tuyển</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="post border-bottom">
+                  <div class="post-thumbnail">
+                    <a href="#"><div class="thumb" style="background-image: url('/uploads/22a4f7e70ee27bc47540f2f3b5eb369c.jpg');"></div></a>
+                  </div>
+                  <div class="post-content">
+                    <div class="post-title">
+                      <a href="#"><h5>Gấu ở đâu khi đông đã về TvT ??</h5></a>
+                    </div>
+                    <div class="post-body">
+                      <p>625 Lượt ứng tuyển</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6 remove-padding-left remove-padding-right">
+                <div class="post border-bottom">
+                  <div class="post-thumbnail">
+                    <a href="#"><div class="thumb" style="background-image: url('/uploads/22a4f7e70ee27bc47540f2f3b5eb369c.jpg');"></div></a>
+                  </div>
+                  <div class="post-content">
+                    <div class="post-title">
+                      <a href="#"><h5>Gấu ở đâu khi đông đã về TvT ??</h5></a>
+                    </div>
+                    <div class="post-body">
+                      <p>625 Lượt ứng tuyển</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="post border-bottom">
+                  <div class="post-thumbnail">
+                    <a href="#"><div class="thumb" style="background-image: url('/uploads/22a4f7e70ee27bc47540f2f3b5eb369c.jpg');"></div></a>
+                  </div>
+                  <div class="post-content">
+                    <div class="post-title">
+                      <a href="#"><h5>Gấu ở đâu khi đông đã về TvT ??</h5></a>
+                    </div>
+                    <div class="post-body">
+                      <p>625 Lượt ứng tuyển</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="post border-bottom">
+                  <div class="post-thumbnail">
+                    <a href="#"><div class="thumb" style="background-image: url('/uploads/22a4f7e70ee27bc47540f2f3b5eb369c.jpg');"></div></a>
+                  </div>
+                  <div class="post-content">
+                    <div class="post-title">
+                      <a href="#"><h5>Gấu ở đâu khi đông đã về TvT ??</h5></a>
+                    </div>
+                    <div class="post-body">
+                      <p>625 Lượt ứng tuyển</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="post border-bottom">
+                  <div class="post-thumbnail">
+                    <a href="#"><div class="thumb" style="background-image: url('/uploads/22a4f7e70ee27bc47540f2f3b5eb369c.jpg');"></div></a>
+                  </div>
+                  <div class="post-content">
+                    <div class="post-title">
+                      <a href="#"><h5>Gấu ở đâu khi đông đã về TvT ??</h5></a>
+                    </div>
+                    <div class="post-body">
+                      <p>625 Lượt ứng tuyển</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="post border-bottom">
+                  <div class="post-thumbnail">
+                    <a href="#"><div class="thumb" style="background-image: url('/uploads/22a4f7e70ee27bc47540f2f3b5eb369c.jpg');"></div></a>
+                  </div>
+                  <div class="post-content">
+                    <div class="post-title">
+                      <a href="#"><h5>Gấu ở đâu khi đông đã về TvT ??</h5></a>
+                    </div>
+                    <div class="post-body">
+                      <p>625 Lượt ứng tuyển</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
 
   </div>
 </section>
 
-<section id="Post">
+<section id="Post" class="animated fadeInUpBig">
   <div class="container">
-    <div class="content">
+    <div class="content sidebar white-box border-radius box-shadow">
       <form action="http://localhost:3000/home/post" method="post">
         <input type="hidden" name="_csrf" value="<%= csrf %>">
         <div class="row">
@@ -34,21 +191,21 @@
         </div>
         <div class="row">
           <div class="post-title margin-post-obj">
-            <div class="col-xs-12 col-md-2 col-md-offset-1 margin-bot-5">
+            <div class="col-xs-12 col-md-2 col-md-offset-1 margin-bot-5 padding-top-10">
               <span>Tiêu đề bài đăng</span>
             </div>
             <div class="col-xs-12 col-md-8">
-              <input type="text" class="form-control" id="PostTitle" name="posttitle" placeholder="Tiêu đề bài đăng" required>
+              <input type="text" class="form-control inp-zlove" id="PostTitle" name="posttitle" placeholder="Tiêu đề bài đăng" required>
             </div>
           </div>
         </div>
         <div class="row">
           <div class="post-gender margin-post-obj ">
-            <div class="col-xs-12 col-md-2 col-md-offset-1 margin-bot-5">
+            <div class="col-xs-12 col-md-2 col-md-offset-1 margin-bot-5 padding-top-10">
               <span>Bạn muốn tìm</span>
             </div>
             <div class="col-xs-12 col-md-4">
-              <select id="Target" name="target" class="form-control" >
+              <select id="Target" name="target" class="form-control inp-zlove" >
                 <option value="0">Chọn</option>
                 <option value="1">Nam</option>
                 <option value="2">Nữ</option>
@@ -59,7 +216,7 @@
         </div>
         <div class="row">
           <div class="post-age margin-post-obj">
-            <div class="col-xs-12 col-md-2 col-md-offset-1 margin-bot-5">
+            <div class="col-xs-12 col-md-2 col-md-offset-1 margin-bot-5 padding-top-10">
               <span>Độ tuổi</span>
             </div>
             <div class="col-xs-12 col-md-4">
@@ -68,7 +225,7 @@
                   <span>Từ</span>
                 </div>
                 <div class="col-xs-4 col-md-4">
-                  <select id="Agemin" name="agemin" class="form-control" >
+                  <select id="Agemin" name="agemin" class="form-control inp-zlove" >
                     <option value="18">18</option>
                     <option value="19">19</option>
                     <option value="20">20</option>
@@ -79,7 +236,7 @@
                   <span>Đến</span>
                 </div>
                 <div class="col-xs-4 col-md-4">
-                  <select id="Agemax" name="agemax" class="form-control" >
+                  <select id="Agemax" name="agemax" class="form-control inp-zlove" >
                     <option value="22">22</option>
                     <option value="23">23</option>
                     <option value="24">24</option>
@@ -92,11 +249,11 @@
         </div>
         <div class="row">
           <div class="post-local margin-post-obj">
-            <div class="col-xs-12 col-md-2 col-md-offset-1 margin-bot-5">
+            <div class="col-xs-12 col-md-2 col-md-offset-1 margin-bot-5 padding-top-10">
               <span>Nơi ở:</span>
             </div>
             <div class="col-xs-12 col-md-4">
-              <select id="Local" name="local" class="form-control" >
+              <select id="Local" name="local" class="form-control inp-zlove" >
                 <% for (var i=0; i<cities.length; i++){ %>
                 <option value="<%= i+1 %>"> <%= cities[i]%> </option>
                 <% }%>
@@ -106,11 +263,11 @@
         </div>
         <div class="row">
           <div class="post-job margin-post-obj">
-            <div class="col-xs-12 col-md-2 col-md-offset-1 margin-bot-5">
+            <div class="col-xs-12 col-md-2 col-md-offset-1 margin-bot-5 padding-top-10">
               <span>Công việc</span>
             </div>
             <div class="col-xs-12 col-md-4">
-              <select id="Job" name="job" class="form-control" >
+              <select id="Job" name="job" class="form-control inp-zlove" >
                 <option value="0">Sinh viên</option>
                 <option value="1">Đang đi làm</option>
                 <option value="2">Đang tìm việc</option>
@@ -121,11 +278,11 @@
         </div>
         <div class="row">
           <div class="post-content margin-post-obj">
-            <div class="col-xs-12 col-md-2 col-md-offset-1 margin-bot-5">
+            <div class="col-xs-12 col-md-2 col-md-offset-1 margin-bot-5 padding-top-10">
               <span>Giới thiệu về bản thân và yêu cầu của bạn:</span>
             </div>
             <div class="col-xs-12 col-md-8">
-              <textarea name="postcontent" id="PostConten" cols="30" rows="10" required></textarea>
+              <textarea name="postcontent" class="inp-zlove" id="PostConten" cols="30" rows="10" required></textarea>
             </div>
           </div>
         </div>

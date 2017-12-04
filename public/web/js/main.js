@@ -7,7 +7,7 @@ $(window).resize(function(){
 window.onload = function () {
   setTimeout(function () {
     $('#Loading').fadeOut();
-  },500);
+  },300);
 };
 
 $(document).ready(function(){

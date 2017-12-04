@@ -1,14 +1,3 @@
-.background-color1{
-  background-color: #0D1B4C;
-}
-
-.background-color2{
-  background-color: #3F6699;
-}
-
-.background-color3{
-  background-color: #78C2C3;
-}
 
 .margin-post-obj{
   margin-top: 15px;
@@ -23,7 +12,44 @@
   margin-bottom: 5px;
 }
 
+.remove-margin-right{
+  margin-right: 0;
+}
 
+.remove-padding-left{
+  padding-left: 0;
+}
+
+.remove-padding-right{
+  padding-right: 0;
+}
+
+.remove-padding-bot{
+   padding-bottom: 0;
+ }
+
+#News .news-title{
+  margin-top: 60px;
+  text-align: left;
+  font-weight: bold;
+}
+
+#post-list{
+  overflow-y: auto;
+  height: 250px;
+}
+#post-list::-webkit-scrollbar{
+  width: 5px;
+}
+
+#post-list::-webkit-scrollbar-track{
+  border-radius: 20px;
+}
+
+#post-list::-webkit-scrollbar-thumb{
+  background: #ddd;
+  border-radius: 10px;
+}
 
 #Post .content{
   border-radius: 5px;
@@ -37,16 +63,19 @@
   font-size: 18px;
   font-weight: bold;
   text-align: center;
+  color: #ee2b80;
 }
 
 #Post .content .post-content textarea{
   width: 100%;
   border-radius: 5px;
+  resize: none;
 }
 
 #Post .content .act-button{
   text-align: right;
   margin-top: 15px;
+  margin-right: 100px;
 }
 
 #Post .content .act-button >button{
