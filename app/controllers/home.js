@@ -137,6 +137,13 @@ router.get('/messenger', function(req, res, next){
     });
 });
 
+router.get('/messenger_new', function(req, res, next){
+  res.render('web/pages/messenger_new', {
+    title: 'Messenger',
+    csrf 		: req.csrfToken()
+  });
+});
+
 router.get('/apply', function(req, res, next){
   res.render('web/pages/apply', {
       title: 'Apply',

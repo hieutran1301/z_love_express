@@ -12,22 +12,6 @@
   margin-bottom: 5px;
 }
 
-.remove-margin-right{
-  margin-right: 0;
-}
-
-.remove-padding-left{
-  padding-left: 0;
-}
-
-.remove-padding-right{
-  padding-right: 0;
-}
-
-.remove-padding-bot{
-   padding-bottom: 0;
- }
-
 #News .news-title{
   margin-top: 60px;
   text-align: left;
