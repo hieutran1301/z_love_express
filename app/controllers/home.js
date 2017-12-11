@@ -35,7 +35,7 @@ router.get('/homepage', function(req, res, next){
 
 router.get('/post', function(req, res, next){
   res.render('web/pages/employer', {
-      title: 'Đăng tin',
+      title: 'Zlove | Đăng tin',
       csrf 		: req.csrfToken(),
       cities      : cities,
       message : ''
@@ -55,28 +55,54 @@ router.post('/post', function (req, res, next) {
   var now 		= new Date();
   var createdDate = ''+now.getDate()+'/'+(now.getMonth()+1)+'/'+now.getFullYear();
 
-  newUser = new posts({
-    "Title"   : title,
-    "Target"  : target,
-    "FromAge" : fromAge,
-    "ToAge"   : toAge,
-    "City"    : local,
-    "Job"     : job,
-    "Description" : content,
-    "CreatedDate" : createdDate,
-    "CreatedBy"   : userID,
-    "EditedDate"  : '',
-    "View"        : 0,
-    "NumberApply" : 0,
-    "Status"      : 0
+  posts.findOne({"CreatedBy": userID},function (err, data) {
+    if (err) {
+      req.flash('postMessage', 'Error');
+      console.log("Error");
+      res.render('web/pages/employer', {
+        title		: 'Zlove | Đăng tin',
+        csrf 		: req.csrfToken(),
+        cities		: cities,
+        message 	: req.flash('postMessage')
+      });
+      return 0;
+    }
+    if(!data){
+      newUser = new posts({
+        "Title"   : title,
+        "Target"  : target,
+        "FromAge" : fromAge,
+        "ToAge"   : toAge,
+        "City"    : local,
+        "Job"     : job,
+        "Description" : content,
+        "CreatedDate" : createdDate,
+        "CreatedBy"   : userID,
+        "EditedDate"  : '',
+        "View"        : 0,
+        "NumberApply" : 0,
+        "Status"      : 0
 
-  });
+      });
 
-  newUser.save(function (err, result) {
-    if (err) throw err;
-    if (result._id) {
-      req.flash('postMessage', 'Success');
-      console.log("Success");
+      newUser.save(function (err, result) {
+        if (err) throw err;
+        if (result._id) {
+          req.flash('postMessage', 'Success');
+          console.log("Success");
+          res.render('web/pages/employer', {
+            title		: 'Zlove | Đăng tin',
+            csrf 		: req.csrfToken(),
+            cities		: cities,
+            message 	: req.flash('postMessage')
+          });
+        }
+      });
+      return 0;
+    }
+    if(data){
+      req.flash('postMessage', 'Err');
+      console.log("Error");
       res.render('web/pages/employer', {
         title		: 'Zlove | Đăng tin',
         csrf 		: req.csrfToken(),
@@ -85,6 +111,8 @@ router.post('/post', function (req, res, next) {
       });
     }
   });
+
+
 });
 
 router.get('/about', function(req, res, next){
@@ -107,6 +135,13 @@ router.get('/messenger', function(req, res, next){
       title: 'Messenger',
       csrf 		: req.csrfToken()
     });
+});
+
+router.get('/messenger_new', function(req, res, next){
+  res.render('web/pages/messenger_new', {
+    title: 'Messenger',
+    csrf 		: req.csrfToken()
+  });
 });
 
 router.get('/apply', function(req, res, next){

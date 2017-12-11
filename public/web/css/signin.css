@@ -82,7 +82,7 @@ body > button{
 	   -moz-transition: all 0.15s ease-in 0s;
 		 -o-transition: all 0.15s ease-in 0s;
 			transition: all 0.15s ease-in 0s;
-	width: 140px; 
+	width: 140px;
 }
 
 .btn-signinfb i{
@@ -207,8 +207,35 @@ form a:focus{
 	margin-bottom: 10px;
 }
 
+@media screen and (min-width: 100px){
+  button a{
+    color: #ed3d7a;
+    font-weight: 600;
+    width: 100%;
+  }
+
+  button a:hover{
+    text-decoration: none;
+    color: #bf0042;
+    font-weight: 600;
+    width: 100%;
+  }
+}
+
 @media screen and (min-width: 768px){
-	.form-signin{
+  button a{
+    color: #ed3d7a;
+    font-weight: 600;
+    width: 100%;
+  }
+
+  button a:hover{
+    text-decoration: none;
+    color: #bf0042;
+    font-weight: 600;
+    width: 100%;
+  }
+  .form-signin{
 		margin-top: 50px;
 		margin-left: 200px;
 		margin-right: 200px;
@@ -221,7 +248,20 @@ form a:focus{
 	}
 }
 @media screen and (min-width: 991px){
-	.form-signin{
+  button a{
+    color: #fff;
+    font-weight: 600;
+    width: 100%;
+  }
+
+  button a:hover{
+    text-decoration: none;
+    color: #fff;
+    font-weight: 600;
+    width: 100%;
+  }
+
+  .form-signin{
 		margin-top: 200px;
 		margin-left: 120px;
 		margin-right: 120px;
@@ -238,7 +278,7 @@ form a:focus{
 		-webkit-transition: all 0.15s ease-in 0s;
 	   	   -moz-transition: all 0.15s ease-in 0s;
 		 	 -o-transition: all 0.15s ease-in 0s;
-				transition: all 0.15s ease-in 0s; 
+				transition: all 0.15s ease-in 0s;
 	}
 	.intro{
 		height: 100vh;

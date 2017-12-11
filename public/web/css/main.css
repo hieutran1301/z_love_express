@@ -1,6 +1,30 @@
 @import url('https://fonts.googleapis.com/css?family=Quicksand');
 
 
+.remove-margin-right{
+  margin-right: 0;
+}
+
+.remove-margin-left{
+  margin-left: 0;
+}
+
+.remove-padding-left{
+  padding-left: 0;
+}
+
+.remove-padding-right{
+  padding-right: 0;
+}
+
+.remove-padding-bot{
+  padding-bottom: 0;
+}
+
+.white-color{
+  color: #fff;
+}
+
 body{
     background-color: #f8f8f8;
     font-family: 'Quicksand', sans-serif;
