@@ -4,15 +4,10 @@
     <bookmark url="file://$PROJECT_DIR$" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cff12759-c17b-405e-aad1-9b34195be207" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/views/web/pages/messenger_new.ejs" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/web/css/messenger_new.css" />
+    <list default="true" id="cff12759-c17b-405e-aad1-9b34195be207" name="Default" comment="editing messnger">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/home.js" afterPath="$PROJECT_DIR$/app/controllers/home.js" />
-      <change beforePath="$PROJECT_DIR$/app/views/web/pages/messenger.ejs" afterPath="$PROJECT_DIR$/app/views/web/pages/messenger.ejs" />
-      <change beforePath="$PROJECT_DIR$/public/web/css/employer.css" afterPath="$PROJECT_DIR$/public/web/css/employer.css" />
-      <change beforePath="$PROJECT_DIR$/public/web/css/main.css" afterPath="$PROJECT_DIR$/public/web/css/main.css" />
-      <change beforePath="$PROJECT_DIR$/public/web/css/messenger.css" afterPath="$PROJECT_DIR$/public/web/css/messenger.css" />
+      <change beforePath="$PROJECT_DIR$/app/views/web/pages/messenger_new.ejs" afterPath="$PROJECT_DIR$/app/views/web/pages/messenger_new.ejs" />
+      <change beforePath="$PROJECT_DIR$/public/web/css/messenger_new.css" afterPath="$PROJECT_DIR$/public/web/css/messenger_new.css" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -29,7 +24,7 @@
       <file leaf-file-name="home.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controllers/home.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1088">
+            <state relative-caret-position="17">
               <caret line="140" column="37" lean-forward="false" selection-start-line="140" selection-start-column="37" selection-end-line="140" selection-end-column="37" />
               <folding>
                 <element signature="e#1082#2998#0" expanded="false" />
@@ -44,18 +39,8 @@
       <file leaf-file-name="messenger.ejs" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/web/pages/messenger.ejs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="386">
-              <caret line="218" column="16" lean-forward="true" selection-start-line="212" selection-start-column="10" selection-end-line="218" selection-end-column="16" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="messenger_new.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/web/css/messenger_new.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="485">
-              <caret line="310" column="18" lean-forward="false" selection-start-line="310" selection-start-column="18" selection-end-line="310" selection-end-column="18" />
+            <state relative-caret-position="3706">
+              <caret line="218" column="16" lean-forward="false" selection-start-line="212" selection-start-column="10" selection-end-line="218" selection-end-column="16" />
               <folding />
             </state>
           </provider>
@@ -74,26 +59,9 @@
       <file leaf-file-name="messenger_new.ejs" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/web/pages/messenger_new.ejs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="468">
-              <caret line="295" column="39" lean-forward="false" selection-start-line="295" selection-start-column="39" selection-end-line="295" selection-end-column="39" />
-              <folding>
-                <element signature="n#div#0;n#div#0;n#section#0;n#body#0;n#!!top" expanded="false" />
-                <element signature="n#div#0;n#div#1;n#div#0;n#section#0;n#body#0;n#!!top" expanded="false" />
-                <element signature="n#div#1;n#div#1;n#div#0;n#section#0;n#body#0;n#!!top" expanded="false" />
-                <element signature="n#div#2;n#div#1;n#div#0;n#section#0;n#body#0;n#!!top" expanded="false" />
-                <element signature="n#div#3;n#div#1;n#div#0;n#section#0;n#body#0;n#!!top" expanded="false" />
-                <element signature="n#div#4;n#div#1;n#div#0;n#section#0;n#body#0;n#!!top" expanded="false" />
-                <element signature="n#div#5;n#div#1;n#div#0;n#section#0;n#body#0;n#!!top" expanded="false" />
-                <element signature="n#div#6;n#div#1;n#div#0;n#section#0;n#body#0;n#!!top" expanded="false" />
-                <element signature="n#div#7;n#div#1;n#div#0;n#section#0;n#body#0;n#!!top" expanded="false" />
-                <element signature="n#div#8;n#div#1;n#div#0;n#section#0;n#body#0;n#!!top" expanded="false" />
-                <element signature="n#div#9;n#div#1;n#div#0;n#section#0;n#body#0;n#!!top" expanded="false" />
-                <element signature="n#div#10;n#div#1;n#div#0;n#section#0;n#body#0;n#!!top" expanded="false" />
-                <element signature="n#div#11;n#div#1;n#div#0;n#section#0;n#body#0;n#!!top" expanded="false" />
-                <element signature="n#div#12;n#div#1;n#div#0;n#section#0;n#body#0;n#!!top" expanded="false" />
-                <element signature="n#div#13;n#div#1;n#div#0;n#section#0;n#body#0;n#!!top" expanded="false" />
-                <element signature="n#div#1;n#div#0;n#section#1;n#body#0;n#!!top" expanded="false" />
-              </folding>
+            <state relative-caret-position="163">
+              <caret line="206" column="39" lean-forward="false" selection-start-line="206" selection-start-column="39" selection-end-line="206" selection-end-column="39" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -101,8 +69,8 @@
       <file leaf-file-name="main.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/web/css/main.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+            <state relative-caret-position="180">
+              <caret line="415" column="3" lean-forward="false" selection-start-line="415" selection-start-column="2" selection-end-line="415" selection-end-column="3" />
               <folding />
             </state>
           </provider>
@@ -123,6 +91,16 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="5185">
               <caret line="305" column="21" lean-forward="false" selection-start-line="305" selection-start-column="21" selection-end-line="305" selection-end-column="21" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="messenger_new.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/web/css/messenger_new.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="519">
+              <caret line="304" column="16" lean-forward="false" selection-start-line="304" selection-start-column="16" selection-end-line="304" selection-end-column="16" />
               <folding />
             </state>
           </provider>
@@ -151,12 +129,13 @@
       <find>name-chat</find>
       <find>chat-menu</find>
       <find>chat-menu-</find>
-      <find>a</find>
       <find>li-drop</find>
       <find>des</find>
       <find>chat_con</find>
       <find>sea</find>
       <find>chat_ac</find>
+      <find>ul</find>
+      <find>a</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -241,8 +220,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -325,6 +302,8 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -377,7 +356,8 @@
       <workItem from="1511664317800" duration="29098000" />
       <workItem from="1511930035117" duration="92322000" />
       <workItem from="1512575197285" duration="560000" />
-      <workItem from="1512576099455" duration="3105000" />
+      <workItem from="1512576099455" duration="3332000" />
+      <workItem from="1513041689182" duration="1707000" />
     </task>
     <task id="LOCAL-00001" summary="config db user">
       <created>1511343273410</created>
@@ -505,11 +485,18 @@
       <option name="project" value="LOCAL" />
       <updated>1512400633315</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="editing messnger">
+      <created>1512579259141</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1512579259141</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="163770000" />
+    <option name="totallyTimeSpent" value="165704000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
@@ -517,7 +504,7 @@
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23586309" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Grunt " active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32659408" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32919255" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
@@ -579,7 +566,8 @@
     <MESSAGE value="config model name" />
     <MESSAGE value="edit page post" />
     <MESSAGE value="fix signin, signup &amp; validate post page" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix signin, signup &amp; validate post page" />
+    <MESSAGE value="editing messnger" />
+    <option name="LAST_COMMIT_MESSAGE" value="editing messnger" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -705,7 +693,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="986">
           <caret line="58" column="1" lean-forward="true" selection-start-line="58" selection-start-column="1" selection-end-line="58" selection-end-column="1" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -756,7 +743,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -771,7 +757,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-3746">
           <caret line="127" column="0" lean-forward="true" selection-start-line="127" selection-start-column="0" selection-end-line="127" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -786,7 +771,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
           <caret line="3" column="23" lean-forward="true" selection-start-line="3" selection-start-column="23" selection-end-line="3" selection-end-column="23" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -794,7 +778,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
           <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="19" selection-end-column="1" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -816,7 +799,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -824,7 +806,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="391">
           <caret line="255" column="0" lean-forward="true" selection-start-line="255" selection-start-column="0" selection-end-line="255" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -832,7 +813,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
           <caret line="209" column="0" lean-forward="false" selection-start-line="209" selection-start-column="0" selection-end-line="222" selection-end-column="1" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -866,7 +846,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/home.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1088">
+        <state relative-caret-position="17">
           <caret line="140" column="37" lean-forward="false" selection-start-line="140" selection-start-column="37" selection-end-line="140" selection-end-column="37" />
           <folding>
             <element signature="e#1082#2998#0" expanded="false" />
@@ -922,52 +902,35 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/web/pages/messenger.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3706">
+          <caret line="218" column="16" lean-forward="false" selection-start-line="212" selection-start-column="10" selection-end-line="218" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/public/web/css/main.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+        <state relative-caret-position="180">
+          <caret line="415" column="3" lean-forward="false" selection-start-line="415" selection-start-column="2" selection-end-line="415" selection-end-column="3" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/web/css/messenger_new.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="485">
-          <caret line="310" column="18" lean-forward="false" selection-start-line="310" selection-start-column="18" selection-end-line="310" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/web/pages/messenger.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="386">
-          <caret line="218" column="16" lean-forward="true" selection-start-line="212" selection-start-column="10" selection-end-line="218" selection-end-column="16" />
+        <state relative-caret-position="519">
+          <caret line="304" column="16" lean-forward="false" selection-start-line="304" selection-start-column="16" selection-end-line="304" selection-end-column="16" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/web/pages/messenger_new.ejs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="468">
-          <caret line="295" column="39" lean-forward="false" selection-start-line="295" selection-start-column="39" selection-end-line="295" selection-end-column="39" />
-          <folding>
-            <element signature="n#div#0;n#div#0;n#section#0;n#body#0;n#!!top" expanded="false" />
-            <element signature="n#div#0;n#div#1;n#div#0;n#section#0;n#body#0;n#!!top" expanded="false" />
-            <element signature="n#div#1;n#div#1;n#div#0;n#section#0;n#body#0;n#!!top" expanded="false" />
-            <element signature="n#div#2;n#div#1;n#div#0;n#section#0;n#body#0;n#!!top" expanded="false" />
-            <element signature="n#div#3;n#div#1;n#div#0;n#section#0;n#body#0;n#!!top" expanded="false" />
-            <element signature="n#div#4;n#div#1;n#div#0;n#section#0;n#body#0;n#!!top" expanded="false" />
-            <element signature="n#div#5;n#div#1;n#div#0;n#section#0;n#body#0;n#!!top" expanded="false" />
-            <element signature="n#div#6;n#div#1;n#div#0;n#section#0;n#body#0;n#!!top" expanded="false" />
-            <element signature="n#div#7;n#div#1;n#div#0;n#section#0;n#body#0;n#!!top" expanded="false" />
-            <element signature="n#div#8;n#div#1;n#div#0;n#section#0;n#body#0;n#!!top" expanded="false" />
-            <element signature="n#div#9;n#div#1;n#div#0;n#section#0;n#body#0;n#!!top" expanded="false" />
-            <element signature="n#div#10;n#div#1;n#div#0;n#section#0;n#body#0;n#!!top" expanded="false" />
-            <element signature="n#div#11;n#div#1;n#div#0;n#section#0;n#body#0;n#!!top" expanded="false" />
-            <element signature="n#div#12;n#div#1;n#div#0;n#section#0;n#body#0;n#!!top" expanded="false" />
-            <element signature="n#div#13;n#div#1;n#div#0;n#section#0;n#body#0;n#!!top" expanded="false" />
-            <element signature="n#div#1;n#div#0;n#section#1;n#body#0;n#!!top" expanded="false" />
-          </folding>
+        <state relative-caret-position="163">
+          <caret line="206" column="39" lean-forward="false" selection-start-line="206" selection-start-column="39" selection-end-line="206" selection-end-column="39" />
+          <folding />
         </state>
       </provider>
     </entry>
