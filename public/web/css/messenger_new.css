@@ -279,6 +279,31 @@
   margin-top: 1px;
   padding-top: 10px;
 }
+#chatAbout .chat-about{
+  margin-top: 10px;
+}
+
+#chatAbout .chat-about >ul{
+  margin: 0;
+  padding: 0;
+  margin-left: 5px;
+  margin-top: 5px;
+  list-style-type: none;
+  white-space: nowrap;
+}
+
+#chatAbout .chat-about >ul >li >a{
+  text-decoration: none;
+  line-height: 25px;
+  color: #666;
+  width: 100%;
+  display: block;
+}
+
+#chatAbout .chat-about >ul >li >a:hover,
+#chatAbout .chat-about >ul >li >a:focus{
+  color: #001100;
+}
 
 @media screen and (min-width: 768px){
 
