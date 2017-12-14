@@ -1,4 +1,4 @@
-var socket = io.connect('http://localhost/chat');
+var socket = io.connect('http://localhost:8080/chat');
 
 socket.on('connection', function(){
     console.log('connected to server');

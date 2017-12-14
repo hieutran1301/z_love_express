@@ -13,11 +13,21 @@ var session  = require('express-session');
 var flash    = require('connect-flash');
 var csurf    = require('csurf');
 
+var sess     = session({
+  secret : "hGC3dqkk08CSrJH7",
+  saveUninitialized: true,
+  resave: true
+});
 
 var server    = require('http').Server(express);
+server.listen(8080);
 var io        = require('socket.io')(server);
+var ios       = require('socket.io-express-session');
 
-server.listen(80);
+io.use(ios(sess));
+io.of('/chat').use(ios(sess));
+
+
 
 var chat      = require('../app/socket/chat')(io);
 
@@ -46,11 +56,13 @@ module.exports = function(app, config) {
   app.use(flash()); 
 
   // PASSPORT
-  app.use(session({
-    secret : "hGC3dqkk08CSrJH7",
-    saveUninitialized: true,
-    resave: true
-  }));
+  // app.use(session({
+  //   secret : "hGC3dqkk08CSrJH7",
+  //   saveUninitialized: true,
+  //   resave: true
+  // }));
+
+  app.use(sess);
 
   app.use(passport.initialize());
   app.use(passport.session());
