@@ -39,6 +39,28 @@ button{
     line-height: 30px;
 }
 
+.dot-online{
+    display: inline-block;
+    margin: 0 5px;
+    width: 10px;
+    height: 10px;
+    border-radius: 100%;
+    border: 1px solid #4dbd4a;
+    vertical-align: middle;
+    background-color: #3e9e3c;
+}
+
+.dot-offline{
+    display: inline-block;
+    margin: 0 5px;
+    width: 10px;
+    height: 10px;
+    border-radius: 100%;
+    border: 1px solid #d44949;
+    background-color: #b92525;
+    vertical-align: middle;
+}
+
 .bg-blur-1{
     background-image: url('../images/blur-background.jpg');
     background-position: center;

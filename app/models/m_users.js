@@ -23,6 +23,8 @@ var usersSchema = mongoose.Schema({
     "PlaceOfBirth" : String,
     "CreatedDate" : String,
     "Avatar" : String,
+    "SocketID" : String,
+    "Online" : Number,
     "Status" : Number
 
 });

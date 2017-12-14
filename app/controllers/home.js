@@ -7,6 +7,7 @@ var express = require('express'),
 
 var posts = mongoose.model('zlove_posts');
 
+
 module.exports = function (app) {
   app.use('/home', isLoggedIn, router);
 };
@@ -141,6 +142,26 @@ router.get('/messenger_new', function(req, res, next){
   res.render('web/pages/messenger_new', {
     title: 'Messenger',
     csrf 		: req.csrfToken()
+  });
+});
+
+router.get('/messenger_new/:targetUsername', function(req, res, next){
+  var targetUsername = req.params.targetUsername;
+  user.findOne({Username: targetUsername}, function(err, data){
+    if (err) throw err;
+    if (data){
+      var targetId = data._id;
+      var sending  = {
+        FullName: data.FirstName+' '+data.LastName,
+        Online  : data.Online,
+      }
+      res.render('web/pages/messenger_new', {
+        title: 'Messenger',
+        csrf 		: req.csrfToken(),
+        targetId : targetId,
+        data    : sending
+      });
+    }
   });
 });
 
@@ -301,6 +322,39 @@ function isLoggedIn(req, res, next){
     res.redirect('/home-auth/login');
   }
   else{
+    req.app.io.of('/chat').emit('auth', req.session.homeuserid);
     return next();
   }
 }
+
+// function isNoti(req, res, next){
+//   req.app.io.of('/chat')
+//   .on('connection', (socket) => {
+
+//     // console.log('New client connected with id: '+socket.id);
+//     // console.log('Current user: '+req.session.homeuserid);
+
+//     if (req.session.homeuserid){
+//       console.log('Crr user update: '+req.session.homeuserid);
+//       user.updateOne({_id: req.session.homeuserid}, {
+//         SocketID: socket.id,
+//         Online: 1
+//       }, function(err, result){
+//         if (err) throw err;
+//         console.log('New client connected with socket id: '+socket.id);
+//       });
+//     }
+
+//     socket.on('disconnect', function(){
+//       user.updateOne({SocketID: socket.id}, {
+//         SocketID: '',
+//         Online: 0
+//       }, function(err, data){
+//         if (err) throw err;
+//         console.log('Socket '+socket.id+' has been disconnected!');
+//       });
+//     });
+//   });
+
+//   return next();  
+// }

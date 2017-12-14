@@ -95,7 +95,7 @@ router.post('/login', function(req, res, next){
 		//In homepage, should you use other session, exp: session.homepageauth, ...
 		req.session.homeauthenticated = true;
 		req.session.homeuserid = data._id;
-		console.log(req.session.homeuserid);
+    console.log(req.session.homeuserid);
 		res.redirect('/home/');
 		return 0;
 	});

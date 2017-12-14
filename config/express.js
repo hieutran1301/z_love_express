@@ -13,6 +13,14 @@ var session  = require('express-session');
 var flash    = require('connect-flash');
 var csurf    = require('csurf');
 
+
+var server    = require('http').Server(express);
+var io        = require('socket.io')(server);
+
+server.listen(80);
+
+var chat      = require('../app/socket/chat')(io);
+
 var setting = {
   appname     : 'Zlove',
   basepath    : 'http://localhost:3000/',
@@ -26,6 +34,8 @@ module.exports = function(app, config) {
   app.locals.local = {
     setting: setting
   }
+  
+  app.io = io;
   
   app.set('views', config.root + '/app/views');
   app.set('view options', {layout: true});

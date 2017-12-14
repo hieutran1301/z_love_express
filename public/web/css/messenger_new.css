@@ -62,7 +62,6 @@
   background-color: #ee2b80;
   padding-left: 15px;
   padding-right: 15px;
-  line-height: 65px;
   color: #fff;
 }
 #mainChat .chat-title a{
@@ -102,6 +101,24 @@
   text-align: center;
   font-size: 16px;
   font-weight: bolder;
+  padding: 15px 0;
+}
+
+#mainChat .chat-title .name-chat h5, 
+#mainChat .chat-title .name-chat p{
+  margin: 0;
+  padding: 0;
+}
+
+#mainChat .chat-title .name-chat h5{
+  font-size: 16px;
+  font-weight: 400;
+}
+
+#mainChat .chat-title .name-chat p{
+  font-size: 12px;
+  font-weight: 400;
+  margin-top: 5px;
 }
 
 #mainChat .chat-title .dropdown >a{
@@ -272,7 +289,6 @@
 #mainChat .chat-form a{
   font-size: 30px;
   color: #000;
-  background-color: #fff;
 }
 
 #mainChat .chat-form .messages{
