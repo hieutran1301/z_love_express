@@ -1,11 +1,14 @@
 var mongoose = require('mongoose');
 var user     = mongoose.model('zlove_users');
+var modelMess= mongoose.model('zlove_messages');
 var express  = require('express');
 
 module.exports = function(io, uid){
+
     io.of('/chat')
     .on('connection', function(socket){
         var userID = socket.handshake.session.homeuserid;
+        var socketID = socket.id;
         console.log("New socket connected: "+socket.id);
         console.log('User id from session: '+socket.handshake.session.homeuserid);
         
@@ -22,6 +25,58 @@ module.exports = function(io, uid){
             });
         });
 
+        //============ Chatting
+
+        socket.on('newMessage', function(data){
+            var username = data.username;
+            var mess     = data.data;
+
+            console.log('new message from '+userID+' to '+data.username+' with message: '+mess);
+            user.findOne({Username: username}, function(err, result){ // Get info of Receiver
+                if (err) throw err;
+                if (result) {
+                    var usrReceiveSocketID = result.SocketID; //Receiver SocketID@user
+                    var usrReceiveID       = result._id;      //Receiver _id@user
+
+                    user.findOne({SocketID: socketID}, function(err, usrSending){
+                        if (err) throw err;
+                        if (usrSending){
+                            var usrSendingUsername = usrSending.Username;   //Sender Username@user
+                            var usrSendingID       = usrSending._id;        //Sender _id@user
+
+                            // Saving to database
+
+                            var now  = new Date();
+                            var Timestamp = ''+addZero(now.getHours())+':'+addZero(now.getMinutes())+':'+addZero(now.getSeconds())+' '+now.getDate()+'/'+(now.getMonth()+1)+'/'+now.getFullYear(); 
+                            console.log('Timestamp before save to db: '+Timestamp);
+
+                            var newMessage = new modelMess({
+                                "FromID"    : usrSendingID,
+                                "ToID"      : usrReceiveID,
+                                "Content"   : mess,
+                                "Timestamp" : Timestamp
+                            });
+
+                            newMessage.save(function(err, svResult){
+                                if (err) throw err;
+                                if (svResult._id){
+                                    var sendingData = {
+                                        from: usrSendingUsername,
+                                        mess: mess
+                                    }
+                                    socket.to(usrReceiveSocketID).emit('resNewMess', sendingData); //Emit to Receiver via Socket ID
+                                }
+                            });
+
+                            // End of Saving
+
+                        }
+                    });
+
+                }
+            });
+        });
+
     });
 }
 
@@ -33,4 +88,11 @@ function updateDb(socketid, userid){
         if (err) throw err;
         console.log('Update done');
     });
+}
+
+function addZero(i) {
+    if (i < 10) {
+        i = "0" + i;
+    }
+    return i;
 }

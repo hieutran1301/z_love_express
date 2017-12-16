@@ -231,13 +231,13 @@
           </div>
         </div>
       </div>
-      <div class="chat_content_all">
+      <div class="chat_content_all" id="chatContentWrap">
         <div class="chat_screen_avatar">
           <img src="/web/images/avatar.jpg">
           <div class="Numberheart"><button type="submit">Xem hồ sơ</button></div>
           <div class="description"><p>Là một cô gái thích hoa, yêu màu hồng, hòa bình và yêu anh =))</p></div>
         </div>
-        <div class="chat-content">
+        <div class="chat-content" id="chatContent">
           <div class="send">
             <img src="/web/images/avatar.jpg">
             <p>
@@ -281,10 +281,10 @@
             <a href="#"><img class="camera" src="<%= local.setting.basepath %>web/images/camera.png" alt=""></a>
           </div>
           <div class="col-xs-8 col-sm-10 col-md-10 messages">
-            <input type="text" class="form-control inp-zlove" placeholder="Message...">
+            <input type="text" class="form-control inp-zlove" name="inp-input-messenger" placeholder="Message...">
           </div>
           <div class="col-xs-2 col-sm-1 col-md-1">
-            <a href="#"><img class="send" src="<%= local.setting.basepath %>web/images/send.png" alt=""></a>
+            <a href="javascript:void(0)" id="btnSendMess"><img class="send" src="<%= local.setting.basepath %>web/images/send.png" alt=""></a>
           </div>
         </div>
       </div>
