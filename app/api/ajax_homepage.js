@@ -85,3 +85,9 @@ router.post('/uploadavatarbycropper', uploadCroppedImage.single('croppedImage'),
     });
   }
 });
+
+
+router.post('/messenger', function(req, res, next){
+  var selfID    = req.session._id;
+  var targetID  = req.body.targetID;
+});

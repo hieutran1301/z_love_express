@@ -191,6 +191,11 @@ router.get('/messenger_new/:targetUsername', function(req, res, next){
         data    : sending
       });
     }
+    else{
+      res.render('web/pages/profile_notfound', {
+        title: 'Profile not found',
+      });
+    }
   });
 });
 
