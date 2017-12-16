@@ -25,6 +25,11 @@ var usersSchema = mongoose.Schema({
     "Avatar" : String,
     "SocketID" : String,
     "Online" : Number,
+    "Setting" : {
+        "isHiddenBirthday" : Number,
+        "isHiddenPlaceOfBirth" : String,
+        "isHiddenCurrentPlace" : String
+    },
     "Status" : Number
 
 });
