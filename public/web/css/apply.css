@@ -177,6 +177,10 @@
 	vertical-align: middle;
 }
 
+.white-box-body .table-apply .action button{
+	border-radius: 25px;
+}
+
 @media screen and (min-width: 768px){
 
 

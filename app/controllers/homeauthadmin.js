@@ -168,6 +168,13 @@ router.post('/signup', function (req, res, next) {
             "PlaceOfBirth": '',
             "CreatedDate": createdDate,
             "Avatar": '',
+            "SocketID" : '',
+            "Online" : 0,
+            "Setting" :{
+              "isHiddenBirthday" : 0,
+              "isHiddenPlaceOfBirth" : 0,
+              "isHiddenCurrentPlace" : 0
+            },
             "Status": 1
           });
           console.log('Done add user');

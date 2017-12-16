@@ -126,6 +126,35 @@ router.get('/about', function(req, res, next){
 
 router.get('/setting', function(req, res, next){
   res.render('web/pages/setting', {
+      title: 'Zlove | Setting',
+      message: req.flash('msSetting'),
+      csrf    : req.csrfToken()
+    });
+});
+
+router.post('/setting', function(req, res, next){
+  var username        = req.body.inpusername;
+  var password        = req.body.inppassword;
+  var repeatpassword  = req.body.inprepeatpassword;
+  var dayofbirth      = req.body.DayofBirth;
+  var placeofbirth    = req.body.PlaceofBirth;
+  var address         = req.body.Address;
+  var deactivacc      = req.body.Deactive;
+  var deleteacc       = req.body.Delete;
+
+console.log("da nhan " + username, password, repeatpassword, dayofbirth, placeofbirth, address, deactivacc, deleteacc );
+console.log(validatePassword(password, repeatpassword));
+  if (validatePassword(password, repeatpassword) == false){
+    req.flash('msSetting', 'Password do not match');
+    res.render('web/pages/setting', {
+      title: 'Zlove | Setting',
+      message: req.flash('msSetting'),
+      csrf    : req.csrfToken()
+    });
+    return 0;
+  }
+
+  res.render('web/pages/setting', {
       title: 'Setting',
       csrf    : req.csrfToken()
     });
@@ -323,5 +352,15 @@ function isLoggedIn(req, res, next){
   }
   else{
     return next();
+  }
+}
+
+
+function validatePassword(password, repeatpassword){
+  if(password != repeatpassword) {
+  return false;
+  }
+  else{
+  return true;
   }
 }

@@ -160,6 +160,13 @@ router.post('/add', upload.single('avatar'), function(req, res, next){
 					"PlaceOfBirth" : data.birthplace,
 					"CreatedDate" : createdDate,
 					"Avatar" : path,
+					"SocketID" : '',
+		            "Online" : 0,
+		            "Setting" :{
+		              "isHiddenBirthday" : 0,
+		              "isHiddenPlaceOfBirth" : 0,
+		              "isHiddenCurrentPlace" : 0
+		            },
 					"Status" : data.status
 				});
 
@@ -202,6 +209,13 @@ router.post('/add', upload.single('avatar'), function(req, res, next){
 					"PlaceOfBirth" : data.birthplace,
 					"CreatedDate" : createdDate,
 					"Avatar" : '',
+					"SocketID" : '',
+		            "Online" : 0,
+		            "Setting" :{
+		              "isHiddenBirthday" : 0,
+		              "isHiddenPlaceOfBirth" : 0,
+		              "isHiddenCurrentPlace" : 0
+		            },
 					"Status" : data.status
 				});
 

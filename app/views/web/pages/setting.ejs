@@ -12,83 +12,103 @@
 					<div class="white-box-title">
 	               		<h5><span class="fa fa-cog" aria-hidden="true"></span> Cài đặt</h5>
 	               	</div>
-	               	<div class="white-box-body">
-	               		<div class="row">
-	                    	<div class="col-xs-12 col-sm-6 data">
-	                            <span><i class="fa fa-user-o"></i> Username</span>
-	                        </div>
-	                        <div class="col-xs-12 col-sm-6 change">
-	                            <input type="text" class="form-control inp-zlove" name="inpusername" placeholder="Username" required>
-	                        </div>
-	       				</div>
-	               		<div class="row">
-	                    	<div class="col-xs-12 col-sm-6 data">
-	                            <span class="frm-field"><i class="fa fa-key"></i> Mật khẩu</span>
-	                        </div>
-	                        <div class="col-xs-12 col-sm-6 change">
-	                            <input required="" type="password" class="form-control inp-zlove" name="inppassword" placeholder="Mật khẩu" required>
-	                        </div>
-	       				</div>
-	               		<div class="row">
-	                    	<div class="col-xs-12 col-sm-6 data">
-	                            <span class="frm-field"><i class="fa fa-key"></i> Xác nhận Mật khẩu</span>
-	                        </div>
-	                        <div class="col-xs-12 col-sm-6 change">
-	                            <input required="" type="password" class="form-control inp-zlove" name="inppassword" placeholder="Mật khẩu" required>
-	                        </div>
-	       				</div>
-	               		<div class="row">
-	                    	<div class="col-xs-12 col-sm-6 data">
-	                            <span class="frm-field"><i class="fa fa-birthday-cake"></i> Ẩn ngày sinh</span>
-	                        </div>
-	                        <div class="col-xs-12 col-sm-6 change">
-	                            <label class="switch">
-									<input type="checkbox">
-									<span class="slider round"></span>
-								</label>	                        </div>
-	       				</div>
-	               		<div class="row">
-	                    	<div class="col-xs-12 col-sm-6 data">
-	                            <span class="frm-field"><i class="fa fa-map-marker"></i> Ẩn Nơi sinh</span>
-	                        </div>
-	                        <div class="col-xs-12 col-sm-6 change">
-	                            <label class="switch">
-									<input type="checkbox">
-									<span class="slider round"></span>
-								</label>
-	                        </div>
-	       				</div>
-	               		<div class="row">
-	                    	<div class="col-xs-12 col-sm-6 data">
-	                            <span class="frm-field"><i class="fa fa-address-card-o"></i> Ẩn nơi ở</span>
-	                        </div>
-	                        <div class="col-xs-12 col-sm-6 change">
-	                            <label class="switch">
-									<input type="checkbox">
-									<span class="slider round"></span>
-								</label>
-	                        </div>
-	       				</div>
-	               		<div class="row">
-	                    	<div class="col-xs-12 col-sm-6 data">
-	                            <span class="frm-field"><i class="fa fa-ban"></i> Deactive Tài khoản</span>
-	                        </div>
-	                        <div class="col-xs-12 col-sm-6 change">
-	                            <button type="button" class="btn btn-warning">Deactive</button>
-	                        </div>
-	       				</div>
-	               		<div class="row">
-	                    	<div class="col-xs-12 col-sm-6 data">
-	                            <span class="frm-field"><i class="fa fa-trash-o"></i> Delete Tài khoản</span>
-	                        </div>
-	                        <div class="col-xs-12 col-sm-6 change">
-	                            <button type="button" class="btn btn-danger">Delete</button>
-	                        </div>
-	       				</div>
-	                </div>
+	               	<form action="<%= local.setting.basepath%>home/setting" method ='post'>
+	               		<input type="hidden" name="_csrf" value="<%= csrf %>">
+		               	<div class="white-box-body">
+		               		<div class="row">
+		                    	<div class="col-xs-12 col-sm-6 data">
+		                            <span><i class="fa fa-user-o"></i> Username</span>
+		                        </div>
+		                        <div class="col-xs-12 col-sm-6 change">
+		                            <input type="text" class="form-control inp-zlove" name="inpusername" placeholder="Username" required>
+		                        </div>
+		       				</div>
+		               		<div class="row">
+		                    	<div class="col-xs-12 col-sm-6 data">
+		                            <span class="frm-field"><i class="fa fa-key"></i> Mật khẩu</span>
+		                        </div>
+		                        <div class="col-xs-12 col-sm-6 change">
+		                            <input required="" type="password" class="form-control inp-zlove" name="inppassword" placeholder="Mật khẩu" required>
+		                        </div>
+		       				</div>
+		               		<div class="row">
+		                    	<div class="col-xs-12 col-sm-6 data">
+		                            <span class="frm-field"><i class="fa fa-key"></i> Xác nhận Mật khẩu</span>
+		                        </div>
+		                        <div class="col-xs-12 col-sm-6 change">
+		                            <input required="" type="password" class="form-control inp-zlove" name="inprepeatpassword" placeholder="Mật khẩu" required>
+		                        </div>
+		       				</div>
+		               		<div class="row">
+		                    	<div class="col-xs-12 col-sm-6 data">
+		                            <span class="frm-field"><i class="fa fa-birthday-cake"></i> Ẩn ngày sinh</span>
+		                        </div>
+		                        <div class="col-xs-12 col-sm-6 change">
+		                            <label class="switch">
+										<input type="checkbox" name="DayofBirth">
+										<span class="slider round"></span>
+									</label>	                        
+								</div>
+		       				</div>
+		               		<div class="row">
+		                    	<div class="col-xs-12 col-sm-6 data">
+		                            <span class="frm-field"><i class="fa fa-map-marker"></i> Ẩn Nơi sinh</span>
+		                        </div>
+		                        <div class="col-xs-12 col-sm-6 change">
+		                            <label class="switch">
+										<input type="checkbox" name="PlaceofBirth">
+										<span class="slider round"></span>
+									</label>
+		                        </div>
+		       				</div>
+		               		<div class="row">
+		                    	<div class="col-xs-12 col-sm-6 data">
+		                            <span class="frm-field"><i class="fa fa-address-card-o"></i> Ẩn nơi ở</span>
+		                        </div>
+		                        <div class="col-xs-12 col-sm-6 change">
+		                            <label class="switch">
+										<input type="checkbox" name="Address">
+										<span class="slider round"></span>
+									</label>
+		                        </div>
+		       				</div>
+		               		<div class="row">
+		                    	<div class="col-xs-12 col-sm-6 data">
+		                            <span class="frm-field"><i class="fa fa-ban"></i> Deactive Tài khoản</span>
+		                        </div>
+		                        <div class="col-xs-12 col-sm-6 change">
+									  <label class="change-check"> Deactive Tài khoản
+										<input type="checkbox" name="Deactive">
+	 									<span class="checkmark"></span>
+									  </label>
+		                        </div>
+		       				</div>
+		               		<div class="row">
+		                    	<div class="col-xs-12 col-sm-6 data">
+		                            <span class="frm-field"><i class="fa fa-trash-o"></i> Delete Tài khoản</span>
+		                        </div>
+		                        <div class="col-xs-12 col-sm-6 change">
+									  <label class="change-check"> Delete Tài khoản
+										<input type="checkbox" name="Delete">
+	 									<span class="checkmark"></span>
+									  </label>
+		                        </div>
+		       				</div>
+		       				<div class="act-button">
+					          <button class="btn-cancel">Hủy bỏ</button>
+					          <button type="submit" class="btn-save">Lưu lại</button>
+					        </div>
+		                </div>
+	            	</form>
 				</div>
 			</div>
 		</div>
+
+		<% if (message.length > 0) { %>
+			<script>
+				swal('Error', '<%= message %>', 'warning');
+			</script>
+		<%} %>
 <% include ../include/footer-main%>
 
 <% include ../include/footer %>

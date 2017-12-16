@@ -27,8 +27,8 @@ var usersSchema = mongoose.Schema({
     "Online" : Number,
     "Setting" : {
         "isHiddenBirthday" : Number,
-        "isHiddenPlaceOfBirth" : String,
-        "isHiddenCurrentPlace" : String
+        "isHiddenPlaceOfBirth" : Number,
+        "isHiddenCurrentPlace" : Number
     },
     "Status" : Number
 
