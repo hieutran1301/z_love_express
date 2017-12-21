@@ -224,6 +224,7 @@ router.get('/messenger_new', async (req, res, next) => {
   try {
     let lastMess = await zlove_messages.findOne({$or: [{FromID: crrUserID}, {ToID: crrUserID}]}).sort({created_at: -1}).exec();
     let lastID;
+    if (lastMess.FromID == crrUserID) {
       lastID = lastMess.ToID;
     }
     else{
