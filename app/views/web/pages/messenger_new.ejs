@@ -12,7 +12,9 @@
         <input type="text" class="form-control inp-zlove" id="search" placeholder="Tìm kiếm...">
       </div>
       <div id="ListChat" class="listchat">
-
+        <div id="preLoadList">
+          <div class="ico-loading"><img src="/admin/assets/apps/img/Rolling.gif" alt=""></div>
+        </div>
       </div>
     </div>
   </section>
@@ -52,9 +54,9 @@
       </div>
       <div class="chat_content_all" id="chatContentWrap">
         <div class="chat_screen_avatar">
-          <img src="/web/images/avatar.jpg">
-          <div class="Numberheart"><button type="submit">Xem hồ sơ</button></div>
-          <div class="description"><p>Là một cô gái thích hoa, yêu màu hồng, hòa bình và yêu anh =))</p></div>
+          <img src="/uploads/<%=data.Avatar %>">
+          <div class="Numberheart"><a href="/home/profile-new/<%= data.Username%>"><button type="submit">Xem hồ sơ</button></a></div>
+          <div class="description"><p><%=data.Desc %></p></div>
         </div>
         <div class="chat-content" id="chatContent">
           <!-- <div class="send">

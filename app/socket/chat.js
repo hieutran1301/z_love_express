@@ -67,6 +67,7 @@ module.exports = function(io, uid){
                                         mess: mess
                                     }
                                     socket.to(usrReceiveSocketID).emit('resNewMess', sendingData); //Emit to Receiver via Socket ID
+                                    socket.emit('saveData', 'success');
                                 }
                             });
 

@@ -57,6 +57,14 @@ var renderChatUserHTML = function(username, avatarpath, content){
     return HTML;
 }
 
+var renderPreLoadList = function(){
+    var DomHTML =   '<div id="ListChat" class="listchat">'+
+                        '<div id="preLoadList">'+
+                            '<div class="ico-loading"><img src="/admin/assets/apps/img/Rolling.gif" alt=""></div>'+
+                        '</div>'+
+                    '</div>';
+}
+
 var __messages = null;
 var __HTMLmessages = '';
 
@@ -77,7 +85,7 @@ var getMess = function() {
                 __HTMLmessages += renderSentHTML(__messages[i].Content, __messages[i].Timestamp);
             }
         }
-        $('#preLoadMess').fadeOut();
+        $('#ChatContent #preLoadMess').fadeOut();
         messBlock.html(__HTMLmessages);
         $('#chatContentWrap').animate({scrollTop: $('#chatContentWrap')[0].scrollHeight}, 500);
 
@@ -100,13 +108,17 @@ var getMess = function() {
 }
 
 var getPerson = function(){
+    var domhtml = '';
+    var listChat = $('#ListChat');
     $.post(AJAX_MESS_PATH, {
             option: 'getPerson',
         }, function(data, success){
             if (success == 'success'){
                 for (var i = 0; i < data.length; i++){
-                    $('#ListChat').append(renderChatUserHTML(data[i].Username, data[i].Avatar, data[i].Content));
+                    domhtml += renderChatUserHTML(data[i].Username, data[i].Avatar, reduceWord(data[i].Content, 32));
                 }
+                $('#preLoadList').fadeOut();
+                listChat.html(domhtml);
             }
             else{
                 swal('Error', 'Có gì đó sai sai vừa xảy ra, thử lại nhé!', 'error');
@@ -146,6 +158,13 @@ $(document).ready(function(){
             }
             else{
                 //do something
+            }
+        });
+
+        mess.on('saveData', function(data){
+            if (data == 'success') {
+                getPerson();
+                console.logo('get person');
             }
         });
         

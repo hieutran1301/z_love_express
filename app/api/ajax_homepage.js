@@ -120,7 +120,7 @@ router.post('/messenger', async function(req, res, next){
           "$group": {_id: "$ToID", lastMess: {$last: "$created_at"}}
         },
         {
-          "$sort": {"created_at": -1}
+          "$sort": {"lastMess": -1}
         }
       ]);
       console.log(psDistinct);

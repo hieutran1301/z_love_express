@@ -114,3 +114,11 @@ var addSlashes = function(string){
 				replace(/\</g,"&lt;").
 				replace(/\>/g,"&gt;");
 }
+
+var reduceWord = function(string, limit){
+	var limit = limit*1;
+	if (string.length > limit){
+		string = string.substr(0, limit)+' ...';
+	}
+	return string;
+}
