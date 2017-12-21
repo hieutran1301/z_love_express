@@ -111,5 +111,6 @@ var addSlashes = function(string){
 				replace(/\f/g, '\\f').
 				replace(/\r/g, '\\r').
 				replace(/'/g, '\\\'').
-				replace(/"/g, '\\"');
+				replace(/\</g,"&lt;").
+				replace(/\>/g,"&gt;");
 }

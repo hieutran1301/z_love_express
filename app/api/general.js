@@ -5,41 +5,19 @@ var express = require('express'),
 var user = mongoose.model('zlove_users');
 
 module.exports = function (app, passport) {
-  app.use('/adminapi', router);
+  app.use('/app-api', router);
 };
 
-router.post('/users', function(req, res){
-	user.find(function(err, data){
-		console.log(data.length);
-		if (err) {
-			throw err;
-		}
-		if (!data) {
-			res.send(404);
-			return;
-		}
+router.get('/exist/:username', async (req, res, next) => {
+	let username = req.params.username;
+	try {
+		let query = await user.findOne({Username: username});
+		if (query) { res.send("Username is unavailable!") }
 		else{
-			res.send({
-				data: data
-			});
-			return;
+			res.status(404).send("Username is available!");
 		}
-	});
-});
-
-router.get('/users/:id', function(req, res){
-	var userId = req.params.id;
-	user.findOne({
-		_id: userId
-	}, function(err, data){
-		if (err) {res.send(404); return;}
-		if (!data) {
-			res.send(404);
-			return;
-		}
-		else{
-			res.send(data);
-			return;
-		}
-	});
+	} catch (err) {
+		console.log(err);
+		res.sendStatus(404);
+	}
 });

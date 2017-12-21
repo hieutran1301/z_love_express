@@ -352,3 +352,15 @@
     margin-left: 0;
   }
 }
+
+
+#preLoadMess {
+  width: 100%;
+}
+
+#preLoadMess .ico-loading img{
+  display: block;
+  width: 40px;
+  height: 40px;
+  margin: 0 auto;
+}

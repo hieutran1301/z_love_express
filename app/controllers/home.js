@@ -175,21 +175,28 @@ router.get('/messenger_new', function(req, res, next){
 });
 
 router.get('/messenger_new/:targetUsername', function(req, res, next){
+  var crrUserid = req.session.homeuserid;
   var targetUsername = req.params.targetUsername;
   user.findOne({Username: targetUsername}, function(err, data){
     if (err) throw err;
     if (data){
       var targetId = data._id;
-      var sending  = {
-        FullName: data.FirstName+' '+data.LastName,
-        Online  : data.Online,
+      if (targetId != crrUserid){
+        var sending  = {
+          FullName: data.FirstName+' '+data.LastName,
+          Online  : data.Online,
+        }
+        res.render('web/pages/messenger_new', {
+          title: 'Messenger',
+          csrf 		: req.csrfToken(),
+          targetId : targetId,
+          data    : sending
+        });
+      } else { //if current user login
+        res.render('web/pages/profile_notfound', {
+          title: 'Profile not found',
+        });
       }
-      res.render('web/pages/messenger_new', {
-        title: 'Messenger',
-        csrf 		: req.csrfToken(),
-        targetId : targetId,
-        data    : sending
-      });
     }
     else{
       res.render('web/pages/profile_notfound', {

@@ -5,6 +5,6 @@ var messageShema = mongoose.Schema({
     "ToID"      : String,
     "Content"   : String,
     "Timestamp" : String
-});
+}, { timestamps: { createdAt: 'created_at' } });
 
 mongoose.model('zlove_messages', messageShema);
