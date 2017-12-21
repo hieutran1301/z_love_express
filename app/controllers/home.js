@@ -143,17 +143,8 @@ router.post('/setting', function(req, res, next){
   var deleteacc       = req.body.Delete;
 
 console.log("da nhan " + username, password, repeatpassword, dayofbirth, placeofbirth, address, deactivacc, deleteacc );
-console.log(validatePassword(password, repeatpassword));
-  if (validatePassword(password, repeatpassword) == false){
-    req.flash('msSetting', 'Password do not match');
-    res.render('web/pages/setting', {
-      title: 'Zlove | Setting',
-      message: req.flash('msSetting'),
-      csrf    : req.csrfToken()
-    });
-    return 0;
-  }
-
+console.log(validPassword(password, repeatpassword));
+  if(validUsername(username) == true){
   users.findOne({Username:username}, function(err,data) {
     if(err){
       console.log(err);
@@ -174,8 +165,45 @@ console.log(validatePassword(password, repeatpassword));
         message: req.flash('msSetting')
       });
       return 0;
+    }else{
+      user.updateOne({_id: userID}, {
+      Username        : username,
+      
+    }, function(err, result){
+      if(err) {
+        req.flash('msSetting', 'fail');
+        throw err;
+        res.redirect('/home/setting');
+      }
+      else{
+        req.flash('msSetting', 'success');
+        res.redirect('/home/setting');
+      }
+      });
     }
   });
+  }
+
+  if (validPassword(password, repeatpassword) == false){
+    req.flash('msSetting', 'Password do not match');
+    res.render('web/pages/setting', {
+      title: 'Zlove | Setting',
+      message: req.flash('msSetting'),
+      csrf    : req.csrfToken()
+    });
+    return 0;
+  }else{
+      user.updateOne({_id: userID}, {
+      Password        : password,
+      
+    }, function(err, result){
+        req.flash('msSetting', 'password changed');
+        res.redirect('/home/setting');
+        console.log("đã thay đổi password");
+      });
+    }
+
+
   res.render('web/pages/setting', {
       title: 'Setting',
       csrf    : req.csrfToken(),
@@ -384,7 +412,7 @@ function isLoggedIn(req, res, next){
 }
 
 
-function validatePassword(password, repeatpassword){
+function validPassword(password, repeatpassword){
   if(password != repeatpassword) {
   return false;
   }
