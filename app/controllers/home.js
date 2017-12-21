@@ -3,7 +3,8 @@ var express = require('express'),
   mongoose  = require('mongoose'),
   Article   = mongoose.model('Article'),
   user      = mongoose.model('zlove_users'),
-  cities    = require('../../libs/city');
+  cities    = require('../../libs/city'),
+  zlove_messages = mongoose.model('zlove_messages');
 
 var posts = mongoose.model('zlove_posts');
 
@@ -218,7 +219,23 @@ router.get('/messenger', function(req, res, next){
     });
 });
 
-router.get('/messenger_new', function(req, res, next){
+router.get('/messenger_new', async (req, res, next) => {
+  let crrUserID = req.session.homeuserid;
+  try {
+    let lastMess = await zlove_messages.findOne({$or: [{FromID: crrUserID}, {ToID: crrUserID}]}).sort({created_at: -1}).exec();
+    let lastID;
+    if (lastMess.FromID == crrUserID){
+      lastID = lastMess.ToID;
+    }
+    else{
+      lastID = lastMess.FromID;
+    }
+    let rduser = await user.findOne({_id: lastID});
+    res.redirect('/home/messenger_new/'+rduser.Username);
+  } catch (error) {
+    console.log(error);
+    res.sendStatus(500);
+  }
   res.render('web/pages/messenger_new', {
     title: 'Messenger',
     csrf 		: req.csrfToken()
@@ -226,21 +243,34 @@ router.get('/messenger_new', function(req, res, next){
 });
 
 router.get('/messenger_new/:targetUsername', function(req, res, next){
+  var crrUserid = req.session.homeuserid;
   var targetUsername = req.params.targetUsername;
   user.findOne({Username: targetUsername}, function(err, data){
     if (err) throw err;
     if (data){
       var targetId = data._id;
-      var sending  = {
-        FullName: data.FirstName+' '+data.LastName,
-        Online  : data.Online,
+      if (targetId != crrUserid){
+        var avatarPath = data.Avatar;
+        avatarPath = avatarPath.split('\\');
+        var avatar = avatarPath[2];
+        var sending  = {
+          FullName: data.FirstName+' '+data.LastName,
+          Username: data.Username,
+          Avatar  : avatar,
+          Online  : data.Online,
+          Desc    : data.Introduction
+        }
+        res.render('web/pages/messenger_new', {
+          title: 'Messenger',
+          csrf 		: req.csrfToken(),
+          targetId : targetId,
+          data    : sending
+        });
+      } else { //if current user login
+        res.render('web/pages/profile_notfound', {
+          title: 'Profile not found',
+        });
       }
-      res.render('web/pages/messenger_new', {
-        title: 'Messenger',
-        csrf 		: req.csrfToken(),
-        targetId : targetId,
-        data    : sending
-      });
     }
     else{
       res.render('web/pages/profile_notfound', {

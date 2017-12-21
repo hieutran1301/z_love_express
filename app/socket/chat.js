@@ -9,19 +9,19 @@ module.exports = function(io, uid){
     .on('connection', function(socket){
         var userID = socket.handshake.session.homeuserid;
         var socketID = socket.id;
-        console.log("New socket connected: "+socket.id);
-        console.log('User id from session: '+socket.handshake.session.homeuserid);
+        // console.log("New socket connected: "+socket.id);
+        // console.log('User id from session: '+socket.handshake.session.homeuserid);
         
         if (userID != null && userID != undefined) updateDb(socket.id, userID);
 
         socket.on('disconnect', function(){
-            console.log(socket.id+' disconnected');
+            //console.log(socket.id+' disconnected');
             user.updateOne({SocketID: socket.id}, {
                 SocketID: "",
                 Online: 0
             }, function(err, result){
                 if (err) throw err;
-                console.log('delete socket id done');
+                //console.log('delete socket id done');
             });
         });
 
@@ -29,7 +29,8 @@ module.exports = function(io, uid){
 
         socket.on('newMessage', function(data){
             var username = data.username;
-            var mess     = data.data;
+            var mess     = addSlashes(data.data);
+            console.log(mess);
 
             console.log('new message from '+userID+' to '+data.username+' with message: '+mess);
             user.findOne({Username: username}, function(err, result){ // Get info of Receiver
@@ -43,12 +44,13 @@ module.exports = function(io, uid){
                         if (usrSending){
                             var usrSendingUsername = usrSending.Username;   //Sender Username@user
                             var usrSendingID       = usrSending._id;        //Sender _id@user
+                            var usrSendingAvatar   = usrSending.getAvatar();
+                            console.log(usrSendingAvatar);
 
                             // Saving to database
 
                             var now  = new Date();
                             var Timestamp = ''+addZero(now.getHours())+':'+addZero(now.getMinutes())+':'+addZero(now.getSeconds())+' '+now.getDate()+'/'+(now.getMonth()+1)+'/'+now.getFullYear(); 
-                            console.log('Timestamp before save to db: '+Timestamp);
 
                             var newMessage = new modelMess({
                                 "FromID"    : usrSendingID,
@@ -65,6 +67,7 @@ module.exports = function(io, uid){
                                         mess: mess
                                     }
                                     socket.to(usrReceiveSocketID).emit('resNewMess', sendingData); //Emit to Receiver via Socket ID
+                                    socket.emit('saveData', 'success');
                                 }
                             });
 
@@ -86,7 +89,7 @@ function updateDb(socketid, userid){
         Online: 1
     }, function(err, result){
         if (err) throw err;
-        console.log('Update done');
+        //console.log('Update done');
     });
 }
 
@@ -95,4 +98,17 @@ function addZero(i) {
         i = "0" + i;
     }
     return i;
+}
+
+var addSlashes = function(string){
+	return string.replace(/\\/g, '\\\\').
+				replace(/\u0008/g, '\\b').
+				replace(/\t/g, '\\t').
+				replace(/\n/g, '\\n').
+				replace(/\f/g, '\\f').
+				replace(/\r/g, '\\r').
+				replace(/'/g, '\\\'').
+				replace(/"/g, '\\"').
+				replace(/\</g,"&lt;").
+				replace(/\>/g,"&gt;");
 }

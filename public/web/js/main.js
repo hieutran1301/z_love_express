@@ -111,5 +111,14 @@ var addSlashes = function(string){
 				replace(/\f/g, '\\f').
 				replace(/\r/g, '\\r').
 				replace(/'/g, '\\\'').
-				replace(/"/g, '\\"');
+				replace(/\</g,"&lt;").
+				replace(/\>/g,"&gt;");
+}
+
+var reduceWord = function(string, limit){
+	var limit = limit*1;
+	if (string.length > limit){
+		string = string.substr(0, limit)+' ...';
+	}
+	return string;
 }
