@@ -154,9 +154,32 @@ console.log(validatePassword(password, repeatpassword));
     return 0;
   }
 
+  users.findOne({Username:username}, function(err,data) {
+    if(err){
+      console.log(err);
+      req.flash('signupMessage', 'Something went wrong! Try again.');
+      res.render('web/pages/setting', {
+        title: 'Zlove | Setting',
+        message: req.flash('msSetting'),
+        csrf    : req.csrfToken(),
+      });
+      return 0;
+    }
+    if(data){
+      req.flash('msSetting', 'Username đã tồn tại');
+      console.log("Fail");
+      res.render('web/pages/setting', {
+        title: 'Zlove | Setting',
+        csrf: req.csrfToken(),
+        message: req.flash('msSetting')
+      });
+      return 0;
+    }
+  });
   res.render('web/pages/setting', {
       title: 'Setting',
-      csrf    : req.csrfToken()
+      csrf    : req.csrfToken(),
+      message: req.flash('msSetting')
     });
 });
 
