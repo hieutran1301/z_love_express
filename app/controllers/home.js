@@ -213,10 +213,7 @@ console.log(validPassword(password, repeatpassword));
 });
 
 router.get('/messenger', function(req, res, next){
-  res.render('web/pages/messenger', {
-      title: 'Messenger',
-      csrf 		: req.csrfToken()
-    });
+  res.redirect('/home/messenger_new/');
 });
 
 router.get('/messenger_new', async (req, res, next) => {
@@ -224,22 +221,23 @@ router.get('/messenger_new', async (req, res, next) => {
   try {
     let lastMess = await zlove_messages.findOne({$or: [{FromID: crrUserID}, {ToID: crrUserID}]}).sort({created_at: -1}).exec();
     let lastID;
-    if (lastMess.FromID == crrUserID) {
-      lastID = lastMess.ToID;
+    if (lastMess){
+      if (lastMess.FromID == crrUserID) {
+        lastID = lastMess.ToID;
+      }
+      else{
+        lastID = lastMess.FromID;
+      }
+      let rduser = await user.findOne({_id: lastID});
+      res.redirect('/home/messenger_new/'+rduser.Username);
     }
     else{
-      lastID = lastMess.FromID;
+      res.sendStatus(404);
     }
-    let rduser = await user.findOne({_id: lastID});
-    res.redirect('/home/messenger_new/'+rduser.Username);
   } catch (error) {
     console.log(error);
     res.sendStatus(500);
   }
-  res.render('web/pages/messenger_new', {
-    title: 'Messenger',
-    csrf 		: req.csrfToken()
-  });
 });
 
 router.get('/messenger_new/:targetUsername', function(req, res, next){

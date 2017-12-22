@@ -94,17 +94,37 @@ router.post('/messenger', async function(req, res, next){
   if (_option == 'getMess'){
     var selfID    = req.session.homeuserid;
     var targetID  = req.body.targetID;
+    var mess = [];
     //console.log('selfID: '+selfID+' targetID: '+targetID);
     zlove_messages.find({
       $or: [
         {FromID: selfID, ToID: targetID},
         {FromID: targetID, ToID: selfID}
       ]
-    }, function(err, data){
-      if (err) throw err;
-      if (!data) res.sendStatus(404);
-      if (data) res.send(data);
-    }).sort({created_at: 1});
+    }).sort({created_at: 1}).exec((err, data) =>{
+      for (var i =0; i<data.length; i++){
+        var usrID;
+        var content = data[i].Content;
+        var time = data[i].Timestamp;
+        if (data[i].FromID == selfID){
+          usrID = data[i].ToID;
+        }
+        else{
+          usrID = data[i].FromID;
+        }
+        user.findOne({_id: usrID}, (err, result)=>{
+          var AvatarPath = result.Avatar;
+              AvatarPath = AvatarPath.split('\\');
+          var obj = {
+            Content: content,
+            Timestamp: time,
+            Avatar: '/uploads/'+AvatarPath[2]
+          }
+          mess.push(obj);
+        });
+      }
+    });
+    res.send(mess);
   }
 
   if (_option == 'getPerson'){

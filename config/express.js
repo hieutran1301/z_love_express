@@ -79,16 +79,21 @@ module.exports = function(app, config) {
   app.use(express.static(config.root + '/public'));
   app.use(methodOverride());
 
-  app.use(csurf({cookie: true}));
-
-  var controllers = glob.sync(config.root + '/app/controllers/*.js');
-  controllers.forEach(function (controller) {
-    require(controller)(app);
+  var appapi = glob.sync(config.root + '/app/app_api/*.js');
+  appapi.forEach(function(appapi){
+    require(appapi)(app);
   });
+
+  app.use(csurf({cookie: true}));
 
   var api = glob.sync(config.root + '/app/api/*.js');
   api.forEach(function(api){
     require(api)(app);
+  });
+
+  var controllers = glob.sync(config.root + '/app/controllers/*.js');
+  controllers.forEach(function (controller) {
+    require(controller)(app);
   });
 
   app.use(function (req, res, next) {
