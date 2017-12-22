@@ -3,6 +3,7 @@ var express = require('express'),
   mongoose = require('mongoose');
 
 var user = mongoose.model('zlove_users');
+var m_post = mongoose.model('zlove_posts');
 var bcrypt = require('bcrypt');
 
 module.exports = function (app, passport) {
@@ -33,7 +34,8 @@ router.get('/exist/:username/:password', function (req, res, next) {
 });
 
 
-router.post('/signup', async (req, res, next)=>{
+router.post('/signup', (req, res, next)=>{
+    console.log(req.body);
   var firstName = req.body.firstName;
   var lastName  = req.body.lastName;
   var email     = req.body.email;
@@ -54,34 +56,28 @@ router.post('/signup', async (req, res, next)=>{
       res.sendStatus(404);
       return 0;
   } else{
-      let query = await user.findOne({Email: email});
-      if (query._id) {
-          res.status(404).send('Email has existed');
-          return 0;
-      }
+      let query = user.findOne({Email: email}, function(err, data){
+        if (data){
+            res.status(404).send('Email has existed');
+        }
+      });
   }
 
   if (username == undefined || username == null || username == '') {
       res.sendStatus(404);
       return 0;
   } else{
-      let query = await user.findOne({Username: username});
-      if (query._id){
-          res.status(404).send('Username has existed');
-          return 0;
-      }
+      let query = user.findOne({Username: username}, (err, data)=>{
+          if (data){
+            res.status(404).send('Username has existed');
+          }
+      });
   }
 
   if (password == undefined || password == null || password == '') {
       res.sendStatus(404);
       return 0;
   }
-
-  console.log('FirstName: '+firstName);
-  console.log('FirstName: '+lastName);
-  console.log('FirstName: '+email);
-  console.log('FirstName: '+username);
-  console.log('FirstName: '+password);
 
     var now 		= new Date();
     var saltRounds 	= 8;
@@ -135,4 +131,71 @@ router.post('/signup', async (req, res, next)=>{
       console.log("ERROR@APP-API/general: "+error);
       res.sendStatus(500);
   }
+});
+
+
+router.get('/getpost', (req, res, next)=>{
+    m_post.aggregate([
+        {$lookup: 
+            {
+                from: "zlove_users",
+                localField: "_id.str",
+                foreignField: "CreatedBy",
+                as: "CreatedBy"
+            }
+        },
+        {$unwind: "$CreatedBy"},
+        {$project:
+            {
+                _id: 0,
+                Title: 1,
+                Target: 1,
+                FromAge: 1,
+                ToAge: 1,
+                City: 1,
+                Job: 1,
+                Description: 1,
+                CreatedDate: 1,
+                CreatedBy: "$CreatedBy.Username",
+                Avatar: "$CreatedBy.Avatar"
+            }
+        }
+    ]).exec(function(err, data){
+        res.send(data);
+    });
+});
+
+router.get('/getpost/:limit/:skip', (req, res, next)=>{
+    var skip = (req.params.skip)*1;
+    var limit= (req.params.limit)*1;
+    m_post.aggregate([
+        {$lookup: 
+            {
+                from: "zlove_users",
+                localField: "_id.str",
+                foreignField: "CreatedBy",
+                as: "CreatedBy"
+            }
+        },
+        {$unwind: "$CreatedBy"},
+        {$project:
+            {
+                _id: 0,
+                Title: 1,
+                Target: 1,
+                FromAge: 1,
+                ToAge: 1,
+                City: 1,
+                Job: 1,
+                Description: 1,
+                CreatedDate: 1,
+                CreatedBy: "$CreatedBy.Username",
+                Avatar: "$CreatedBy.Avatar"
+            }
+        },
+        {$skip: skip},
+        {$limit: limit}
+    ]).exec(function(err, data){
+        res.send(data);
+    });
 });

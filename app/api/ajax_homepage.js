@@ -94,37 +94,63 @@ router.post('/messenger', async function(req, res, next){
   if (_option == 'getMess'){
     var selfID    = req.session.homeuserid;
     var targetID  = req.body.targetID;
-    var mess = [];
-    //console.log('selfID: '+selfID+' targetID: '+targetID);
-    zlove_messages.find({
-      $or: [
-        {FromID: selfID, ToID: targetID},
-        {FromID: targetID, ToID: selfID}
-      ]
-    }).sort({created_at: 1}).exec((err, data) =>{
-      for (var i =0; i<data.length; i++){
-        var usrID;
-        var content = data[i].Content;
-        var time = data[i].Timestamp;
-        if (data[i].FromID == selfID){
-          usrID = data[i].ToID;
+
+    console.log("selfID: "+selfID);
+    console.log("targetID: "+targetID);
+    
+    try {
+      zlove_messages.aggregate([
+          {$match:  {
+                  $or: [
+                      {FromID: selfID, ToID: targetID},
+                      {ToID: selfID, FromID: targetID}
+                  ]
+              }
+          },
+          {$lookup: {
+                  from: "zlove_users",
+                  localField: "_id.str",
+                  foreignField: "FromID",
+                  as: "FromUser"
+              }
+          },
+          {$lookup: {
+                  from: "zlove_users",
+                  localField: "_id.str",
+                  foreignField: "ToID",
+                  as: "ToUser"
+              }
+          },
+          {$unwind: "$FromUser"},
+          {$unwind: "$ToUser"},
+          {$project: {
+                  _id: 0,
+                  created_at: 1,
+                  FromID: 1,
+                  ToID: 1,
+                  FromUser: "$FromUser.Username",
+                  ToUser: "$ToUser.Username",
+                  Content: 1,
+                  Timestamp: 1,
+                  FromAvatar: "$FromUser.Avatar",
+                  ToAvatar: "$ToUser.Avatar"
+              }
+          },
+          {$sort: {"created_at": -1}}
+      ],(err, data)=>{
+        if (err) console.log(err);
+        if (data){
+          console.log(data);
+          res.send(data);
         }
         else{
-          usrID = data[i].FromID;
+          res.status(404).send('data is null');
         }
-        user.findOne({_id: usrID}, (err, result)=>{
-          var AvatarPath = result.Avatar;
-              AvatarPath = AvatarPath.split('\\');
-          var obj = {
-            Content: content,
-            Timestamp: time,
-            Avatar: '/uploads/'+AvatarPath[2]
-          }
-          mess.push(obj);
-        });
-      }
-    });
-    res.send(mess);
+      });
+    } catch (error) {
+      console.log("ERROR@AJAX_HOMEPAGE: "+error);
+      res.status(500).send('Server error');
+    }
   }
 
   if (_option == 'getPerson'){

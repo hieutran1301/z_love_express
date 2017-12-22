@@ -76,34 +76,34 @@ var getMess = function() {
         option: "getMess"
     }, function(data){
         __messages = data;
+        alert(__messages);
+        // for(var i = 0; i < __messages.length; i++){
+        //     if (__messages[i].FromID == _targetID){
+        //         __HTMLmessages += renderReceiveHTML(__messages[i].Content, __messages[i].Timestamp);
+        //     }
+        //     else{
+        //         __HTMLmessages += renderSentHTML(__messages[i].Content, __messages[i].Timestamp);
+        //     }
+        // }
+        // $('#ChatContent #preLoadMess').fadeOut();
+        // messBlock.html(__HTMLmessages);
+        // $('#chatContentWrap').animate({scrollTop: $('#chatContentWrap')[0].scrollHeight}, 500);
 
-        for(var i = 0; i < __messages.length; i++){
-            if (__messages[i].FromID == _targetID){
-                __HTMLmessages += renderReceiveHTML(__messages[i].Content, __messages[i].Timestamp);
-            }
-            else{
-                __HTMLmessages += renderSentHTML(__messages[i].Content, __messages[i].Timestamp);
-            }
-        }
-        $('#ChatContent #preLoadMess').fadeOut();
-        messBlock.html(__HTMLmessages);
-        $('#chatContentWrap').animate({scrollTop: $('#chatContentWrap')[0].scrollHeight}, 500);
-
-        //UX - click show info
-        $('div.send').each(function(){
-            var divSend = $(this);
-            divSend.click(function(){
-                var divSendClick = $(this);
-                divSendClick.find('.seen').toggle();
-            });
-        });
-        $('div.receive').each(function(){
-            var divSend = $(this);
-            divSend.click(function(){
-                var divSendClick = $(this);
-                divSendClick.find('.seen').toggle();
-            });
-        });
+        // //UX - click show info
+        // $('div.send').each(function(){
+        //     var divSend = $(this);
+        //     divSend.click(function(){
+        //         var divSendClick = $(this);
+        //         divSendClick.find('.seen').toggle();
+        //     });
+        // });
+        // $('div.receive').each(function(){
+        //     var divSend = $(this);
+        //     divSend.click(function(){
+        //         var divSendClick = $(this);
+        //         divSendClick.find('.seen').toggle();
+        //     });
+        // });
     });
 }
 
