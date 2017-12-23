@@ -42,9 +42,11 @@ module.exports = function(io, uid){
                     user.findOne({SocketID: socketID}, function(err, usrSending){
                         if (err) throw err;
                         if (usrSending){
-                            var usrSendingUsername = usrSending.Username;   //Sender Username@user
-                            var usrSendingID       = usrSending._id;        //Sender _id@user
-                            var usrSendingAvatar   = usrSending.getAvatar();
+                            var usrSendingUsername      = usrSending.Username;   //Sender Username@user
+                            var usrSendingID            = usrSending._id;        //Sender _id@user
+                            var usrSendingAvatarPath    = usrSending.Avatar;
+                                usrSendingAvatarPath    = usrSendingAvatarPath.split('\\');
+                            var usrSendingAvatar        = '/uploads/'+usrSendingAvatarPath[2];
                             console.log(usrSendingAvatar);
 
                             // Saving to database
@@ -64,6 +66,8 @@ module.exports = function(io, uid){
                                 if (svResult._id){
                                     var sendingData = {
                                         from: usrSendingUsername,
+                                        time: svResult.Timestamp,
+                                        ava : usrSendingAvatar,
                                         mess: mess
                                     }
                                     socket.to(usrReceiveSocketID).emit('resNewMess', sendingData); //Emit to Receiver via Socket ID

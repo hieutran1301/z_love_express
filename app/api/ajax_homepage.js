@@ -94,17 +94,63 @@ router.post('/messenger', async function(req, res, next){
   if (_option == 'getMess'){
     var selfID    = req.session.homeuserid;
     var targetID  = req.body.targetID;
-    //console.log('selfID: '+selfID+' targetID: '+targetID);
-    zlove_messages.find({
-      $or: [
-        {FromID: selfID, ToID: targetID},
-        {FromID: targetID, ToID: selfID}
-      ]
-    }, function(err, data){
-      if (err) throw err;
-      if (!data) res.sendStatus(404);
-      if (data) res.send(data);
-    }).sort({created_at: 1});
+
+    console.log("selfID: "+selfID);
+    console.log("targetID: "+targetID);
+    
+    try {
+      zlove_messages.aggregate([
+          {$match:  {
+                  $or: [
+                      {FromID: selfID, ToID: targetID},
+                      {ToID: selfID, FromID: targetID}
+                  ]
+              }
+          },
+          {$lookup: {
+                  from: "zlove_users",
+                  localField: "_id.str",
+                  foreignField: "FromID",
+                  as: "FromUser"
+              }
+          },
+          {$lookup: {
+                  from: "zlove_users",
+                  localField: "_id.str",
+                  foreignField: "ToID",
+                  as: "ToUser"
+              }
+          },
+          {$unwind: "$FromUser"},
+          {$unwind: "$ToUser"},
+          {$project: {
+                  _id: 0,
+                  created_at: 1,
+                  FromID: 1,
+                  ToID: 1,
+                  FromUser: "$FromUser.Username",
+                  ToUser: "$ToUser.Username",
+                  Content: 1,
+                  Timestamp: 1,
+                  FromAvatar: "$FromUser.Avatar",
+                  ToAvatar: "$ToUser.Avatar"
+              }
+          },
+          {$sort: {"created_at": -1}}
+      ],(err, data)=>{
+        if (err) console.log(err);
+        if (data){
+          console.log(data);
+          res.send(data);
+        }
+        else{
+          res.status(404).send('data is null');
+        }
+      });
+    } catch (error) {
+      console.log("ERROR@AJAX_HOMEPAGE: "+error);
+      res.status(500).send('Server error');
+    }
   }
 
   if (_option == 'getPerson'){

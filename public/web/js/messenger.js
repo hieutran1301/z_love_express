@@ -15,9 +15,9 @@ var _arrpath = _path.split('/');
 var _target  = _arrpath[3];
 var _messengerPage = _arrpath[2];
 
-var renderReceiveHTML = function(string, time){
+var renderReceiveHTML = function(string, time, avatar){
     var headHTML =  '<div class="receive">'+
-                    '<img src="/web/images/avatar.jpg">'+
+                    '<img src="'+avatar+'">'+
                     '<p>';
 
     var footHTML =  '</p>'+
@@ -28,7 +28,7 @@ var renderReceiveHTML = function(string, time){
     return headHTML+string+footHTML;
 }
 
-var renderSentHTML = function(string, time){
+var renderSentHTML = function(string, time, avatar){
     var topHTML =   '<div class="send">'+
                     '<img src="/web/images/avatar.jpg">'+
                     '<p>';
@@ -76,34 +76,34 @@ var getMess = function() {
         option: "getMess"
     }, function(data){
         __messages = data;
+        alert(__messages);
+        // for(var i = 0; i < __messages.length; i++){
+        //     if (__messages[i].FromID == _targetID){
+        //         __HTMLmessages += renderReceiveHTML(__messages[i].Content, __messages[i].Timestamp);
+        //     }
+        //     else{
+        //         __HTMLmessages += renderSentHTML(__messages[i].Content, __messages[i].Timestamp);
+        //     }
+        // }
+        // $('#ChatContent #preLoadMess').fadeOut();
+        // messBlock.html(__HTMLmessages);
+        // $('#chatContentWrap').animate({scrollTop: $('#chatContentWrap')[0].scrollHeight}, 500);
 
-        for(var i = 0; i < __messages.length; i++){
-            if (__messages[i].FromID == _targetID){
-                __HTMLmessages += renderReceiveHTML(__messages[i].Content, __messages[i].Timestamp);
-            }
-            else{
-                __HTMLmessages += renderSentHTML(__messages[i].Content, __messages[i].Timestamp);
-            }
-        }
-        $('#ChatContent #preLoadMess').fadeOut();
-        messBlock.html(__HTMLmessages);
-        $('#chatContentWrap').animate({scrollTop: $('#chatContentWrap')[0].scrollHeight}, 500);
-
-        //UX - click show info
-        $('div.send').each(function(){
-            var divSend = $(this);
-            divSend.click(function(){
-                var divSendClick = $(this);
-                divSendClick.find('.seen').toggle();
-            });
-        });
-        $('div.receive').each(function(){
-            var divSend = $(this);
-            divSend.click(function(){
-                var divSendClick = $(this);
-                divSendClick.find('.seen').toggle();
-            });
-        });
+        // //UX - click show info
+        // $('div.send').each(function(){
+        //     var divSend = $(this);
+        //     divSend.click(function(){
+        //         var divSendClick = $(this);
+        //         divSendClick.find('.seen').toggle();
+        //     });
+        // });
+        // $('div.receive').each(function(){
+        //     var divSend = $(this);
+        //     divSend.click(function(){
+        //         var divSendClick = $(this);
+        //         divSendClick.find('.seen').toggle();
+        //     });
+        // });
     });
 }
 
@@ -144,13 +144,15 @@ $(document).ready(function(){
         var messBlock   = $('#chatContent');
 
         mess.on('resNewMess', function(data){
-            var from = data.from;
-            var theMessage = data.mess;
+            var from        = data.from;
+            var theMessage  = data.mess;
+            var avatar      = data.ava;
+            var time        = data.time;
 
             if (_messengerPage != null && _messengerPage != undefined){
                 if (_target === from){
                     // alert(theMessage);
-                    messBlock.append(renderReceiveHTML(theMessage));
+                    messBlock.append(renderReceiveHTML(theMessage, time, avatar));
                     $('#chatContentWrap').animate({scrollTop: $('#chatContentWrap')[0].scrollHeight}, 2000);
                 } else{
                     //do something
