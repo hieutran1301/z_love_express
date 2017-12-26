@@ -99,52 +99,35 @@ router.post('/messenger', async function(req, res, next){
     console.log("targetID: "+targetID);
     
     try {
+      let obj_user    = await user.findOne({_id: selfID});
+      let obj_target  = await user.findOne({_id: targetID});
       zlove_messages.aggregate([
-          {$match:  {
-                  $or: [
-                      {FromID: selfID, ToID: targetID},
-                      {ToID: selfID, FromID: targetID}
-                  ]
-              }
-          },
-          {$lookup: {
-                  from: "zlove_users",
-                  localField: "_id.str",
-                  foreignField: "FromID",
-                  as: "FromUser"
-              }
-          },
-          {$lookup: {
-                  from: "zlove_users",
-                  localField: "_id.str",
-                  foreignField: "ToID",
-                  as: "ToUser"
-              }
-          },
-          {$unwind: "$FromUser"},
-          {$unwind: "$ToUser"},
-          {$project: {
-                  _id: 0,
-                  created_at: 1,
-                  FromID: 1,
-                  ToID: 1,
-                  FromUser: "$FromUser.Username",
-                  ToUser: "$ToUser.Username",
-                  Content: 1,
-                  Timestamp: 1,
-                  FromAvatar: "$FromUser.Avatar",
-                  ToAvatar: "$ToUser.Avatar"
-              }
-          },
-          {$sort: {"created_at": -1}}
-      ],(err, data)=>{
-        if (err) console.log(err);
+              {$match:  {
+                $or: [
+                    {FromID: selfID, ToID: targetID},
+                    {ToID: selfID, FromID: targetID}
+                ]
+            }
+        },
+        {$sort: {"created_at": 1}}
+      ], function(err, data){
         if (data){
-          console.log(data);
-          res.send(data);
-        }
+          res.send({
+            Userinfo: {
+              Self: {
+                Username: obj_user.Username,
+                Avatar: getURLAvatar(obj_user.Avatar)
+              },
+              Target: {
+                Username: obj_target.Username,
+                Avatar: getURLAvatar(obj_target.Avatar)
+              }
+            },
+            Messages: data
+          });
+        } 
         else{
-          res.status(404).send('data is null');
+          res.status(404).send(data);
         }
       });
     } catch (error) {
@@ -207,3 +190,8 @@ router.post('/messenger', async function(req, res, next){
     }
   }
 });
+
+function getURLAvatar(rootPathAvatar){
+  rootPathAvatar = rootPathAvatar.split('\\');
+  return '/uploads/'+rootPathAvatar[2];
+}

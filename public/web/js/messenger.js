@@ -14,6 +14,7 @@ var _path    = window.location.pathname;
 var _arrpath = _path.split('/');
 var _target  = _arrpath[3];
 var _messengerPage = _arrpath[2];
+var _selfAva;
 
 var renderReceiveHTML = function(string, time, avatar){
     var headHTML =  '<div class="receive">'+
@@ -30,7 +31,7 @@ var renderReceiveHTML = function(string, time, avatar){
 
 var renderSentHTML = function(string, time, avatar){
     var topHTML =   '<div class="send">'+
-                    '<img src="/web/images/avatar.jpg">'+
+                    '<img src="'+avatar+'">'+
                     '<p>';
     var bottomHTML =    '</p>'+
                         '<div class="seen" style="display:none">'+
@@ -75,35 +76,36 @@ var getMess = function() {
         targetID: _targetID,
         option: "getMess"
     }, function(data){
-        __messages = data;
-        alert(__messages);
-        // for(var i = 0; i < __messages.length; i++){
-        //     if (__messages[i].FromID == _targetID){
-        //         __HTMLmessages += renderReceiveHTML(__messages[i].Content, __messages[i].Timestamp);
-        //     }
-        //     else{
-        //         __HTMLmessages += renderSentHTML(__messages[i].Content, __messages[i].Timestamp);
-        //     }
-        // }
-        // $('#ChatContent #preLoadMess').fadeOut();
-        // messBlock.html(__HTMLmessages);
-        // $('#chatContentWrap').animate({scrollTop: $('#chatContentWrap')[0].scrollHeight}, 500);
+        __messages = data.Messages;
+        __userinfo = data.Userinfo;
+        _selfAva   = __userinfo.Self.Avatar;
+        for(var i = 0; i < __messages.length; i++){
+            if (__messages[i].FromID == _targetID){
+                __HTMLmessages += renderReceiveHTML(__messages[i].Content, __messages[i].Timestamp, __userinfo.Target.Avatar);
+            }
+            else{
+                __HTMLmessages += renderSentHTML(__messages[i].Content, __messages[i].Timestamp, __userinfo.Self.Avatar);
+            }
+        }
+        $('#ChatContent #preLoadMess').fadeOut();
+        messBlock.html(__HTMLmessages);
+        $('#chatContentWrap').animate({scrollTop: $('#chatContentWrap')[0].scrollHeight}, 500);
 
-        // //UX - click show info
-        // $('div.send').each(function(){
-        //     var divSend = $(this);
-        //     divSend.click(function(){
-        //         var divSendClick = $(this);
-        //         divSendClick.find('.seen').toggle();
-        //     });
-        // });
-        // $('div.receive').each(function(){
-        //     var divSend = $(this);
-        //     divSend.click(function(){
-        //         var divSendClick = $(this);
-        //         divSendClick.find('.seen').toggle();
-        //     });
-        // });
+        //UX - click show info
+        $('div.send').each(function(){
+            var divSend = $(this);
+            divSend.click(function(){
+                var divSendClick = $(this);
+                divSendClick.find('.seen').toggle();
+            });
+        });
+        $('div.receive').each(function(){
+            var divSend = $(this);
+            divSend.click(function(){
+                var divSendClick = $(this);
+                divSendClick.find('.seen').toggle();
+            });
+        });
     });
 }
 
@@ -119,6 +121,7 @@ var getPerson = function(){
                 }
                 $('#preLoadList').fadeOut();
                 listChat.html(domhtml);
+                searchListChat();
             }
             else{
                 swal('Error', 'Có gì đó sai sai vừa xảy ra, thử lại nhé!', 'error');
@@ -189,7 +192,7 @@ $(document).ready(function(){
             if (inpText != '' && inpText != null){
                 socket_sendMess(inpText, _target);
                 inpText = addSlashes(inpText);
-                messBlock.append(renderSentHTML(inpText, Timestamp));
+                messBlock.append(renderSentHTML(inpText, Timestamp, _selfAva));
                 $('#chatContentWrap').animate({scrollTop: $('#chatContentWrap')[0].scrollHeight}, 500);
                 inpMess.val('').focus();
             }
@@ -227,4 +230,17 @@ function addZero(i) {
         i = "0" + i;
     }
     return i;
+}
+
+function searchListChat(){
+    $('#inpListChatSearch').keyup(function(){
+        var inpText = $('#inpListChatSearch').val().trim().toLowerCase();
+        $('#ListChat .chat-users').hide();
+        $('#ListChat .chat-users').each(function(){
+            var text = $(this).text().trim().toLowerCase();
+            if (text.indexOf(inpText) != -1){
+                $(this).show();
+            }
+        });
+    });
 }
