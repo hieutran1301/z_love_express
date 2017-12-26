@@ -20,7 +20,7 @@
 		                            <span><i class="fa fa-user-o"></i> Username</span>
 		                        </div>
 		                        <div class="col-xs-12 col-sm-6 change">
-		                            <input type="text" class="form-control inp-zlove" name="inpusername" placeholder="Username" required>
+		                            <input type="text" id="Username" class="form-control inp-zlove" name="username" placeholder="Username" required>
 		                        </div>
 		       				</div>
 		               		<div class="row">
@@ -47,7 +47,7 @@
 		                            <label class="switch">
 										<input type="checkbox" name="DayofBirth">
 										<span class="slider round"></span>
-									</label>	                        
+									</label>
 								</div>
 		       				</div>
 		               		<div class="row">
@@ -110,5 +110,7 @@
 			</script>
 		<%} %>
 <% include ../include/footer-main%>
+
+    <script src="<%= local.setting.basepath %>web/js/setting.js"></script>
 
 <% include ../include/footer %>

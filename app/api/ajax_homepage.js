@@ -13,7 +13,7 @@ var storageCroppedImage = multer.diskStorage({
 	filename: function (req, file, cb) {
 	  crypto.pseudoRandomBytes(16, function (err, raw) {
 		if (err) return cb(err);
-  
+
     // cb(null, raw.toString('hex') + path.extname(file.originalname));
     cb(null, raw.toString('hex') + '.jpg');
 	  })
@@ -97,7 +97,7 @@ router.post('/messenger', async function(req, res, next){
 
     console.log("selfID: "+selfID);
     console.log("targetID: "+targetID);
-    
+
     try {
       zlove_messages.aggregate([
           {$match:  {
@@ -174,7 +174,7 @@ router.post('/messenger', async function(req, res, next){
       for (var i=0; i<psDistinct.length; i++){
         if (psDistinct[i]._id != crrUserID){
           let query = await zlove_messages.findOne({$or: [
-            {FromID: psDistinct[i]._id, ToID: crrUserID}, 
+            {FromID: psDistinct[i]._id, ToID: crrUserID},
             {ToID: psDistinct[i]._id, FromID: crrUserID}
           ]}).sort({created_at: -1}).exec();
           if (query.FromID == crrUserID){
@@ -199,7 +199,7 @@ router.post('/messenger', async function(req, res, next){
           }
         }
       }
-      
+
       res.status(200).send(lastMess);
     } catch (error) {
       console.log(error);
@@ -207,3 +207,4 @@ router.post('/messenger', async function(req, res, next){
     }
   }
 });
+
