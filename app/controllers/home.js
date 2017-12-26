@@ -5,7 +5,7 @@ var express = require('express'),
   user      = mongoose.model('zlove_users'),
   cities    = require('../../libs/city'),
   zlove_messages = mongoose.model('zlove_messages');
-
+var bcrypt = require('bcrypt');
 var posts = mongoose.model('zlove_posts');
 
 
@@ -134,6 +134,7 @@ router.get('/setting', function(req, res, next){
 });
 
 router.post('/setting', function(req, res, next){
+  var userID          = req.session.homeuserid;
   var username        = req.body.inpusername;
   var password        = req.body.inppassword;
   var repeatpassword  = req.body.inprepeatpassword;
@@ -143,23 +144,28 @@ router.post('/setting', function(req, res, next){
   var deactivacc      = req.body.Deactive;
   var deleteacc       = req.body.Delete;
 
+  var saltRounds  = 8;
+  var plainPass   = password;
+
 console.log("da nhan " + username, password, repeatpassword, dayofbirth, placeofbirth, address, deactivacc, deleteacc );
-console.log(validPassword(password, repeatpassword));
-  if(validUsername(username) == true){
-  users.findOne({Username:username}, function(err,data) {
-    if(err){
+console.log(validrepeatPassword(password, repeatpassword));
+  user.findOne({_id: userID}, function(err, data){
+  console.log(username);
+    //if has err, throw error
+    if (err) {
       console.log(err);
-      req.flash('signupMessage', 'Something went wrong! Try again.');
+      req.flash('msSetting', 'Something went wrong! Try again.');
       res.render('web/pages/setting', {
         title: 'Zlove | Setting',
         message: req.flash('msSetting'),
         csrf    : req.csrfToken(),
       });
       return 0;
-    }
+    } //bỏ, dư thừa
+    user.findOne({Username: username}, function(err, data){
     if(data){
       req.flash('msSetting', 'Username đã tồn tại');
-      console.log("Fail");
+      console.log("Username đã tồn tại");
       res.render('web/pages/setting', {
         title: 'Zlove | Setting',
         csrf: req.csrfToken(),
@@ -171,40 +177,33 @@ console.log(validPassword(password, repeatpassword));
       Username        : username,
       
     }, function(err, result){
-      if(err) {
-        req.flash('msSetting', 'fail');
-        throw err;
-        res.redirect('/home/setting');
-      }
-      else{
-        req.flash('msSetting', 'success');
-        res.redirect('/home/setting');
-      }
+        req.flash('msSetting', 'Username changed');
+        console.log("Username changed");
       });
     }
-  });
-  }
-
-  if (validPassword(password, repeatpassword) == false){
-    req.flash('msSetting', 'Password do not match');
-    res.render('web/pages/setting', {
+    });
+    if (validrepeatPassword(password, repeatpassword) == false){
+      req.flash('msSetting', 'Password do not match');
+      res.render('web/pages/setting', {
       title: 'Zlove | Setting',
       message: req.flash('msSetting'),
       csrf    : req.csrfToken()
-    });
-    return 0;
-  }else{
-      user.updateOne({_id: userID}, {
-      Password        : password,
-      
-    }, function(err, result){
-        req.flash('msSetting', 'password changed');
-        res.redirect('/home/setting');
-        console.log("đã thay đổi password");
+      });
+      return 0;
+    }else{
+      bcrypt.genSalt(saltRounds, function(err, salt) {
+        bcrypt.hash(plainPass, salt, function (err, hash) {
+          user.updateOne({_id: userID},{
+            Password        : hash
+
+        },  function(err, result){
+          req.flash('msSetting', 'password changed');
+          console.log("Password changed");
+          });
+        });
       });
     }
-
-
+  });
   res.render('web/pages/setting', {
       title: 'Setting',
       csrf    : req.csrfToken(),
@@ -440,7 +439,7 @@ function isLoggedIn(req, res, next){
 }
 
 
-function validPassword(password, repeatpassword){
+function validrepeatPassword(password, repeatpassword){
   if(password != repeatpassword) {
   return false;
   }
