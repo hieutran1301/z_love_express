@@ -19,7 +19,7 @@ var postsSchema = mongoose.Schema({
   "NumberApply" : Number,
   "Status"      : Number
 
-});
+}, { timestamps: { createdAt: 'created_at' } });
 
 
 mongoose.model('zlove_posts', postsSchema);

@@ -291,16 +291,72 @@ router.post('/edit-user', upload.single('avatar'), function(req, res, next){
 	}
 });
 
-router.post('/post', function(req, res, next){
+router.get('/getusername', function(req, res, next){
+	try {
+		user.aggregate([
+			{$sort: {
+					Username: 1
+				}
+			},
+			{$project: {
+					_id: 0,
+					User: "$Username"
+				}
+			}
+		]).exec(function(err, data){
+			res.send(data);
+		});
+	} catch (error) {
+		console.log('ERROR@AJAX-ADMIN:getusername: '+error);
+		res.status(500).send('Server Error');
+	}
+});
+
+router.post('/post', async function(req, res, next){
 	var option = req.body.option;
 
-	if (option == 'fetchPosts'){
-		post.find(function(err, data){
-			if (err) throw err;
-			if (!data) res.sendStatus(404);
-			if (data) {
-				res.send(data);
+	if (option == 'fetchPostsPending'){
+		try {
+			var arrData = [];
+			let data = await post.find({Status: 0}).sort({created_at: -1}).exec();
+			for (var i = 0; i<data.length; i++){
+				var id = data[i]._id;
+				var Title =  data[i].Title;
+				var Target = data[i].Target;
+				var FromAge = data[i].FromAge;
+				var ToAge = data[i].ToAge;
+				var City = data[i].City;
+				var Job = data[i].Job;
+				var Description = data[i].Description;
+				var CreatedDate = data[i].CreatedDate;
+				var CreatedByID = data[i].CreatedBy;
+				var EditedDate = data[i].EditedDate;
+				var View = data[i].View;
+				var NumberApply = data[i].NumberApply;
+				var Status =  data[i].Status;
+				let data2 = await user.findOne({_id: CreatedByID});
+				var CreatedBy = data2.Username;
+				arrData.push({
+					_id: id,
+					Title: Title,
+					Target: Target,
+					FromAge: FromAge,
+					ToAge: ToAge,
+					City: City,
+					Job: Job,
+					Description: Description,
+					CreatedBy: CreatedBy,
+					EditedDate: EditedDate,
+					CreatedDate: CreatedDate,
+					View: View,
+					NumberApply: NumberApply,
+					Status: Status
+				});
 			}
-		});
+			res.send(arrData);
+		} catch (error) {
+			console.log('ERROR@AJAX_ADMIN:POST: '+error);
+			res.status(500).send('Server Error');
+		}
 	}
 });

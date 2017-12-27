@@ -122,6 +122,8 @@ function openModal(obj){
                     dragDropPrv.hide();
                 }
 
+                modal.find('.modal-title').html(modalTitle);
+
                 $('#btnAddUser').addClass('hidden');
                 $('#btnEditUser').removeClass('hidden');
 
