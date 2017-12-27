@@ -3,6 +3,7 @@ router = express.Router(),
 mongoose = require('mongoose');
 
 var user = mongoose.model('zlove_users');
+var post = mongoose.model('zlove_posts');
 var zlove_messages = mongoose.model('zlove_messages');
 var crypto = require('crypto');
 
@@ -87,6 +88,14 @@ router.post('/uploadavatarbycropper', uploadCroppedImage.single('croppedImage'),
   }
 });
 
+// router.post('/homepage', function(req, res, next){
+//   var option = req.body.option;
+//   if (option == 'getPost'){
+//     post.find(function(err, data){
+//         res.send(data);
+//     });
+//   }
+// });
 
 router.post('/messenger', async function(req, res, next){
   var _option = req.body.option;

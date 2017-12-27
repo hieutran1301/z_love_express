@@ -3,6 +3,7 @@ var express = require('express'),
   mongoose  = require('mongoose'),
   Article   = mongoose.model('Article'),
   user      = mongoose.model('zlove_users'),
+  post      = mongoose.model('zlove_posts'),
   cities    = require('../../libs/city'),
   zlove_messages = mongoose.model('zlove_messages');
 var bcrypt = require('bcrypt');
@@ -135,7 +136,7 @@ router.get('/setting', function(req, res, next){
 
 router.post('/setting', function(req, res, next){
   var userID          = req.session.homeuserid;
-  var username        = req.body.inpusername;
+  var username        = req.body.username;
   var password        = req.body.inppassword;
   var repeatpassword  = req.body.inprepeatpassword;
   var dayofbirth      = req.body.DayofBirth;
@@ -147,10 +148,10 @@ router.post('/setting', function(req, res, next){
   var saltRounds  = 8;
   var plainPass   = password;
 
-console.log("da nhan " + username, password, repeatpassword, dayofbirth, placeofbirth, address, deactivacc, deleteacc );
+console.log("Data:" + username, password, repeatpassword, dayofbirth, placeofbirth, address, deactivacc, deleteacc );
 console.log(validrepeatPassword(password, repeatpassword));
   user.findOne({_id: userID}, function(err, data){
-  console.log(username);
+    console.log(username);
     //if has err, throw error
     if (err) {
       console.log(err);
@@ -175,7 +176,7 @@ console.log(validrepeatPassword(password, repeatpassword));
     }else{
       user.updateOne({_id: userID}, {
       Username        : username,
-      
+
     }, function(err, result){
         req.flash('msSetting', 'Username changed');
         console.log("Username changed");
@@ -411,17 +412,26 @@ router.get('/profile-new/:username', function(req, res, next){
 });
 
 router.get('/', function (req, res, next) {
-  Article.find(function (err, articles) {
+  var arrData;
+  post.find(function (err, data) {
     if (err) return next(err);
+    for(var i = 0; i <data.length; i++){
+      Object:{
+        Ttile: data[i].Title;
+        Description: data[i].Description;
+      }
+      arrData.push(Object);
+    }
     res.render('web/pages/homepage',
      {
       title: 'Zlove',
-      articles: articles,
+      data : data,
        csrf 		: req.csrfToken(),
        script 	: null
     });
   });
 });
+
 
 router.get('/logout', function(req, res){
 	delete req.session.homeauthenticated;

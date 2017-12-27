@@ -1,6 +1,6 @@
-$(document).ready(function(){
-    //ready
-});
+var AJAX_PATH_HOMEPAGE = '../../../ajax-home/homepage';
+var AJAX_PATH = '../../../ajax-home/checkusername';
+
 
 $('.owl-carousel').owlCarousel({
     loop:true,
@@ -23,4 +23,21 @@ $('.owl-carousel').owlCarousel({
             items:4
         }
     }
+});
+
+function getPost() {
+  var postLength;
+  $.post(AJAX_PATH_HOMEPAGE,{
+    option : 'getPost',
+  }, function (data) {
+    console.log(data);
+    for (var i = 0; i < data.length; i++){
+      alert(data[i].CreatedBy);
+    }
+    
+  });
+};
+
+$(document).ready(function () {
+  
 });
