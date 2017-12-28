@@ -120,7 +120,7 @@
                                                 <div class="row">
                                                     <div class="col-md-12">
                                                         <div class="btn-group">
-                                                            <a class="btn sbold green" href="javascript:;" onclick="openModal(this)" data-option="1" data-modal="modal_EditUser">Add New
+                                                            <a class="btn sbold green" href="javascript:;" onclick="openModal(this)" data-option="0" data-modal="modal_Post">Add New
                                                                 <i class="fa fa-plus"></i>
                                                             </a>
                                                         </div>
@@ -140,6 +140,7 @@
                                                         <th> View </th>
                                                         <th> Status </th>
                                                         <th> Created Date </th>
+                                                        <th> Created By </th>
                                                         <th width="200"> Actions </th>
                                                     </tr>
                                                 </thead>
@@ -153,7 +154,7 @@
                                             </table>
     
                                             <!-- /.modal -->
-                                            <div class="modal fade bs-modal-lg" id="modal_EditUser" tabindex="-1" role="dialog" aria-hidden="true">
+                                            <div class="modal fade bs-modal-lg" id="modal_Post" tabindex="-1" role="dialog" aria-hidden="true">
                                                 <div class="modal-dialog modal-lg">
                                                     <div class="modal-content">
                                                         <div class="modal-header">
@@ -162,39 +163,23 @@
                                                         </div>
                                                         <div class="modal-body">
                                                             <div class="form">
-                                                                <form class="form-horizontal" role="form" id="formUser">
+                                                                <form class="form-horizontal" role="form" id="formPost">
                                                                     <div class="form-body">
                                                                         <div class="row">
                                                                             <div class="col-xs-12 col-md-6">
                                                                                 <div class="form-group">
-                                                                                    <label class="col-md-3 control-label">Username<span class="required" aria-required="true"> * </span></label>
+                                                                                    <label class="col-md-3 control-label">Title<span class="required" aria-required="true"> * </span></label>
                                                                                     <div class="col-md-9">
-                                                                                        <input type="text" class="validate-inp form-control" name="username" placeholder="Username" required>
+                                                                                        <input type="text" class="validate-inp form-control" name="title" placeholder="Title" required>
                                                                                     </div>
                                                                                 </div>
                                                                                 <div class="form-group">
-                                                                                    <label class="col-md-3 control-label">Password<span class="required" aria-required="true"> * </span></label>
+                                                                                    <label class="col-md-3 control-label">Target<span class="required" aria-required="true"> * </span></label>
                                                                                     <div class="col-md-9">
-                                                                                        <input type="password" class="validate-inp form-control" name="password" placeholder="Password" required>
-                                                                                    </div>
-                                                                                </div>
-                                                                                <div class="form-group">
-                                                                                    <label class="col-md-3 control-label">Email<span class="required" aria-required="true"> * </span></label>
-                                                                                    <div class="col-md-9">
-                                                                                        <input type="email" class="validate-inp form-control" name="email" placeholder="Email" required>
-                                                                                    </div>
-                                                                                </div>
-                                                                                <div class="form-group">
-                                                                                    <label class="col-md-3 control-label">Birthday<span class="required" aria-required="true"> * </span></label>
-                                                                                    <div class="col-md-9">
-                                                                                        <input type="text" class="validate-inp form-control datepicker" name="birthday" placeholder="Birthday" required>
-                                                                                    </div>
-                                                                                </div>
-                                                                                <div class="form-group">
-                                                                                    <label class="col-md-3 control-label">Birthplace<span class="required" aria-required="true"> * </span></label>
-                                                                                    <div class="col-md-9">
-                                                                                        <select class="form-control city" name="birthplace">
-                                                                                            <option value="Ho Chi Minh">Ho Chi Minh</option>
+                                                                                        <select class="form-control" name="target">
+                                                                                            <option value="1">Male</option>
+                                                                                            <option value="2">Female</option>
+                                                                                            <option value="3">Both</option>
                                                                                         </select>
                                                                                     </div>
                                                                                 </div>
@@ -205,100 +190,62 @@
                                                                                             <option value="0">Sinh viên</option>
                                                                                             <option value="1">Đang đi làm</option>
                                                                                             <option value="2">Đang tìm việc</option>
+                                                                                            <option value="3">All</option>
                                                                                         </select>
                                                                                     </div>
                                                                                 </div>
                                                                                 <div class="form-group">
-                                                                                    <label class="col-md-3 control-label">Working at<span class="required" aria-required="true"> * </span></label>
+                                                                                    <label class="col-md-3 control-label">Description<span class="required" aria-required="true"> * </span></label>
                                                                                     <div class="col-md-9">
-                                                                                        <input type="text" class="validate-inp form-control" name="workingat" placeholder="Working at" required>
-                                                                                    </div>
-                                                                                </div>
-                                                                                <div class="form-group">
-                                                                                    <label class="col-md-3 control-label">City<span class="required" aria-required="true"> * </span></label>
-                                                                                    <div class="col-md-9">
-                                                                                        <select class="form-control city" name="city">
-                                                                                            <option value="Ho Chi Minh">Ho Chi Minh</option>
-                                                                                        </select>
-                                                                                    </div>
-                                                                                </div>
-                                                                                
-                                                                                <div class="form-group">
-                                                                                    <label class="col-md-3 control-label">Introduction</label>
-                                                                                    <div class="col-md-9">
-                                                                                        <textarea class="validate-inp form-control" name="introduction" style="resize: none;" rows="4"></textarea>
+                                                                                        <textarea required class="validate-inp form-control" name="description" style="resize: none;" rows="4"></textarea>
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
     
                                                                             <div class="col-xs-12 col-md-6">
                                                                                 <div class="form-group">
-                                                                                    <label class="col-md-3 control-label">Gender<span class="required" aria-required="true"> * </span></label>
+                                                                                    <label class="col-md-3 control-label">City<span class="required" aria-required="true"> * </span></label>
                                                                                     <div class="col-md-9">
-                                                                                        <select class="form-control" name="gender">
-                                                                                            <option value="1">Male</option>
-                                                                                            <option value="2">Female</option>
+                                                                                        <select class="form-control city" name="city">
+                                                                                            
                                                                                         </select>
                                                                                     </div>
                                                                                 </div>
                                                                                 <div class="form-group">
-                                                                                    <label class="col-md-3 control-label">FirstName<span class="required" aria-required="true"> * </span></label>
+                                                                                    <label class="col-md-3 control-label">From Age<span class="required" aria-required="true"> * </span></label>
                                                                                     <div class="col-md-9">
-                                                                                        <input type="text" name="firstname" placeholder="FirstName" required class="validate-inp form-control">
-                                                                                    </div>
-                                                                                </div>
-                                                                                <div class="form-group">
-                                                                                    <label class="col-md-3 control-label">LastName<span class="required" aria-required="true"> * </span></label>
-                                                                                    <div class="col-md-9">
-                                                                                        <input type="text" name="lastname" placeholder="LastName" required class="validate-inp form-control">
-                                                                                    </div>
-                                                                                </div>
-                                                                                <div class="form-group">
-                                                                                    <label class="col-md-3 control-label">Relationship<span class="required" aria-required="true"> * </span></label>
-                                                                                    <div class="col-md-9">
-                                                                                        <select class="form-control " name="relationship">
-                                                                                            <option value="0">Độc thân</option>
-                                                                                            <option value="1">Đang hẹn hò</option>
+                                                                                        <select class="form-control " name="fromage">
+                                                                                            <option value="18">18</option>
+                                                                                            <option value="19">19</option>
+                                                                                            <option value="20">20</option>
+                                                                                            <option value="21">21</option>
                                                                                         </select>
                                                                                     </div>
                                                                                 </div>
                                                                                 <div class="form-group">
-                                                                                    <label class="col-md-3 control-label">Phone<span class="required" aria-required="true"> * </span></label>
+                                                                                    <label class="col-md-3 control-label">To Age<span class="required" aria-required="true"> * </span></label>
                                                                                     <div class="col-md-9">
-                                                                                        <input type="text" name="phone" placeholder="Phone" required class="validate-inp form-control">
+                                                                                        <select class="form-control " name="toage">
+                                                                                            <option value="22">22</option>
+                                                                                            <option value="23">23</option>
+                                                                                            <option value="24">24</option>
+                                                                                            <option value="25">25</option>
+                                                                                        </select>
                                                                                     </div>
                                                                                 </div>
                                                                                 <div class="form-group">
-                                                                                    <label class="col-md-3 control-label">Facebook</label>
+                                                                                    <label class="col-md-3 control-label">Created By<span class="required" aria-required="true"> * </span></label>
                                                                                     <div class="col-md-9">
-                                                                                        <input type="text" name="facebook" placeholder="Facebook link" class="validate-inp form-control">
+                                                                                        <input type="text" class="validate-inp form-control" name="createdby" placeholder="Username" required id="inpUsername">
                                                                                     </div>
                                                                                 </div>
                                                                                 <div class="form-group">
-                                                                                    <label class="col-md-3 control-label">Skype</label>
+                                                                                    <label class="col-md-3 control-label">Status<span class="required" aria-required="true"> * </span></label>
                                                                                     <div class="col-md-9">
-                                                                                        <input type="text" name="skype" placeholder="Skype ID" class="validate-inp form-control">
-                                                                                    </div>
-                                                                                </div>
-                                                                                <div class="form-group">
-                                                                                    <label class="col-md-3 control-label">Status</label>
-                                                                                    <div class="col-md-9">
-                                                                                        <select class="form-control " name="status">
+                                                                                        <select name="status" class="form-control">
+                                                                                            <option value="0">Pending</option>
                                                                                             <option value="1">Active</option>
-                                                                                            <option value="0">Inactive</option>
                                                                                         </select>
-                                                                                    </div>
-                                                                                </div>
-                                                                                <div class="form-group dragAndDrop">
-                                                                                    <label class="col-md-3 control-label">Avatar</label>
-                                                                                    <div class="col-md-9 dragDropInp">
-                                                                                        <label for="inpAvatar" class="dragdrop" id="lbDropZone">Drag to upload or Browse</label>
-                                                                                        <input type="file" accept="image/*" name="avatar" id="inpAvatar" class="validate-inp dragdrop" has-data="false">
-                                                                                    </div>
-                                                                                    <div class="dragDropPrv col-md-9">
-                                                                                        <a href="javascript:;" class="cancelAva" id="cancelUpload"><i class="fa fa-remove"></i></a>
-                                                                                        <a href="javascript:;" class="cancelAva hidden" id="removeAvatar"><i class="fa fa-remove"></i></a>
-                                                                                        <img class="validate-inp dragPrv" src="http://nguonanhdep.com/wp-content/uploads/2016/08/avatar-de-thuong-1.jpg">
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
@@ -310,8 +257,8 @@
                                                         </div>
                                                         <div class="modal-footer">
                                                             <button type="button" class="btn dark btn-outline" data-dismiss="modal">Close</button>
-                                                            <button type="button" class="btn green" id="btnAddUser">Save changes</button>
-                                                            <button type="button" class="btn green hidden" id="btnEditUser">Save changes</button>
+                                                            <button type="button" class="btn green" id="btnAddPost">Save changes</button>
+                                                            <button type="button" class="btn green hidden" id="btnEditPost">Save changes</button>
                                                         </div>
                                                     </div>
                                                     <!-- /.modal-content -->
