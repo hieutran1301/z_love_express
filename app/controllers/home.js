@@ -1,5 +1,3 @@
-//import { error } from 'util';
-
 var express = require('express'),
   router    = express.Router(),
   mongoose  = require('mongoose'),
@@ -147,72 +145,95 @@ router.post('/setting', function(req, res, next){
   var address         = req.body.Address;
   var deactivacc      = req.body.Deactive;
   var deleteacc       = req.body.Delete;
+  var Message         = '';
 
   var saltRounds  = 8;
   var plainPass   = password;
 
-console.log("Data:" + username, password, repeatpassword, dayofbirth, placeofbirth, address, deactivacc, deleteacc );
+console.log("da nhan " + username, password, repeatpassword, dayofbirth, placeofbirth, address, deactivacc, deleteacc );
 console.log(validrepeatPassword(password, repeatpassword));
-  user.findOne({_id: userID}, function(err, data){
-    console.log(username);
-    //if has err, throw error
-    if (err) {
-      console.log(err);
-      req.flash('msSetting', 'Something went wrong! Try again.');
-      res.render('web/pages/setting', {
-        title: 'Zlove | Setting',
-        message: req.flash('msSetting'),
-        csrf    : req.csrfToken(),
-      });
-      return 0;
-    } //bỏ, dư thừa
     user.findOne({Username: username}, function(err, data){
-    if(data){
-      req.flash('msSetting', 'Username đã tồn tại');
-      console.log("Username đã tồn tại");
-      res.render('web/pages/setting', {
-        title: 'Zlove | Setting',
-        csrf: req.csrfToken(),
-        message: req.flash('msSetting')
-      });
-      return 0;
-    }else{
-      user.updateOne({_id: userID}, {
-      Username        : username,
-
-    }, function(err, result){
-        req.flash('msSetting', 'Username changed');
-        console.log("Username changed");
-      });
-    }
-    });
-    if (validrepeatPassword(password, repeatpassword) == false){
-      req.flash('msSetting', 'Password do not match');
-      res.render('web/pages/setting', {
-      title: 'Zlove | Setting',
-      message: req.flash('msSetting'),
-      csrf    : req.csrfToken()
-      });
-      return 0;
-    }else{
-      bcrypt.genSalt(saltRounds, function(err, salt) {
-        bcrypt.hash(plainPass, salt, function (err, hash) {
-          user.updateOne({_id: userID},{
-            Password        : hash
-
-        },  function(err, result){
-          req.flash('msSetting', 'password changed');
-          console.log("Password changed");
+      if(data){
+        req.flash('msSetting', 'Username đã tồn tại');
+        console.log("Username unchanged");
+          res.render('web/pages/setting', {
+            title: 'Setting',
+            csrf    : req.csrfToken(),
+            message: req.flash('msSetting')
           });
-        });
-      });
-    }
-  });
-  res.render('web/pages/setting', {
-      title: 'Setting',
-      csrf    : req.csrfToken(),
-      message: req.flash('msSetting')
+        return 0;
+      }else{
+        if (username !=''){
+          user.updateOne({_id: userID},{
+            Username        : username
+          },function(err, result){
+           // req.flash('msSetting', 'Username changed');
+            Message = Message + 'Username changed';
+            console.log("Username changed");
+          });
+        }
+      }
     });
+      if (validrepeatPassword(password, repeatpassword) == false){
+        req.flash('msSetting', 'Password do not match');
+        console.log("Password không trùng khớp");
+          res.render('web/pages/setting', {
+            title: 'Setting',
+            csrf    : req.csrfToken(),
+            message: req.flash('msSetting')
+          });
+        return 0;
+      }
+      else{
+        if (password !=''){
+          bcrypt.genSalt(saltRounds, function(err, salt) {
+            bcrypt.hash(plainPass, salt, function (err, hash) {
+              user.updateOne({_id: userID},{
+                Password        : hash
+              },function(err, result){
+               // req.flash('msSetting', 'password changed');
+                Message = Message + 'Password changed';
+                console.log("Password changed");
+              });
+            });
+          });
+        }
+      }
+      if (dayofbirth == 1) {
+        console.log("DOB is hidden");
+      }else{
+        dayofbirth = 0;
+        console.log("DOB is showed");
+      }
+      if (placeofbirth == 1) {
+        console.log("POB is hidden");
+      }else{
+        placeofbirth = 0;
+        console.log("POB is showed");
+      }
+      if (address == 1) {
+        console.log("Address is hidden");
+      }else{
+        address = 0;
+        console.log("Address is showed");
+      }
+      user.updateOne({_id: userID},{
+        "Setting" :{
+          "isHiddenBirthday" : dayofbirth,
+          "isHiddenPlaceOfBirth" : placeofbirth,
+          "isHiddenCurrentPlace" : address
+        },
+        },function(err, result){
+         // req.flash('msSetting', 'Hidden attribute updated');
+          Message = Message + 'Hidden attribute updated';
+          console.log("Hidden attribute updated");
+          res.render('web/pages/setting', {
+            title: 'Setting',
+            csrf    : req.csrfToken(),
+            message: Message
+          });
+          return 0;
+        });
 });
 
 router.get('/messenger', function(req, res, next){

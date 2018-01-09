@@ -112,7 +112,7 @@
                                         <div class="portlet-title">
                                             <div class="caption font-dark">
                                                 <i class="icon-user font-dark"></i>
-                                                <span class="caption-subject bold uppercase"> Posts List Pending</span>
+                                                <span class="caption-subject bold uppercase"> Posts List</span>
                                             </div>
                                         </div>
                                         <div class="portlet-body">
@@ -120,7 +120,7 @@
                                                 <div class="row">
                                                     <div class="col-md-12">
                                                         <div class="btn-group">
-                                                            <a class="btn sbold green" href="javascript:;" onclick="openModal(this)" data-option="1" data-modal="modal_EditUser">Add New
+                                                            <a class="btn sbold green" href="javascript:;" onclick="openModal(this)" data-option="0" data-modal="modal_Post">Add New
                                                                 <i class="fa fa-plus"></i>
                                                             </a>
                                                         </div>
@@ -163,7 +163,7 @@
                                                         </div>
                                                         <div class="modal-body">
                                                             <div class="form">
-                                                                <form class="form-horizontal" role="form" id="formUser">
+                                                                <form class="form-horizontal" role="form" id="formPost">
                                                                     <div class="form-body">
                                                                         <div class="row">
                                                                             <div class="col-xs-12 col-md-6">
@@ -176,7 +176,7 @@
                                                                                 <div class="form-group">
                                                                                     <label class="col-md-3 control-label">Target<span class="required" aria-required="true"> * </span></label>
                                                                                     <div class="col-md-9">
-                                                                                        <select class="form-control city" name="target">
+                                                                                        <select class="form-control" name="target">
                                                                                             <option value="1">Male</option>
                                                                                             <option value="2">Female</option>
                                                                                             <option value="3">Both</option>
@@ -197,7 +197,7 @@
                                                                                 <div class="form-group">
                                                                                     <label class="col-md-3 control-label">Description<span class="required" aria-required="true"> * </span></label>
                                                                                     <div class="col-md-9">
-                                                                                        <textarea class="validate-inp form-control" name="introduction" style="resize: none;" rows="4"></textarea>
+                                                                                        <textarea required class="validate-inp form-control" name="description" style="resize: none;" rows="4"></textarea>
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
@@ -239,6 +239,15 @@
                                                                                         <input type="text" class="validate-inp form-control" name="createdby" placeholder="Username" required id="inpUsername">
                                                                                     </div>
                                                                                 </div>
+                                                                                <div class="form-group">
+                                                                                    <label class="col-md-3 control-label">Status<span class="required" aria-required="true"> * </span></label>
+                                                                                    <div class="col-md-9">
+                                                                                        <select name="status" class="form-control">
+                                                                                            <option value="0">Pending</option>
+                                                                                            <option value="1">Active</option>
+                                                                                        </select>
+                                                                                    </div>
+                                                                                </div>
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -248,8 +257,8 @@
                                                         </div>
                                                         <div class="modal-footer">
                                                             <button type="button" class="btn dark btn-outline" data-dismiss="modal">Close</button>
-                                                            <button type="button" class="btn green" id="btnAddUser">Save changes</button>
-                                                            <button type="button" class="btn green hidden" id="btnEditUser">Save changes</button>
+                                                            <button type="button" class="btn green" id="btnAddPost">Save changes</button>
+                                                            <button type="button" class="btn green hidden" id="btnEditPost">Save changes</button>
                                                         </div>
                                                     </div>
                                                     <!-- /.modal-content -->

@@ -11,7 +11,10 @@ $(document).ready(function () {
 
   $('input[name=username]').focusout(function () {
     var username = $(this).val();
-    checkUsername(username);
+    if (username!=''){
+      checkUsername(username);
+    }
+    
   });
 
 
