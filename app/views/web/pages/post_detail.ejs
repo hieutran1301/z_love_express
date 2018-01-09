@@ -1,0 +1,73 @@
+<% include ../include/header %>
+
+
+<link rel="stylesheet" type="text/css" href="<%= local.setting.basepath %>web/css/post_detail.css">
+<link rel="stylesheet" type="text/css" href="<%= local.setting.basepath %>web/css/homepage.css">
+
+</head>
+<body>
+<% include ../include/loading %>
+<% include ../include/nav-bar %>
+
+<section id="PostDetail">
+        <div class="col-xs-12 col-sm-12 col-md-8">
+				<div class="content border-radius box-shadow">
+                        <div class="white-box-body">
+                                <div class="post border-radius animated slideInLeft">
+                                    <div class="row">
+                                        <div class="col-xs-5 col-sm-2 col-md-2">    
+                                            <div class="post-thumbnail">
+                                                    <div class="thumb" style="background-image: url('<%=data.avatar%>');">&nbsp;</div>
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-7 com-sm-10 col-md-10">
+                                            <div class="post-content">
+                                                <div class="post-title">
+                                                    <h5><%=data.title%></h5>
+                                                </div>
+                                                <div class="post-time">
+                                                    <span><%=data.time%></span>
+                                                </div>
+                                                <div class="post-footer">
+                                                    <button class="btn-save">Ứng tuyển</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-12 col-sm-12 col-md-12">
+                                            <div class="content-detail">
+                                                <p><%=data.description%></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                        </div>
+                    </div>
+			</div>
+    <div class="col-xs-12 col-sm-12 col-md-4">
+        <div class="sidebar white-box border-radius box-shadow">
+            <div class="white-box-title">
+                <h5><span class="li_star"></span> Bài đăng phổ biến</h5>
+            </div>
+            <div class="white-box-body">
+                <% for (var i=0; i < postdata.length; i++){ %>
+                    <div class="post border-bottom">
+                        <div class="post-thumbnail">
+                            <a href="<%= local.setting.basepath%>home/post-detail/<%= postdata[i].id %>"><div class="thumb" style="background-image: url('<%=postdata[i].Avatar%>');"></div></a>
+                        </div>
+                        <div class="post-content">
+                            <div class="post-title">
+                                <a href="<%= local.setting.basepath%>home/post-detail/<%= postdata[i].id %>"><h5><%=postdata[i].Title%></h5></a>
+                            </div>
+                            <div class="post-body">
+                                <p>625 Lượt ứng tuyển</p>
+                            </div>
+                        </div>
+                    </div>
+                <% } %>
+            </div>
+        </div>
+        
+    </div>
+</section>
+<% include ../include/footer-main %>
+<% include ../include/footer %>

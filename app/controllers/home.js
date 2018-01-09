@@ -1,3 +1,5 @@
+//import { error } from 'util';
+
 var express = require('express'),
   router    = express.Router(),
   mongoose  = require('mongoose'),
@@ -57,6 +59,7 @@ router.post('/post', function (req, res, next) {
 
   var now 		= new Date();
   var createdDate = ''+now.getDate()+'/'+(now.getMonth()+1)+'/'+now.getFullYear();
+  var Timestamp = ''+addZero(now.getHours())+':'+addZero(now.getMinutes())+':'+addZero(now.getSeconds())+' '+now.getDate()+'/'+(now.getMonth()+1)+'/'+now.getFullYear();
 
   posts.findOne({"CreatedBy": userID},function (err, data) {
     if (err) {
@@ -79,9 +82,9 @@ router.post('/post', function (req, res, next) {
         "City"    : local,
         "Job"     : job,
         "Description" : content,
-        "CreatedDate" : createdDate,
+        "CreatedDate" : Timestamp,
         "CreatedBy"   : userID,
-        "EditedDate"  : '',
+        "EditedDate"  : Timestamp,
         "View"        : 0,
         "NumberApply" : 0,
         "Status"      : 0
@@ -411,27 +414,78 @@ router.get('/profile-new/:username', function(req, res, next){
   });
 });
 
-router.get('/', function (req, res, next) {
-  var arrData;
-  post.find(function (err, data) {
-    if (err) return next(err);
-    for(var i = 0; i <data.length; i++){
-      Object:{
-        Ttile: data[i].Title;
-        Description: data[i].Description;
-      }
-      arrData.push(Object);
+router.get('/', async function (req, res, next) {
+  var arrData = [];
+  try{
+    var data = await post.find().sort({created_at: -1});
+    for(var i=0; i<data.length; i++){
+      var title       = data[i].Title;
+      var description = reduceWord(data[i].Description, 100);
+      var date        = data[i].EditedDate;
+      var createdBy   = data[i].CreatedBy;
+      console.log('date:' + date);
+      var data2       = await user.findOne({_id: data[i].CreatedBy});
+      var imgPath     = getURLAvatar(data2.Avatar);
+      var name = data2.FirstName + ' ' + data2.LastName;
+      arrData.push({
+        Title:        title,
+        Description : description,
+        Avatar:       imgPath,
+        Date : date,
+        id : createdBy,
+        name : name
+      });
     }
     res.render('web/pages/homepage',
-     {
+    {
       title: 'Zlove',
-      data : data,
-       csrf 		: req.csrfToken(),
-       script 	: null
+      data: arrData,
+      csrf 		: req.csrfToken(),
+      script 	: null
     });
-  });
+  }catch(error){
+    console.log(error);
+    return res.status(500).send(error);
+  }
 });
 
+router.get('/post-detail/:CreatedBy',async function(req, res, next){
+  var id = req.params.CreatedBy;
+  var arrData = [];
+  try{
+    var data = await post.findOne({CreatedBy : id});
+    var data1 = await user.findOne({_id : id});
+    var data2 = await post.find().sort({created_at: -1});
+    for(var i=0; i<data2.length; i++){
+      var title       = data2[i].Title;
+      var date        = data2[i].EditedDate;
+      var createdBy   = data2[i].CreatedBy;
+      console.log('date:' + date);
+      var data3       = await user.findOne({_id: data2[i].CreatedBy});
+      var imgPath     = getURLAvatar(data3.Avatar);
+      arrData.push({
+        Title:        title,
+        Avatar:       imgPath,
+        id : createdBy
+      });
+    }
+    res.render('web/pages/post_detail',{
+      title : data.Title,
+      csrf : req.csrfToken(),
+      script : null,
+      postdata : arrData,
+      data : {
+        title: data.Title,
+        time : data.EditedDate,
+        description : data.Description,
+        avatar : getURLAvatar(data1.Avatar)
+      }
+    });
+  }catch(error){
+    console.log(error);
+    return res.status(500).send(error);
+  }
+});
 
 router.get('/logout', function(req, res){
 	delete req.session.homeauthenticated;
@@ -456,4 +510,24 @@ function validrepeatPassword(password, repeatpassword){
   else{
   return true;
   }
+}
+
+function getURLAvatar(rootPathAvatar){
+  rootPathAvatar = rootPathAvatar.split('\\');
+  return '/uploads/'+rootPathAvatar[2];
+}
+
+var reduceWord = function(string, limit){
+	var limit = limit*1;
+	if (string.length > limit){
+		string = string.substr(0, limit)+' ...';
+	}
+	return string;
+}
+
+function addZero(i) {
+  if (i < 10) {
+      i = "0" + i;
+  }
+  return i;
 }

@@ -1,0 +1,45 @@
+#PostDetail{
+    margin-top: 10vh;
+}
+
+#PostDetail .content .post{
+    margin-bottom: 0px;
+    padding: 15px;
+}
+
+#PostDetail .content .post .post-thumbnail .thumb{
+    width: 100px;
+    height: 100px;
+}
+
+#PostDetail .content .post .post-content{
+    text-align: left;
+    margin-left: 15px;
+    margin-top: 10px;
+}
+
+#PostDetail .content .post .content-detail{
+    margin: 15px;
+    margin-top: 25px;
+}
+
+#PostDetail .content .post .content-detail p{
+    word-wrap: break-word;
+    white-space: normal;
+}
+
+@media screen and (min-width: 768px) {
+    #PostDetail .content .post .content-detail{
+        margin-left: 135px;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    #PostDetail .content .post .content-detail{
+        margin-left: 160px;
+    }
+    #PostDetail .content .post .post-thumbnail .thumb{
+        margin-top: 10px;
+        margin-left: 10px;
+    }
+}
