@@ -166,7 +166,7 @@ console.log(validrepeatPassword(password, repeatpassword));
             Username        : username
           },function(err, result){
            // req.flash('msSetting', 'Username changed');
-            Message = Message + 'Username changed';
+            Message = Message + 'Username changed ';
             console.log("Username changed");
           });
         }
@@ -190,7 +190,7 @@ console.log(validrepeatPassword(password, repeatpassword));
                 Password        : hash
               },function(err, result){
                // req.flash('msSetting', 'password changed');
-                Message = Message + 'Password changed';
+                Message = Message + 'Password changed ';
                 console.log("Password changed");
               });
             });
@@ -215,20 +215,27 @@ console.log(validrepeatPassword(password, repeatpassword));
         address = 0;
         console.log("Address is showed");
       }
+      if (deactivacc == 0) {
+        console.log("Account has deactived")
+      }else{
+        deactivacc = 1;
+        console.log('Account has Actived')
+      }
       user.updateOne({_id: userID},{
         "Setting" :{
           "isHiddenBirthday" : dayofbirth,
           "isHiddenPlaceOfBirth" : placeofbirth,
           "isHiddenCurrentPlace" : address
         },
+        "Status": deactivacc
         },function(err, result){
          // req.flash('msSetting', 'Hidden attribute updated');
-          Message = Message + 'Hidden attribute updated';
+          Message = Message + 'Hidden attribute updated ';
           console.log("Hidden attribute updated");
           res.render('web/pages/setting', {
             title: 'Setting',
             csrf    : req.csrfToken(),
-            message: Message
+            message:  Message
           }); 
           return 0;
         });
