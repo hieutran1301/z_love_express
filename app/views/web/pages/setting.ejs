@@ -78,7 +78,7 @@
 		                        </div>
 		                        <div class="col-xs-12 col-sm-6 change">
 									  <label class="change-check"> Deactive Tài khoản
-										<input type="checkbox" name="Deactive" value="1">
+										<input type="checkbox" name="Deactive" value="0">
 	 									<span class="checkmark"></span>
 									  </label>
 		                        </div>
@@ -106,7 +106,7 @@
 
 		<% if (message.length > 0) { %>
 			<script>
-				swal('Error', '<%= message %>', 'warning');
+				swal('Your setting has been updated', '<%= message %>', 'success');
 			</script>
 		<%} %>
 <% include ../include/footer-main%>
