@@ -20,7 +20,8 @@
 
 #post-list{
   overflow-y: auto;
-  height: 250px;
+  height: auto;
+  max-height: 250px;
 }
 #post-list::-webkit-scrollbar{
   width: 5px;

@@ -1,7 +1,3 @@
-#PostDetail{
-    margin-top: 10vh;
-}
-
 #PostDetail .content .post{
     margin-bottom: 0px;
     padding: 15px;
@@ -34,12 +30,17 @@
     }
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 1024px) {
     #PostDetail .content .post .content-detail{
         margin-left: 160px;
     }
     #PostDetail .content .post .post-thumbnail .thumb{
         margin-top: 10px;
         margin-left: 10px;
+    }
+    #PostDetail .content .post .post-content{
+      text-align: left;
+      margin-left: -30px;
+      margin-top: 10px;
     }
 }

@@ -48,6 +48,7 @@
 									</a>
 								</div>
 								<div class="post-content">
+									
 									<div class="post-title">
 										<h5> <%= data[i].Title %> </h5>
 									</div>
@@ -58,8 +59,12 @@
 										<p><%= data[i].Description %></p>
 									</div>
 									<div class="post-footer">
-										<a href="#"><button class="btn-save">Ứng tuyển</button></a>
-										<a href="<%= local.setting.basepath%>home/post-detail/<%= data[i].id %>"><button class="btn-gray">Chi tiết</button></a>
+										<% if (data[i].checkapply == null) { %>
+											<button data-value="<%=data[i].id%>" href="javascript:;" onclick="apply(this)" class="btn-save">Ứng tuyển</button>
+										<%}else{%>
+											<button class="btn-save">Đã ứng tuyển</button>
+										<%}%>
+										<a href="<%= local.setting.basepath%>home/post-detail/<%= data[i].idUser %>"><button class="btn-gray">Chi tiết</button></a>
 									</div>
 								</div>
 							</div>
@@ -87,11 +92,11 @@
 						<% for (var i=0; i < data.length; i++){ %>
 							<div class="post border-bottom">
 								<div class="post-thumbnail">
-									<a href="<%= local.setting.basepath%>home/post-detail/<%= data[i].id %>"><div class="thumb" style="background-image: url('<%=data[i].Avatar%>');"></div></a>
+									<a href="<%= local.setting.basepath%>home/post-detail/<%= data[i].idUser %>"><div class="thumb" style="background-image: url('<%=data[i].Avatar%>');"></div></a>
 								</div>
 								<div class="post-content">
 									<div class="post-title">
-										<a href="<%= local.setting.basepath%>home/post-detail/<%= data[i].id %>"><h5><%=data[i].Title%></h5></a>
+										<a href="<%= local.setting.basepath%>home/post-detail/<%= data[i].idUser %>"><h5><%=data[i].Title%></h5></a>
 									</div>
 									<div class="post-body">
 										<p>625 Lượt ứng tuyển</p>

@@ -5,6 +5,7 @@ var express = require('express'),
   user      = mongoose.model('zlove_users'),
   post      = mongoose.model('zlove_posts'),
   cities    = require('../../libs/city'),
+  apply     = mongoose.model('zlove_applies'),
   zlove_messages = mongoose.model('zlove_messages');
 var bcrypt = require('bcrypt');
 var posts = mongoose.model('zlove_posts');
@@ -436,10 +437,12 @@ router.get('/profile-new/:username', function(req, res, next){
 });
 
 router.get('/', async function (req, res, next) {
+  var UserId = req.session.homeuserid;
   var arrData = [];
   try{
     var data = await post.find().sort({created_at: -1});
     for(var i=0; i<data.length; i++){
+      var id          = data[i]._id;
       var title       = data[i].Title;
       var description = reduceWord(data[i].Description, 100);
       var date        = data[i].EditedDate;
@@ -448,13 +451,17 @@ router.get('/', async function (req, res, next) {
       var data2       = await user.findOne({_id: data[i].CreatedBy});
       var imgPath     = getURLAvatar(data2.Avatar);
       var name = data2.FirstName + ' ' + data2.LastName;
+      var checkapply  = await apply.findOne({PostID: id, ApplyBy : UserId});
+      console.log(checkapply);
       arrData.push({
+        id : id,
         Title:        title,
         Description : description,
         Avatar:       imgPath,
         Date : date,
-        id : createdBy,
-        name : name
+        idUser : createdBy,
+        name : name,
+        checkapply : checkapply
       });
     }
     res.render('web/pages/homepage',
@@ -471,11 +478,14 @@ router.get('/', async function (req, res, next) {
 });
 
 router.get('/post-detail/:CreatedBy',async function(req, res, next){
+  var UserId = req.session.homeuserid;
   var id = req.params.CreatedBy;
   var arrData = [];
   try{
     var data = await post.findOne({CreatedBy : id});
     var data1 = await user.findOne({_id : id});
+    var checkapply = await apply.findOne({PostID: data._id, ApplyBy: UserId});
+    console.log(checkapply);
     var data2 = await post.find().sort({created_at: -1});
     for(var i=0; i<data2.length; i++){
       var title       = data2[i].Title;
@@ -496,10 +506,12 @@ router.get('/post-detail/:CreatedBy',async function(req, res, next){
       script : null,
       postdata : arrData,
       data : {
+        id : data._id,
         title: data.Title,
         time : data.EditedDate,
         description : data.Description,
-        avatar : getURLAvatar(data1.Avatar)
+        avatar : getURLAvatar(data1.Avatar),
+        checkapply : checkapply
       }
     });
   }catch(error){

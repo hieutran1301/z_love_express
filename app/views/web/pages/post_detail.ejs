@@ -3,19 +3,53 @@
 
 <link rel="stylesheet" type="text/css" href="<%= local.setting.basepath %>web/css/post_detail.css">
 <link rel="stylesheet" type="text/css" href="<%= local.setting.basepath %>web/css/homepage.css">
+<link rel="stylesheet" type="text/css" href="<%= local.setting.basepath %>web/css/employer.css">
 
 </head>
 <body>
 <% include ../include/loading %>
 <% include ../include/nav-bar %>
+<section id="News" class="animated fadeInDown">
+  <div class="container">
+    <div class="news-title">
+      <div class="remove-padding-bot sidebar white-box border-radius box-shadow">
+        <div class="white-box-title">
+          <h5><span class="li_star"></span> Bài đăng phổ biến</h5>
+        </div>
+        <div id="post-list">
+          <div class="row remove-margin-right">
+            <div class="white-box-body">
+              <% for (var i=0; i < postdata.length; i++){ %>
+                <div class="col-md-6 post border-bottom">
+                <div class="post-thumbnail">
+                  <a href="#"><div class="thumb" style="background-image: url('<%=postdata[i].Avatar%>');"></div></a>
+                </div>
+                <div class="post-content">
+                  <div class="post-title">
+                    <a href="#"><h5><%=postdata[i].Title%></h5></a>
+                  </div>
+                  <div class="post-body">
+                    <p>625 Lượt ứng tuyển</p>
+                  </div>
+                </div>
+              </div>
+              <%}%>
+            </div>
+          </div>
+        </div>
 
+      </div>
+    </div>
+
+  </div>
+</section>
 <section id="PostDetail">
-        <div class="col-xs-12 col-sm-12 col-md-8">
-				<div class="content border-radius box-shadow">
-                        <div class="white-box-body">
+    <div class="container">
+      <div class="content border-radius box-shadow">
+          <div class="white-box-body">
                                 <div class="post border-radius animated slideInLeft">
                                     <div class="row">
-                                        <div class="col-xs-5 col-sm-2 col-md-2">    
+                                        <div class="col-xs-5 col-sm-2 col-md-2">
                                             <div class="post-thumbnail">
                                                     <div class="thumb" style="background-image: url('<%=data.avatar%>');">&nbsp;</div>
                                             </div>
@@ -29,7 +63,11 @@
                                                     <span><%=data.time%></span>
                                                 </div>
                                                 <div class="post-footer">
-                                                    <button class="btn-save">Ứng tuyển</button>
+                                                  <%if (data.checkapply == null){%>
+                                                    <button id="btnApply" data-value ="<%=data.id%>" class="btn-save">Ứng tuyển</button>
+                                                  <%}else{%>
+                                                    <button class="btn-save">Đã ứng tuyển</button>
+                                                  <%}%>
                                                 </div>
                                             </div>
                                         </div>
@@ -41,33 +79,10 @@
                                     </div>
                                 </div>
                         </div>
-                    </div>
-			</div>
-    <div class="col-xs-12 col-sm-12 col-md-4">
-        <div class="sidebar white-box border-radius box-shadow">
-            <div class="white-box-title">
-                <h5><span class="li_star"></span> Bài đăng phổ biến</h5>
-            </div>
-            <div class="white-box-body">
-                <% for (var i=0; i < postdata.length; i++){ %>
-                    <div class="post border-bottom">
-                        <div class="post-thumbnail">
-                            <a href="<%= local.setting.basepath%>home/post-detail/<%= postdata[i].id %>"><div class="thumb" style="background-image: url('<%=postdata[i].Avatar%>');"></div></a>
-                        </div>
-                        <div class="post-content">
-                            <div class="post-title">
-                                <a href="<%= local.setting.basepath%>home/post-detail/<%= postdata[i].id %>"><h5><%=postdata[i].Title%></h5></a>
-                            </div>
-                            <div class="post-body">
-                                <p>625 Lượt ứng tuyển</p>
-                            </div>
-                        </div>
-                    </div>
-                <% } %>
-            </div>
-        </div>
-        
+      </div>
     </div>
 </section>
+<input type="hidden" name="_csrf" value="<%= csrf %>">
 <% include ../include/footer-main %>
+<script src="/web/js/post-detail.js"></script>
 <% include ../include/footer %>

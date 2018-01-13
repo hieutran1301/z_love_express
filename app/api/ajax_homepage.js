@@ -5,6 +5,8 @@ mongoose = require('mongoose');
 var user = mongoose.model('zlove_users');
 var post = mongoose.model('zlove_posts');
 var zlove_messages = mongoose.model('zlove_messages');
+var apply = mongoose.model('zlove_applies');
+
 var crypto = require('crypto');
 
 var path = require('path');
@@ -87,15 +89,6 @@ router.post('/uploadavatarbycropper', uploadCroppedImage.single('croppedImage'),
     });
   }
 });
-
-// router.post('/homepage', function(req, res, next){
-//   var option = req.body.option;
-//   if (option == 'getPost'){
-//     post.find(function(err, data){
-//         res.send(data);
-//     });
-//   }
-// });
 
 router.post('/messenger', async function(req, res, next){
   var _option = req.body.option;
@@ -198,6 +191,43 @@ router.post('/messenger', async function(req, res, next){
       return res.status(500).send(error);
     }
   }
+});
+
+router.post('/rating', function(req, res, next){
+
+});
+
+router.post('/checkapply', function(req, res, next){
+  var postId = req.body.postID;
+  var userId = req.session.homeuserid;
+  apply.findOne({PostID : postId, ApplyBy : userId}, function(err, data){
+    if (err) throw err;
+    if (data) res.send('Applied');
+    else{
+      res.send('Not applied');
+    }
+  });
+});
+
+router.post('/apply', async function(req, res, next){
+  var postId = req.body.postID;
+  var userId = req.session.homeuserid;
+  console.log(postId);
+  console.log(userId);
+  apply.findOne({PostID : postId, ApplyBy : userId}, function(err, data){
+    if (err) throw err;
+    if (data) res.send('Applied');
+    else{
+      newApply = new apply({
+        "PostID"  : postId,
+        "ApplyBy" : userId
+      });
+      newApply.save(function(err, result){
+        if (err) throw err;
+        if (result._id) res.send('Success');
+      });
+    }
+  });
 });
 
 function getURLAvatar(rootPathAvatar){

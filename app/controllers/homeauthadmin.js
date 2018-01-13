@@ -63,7 +63,7 @@ router.post('/login', function(req, res, next){
 			});
 			return 0;
     }
-    
+
     //check status of account
     if(data.Status != 1){
     	req.flash('loginMessage', 'User not found');
@@ -167,7 +167,7 @@ router.post('/signup', function (req, res, next) {
             "Introduction": '',
             "PlaceOfBirth": '',
             "CreatedDate": createdDate,
-            "Avatar": '',
+            "Avatar": 'public\\uploads\\avatar.jpg',
             "SocketID" : '',
             "Online" : 0,
             "Setting" :{
