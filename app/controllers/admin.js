@@ -10,7 +10,7 @@ module.exports = function (app, passport) {
 };
 
 router.get('/', function(req, res, next){
-	res.redirect('/admin/dashboard');
+	res.redirect('/admin/users');
 });
 
 router.get('/dashboard', function(req, res, next){
